@@ -1,17 +1,13 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "../../tsconfig.json", 
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/sp-lib",
-    "declaration": true,          
-    "declarationMap": true,        
-    "inlineSources": true,          
-    "types": []                     
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": []
   },
-  "exclude": [
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "src/**/*"
-  ]
+  "exclude": ["**/*.spec.ts"],
+  "include": ["src/**/*"]
 }

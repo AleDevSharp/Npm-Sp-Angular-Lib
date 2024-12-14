@@ -5,12 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <p>
-      sp-lib works!
-    </p>
+    <p>sp-lib works!</p>
   `,
   styles: ``
 })
-export class SpLibComponent {
-
-}
+export class SpLibComponent {}

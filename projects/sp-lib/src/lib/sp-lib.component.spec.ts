@@ -9,9 +9,8 @@ describe('SpLibComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SpLibComponent]
-    })
-    .compileComponents();
-    
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SpLibComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
