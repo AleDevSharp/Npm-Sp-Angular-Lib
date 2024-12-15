@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 's-progressbar',
+  selector: 'sp-progressbar',
   standalone: true,
   imports: [],
-  templateUrl: './s-progressbar.component.html',
-  styleUrl: './s-progressbar.component.scss'
+  templateUrl: './sp-progressbar.component.html',
+  styleUrl: './sp-progressbar.component.scss'
 })
-export class SProgressbarComponent {
+export class SpProgressbarComponent {
   // The color
   @Input() color: string = '#ffac1c';
 

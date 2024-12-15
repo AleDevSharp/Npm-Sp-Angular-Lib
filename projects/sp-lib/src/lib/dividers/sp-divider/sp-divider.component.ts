@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 's-divider',
+  selector: 'sp-divider',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './s-divider.component.html',
-  styleUrl: './s-divider.component.scss'
+  templateUrl: './sp-divider.component.html',
+  styleUrl: './sp-divider.component.scss'
 })
-export class SDividerComponent {
+export class SpDividerComponent {
   // The divider height
   @Input() height = '1px';
 

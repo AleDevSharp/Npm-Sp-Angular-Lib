@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 's-spinner',
+  selector: 'sp-spinner',
   standalone: true,
   imports: [],
-  templateUrl: './s-spinner.component.html',
-  styleUrl: './s-spinner.component.scss'
+  templateUrl: './sp-spinner.component.html',
+  styleUrl: './sp-spinner.component.scss'
 })
-export class SSpinnerComponent {
+export class SpSpinnerComponent {
   // The spinner primary color
   @Input() primaryColor: string = '#ffac1c';
 
