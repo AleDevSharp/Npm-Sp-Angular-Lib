@@ -13,7 +13,7 @@ export class SpBtnComponent {
   @Input() text = '';
 
   // The button color
-  @Input() color = 'var(--primary-color)';
+  @Input() color = '#ffac1c';
 
   // The button height
   @Input() height = '30px';

@@ -13,7 +13,7 @@ export class SpBtnTxtComponent {
   @Input() text = '';
 
   // The button color
-  @Input() color = 'var(--primary-color)';
+  @Input() color = '#ffac1c';
 
   // If the button is disabled or not
   @Input() disabled = false;
