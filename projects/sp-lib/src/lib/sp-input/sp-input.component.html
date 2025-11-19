@@ -1,0 +1,50 @@
+<div class="sp-input-wrapper">
+  <!-- Label -->
+  @if (this.label()) {
+    <label
+      class="sp-input-label"
+      [for]="this.id()"
+      [style.color]="this.labelColor()">
+      {{ this.label() }}
+    </label>
+  }
+
+  <div
+    class="sp-input-container"
+    [ngClass]="{
+      'has-error': this.hasError(),
+      disabled: this.disabled()
+    }"
+    [style.border-color]="this.borderColor()"
+    [style.border-radius]="this.borderRadius()"
+    [style.background-color]="this.backgroundColor()"
+    [style.padding]="this.padding()">
+    <!-- Prefix slot -->
+    @if (this.prefix()) {
+      <span class="prefix">{{ this.prefix() }}</span>
+    }
+
+    <!-- Input field -->
+    <input
+      class="sp-input-field"
+      [id]="this.id()"
+      [type]="this.type()"
+      [placeholder]="this.placeholder()"
+      [disabled]="this.disabled()"
+      [value]="this.value()"
+      (input)="this.onInput($event)"
+      [style.color]="this.textColor()" />
+
+    <!-- Suffix slot -->
+    @if (this.suffix()) {
+      <span class="suffix">{{ this.suffix() }}</span>
+    }
+  </div>
+
+  <!-- Error message -->
+  @if (this.hasError() && this.errorMessage()) {
+    <p class="sp-error-message">
+      {{ this.errorMessage() }}
+    </p>
+  }
+</div>

@@ -1,0 +1,238 @@
+<div class="master">
+  <div class="content">
+    <!-- Header -->
+    <div class="header">
+      <p>Input Component</p>
+      <sp-divider></sp-divider>
+    </div>
+
+    <p class="desc">Showcase of input usage examples:</p>
+
+    <!--Standard input-->
+    <div class="section">
+      <h3>Standard Input</h3>
+
+      <sp-input
+        id="'std1"
+        label="Name"></sp-input>
+
+      <sp-input
+        id="std2"
+        label="Email"
+        type="email"></sp-input>
+
+      <sp-input
+        id="std3"
+        label="Username"
+        placeholder="Enter your username"></sp-input>
+    </div>
+
+    <!--Placeholder examples-->
+    <div class="section">
+      <h3>Placeholder Variants</h3>
+
+      <sp-input
+        id="ph1"
+        label="City"
+        placeholder="Rome"></sp-input>
+
+      <sp-input
+        id="ph2"
+        label="Address"
+        placeholder="Via Garibaldi 25"></sp-input>
+    </div>
+
+    <!--Color Variants-->
+    <div class="section">
+      <h3>Color Variants</h3>
+
+      <sp-input
+        id="c1"
+        label="Primary"
+        borderColor="#2196f3"></sp-input>
+
+      <sp-input
+        id="c2"
+        label="Success"
+        borderColor="#4caf50"></sp-input>
+
+      <sp-input
+        id="c3"
+        label="Warning"
+        borderColor="#ff9800"></sp-input>
+
+      <sp-input
+        id="c4"
+        label="Danger"
+        borderColor="#e53935"></sp-input>
+    </div>
+
+    <!--Radius Variants-->
+    <div class="section">
+      <h3>Border Radius Variants</h3>
+
+      <sp-input
+        id="r1"
+        label="Sharp"
+        borderRadius="0px"></sp-input>
+      <sp-input
+        id="r2"
+        label="Small"
+        borderRadius="4px"></sp-input>
+      <sp-input
+        id="r3"
+        label="Round"
+        borderRadius="12px"></sp-input>
+      <sp-input
+        id="r4"
+        label="Pill"
+        borderRadius="50px"></sp-input>
+    </div>
+
+    <!--Disabled input-->
+    <div class="section">
+      <h3>Disabled Inputs</h3>
+
+      <sp-input
+        id="d1"
+        label="Username"
+        value="alex"
+        [disabled]="true"></sp-input>
+      <sp-input
+        id="d2"
+        label="Email"
+        placeholder="Disabled…"
+        [disabled]="true"></sp-input>
+    </div>
+
+    <!--Error states-->
+    <div class="section">
+      <h3>Error States</h3>
+
+      <sp-input
+        id="e1"
+        label="Email"
+        [hasError]="true"
+        errorMessage="Invalid email"></sp-input>
+
+      <sp-input
+        id="e2"
+        label="Password"
+        [hasError]="true"
+        errorMessage="Password too short"></sp-input>
+    </div>
+
+    <!--Prefix & Suffix-->
+    <div class="section">
+      <h3>Prefix & Suffix</h3>
+
+      <sp-input
+        id="p1"
+        label="Search"
+        prefix="🔍"
+        placeholder="Search here…"></sp-input>
+
+      <sp-input
+        id="p2"
+        label="Price"
+        suffix="€"
+        type="number"
+        placeholder="0.00"></sp-input>
+
+      <sp-input
+        id="p3"
+        label="Phone"
+        prefix="+39"
+        placeholder="345 123 4567"></sp-input>
+    </div>
+
+    <!--Password with eye toggle-->
+    <div class="section">
+      <h3>Password Input (Manual Toggle Example)</h3>
+
+      <div style="display: flex; gap: 10px; align-items: center">
+        <sp-input
+          id="pw1"
+          label="Password"
+          [type]="this.passwordVisible() ? 'text' : 'password'"
+          suffix="👁"
+          placeholder="Enter password"></sp-input>
+
+        <button
+          (click)="togglePassword()"
+          style="padding: 5px 10px; border-radius: 6px; background: #ddd">
+          Toggle
+        </button>
+      </div>
+    </div>
+
+    <!--Size Variants-->
+    <div class="section">
+      <h3>Size Variants</h3>
+
+      <sp-input
+        id="s1"
+        label="Small"
+        padding="4px"></sp-input>
+      <sp-input
+        id="s2"
+        label="Medium"
+        padding="8px"></sp-input>
+      <sp-input
+        id="s3"
+        label="Large"
+        padding="14px"></sp-input>
+    </div>
+
+    <!--Live input-->
+    <div class="section">
+      <h3>Live Input Demo</h3>
+
+      <!-- Using output event -->
+      <sp-input
+        id="live1"
+        label="Full Name"
+        placeholder="John Doe"
+        (changeInput)="onNameChange($event)"></sp-input>
+      <p>Value from event: {{ nameFromEvent }}</p>
+
+      <!-- Using ngModel -->
+      <sp-input
+        id="live2"
+        label="Email"
+        placeholder="example@mail.com"
+        [(ngModel)]="this.emailValue"></sp-input>
+      <p>Value from ngModel: {{ this.emailValue }}</p>
+    </div>
+
+    <!--Full form example-->
+    <div class="section">
+      <h3>Full Form Example</h3>
+
+      <sp-input
+        id="ff1"
+        label="Full name"
+        placeholder="John Doe"></sp-input>
+      <sp-input
+        id="ff2"
+        label="Email"
+        placeholder="example@mail.com"></sp-input>
+      <sp-input
+        id="ff3"
+        label="Phone"
+        prefix="+39"></sp-input>
+      <sp-input
+        id="ff4"
+        label="City"
+        placeholder="Rome"></sp-input>
+      <sp-input
+        id="ff5"
+        label="Password"
+        type="password"></sp-input>
+
+      <button style="margin-top: 15px; padding: 8px 12px; background: #2196f3; color: white; border-radius: 5px; border: none">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

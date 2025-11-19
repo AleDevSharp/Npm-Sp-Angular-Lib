@@ -1,0 +1,36 @@
+// ================================
+// Region: Main content
+// ================================
+.sp-select-wrapper {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-select-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.sp-select-field {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.sp-select-field:focus {
+  border-color: var(--header-footer-color);
+}
+
+.has-error {
+  border-color: red;
+}
+
+.sp-error-message {
+  font-size: 0.8rem;
+  color: red;
+  margin-top: 0.2rem;
+}

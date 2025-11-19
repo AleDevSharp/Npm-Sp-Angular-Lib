@@ -4,3 +4,37 @@
 .divider {
   display: flex;
 }
+
+.divider.horizontal {
+  width: 100%;
+}
+
+.divider.vertical {
+  display: inline-block;
+  height: auto;
+  width: auto;
+}
+
+.divider-with-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  span {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+  }
+
+  i {
+    padding: 0 10px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,12 @@
+<div
+  class="progress rounded"
+  [style.height]="this.height()">
+  <div
+    class="progress-bar"
+    [style.width.%]="this.percentage()"
+    [style.background-color]="this.color()">
+    @if (this.showText()) {
+      <span>{{ this.percentage() }}%</span>
+    }
+  </div>
+</div>

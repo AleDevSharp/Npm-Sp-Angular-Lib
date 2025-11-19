@@ -1,0 +1,33 @@
+<div class="sp-switch-wrapper">
+  <!-- Label -->
+  @if (this.label()) {
+    <label
+      class="sp-switch-label"
+      [for]="this.id()"
+      [style.color]="this.labelColor()">
+      {{ this.label() }}
+    </label>
+  }
+
+  <!-- Switch -->
+  <label
+    class="switch"
+    [style.width]="this.width()"
+    [style.height]="this.height()"
+    [style.--active-color]="this.activeColor()"
+    [style.--inactive-color]="this.inactiveColor()"
+    [style.--thumb-color]="this.thumbColor()">
+    <input
+      type="checkbox"
+      [id]="this.id()"
+      [checked]="this.value()"
+      [disabled]="this.disabled()"
+      (change)="onChange($event)" />
+    <span class="slider"></span>
+  </label>
+
+  <!-- Error message -->
+  @if (this.hasError() && this.errorMessage()) {
+    <p class="sp-error-message">{{ this.errorMessage() }}</p>
+  }
+</div>

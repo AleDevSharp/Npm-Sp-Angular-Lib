@@ -1,0 +1,165 @@
+<div class="master">
+  <div class="content">
+    <!-- Header -->
+    <div class="header">
+      <p>Progressbar Components</p>
+      <sp-divider></sp-divider>
+    </div>
+
+    <p class="desc">Showcase of all progress bar component variations:</p>
+
+    <!--Standard-->
+    <div class="section">
+      <h3>Standard Progressbar</h3>
+      <sp-progressbar></sp-progressbar>
+      <sp-progressbar [percentage]="25"></sp-progressbar>
+      <sp-progressbar [percentage]="100"></sp-progressbar>
+    </div>
+
+    <!--Color variants-->
+    <div class="section">
+      <h3>Progressbar - Color Variants</h3>
+
+      <sp-progressbar
+        color="#ff9800"
+        [percentage]="40"></sp-progressbar>
+      <sp-progressbar
+        color="#4caf50"
+        [percentage]="60"></sp-progressbar>
+      <sp-progressbar
+        color="#2196f3"
+        [percentage]="75"></sp-progressbar>
+      <sp-progressbar
+        color="#e91e63"
+        [percentage]="90"></sp-progressbar>
+      <sp-progressbar
+        color="#9c27b0"
+        [percentage]="50"></sp-progressbar>
+    </div>
+
+    <!--Height variants-->
+    <div class="section">
+      <h3>Progressbar - Height Variants</h3>
+
+      @if (this.showVariant) {
+        <sp-progressbar
+          height="4px"
+          [percentage]="40"></sp-progressbar>
+        <sp-progressbar
+          height="7px"
+          [percentage]="40"></sp-progressbar>
+        <sp-progressbar
+          height="12px"
+          [percentage]="40"></sp-progressbar>
+        <sp-progressbar
+          height="18px"
+          [percentage]="40"></sp-progressbar>
+      }
+    </div>
+
+    <!--Indeterminate Progressbar-->
+    <div class="section">
+      <h3>Indeterminate Progressbar</h3>
+
+      @if (this.showVariant) {
+        <sp-progressbar
+          [indeterminate]="true"
+          color="#ff9800"></sp-progressbar>
+        <sp-progressbar
+          [indeterminate]="true"
+          color="#4caf50"></sp-progressbar>
+        <sp-progressbar
+          [indeterminate]="true"
+          color="#2196f3"></sp-progressbar>
+      }
+    </div>
+
+    <!--Rounded progressbar-->
+    <div class="section">
+      <h3>Rounded Progressbar</h3>
+
+      <!-- Slate / UI Modern -->
+      <sp-progressbar-rounded
+        color="#607d8b"
+        [percentage]="30"
+        [showText]="true"></sp-progressbar-rounded>
+
+      <!-- Green Success -->
+      <sp-progressbar-rounded
+        color="#4caf50"
+        [percentage]="40"></sp-progressbar-rounded>
+
+      <!-- Pink Accent -->
+      <sp-progressbar-rounded
+        color="#e91e63"
+        [percentage]="55"
+        [showText]="true"></sp-progressbar-rounded>
+
+      <!-- Orange Warning -->
+      <sp-progressbar-rounded
+        color="#ff9800"
+        [percentage]="75"></sp-progressbar-rounded>
+
+      <!-- Blue Info -->
+      <sp-progressbar-rounded
+        color="#2196f3"
+        [percentage]="90"
+        [showText]="true"></sp-progressbar-rounded>
+
+      <!-- Purple Strong -->
+      <sp-progressbar-rounded
+        color="#9c27b0"
+        [percentage]="100"
+        [showText]="true"></sp-progressbar-rounded>
+
+      <sp-progressbar-rounded
+        color="#9c27b0"
+        [percentage]="100"
+        [showText]="false"></sp-progressbar-rounded>
+    </div>
+
+    <!--Circular progressbar-->
+    <div class="section">
+      <h3>Circular Progressbar</h3>
+
+      <div class="circle-row">
+        <sp-progressbar-circular
+          [percentage]="25"
+          color="#ff9800"
+          [size]="70"
+          [stroke]="6"></sp-progressbar-circular>
+
+        <sp-progressbar-circular
+          [percentage]="60"
+          color="#4caf50"
+          [size]="80"
+          [stroke]="8"></sp-progressbar-circular>
+
+        <sp-progressbar-circular
+          [percentage]="100"
+          color="#2196f3"
+          [size]="90"
+          [stroke]="10"></sp-progressbar-circular>
+      </div>
+    </div>
+
+    <!--Spinner-->
+    <div class="section">
+      <h3>Spinner</h3>
+
+      <div class="spinner-row">
+        <sp-spinner></sp-spinner>
+
+        <sp-spinner
+          primaryColor="#4caf50"
+          [size]="50"
+          animationSpeed="0.7s"></sp-spinner>
+
+        <sp-spinner
+          primaryColor="#2196f3"
+          [size]="60"
+          animationSpeed="0.4s"></sp-spinner>
+      </div>
+    </div>
+  </div>
+</div>

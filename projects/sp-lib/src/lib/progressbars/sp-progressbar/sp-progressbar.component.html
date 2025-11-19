@@ -1,7 +1,9 @@
 <div
   class="progress"
-  style="height: 7px">
+  [style.height]="this.height()">
   <div
-    class="progress-bar progress-bar-striped indeterminate"
-    [style.--color]="color"></div>
+    class="progress-bar progress-bar-striped"
+    [ngClass]="{ indeterminate: this.indeterminate() }"
+    [style.width.%]="!this.indeterminate() ? this.percentage() : null"
+    [style.--color]="this.color()"></div>
 </div>

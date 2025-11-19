@@ -1,0 +1,95 @@
+<div class="master">
+  <div class="content">
+    <!-- Header -->
+    <div class="header">
+      <p>Divider Component</p>
+      <sp-divider></sp-divider>
+    </div>
+
+    <p class="desc">Showcase of divider usage examples:</p>
+
+    <!--Standard-->
+    <div class="section">
+      <h3>Standard Divider</h3>
+      <sp-divider></sp-divider>
+      <sp-divider></sp-divider>
+      <sp-divider></sp-divider>
+    </div>
+
+    <!--Different colors-->
+    <div class="section">
+      <h3>Standard Divider - Color Variants</h3>
+      <sp-divider [color]="'#ff9800'"></sp-divider>
+      <sp-divider color="#4caf50"></sp-divider>
+      <sp-divider color="#2196f3"></sp-divider>
+      <sp-divider color="#e91e63"></sp-divider>
+      <sp-divider color="#9c27b0"></sp-divider>
+      <sp-divider color="#607d8b"></sp-divider>
+    </div>
+
+    <!--Different size-->
+    <div class="section">
+      <h3>Standard Divider - Height Variants</h3>
+      <sp-divider height="1px"></sp-divider>
+      <sp-divider height="2px"></sp-divider>
+      <sp-divider height="4px"></sp-divider>
+      <sp-divider height="6px"></sp-divider>
+      <sp-divider height="8px"></sp-divider>
+    </div>
+
+    <!--Colors and borders-->
+    <div class="section">
+      <h3>Color & Border Variants</h3>
+      <sp-divider
+        borderStyle="solid"
+        borderColor="#ff9800"
+        borderWidth="2px"></sp-divider>
+      <sp-divider
+        borderStyle="dashed"
+        borderColor="#4caf50"
+        borderWidth="3px"></sp-divider>
+      <sp-divider
+        borderStyle="dotted"
+        borderColor="#2196f3"
+        borderWidth="2px"></sp-divider>
+    </div>
+
+    <!--Margins-->
+    <div class="section">
+      <h3>Custom Margins</h3>
+      <sp-divider
+        marginTop="10px"
+        marginBottom="10px"></sp-divider>
+      <sp-divider
+        marginTop="20px"
+        marginBottom="5px"></sp-divider>
+      <sp-divider
+        marginTop="0px"
+        marginBottom="20px"></sp-divider>
+    </div>
+
+    <!--Text center-->
+    <div class="section">
+      <h3>Divider with Text</h3>
+      <sp-divider label="Section 1"></sp-divider>
+      <sp-divider label="Important"></sp-divider>
+      <sp-divider
+        label="Another Section"
+        labelColor="#ff9800"></sp-divider>
+    </div>
+
+    <!--Vertical divider-->
+    <div class="section">
+      <h3>Vertical Divider Demo</h3>
+      <div style="display: flex; align-items: center; gap: 10px; height: 60px">
+        <span>Left</span>
+        <sp-divider
+          orientation="vertical"
+          height="60px"
+          borderWidth="2px"
+          borderColor="#333"></sp-divider>
+        <span>Right</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="master">
+  <div class="content">
+    <!-- Header -->
+    <div class="header">
+      <p>Select Component</p>
+      <sp-divider></sp-divider>
+    </div>
+
+    <p class="desc">Showcase of select usage examples:</p>
+
+    <!-- Standard select -->
+    <div class="section">
+      <h3>Standard Select</h3>
+      <sp-select
+        id="s1"
+        label="Choose an option"
+        [options]="[
+          { label: 'Option 1', value: '1' },
+          { label: 'Option 2', value: '2' },
+          { label: 'Option 3', value: '3' }
+        ]"></sp-select>
+
+      <sp-select
+        id="s2"
+        label="Select with placeholder"
+        placeholder="Please select"
+        [options]="[
+          { label: 'Apple', value: 'apple' },
+          { label: 'Banana', value: 'banana' },
+          { label: 'Orange', value: 'orange' }
+        ]"></sp-select>
+    </div>
+
+    <!-- Disabled select -->
+    <div class="section">
+      <h3>Disabled Select</h3>
+      <sp-select
+        id="s3"
+        label="Disabled"
+        [disabled]="true"
+        [options]="[
+          { label: 'Option A', value: 'A' },
+          { label: 'Option B', value: 'B' }
+        ]"></sp-select>
+    </div>
+
+    <!-- Error state -->
+    <div class="section">
+      <h3>Select with Error</h3>
+      <sp-select
+        id="s4"
+        label="Error example"
+        [hasError]="true"
+        errorMessage="This field is required"
+        [options]="[
+          { label: 'Red', value: 'red' },
+          { label: 'Green', value: 'green' },
+          { label: 'Blue', value: 'blue' }
+        ]"></sp-select>
+    </div>
+
+    <!-- Select with ngModel / change event -->
+    <div class="section">
+      <h3>Select with Live Change</h3>
+      <sp-select
+        id="s5"
+        label="Full name"
+        [options]="[
+          { label: 'John', value: 'john' },
+          { label: 'Mary', value: 'mary' },
+          { label: 'Alice', value: 'alice' }
+        ]"
+        (changeInput)="onSelectChange($event)"></sp-select>
+
+      <sp-select
+        id="s6"
+        label="Favorite fruit"
+        placeholder="Choose fruit"
+        [(ngModel)]="this.favoriteFruit"
+        [options]="[
+          { label: 'Apple', value: 'apple' },
+          { label: 'Banana', value: 'banana' },
+          { label: 'Orange', value: 'orange' }
+        ]"></sp-select>
+
+      <p>Selected fruit: {{ favoriteFruit }}</p>
+    </div>
+  </div>
+</div>

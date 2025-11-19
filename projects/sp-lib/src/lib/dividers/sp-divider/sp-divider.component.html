@@ -1,1 +1,37 @@
-<div [ngStyle]="{ height: this.height, 'background-color': this.color }"></div>
+<!-- Divider with label -->
+@if (this.label()) {
+  <div
+    class="divider-with-text"
+    [ngStyle]="{ 'margin-top': this.marginTop(), 'margin-bottom': this.marginBottom() }">
+    <span [ngStyle]="{ color: this.labelColor() }">{{ this.label() }}</span>
+  </div>
+}
+
+<!-- Simple divider line -->
+@if (!this.label()) {
+  <div
+    class="divider"
+    [ngClass]="this.orientation()"
+    [ngStyle]="
+      this.orientation() === 'horizontal'
+        ? {
+            height: this.height(),
+            width: '100%',
+            'background-color': this.color(),
+            'border-bottom-style': this.borderStyle(),
+            'border-bottom-width': this.borderWidth(),
+            'border-bottom-color': this.borderColor(),
+            'margin-top': this.marginTop(),
+            'margin-bottom': this.marginBottom()
+          }
+        : {
+            width: this.borderWidth(),
+            height: this.height(),
+            'border-left-style': this.borderStyle(),
+            'border-left-width': this.borderWidth(),
+            'border-left-color': this.borderColor(),
+            'margin-left': '0',
+            'margin-right': '0'
+          }
+    "></div>
+}

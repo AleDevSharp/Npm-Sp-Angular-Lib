@@ -14,20 +14,15 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "paths": {
-      "sp-lib": [
-        "./dist/sp-lib"
-      ]
-    },
     "module": "ES2022",
+    "paths": {
+      "sp-lib": ["./dist/sp-lib"]
+    },
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

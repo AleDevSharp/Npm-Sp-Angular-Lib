@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
+/**
+ * SpBtnTxtComponent component
+ * @author Alessio Giacché
+ * @version 1.0.0
+ * @since 1.0.2
+ */
 @Component({
   selector: 'sp-btn-txt',
   standalone: true,
@@ -10,19 +16,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SpBtnTxtComponent {
   // The button text
-  @Input() text = '';
+  public text = input<string>('');
 
   // The button color
-  @Input() color = '#ffac1c';
+  public color = input<string>('#ffac1c');
 
   // If the button is disabled or not
-  @Input() disabled = false;
+  public disabled = input<boolean>(false);
 
   // The button cursor
-  @Input() cursor = 'pointer';
+  public cursor = input<string>('pointer');
 
   // Handle the output
-  @Output() buttonClick = new EventEmitter<void>();
+  public buttonClick = output<void>();
 
   // Constructor for SButtonTComponent component
   constructor() {}

@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
+/**
+ * SpBtnComponent component
+ * @author Alessio Giacché
+ * @version 1.0.0
+ * @since 1.0.2
+ */
 @Component({
   selector: 'sp-btn',
   standalone: true,
@@ -10,22 +16,22 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SpBtnComponent {
   // The button text
-  @Input() text = '';
+  public text = input<string>('');
 
   // The button color
-  @Input() color = '#ffac1c';
+  public color = input<string>('#ffac1c');
 
   // The button height
-  @Input() height = '30px';
+  public height = input<string>('30px');
 
   // The button cursor
-  @Input() cursor = 'pointer';
+  public cursor = input<string>('pointer');
 
   // If the button is disabled
-  @Input() disabled = false;
+  public disabled = input<boolean>(false);
 
   // Handle the output
-  @Output() buttonClick = new EventEmitter<void>();
+  public buttonClick = output<void>();
 
   // Constructor for SButtonComponent button
   constructor() {}

@@ -1,0 +1,84 @@
+<div class="master">
+  <div class="content">
+    <!-- Header -->
+    <div class="header">
+      <p>Switch Component</p>
+      <sp-divider></sp-divider>
+    </div>
+
+    <p class="desc">Showcase of switch usage examples:</p>
+
+    <!-- Standard switches -->
+    <div class="section">
+      <h3>Standard Switch</h3>
+      <sp-switch
+        id="s1"
+        label="Default On"
+        [value]="true"></sp-switch>
+      <sp-switch
+        id="s2"
+        label="Default Off"
+        [value]="false"></sp-switch>
+    </div>
+
+    <!-- Disabled switches -->
+    <div class="section">
+      <h3>Disabled Switch</h3>
+      <sp-switch
+        id="s3"
+        label="Disabled On"
+        [value]="true"
+        [disabled]="true"></sp-switch>
+      <sp-switch
+        id="s4"
+        label="Disabled Off"
+        [value]="false"
+        [disabled]="true"></sp-switch>
+    </div>
+
+    <!-- Switches with different colors -->
+    <div class="section">
+      <h3>Custom Colors</h3>
+      <sp-switch
+        id="s5"
+        label="Green Active"
+        [activeColor]="'#4caf50'"
+        [value]="true"></sp-switch>
+
+      <sp-switch
+        id="s6"
+        label="Red Active"
+        [activeColor]="'#e53935'"
+        [value]="false"></sp-switch>
+    </div>
+
+    <!-- Switches with custom sizes -->
+    <div class="section">
+      <h3>Custom Sizes</h3>
+      <sp-switch
+        id="s7"
+        label="Large Switch"
+        [width]="'60px'"
+        [height]="'30px'"
+        [value]="true"></sp-switch>
+
+      <sp-switch
+        id="s8"
+        label="Small Switch"
+        [width]="'30px'"
+        [height]="'15px'"
+        [value]="false"></sp-switch>
+    </div>
+
+    <!-- Switches with error -->
+    <div class="section">
+      <h3>Switch with Error</h3>
+      <sp-switch
+        id="s9"
+        label="Error State"
+        [hasError]="true"
+        [errorMessage]="'This switch has an error'"
+        [value]="false"></sp-switch>
+    </div>
+  </div>
+</div>

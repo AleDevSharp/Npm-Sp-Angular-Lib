@@ -1,19 +1,10 @@
-:host {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-  overflow: hidden;
-}
-
+// ================================
+// Region: Main content
+// ================================
 .master {
   display: flex;
   width: 100%;
-  height: 98vh;
+  height: 100%;
 }
 
 .left {
@@ -33,4 +24,36 @@ body {
 .right {
   width: 40%;
   background-color: orange;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .components-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .components-list {
+    padding: 0;
+    margin: 0;
+    align-content: start;
+  }
+
+  .components-list li {
+    margin-bottom: 0.8rem;
+  }
+
+  .components-list a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .components-list a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: white;
+  }
 }

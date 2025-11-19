@@ -50,9 +50,7 @@
             "outputPath": "dist/sp-showcase",
             "index": "projects/sp-showcase/src/index.html",
             "browser": "projects/sp-showcase/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/sp-showcase/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -61,9 +59,7 @@
                 "input": "projects/sp-showcase/public"
               }
             ],
-            "styles": [
-              "projects/sp-showcase/src/styles.scss"
-            ],
+            "styles": ["projects/sp-showcase/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -108,10 +104,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/sp-showcase/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -120,16 +113,26 @@
                 "input": "projects/sp-showcase/public"
               }
             ],
-            "styles": [
-              "projects/sp-showcase/src/styles.scss"
-            ],
+            "styles": ["projects/sp-showcase/src/styles.scss"],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/sp-lib/src/**/*.ts",
+              "projects/sp-lib/src/**/*.html",
+              "projects/sp-showcase/src/**/*.ts",
+              "projects/sp-showcase/src/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "17722380-37f1-458c-bbc3-9db6f4a22bd6"
+    "analytics": "17722380-37f1-458c-bbc3-9db6f4a22bd6",
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

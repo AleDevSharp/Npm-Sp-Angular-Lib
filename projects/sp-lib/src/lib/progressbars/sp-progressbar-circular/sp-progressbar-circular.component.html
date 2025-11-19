@@ -1,0 +1,21 @@
+<div
+  class="circular-progress"
+  [style.width.px]="this.size()"
+  [style.height.px]="this.size()">
+  <svg viewBox="0 0 100 100">
+    <circle
+      class="track"
+      cx="50"
+      cy="50"
+      r="45"></circle>
+    <circle
+      class="progress"
+      cx="50"
+      cy="50"
+      r="45"
+      [style.stroke]="this.color()"
+      [style.stroke-dasharray]="circumference"
+      [style.stroke-dashoffset]="circumference * (1 - this.percentage() / 100)"></circle>
+  </svg>
+  <span *ngIf="!indeterminate">{{ this.percentage() }}%</span>
+</div>

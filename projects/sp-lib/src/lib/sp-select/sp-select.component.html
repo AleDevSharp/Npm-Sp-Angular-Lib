@@ -1,0 +1,42 @@
+<div class="sp-select-wrapper">
+  <!-- Label -->
+  @if (this.label()) {
+    <label
+      class="sp-select-label"
+      [for]="this.id()"
+      [style.color]="this.labelColor()">
+      {{ this.label() }}
+    </label>
+  }
+
+  <!-- Select -->
+  <select
+    [id]="this.id()"
+    class="sp-select-field"
+    [disabled]="this.disabled()"
+    [ngClass]="{ 'has-error': this.hasError() }"
+    [value]="this.value()"
+    (change)="this.onSelectChange($event)">
+    @if (this.placeholder()) {
+      <option
+        value=""
+        disabled
+        selected
+        hidden>
+        {{ this.placeholder() }}
+      </option>
+    }
+
+    <option
+      *ngFor="let option of this.options()"
+      [value]="option.value"
+      [selected]="option.value === this.value()">
+      {{ option.label }}
+    </option>
+  </select>
+
+  <!-- Error -->
+  @if (this.hasError() && this.errorMessage()) {
+    <p class="sp-error-message">{{ this.errorMessage() }}</p>
+  }
+</div>

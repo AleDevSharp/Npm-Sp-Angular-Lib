@@ -1,0 +1,125 @@
+<div class="master">
+  <div class="content">
+    <!-- Header -->
+    <div class="header">
+      <p>Button Component</p>
+      <sp-divider></sp-divider>
+    </div>
+
+    <p class="desc">Showcase of button usage examples:</p>
+
+    <!--Color Variants-->
+    <div class="section">
+      <h3>Color Variants</h3>
+
+      <div class="button-row">
+        <sp-btn
+          text="Primary"
+          color="#ffac1c"></sp-btn>
+        <sp-btn
+          text="Dark"
+          color="#333"></sp-btn>
+        <sp-btn
+          text="Success"
+          color="#4caf50"></sp-btn>
+        <sp-btn
+          text="Danger"
+          color="#d32f2f"></sp-btn>
+        <sp-btn
+          text="Warning"
+          color="#ff9800"></sp-btn>
+        <sp-btn
+          text="Info"
+          color="#2196f3"></sp-btn>
+        <sp-btn
+          text="Pink"
+          color="#e91e63"></sp-btn>
+      </div>
+    </div>
+
+    <!--Sizes-->
+    <div class="section">
+      <h3>Sizes</h3>
+
+      <div class="button-row">
+        <sp-btn
+          text="Small"
+          height="25px"></sp-btn>
+        <sp-btn text="Default"></sp-btn>
+        <sp-btn
+          text="Large"
+          height="40px"></sp-btn>
+        <sp-btn
+          text="Very Large (XL - 50px)"
+          height="50px"></sp-btn>
+      </div>
+    </div>
+
+    <!--Disabled Buttons-->
+    <div class="section">
+      <h3>Disabled Buttons</h3>
+
+      <div class="button-row">
+        <sp-btn
+          text="Disabled"
+          [disabled]="true"></sp-btn>
+        <sp-btn
+          text="Dark Disabled"
+          [disabled]="true"
+          color="#333"></sp-btn>
+        <sp-btn
+          text="Warning Disabled"
+          [disabled]="true"
+          color="#ff9800"></sp-btn>
+      </div>
+    </div>
+
+    <!--Text buttons-->
+    <div class="section">
+      <h3>Text Buttons</h3>
+
+      <div class="button-row">
+        <sp-btn-txt
+          text="Primary"
+          color="#ffac1c"></sp-btn-txt>
+        <sp-btn-txt
+          text="Dark"
+          color="#333"></sp-btn-txt>
+        <sp-btn-txt
+          text="Grey"
+          color="#777"></sp-btn-txt>
+        <sp-btn-txt
+          text="Disabled"
+          [disabled]="true"></sp-btn-txt>
+      </div>
+    </div>
+
+    <!--Click events-->
+    <div class="section">
+      <h3>Click Events</h3>
+
+      <div class="button-row">
+        <sp-btn
+          text="Button 1"
+          color="#ffac1c"
+          (buttonClick)="showAlert('Button 1 clicked')"></sp-btn>
+        <sp-btn
+          text="Button 2"
+          color="#4caf50"
+          (buttonClick)="showAlert('Button 2 clicked')"></sp-btn>
+        <sp-btn
+          text="Button 3"
+          color="#2196f3"
+          (buttonClick)="showAlert('Button 3 clicked')"></sp-btn>
+        <sp-btn
+          text="Button 4"
+          color="#f44336"
+          (buttonClick)="showAlert('Button 4 clicked')"></sp-btn>
+        <sp-btn
+          text="Button 5"
+          color="#ff9800"
+          (buttonClick)="showAlert('Button 5 clicked')"></sp-btn>
+      </div>
+    </div>
+  </div>
+</div>

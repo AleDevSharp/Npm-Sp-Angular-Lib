@@ -9,9 +9,8 @@ describe('SpBtnComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SpBtnComponent]
-    })
-    .compileComponents();
-    
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SpBtnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
