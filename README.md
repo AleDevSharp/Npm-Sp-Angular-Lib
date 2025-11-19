@@ -27,7 +27,17 @@ Unlike full-featured UI frameworks such as Angular Material or Bootstrap, sp-lib
 - **Angular 17+ Ready**: Built with modern Angular features
 
 ---
-## 📦 Installation
+## 📦 NPM Package
+
+The `sp-lib` library is available on NPM. You can find it, check the latest version, and install it directly from there:
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@aledevsharp/sp-lib">Sp-Lib on NPM</a>
+</p>
+
+<br>
+
+## ⬇️ Installation
 
 To use **sp-lib** in your Angular project, install the library via NPM:
 ```bash
