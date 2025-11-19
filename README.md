@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/version-2.0.1-blue?style=for-the-badge" alt="Version" />
   <img src="https://img.shields.io/badge/Angular-17%2B-red?style=for-the-badge&logo=angular" alt="Angular" />
   <img src="https://img.shields.io/badge/npm-%40aledevsharp%2Fsp--lib-brightgreen?style=for-the-badge&logo=npm" alt="NPM" />
   <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License" />
