@@ -10,3 +10,6 @@ export * from './lib/progressbars/sp-progressbar-circular/sp-progressbar-circula
 export * from './lib/progressbars/sp-progressbar-rounded/sp-progressbar-rounded.component';
 export * from './lib/progressbars/sp-progressbar/sp-progressbar.component';
 export * from './lib/progressbars/sp-spinner/sp-spinner.component';
+export * from './lib/sp-input/sp-input.component';
+export * from './lib/sp-select/sp-select.component';
+export * from './lib/sp-switch/sp-switch.component';

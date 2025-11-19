@@ -1,11 +1,19 @@
 {
   "name": "@aledevsharp/sp-lib",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Official SpLib library",
   "author": {
     "name": "Alessio Giacché",
     "email": "ale.giacc.dev@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleDevSharp/Npm-Sp-Angular-Lib"
+  },
+  "bugs": {
+    "url": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues"
+  },
+  "homepage": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0",

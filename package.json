@@ -6,6 +6,14 @@
     "name": "Alessio Giacché",
     "email": "ale.giacc.dev@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleDevSharp/Npm-Sp-Angular-Lib"
+  },
+  "bugs": {
+    "url": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues"
+  },
+  "homepage": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
