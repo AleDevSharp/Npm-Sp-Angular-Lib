@@ -1,0 +1,330 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'counter.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'counter.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'counter.003' | translate }}</h3>
+    <p class="section-desc">{{ 'counter.004' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="counter-demo-column">
+          <div class="kpi-stats-grid">
+            <!-- Stat 1: Revenue -->
+            <div class="kpi-card">
+              <span class="kpi-label">{{ 'counter.005' | translate }}</span>
+              <div class="kpi-value text-primary">
+                <sp-counter
+                  [from]="0"
+                  [to]="1450000"
+                  prefix="€ "
+                  thousandSeparator="."
+                  [duration]="2200"
+                ></sp-counter>
+              </div>
+              <span class="kpi-trend positive">{{ 'counter.006' | translate }}</span>
+            </div>
+
+            <!-- Stat 2: Active Users -->
+            <div class="kpi-card">
+              <span class="kpi-label">{{ 'counter.007' | translate }}</span>
+              <div class="kpi-value text-success">
+                <sp-counter
+                  [from]="0"
+                  [to]="84200"
+                  thousandSeparator="."
+                  suffix=" +"
+                  [duration]="2000"
+                ></sp-counter>
+              </div>
+              <span class="kpi-trend positive">{{ 'counter.008' | translate }}</span>
+            </div>
+
+            <!-- Stat 3: Satisfaction Score -->
+            <div class="kpi-card">
+              <span class="kpi-label">{{ 'counter.009' | translate }}</span>
+              <div class="kpi-value text-warning">
+                <sp-counter
+                  [from]="0"
+                  [to]="99.4"
+                  [decimals]="1"
+                  decimalSeparator=","
+                  suffix="%"
+                  [duration]="1800"
+                ></sp-counter>
+              </div>
+              <span class="kpi-trend positive">{{ 'counter.010' | translate }}</span>
+            </div>
+
+            <!-- Stat 4: Uptime SLA -->
+            <div class="kpi-card">
+              <span class="kpi-label">{{ 'counter.011' | translate }}</span>
+              <div class="kpi-value text-info">
+                <sp-counter
+                  [from]="90"
+                  [to]="99.99"
+                  [decimals]="2"
+                  decimalSeparator="."
+                  suffix="%"
+                  [duration]="2500"
+                ></sp-counter>
+              </div>
+              <span class="kpi-trend positive">{{ 'counter.012' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="actions-footer">
+            <sp-btn [text]="'counter.013' | translate" size="sm" (buttonClick)="restartCounter()"></sp-btn>
+            <sp-btn [text]="'counter.014' | translate" size="sm" variant="outline" (buttonClick)="resetCounter()"></sp-btn>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="counter-demo-column"&gt;
+  &lt;div class="kpi-stats-grid"&gt;
+    &lt;!-- Stat 1: Revenue --&gt;
+    &lt;div class="kpi-card"&gt;
+      &lt;span class="kpi-label"&gt;Fatturato Annuale (ARR)&lt;/span&gt;
+      &lt;div class="kpi-value text-primary"&gt;
+        &lt;sp-counter
+          [from]="0"
+          [to]="1450000"
+          prefix="€ "
+          thousandSeparator="."
+          [duration]="2200"
+        &gt;&lt;/sp-counter&gt;
+      &lt;/div&gt;
+      &lt;span class="kpi-trend positive"&gt;↑ +24.8% rispetto all'anno precedente&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Stat 2: Active Users --&gt;
+    &lt;div class="kpi-card"&gt;
+      &lt;span class="kpi-label"&gt;Utenti Attivi Mensili&lt;/span&gt;
+      &lt;div class="kpi-value text-success"&gt;
+        &lt;sp-counter
+          [from]="0"
+          [to]="84200"
+          thousandSeparator="."
+          suffix=" +"
+          [duration]="2000"
+        &gt;&lt;/sp-counter&gt;
+      &lt;/div&gt;
+      &lt;span class="kpi-trend positive"&gt;↑ 1.2k nuove registrazioni oggi&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Stat 3: Satisfaction Score --&gt;
+    &lt;div class="kpi-card"&gt;
+      &lt;span class="kpi-label"&gt;Indice di Soddisfazione&lt;/span&gt;
+      &lt;div class="kpi-value text-warning"&gt;
+        &lt;sp-counter
+          [from]="0"
+          [to]="99.4"
+          [decimals]="1"
+          decimalSeparator=","
+          suffix="%"
+          [duration]="1800"
+        &gt;&lt;/sp-counter&gt;
+      &lt;/div&gt;
+      &lt;span class="kpi-trend positive"&gt;★ Basato su 4.800 recensioni&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Stat 4: Uptime SLA --&gt;
+    &lt;div class="kpi-card"&gt;
+      &lt;span class="kpi-label"&gt;Disponibilità di Esempio&lt;/span&gt;
+      &lt;div class="kpi-value text-info"&gt;
+        &lt;sp-counter
+          [from]="90"
+          [to]="99.99"
+          [decimals]="2"
+          decimalSeparator="."
+          suffix="%"
+          [duration]="2500"
+        &gt;&lt;/sp-counter&gt;
+      &lt;/div&gt;
+      &lt;span class="kpi-trend positive"&gt;✓ Valore dimostrativo, non uno SLA reale&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="actions-footer"&gt;
+    &lt;sp-btn text="Riavvia Animazione" size="sm" (buttonClick)="restartCounter()"&gt;&lt;/sp-btn&gt;
+    &lt;sp-btn text="Ripristina Contatori" size="sm" variant="outline" (buttonClick)="resetCounter()"&gt;&lt;/sp-btn&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'counter.015' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'counter.016' | translate"><code>// The four KPI counter instances controlled by the demo actions
+private readonly counters = viewChildren(SpCounterComponent);
+
+/**
+ * Replays every KPI counter from its configured starting value.
+ * &#64;returns void
+ */
+public restartCounter(): void &#123;
+  this.counters().forEach(counter =&gt; counter.start());
+&#125;
+
+/**
+ * Restores every KPI counter to its configured starting value.
+ * &#64;returns void
+ */
+public resetCounter(): void &#123;
+  this.counters().forEach(counter =&gt; counter.reset());
+&#125;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'counter.017' | translate }} <code>viewChildren(SpCounterComponent)</code> {{ 'counter.018' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChildren &#125; from '&#64;angular/core';
+import &#123; SpCounterComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpCounterComponent, SpBtnComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+// Project: SpLib
+// File name: counter-page.component.scss
+// File description: Styles for CounterPageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+.kpi-stats-grid &#123;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+&#125;
+
+.kpi-card &#123;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--sp-bg-secondary, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-md);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+
+  &amp;:hover &#123;
+    transform: translateY(-2px);
+    box-shadow: var(--sp-shadow-md);
+  &#125;
+&#125;
+
+.kpi-label &#123;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sp-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+&#125;
+
+.kpi-value &#123;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+
+  &amp;.text-primary &#123;
+    color: var(--sp-primary);
+  &#125;
+
+  &amp;.text-success &#123;
+    color: var(--sp-success, var(--sp-color-success, #10b981));
+  &#125;
+
+  &amp;.text-warning &#123;
+    color: var(--sp-warning, var(--sp-color-warning, #f59e0b));
+  &#125;
+
+  &amp;.text-info &#123;
+    color: var(--sp-info, var(--sp-color-info, #06b6d4));
+  &#125;
+&#125;
+
+.kpi-trend &#123;
+  font-size: 12.5px;
+  font-weight: 500;
+
+  &amp;.positive &#123;
+    color: var(--sp-success, var(--sp-color-success, #10b981));
+  &#125;
+
+  &amp;.negative &#123;
+    color: var(--sp-danger, var(--sp-color-danger, #ef4444));
+  &#125;
+&#125;
+
+.actions-footer &#123;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--sp-border-subtle);
+&#125;
+
+.counter-demo-column &#123; width: 100%; min-width: 0; &#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'counter.019' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>from</code></td><td><code>number</code></td><td><code>0</code></td><td>{{ 'counter.020' | translate }}</td></tr>
+          <tr><td><code>to</code></td><td><code>number</code></td><td><code>0</code></td><td>{{ 'counter.021' | translate }}</td></tr>
+          <tr><td><code>duration</code></td><td><code>number</code></td><td><code>2000</code></td><td>{{ 'counter.022' | translate }}</td></tr>
+          <tr><td><code>decimals</code></td><td><code>number</code></td><td><code>0</code></td><td>{{ 'counter.023' | translate }}</td></tr>
+          <tr><td><code>decimalSeparator</code></td><td><code>string</code></td><td><code>','</code></td><td>{{ 'counter.024' | translate }}</td></tr>
+          <tr><td><code>thousandSeparator</code></td><td><code>string</code></td><td><code>'.'</code></td><td>{{ 'counter.025' | translate }}</td></tr>
+          <tr><td><code>prefix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'counter.026' | translate }}</td></tr>
+          <tr><td><code>suffix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'counter.027' | translate }}</td></tr>
+          <tr><td><code>autoplay</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'counter.028' | translate }}</td></tr>
+          <tr><td><code>viewportTrigger</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'counter.029' | translate }}</td></tr>
+          <tr><td><code>easing</code></td><td><code>'easeOutExpo' | 'easeOutQuad' | 'linear'</code></td><td><code>'easeOutExpo'</code></td><td>{{ 'counter.030' | translate }}</td></tr>
+          <tr><td><code>counterEnd</code></td><td><code>OutputEmitterRef&lt;number&gt;</code></td><td><code>—</code></td><td>{{ 'counter.031' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'counter.032' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>start()</code></td><td><code>() =&gt; void</code></td><td><code>—</code></td><td>{{ 'counter.033' | translate }}</td></tr>
+          <tr><td><code>reset()</code></td><td><code>() =&gt; void</code></td><td><code>—</code></td><td>{{ 'counter.034' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

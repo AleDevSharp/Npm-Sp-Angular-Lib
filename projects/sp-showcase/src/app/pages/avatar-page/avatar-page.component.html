@@ -1,0 +1,349 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'avatar.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'avatar.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'avatar.003' | translate }}</h3>
+    <p class="section-desc">{{ 'avatar.004' | translate }} <code>+4</code> {{ 'avatar.005' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="avatar-demo-column">
+          <div class="stack-centered-box">
+            <sp-avatar-group
+              [items]="(teamMembers) | translate"
+              [max]="4"
+              size="lg"
+              [hoverSpread]="true"
+            ></sp-avatar-group>
+          </div>
+
+          <div class="demo-caption">
+            {{ 'avatar.006' | translate }} <code>8</code> {{ 'avatar.007' | translate }} <code>4</code> {{ 'avatar.008' | translate }} <code>+4</code>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="avatar-demo-column"&gt;
+  &lt;div class="stack-centered-box"&gt;
+    &lt;sp-avatar-group
+      [items]="teamMembers"
+      [max]="4"
+      size="lg"
+      [hoverSpread]="true"
+    &gt;&lt;/sp-avatar-group&gt;
+  &lt;/div&gt;
+
+  &lt;div class="demo-caption"&gt;
+    Membri totali: &lt;code&gt;8&lt;/code&gt; — Mostrati: &lt;code&gt;4&lt;/code&gt; — Badge eccedenza: &lt;code&gt;+4&lt;/code&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'avatar.009' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'avatar.010' | translate"><code>public readonly teamMembers: SpAvatarItem[] = [
+  &#123; name: 'Alex Morgan', status: 'online' &#125;,
+  &#123; name: 'Emma Wilson', status: 'busy' &#125;,
+  &#123; name: 'James Taylor', status: 'away' &#125;,
+  &#123; name: 'Olivia Brown', status: 'offline' &#125;,
+  &#123; name: 'William Clark', status: 'offline' &#125;,
+  &#123; name: 'Sophia Davis' &#125;,
+  &#123; name: 'Benjamin Miller' &#125;,
+  &#123; name: 'Charlotte Moore' &#125;
+];</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'avatar.011' | translate }}</h3>
+    <p class="section-desc">{{ 'avatar.012' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="avatar-demo-column">
+          <div class="avatars-gallery">
+            <div class="avatar-user-card">
+              <sp-avatar name="Alex Morgan" status="online" size="lg"></sp-avatar>
+              <div class="user-meta">
+                <strong>{{ 'avatar.013' | translate }}</strong>
+                <span>{{ 'avatar.014' | translate }}</span>
+              </div>
+            </div>
+
+            <div class="avatar-user-card">
+              <sp-avatar name="Emma Wilson" status="busy" size="lg"></sp-avatar>
+              <div class="user-meta">
+                <strong>{{ 'avatar.015' | translate }}</strong>
+                <span>{{ 'avatar.016' | translate }}</span>
+              </div>
+            </div>
+
+            <div class="avatar-user-card">
+              <sp-avatar name="James Taylor" status="away" size="lg"></sp-avatar>
+              <div class="user-meta">
+                <strong>{{ 'avatar.017' | translate }}</strong>
+                <span>{{ 'avatar.018' | translate }}</span>
+              </div>
+            </div>
+
+            <div class="avatar-user-card">
+              <sp-avatar name="Olivia Brown" status="offline" size="lg"></sp-avatar>
+              <div class="user-meta">
+                <strong>{{ 'avatar.019' | translate }}</strong>
+                <span>{{ 'avatar.020' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="avatar-demo-column"&gt;
+  &lt;div class="avatars-gallery"&gt;
+    &lt;div class="avatar-user-card"&gt;
+      &lt;sp-avatar name="Alex Morgan" status="online" size="lg"&gt;&lt;/sp-avatar&gt;
+      &lt;div class="user-meta"&gt;
+        &lt;strong&gt;Alex Morgan&lt;/strong&gt;
+        &lt;span&gt;Online&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="avatar-user-card"&gt;
+      &lt;sp-avatar name="Emma Wilson" status="busy" size="lg"&gt;&lt;/sp-avatar&gt;
+      &lt;div class="user-meta"&gt;
+        &lt;strong&gt;Emma Wilson&lt;/strong&gt;
+        &lt;span&gt;Busy&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="avatar-user-card"&gt;
+      &lt;sp-avatar name="James Taylor" status="away" size="lg"&gt;&lt;/sp-avatar&gt;
+      &lt;div class="user-meta"&gt;
+        &lt;strong&gt;James Taylor&lt;/strong&gt;
+        &lt;span&gt;Away&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="avatar-user-card"&gt;
+      &lt;sp-avatar name="Olivia Brown" status="offline" size="lg"&gt;&lt;/sp-avatar&gt;
+      &lt;div class="user-meta"&gt;
+        &lt;strong&gt;Olivia Brown&lt;/strong&gt;
+        &lt;span&gt;Offline&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'avatar.021' | translate }}</h3>
+    <p class="section-desc">{{ 'avatar.022' | translate }} <code>circle</code> {{ 'avatar.023' | translate }} <code>rounded</code> {{ 'avatar.024' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="avatar-demo-column">
+          <div class="sizes-comparison-group">
+            <div class="size-col">
+              <span class="shape-title">{{ 'avatar.025' | translate }}</span>
+              <div class="avatars-inline-row">
+                <sp-avatar name="Ethan Clark" size="xs" shape="circle"></sp-avatar>
+                <sp-avatar name="Emily Parker" size="sm" shape="circle"></sp-avatar>
+                <sp-avatar name="Oliver Harris" size="md" shape="circle" status="online"></sp-avatar>
+                <sp-avatar name="Amelia Reed" size="lg" shape="circle" status="busy"></sp-avatar>
+                <sp-avatar name="Henry Lewis" size="xl" shape="circle" status="online"></sp-avatar>
+              </div>
+            </div>
+
+            <div class="size-col">
+              <span class="shape-title">{{ 'avatar.026' | translate }}</span>
+              <div class="avatars-inline-row">
+                <sp-avatar name="Ethan Clark" size="xs" shape="rounded"></sp-avatar>
+                <sp-avatar name="Emily Parker" size="sm" shape="rounded"></sp-avatar>
+                <sp-avatar name="Oliver Harris" size="md" shape="rounded" status="online"></sp-avatar>
+                <sp-avatar name="Amelia Reed" size="lg" shape="rounded" status="busy"></sp-avatar>
+                <sp-avatar name="Henry Lewis" size="xl" shape="rounded" status="online"></sp-avatar>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="avatar-demo-column"&gt;
+  &lt;div class="sizes-comparison-group"&gt;
+    &lt;div class="size-col"&gt;
+      &lt;span class="shape-title"&gt;Circle (Circolare):&lt;/span&gt;
+      &lt;div class="avatars-inline-row"&gt;
+        &lt;sp-avatar name="Ethan Clark" size="xs" shape="circle"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Emily Parker" size="sm" shape="circle"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Oliver Harris" size="md" shape="circle" status="online"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Amelia Reed" size="lg" shape="circle" status="busy"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Henry Lewis" size="xl" shape="circle" status="online"&gt;&lt;/sp-avatar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="size-col"&gt;
+      &lt;span class="shape-title"&gt;Rounded (Squircle):&lt;/span&gt;
+      &lt;div class="avatars-inline-row"&gt;
+        &lt;sp-avatar name="Ethan Clark" size="xs" shape="rounded"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Emily Parker" size="sm" shape="rounded"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Oliver Harris" size="md" shape="rounded" status="online"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Amelia Reed" size="lg" shape="rounded" status="busy"&gt;&lt;/sp-avatar&gt;
+        &lt;sp-avatar name="Henry Lewis" size="xl" shape="rounded" status="online"&gt;&lt;/sp-avatar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'avatar.027' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
+import &#123; SpAvatarComponent, SpAvatarGroupComponent, SpAvatarItem &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpAvatarComponent, SpAvatarGroupComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>.avatar-demo-column &#123; width: 100%; min-width: 0; &#125;
+
+.stack-centered-box &#123;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: var(--sp-bg-primary);
+  border-radius: var(--sp-radius-md);
+  border: 1px dashed var(--sp-border-subtle);
+&#125;
+
+.demo-caption &#123;
+  margin-top: 16px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: var(--sp-text-secondary);
+
+  code &#123;
+    background-color: var(--sp-bg-secondary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sp-primary);
+    font-weight: 600;
+  &#125;
+&#125;
+
+.avatars-gallery &#123;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+&#125;
+
+.avatar-user-card &#123;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background-color: var(--sp-bg-secondary);
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-md);
+
+  .user-meta &#123;
+    display: flex;
+    flex-direction: column;
+
+    strong &#123;
+      font-size: 14px;
+      color: var(--sp-text-primary);
+    &#125;
+
+    span &#123;
+      font-size: 12px;
+      color: var(--sp-text-secondary);
+    &#125;
+  &#125;
+&#125;
+
+.sizes-comparison-group &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+&#125;
+
+.size-col &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .shape-title &#123;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--sp-text-secondary);
+  &#125;
+&#125;
+
+.avatars-inline-row &#123;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+&#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'avatar.028' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>src</code></td><td><code>string | undefined</code></td><td><code>undefined</code></td><td>{{ 'avatar.029' | translate }}</td></tr>
+          <tr><td><code>name</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'avatar.030' | translate }}</td></tr>
+          <tr><td><code>alt</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'avatar.031' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></td><td><code>'md'</code></td><td>{{ 'avatar.032' | translate }}</td></tr>
+          <tr><td><code>shape</code></td><td><code>'circle' | 'rounded'</code></td><td><code>'circle'</code></td><td>{{ 'avatar.033' | translate }}</td></tr>
+          <tr><td><code>status</code></td><td><code>'online' | 'offline' | 'busy' | 'away' | undefined</code></td><td><code>undefined</code></td><td>{{ 'avatar.034' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'avatar.035' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>items</code></td><td><code>SpAvatarItem[]</code></td><td><code>[]</code></td><td>{{ 'avatar.036' | translate }}</td></tr>
+          <tr><td><code>max</code></td><td><code>number</code></td><td><code>4</code></td><td>{{ 'avatar.037' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></td><td><code>'md'</code></td><td>{{ 'avatar.038' | translate }}</td></tr>
+          <tr><td><code>shape</code></td><td><code>'circle' | 'rounded'</code></td><td><code>'circle'</code></td><td>{{ 'avatar.039' | translate }}</td></tr>
+          <tr><td><code>hoverSpread</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'avatar.040' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

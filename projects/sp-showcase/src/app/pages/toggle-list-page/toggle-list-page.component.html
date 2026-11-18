@@ -1,0 +1,203 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'toggle-list.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'toggle-list.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'toggle-list.003' | translate }}</h3>
+    <p class="section-desc">{{ 'toggle-list.004' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="toggle-demo-column">
+          <sp-toggle-list
+            [options]="(this.planOptions) | translate"
+            [(value)]="this.selectedPlan"
+            mode="single"
+            layout="vertical"></sp-toggle-list>
+          <div class="demo-feedback" role="status">
+            {{ 'toggle-list.005' | translate }} <code>{{ this.selectedPlan() }}</code>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="toggle-demo-column"&gt;
+  &lt;sp-toggle-list
+    [options]="this.planOptions"
+    [(value)]="this.selectedPlan"
+    mode="single"
+    layout="vertical"&gt;&lt;/sp-toggle-list&gt;
+  &lt;div class="demo-feedback" role="status"&gt;
+    Piano selezionato: &lt;code&gt;&#123;&#123; this.selectedPlan() &#125;&#125;&lt;/code&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.005' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'segmented-control.006' | translate"><code>// The selected plan
+public readonly selectedPlan = signal&lt;string&gt;('pro');
+
+// The demo options
+public readonly planOptions: SpToggleListOption&lt;string&gt;[] = [
+  &#123;
+    label: 'Starter Gratuito',
+    value: 'starter',
+    description: 'Perfetto per sviluppatori indipendenti, progetti personali e prime esplorazioni.',
+    badge: '0€ / mese',
+    icon: '◈'
+  &#125;,
+  &#123;
+    label: 'Pro Developer',
+    value: 'pro',
+    description: 'Accesso illimitato alla suite completa di componenti, aggiornamenti continui e supporto prioritario.',
+    badge: '19€ / mese',
+    icon: '★'
+  &#125;,
+  &#123;
+    label: 'Enterprise Custom',
+    value: 'enterprise',
+    description: 'SLA garantito al 99.99%, audit di sicurezza personalizzato e architettura su misura.',
+    badge: 'Contattaci',
+    icon: '▥'
+  &#125;
+];</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'toggle-list.006' | translate }}</h3>
+    <p class="section-desc">{{ 'toggle-list.007' | translate }} <code>json</code> {{ 'inputs.050' | translate }} <code>JsonPipe</code> {{ 'buttons.040' | translate }} <code>CommonModule</code> {{ 'toggle-list.008' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="toggle-demo-column">
+          <sp-toggle-list
+            [options]="(this.featureOptions) | translate"
+            [(value)]="this.selectedFeatures"
+            mode="multiple"
+            layout="grid"
+            [columns]="2"></sp-toggle-list>
+          <div class="demo-feedback" role="status">
+            {{ 'toggle-list.009' | translate }} <code>{{ this.selectedFeatures() | json }}</code>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="toggle-demo-column"&gt;
+  &lt;sp-toggle-list
+    [options]="this.featureOptions"
+    [(value)]="this.selectedFeatures"
+    mode="multiple"
+    layout="grid"
+    [columns]="2"&gt;&lt;/sp-toggle-list&gt;
+  &lt;div class="demo-feedback" role="status"&gt;
+    Funzionalità abilitate: &lt;code&gt;&#123;&#123; this.selectedFeatures() | json &#125;&#125;&lt;/code&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.005' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'segmented-control.006' | translate"><code>// The selected features
+public readonly selectedFeatures = signal&lt;string[]&gt;(['backups', 'security']);
+
+// The demo options
+public readonly featureOptions: SpToggleListOption&lt;string&gt;[] = [
+  &#123;
+    label: 'Backup Automatici',
+    value: 'backups',
+    description: 'Istantanee giornaliere del database con rollback in un click.'
+  &#125;,
+  &#123;
+    label: 'Scudo di Sicurezza',
+    value: 'security',
+    description: 'Protezione DDoS avanzata, 2FA obbligatorio e crittografia end-to-end.'
+  &#125;,
+  &#123;
+    label: 'Analytics in Tempo Reale',
+    value: 'analytics',
+    description: 'Dashboard di monitoraggio delle metriche di utilizzo e performance.'
+  &#125;,
+  &#123;
+    label: 'Integrazione Webhook',
+    value: 'webhooks',
+    description: 'Notifiche eventi istantanee su Slack, Discord o server personalizzati.'
+  &#125;
+];</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'segmented-control.019' | translate }} <code>&#64;aledevsharp/sp-lib</code>{{ 'segmented-control.020' | translate }} <code>[(value)]</code> {{ 'segmented-control.021' | translate }} <code>[(ngModel)]</code> {{ 'inputs.050' | translate }} <code>FormsModule</code>{{ 'segmented-control.022' | translate }} <code>[formControl]</code> {{ 'accordion.023' | translate }} <code>formControlName</code> {{ 'inputs.051' | translate }} <code>ReactiveFormsModule</code>{{ 'segmented-control.023' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; JsonPipe &#125; from '&#64;angular/common';
+import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; JsonPipe &#125; from '&#64;angular/common';
+import &#123; SpToggleListComponent, SpToggleListOption &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpToggleListComponent, JsonPipe],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+// Region: Demo Layout and Feedback
+// ================================
+.toggle-demo-column &#123;
+  width: 100%;
+  min-width: 0;
+&#125;
+
+.demo-feedback &#123;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--sp-border-subtle);
+  font-size: 0.875rem;
+  color: var(--sp-text-secondary);
+
+  code &#123;
+    background-color: var(--sp-bg-surface-raised);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sp-color-accent);
+  &#125;
+&#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'toggle-list.010' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>options</code></td><td><code>SpToggleListOption&lt;T&gt;[]</code></td><td><code>[]</code></td><td>{{ 'toggle-list.011' | translate }}</td></tr>
+          <tr><td><code>value</code></td><td><code>ModelSignal&lt;any&gt;</code></td><td><code>undefined</code></td><td>{{ 'toggle-list.012' | translate }}</td></tr>
+          <tr><td><code>mode</code></td><td><code>'single' | 'multiple'</code></td><td><code>'single'</code></td><td>{{ 'toggle-list.013' | translate }}</td></tr>
+          <tr><td><code>layout</code></td><td><code>'vertical' | 'grid'</code></td><td><code>'vertical'</code></td><td>{{ 'toggle-list.014' | translate }}</td></tr>
+          <tr><td><code>columns</code></td><td><code>number</code></td><td><code>2</code></td><td>{{ 'toggle-list.015' | translate }}</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'toggle-list.016' | translate }}</td></tr>
+          <tr><td><code>selectionChange</code></td><td><code>OutputEmitterRef&lt;any&gt;</code></td><td><code>—</code></td><td>{{ 'toggle-list.017' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

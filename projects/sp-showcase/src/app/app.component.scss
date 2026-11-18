@@ -1,0 +1,56 @@
+// ================================
+// Region: Showcase Language Selector
+// ================================
+.language-select {
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-full);
+  background-color: var(--sp-bg-surface-card);
+  color: var(--sp-text-primary);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  box-shadow: var(--sp-shadow-subtle);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--sp-color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+// ================================
+// Region: Mobile Navigation Disclosure
+// ================================
+.mobile-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid var(--sp-border-color);
+    border-radius: var(--sp-radius-full);
+    background: var(--sp-bg-surface-card);
+    color: var(--sp-text-primary);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--sp-color-focus-ring);
+      outline-offset: 2px;
+    }
+  }
+
+  .language-select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+}

@@ -1,89 +1,292 @@
-<div class="master">
-  <div class="content">
-    <!-- Header -->
-    <div class="header">
-      <p>Select Component</p>
-      <sp-divider></sp-divider>
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'select.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'select.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'select.003' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.004' | translate }} <code>[(value)]</code> {{ 'select.004' | translate }} <code>label</code>, <code>value</code> {{ 'select.005' | translate }} <code>disabled</code>{{ 'select.006' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="select-demo-column">
+          <sp-select
+            id="country-select"
+            [label]="'select.007' | translate"
+            [(value)]="this.selectedCountry"
+            [options]="(this.countryOptions) | translate"
+            [placeholder]="'select.008' | translate"></sp-select>
+
+          <div class="bound-value-box">
+            {{ 'select.009' | translate }} <strong>{{ (this.selectedCountry()) | translate }}</strong>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="select-demo-column"&gt;
+  &lt;sp-select
+    id="country-select"
+    label="Paese di Residenza"
+    [(value)]="this.selectedCountry"
+    [options]="this.countryOptions"
+    placeholder="Scegli una nazione"&gt;&lt;/sp-select&gt;
+
+  &lt;div class="bound-value-box"&gt;
+    Paese selezionato nel Signal: &lt;strong&gt;&#123;&#123; this.selectedCountry() &#125;&#125;&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.005' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'segmented-control.006' | translate"><code>// The writable selected country signal
+public readonly selectedCountry = signal&lt;string&gt;('it');
+
+// The country options
+public readonly countryOptions: SpSelectOption[] = [
+  &#123; label: 'Italia', value: 'it' &#125;,
+  &#123; label: 'Francia', value: 'fr' &#125;,
+  &#123; label: 'Germania', value: 'de' &#125;,
+  &#123; label: 'Spagna', value: 'es' &#125;,
+  &#123; label: 'Regno Unito (Disabilitato)', value: 'uk', disabled: true &#125;
+];</code></pre>
+      </details>
     </div>
+  </div>
 
-    <p class="desc">Showcase of select usage examples:</p>
-
-    <!-- Standard select -->
-    <div class="section">
-      <h3>Standard Select</h3>
-      <sp-select
-        id="s1"
-        label="Choose an option"
-        [options]="[
-          { label: 'Option 1', value: '1' },
-          { label: 'Option 2', value: '2' },
-          { label: 'Option 3', value: '3' }
-        ]"></sp-select>
-
-      <sp-select
-        id="s2"
-        label="Select with placeholder"
-        placeholder="Please select"
-        [options]="[
-          { label: 'Apple', value: 'apple' },
-          { label: 'Banana', value: 'banana' },
-          { label: 'Orange', value: 'orange' }
-        ]"></sp-select>
+  <div class="doc-section">
+    <h3>{{ 'buttons.020' | translate }}</h3>
+    <p class="section-desc">{{ 'select.010' | translate }} <code>sm</code> {{ 'select.011' | translate }} <code>md</code> {{ 'select.012' | translate }} <code>lg</code> {{ 'select.013' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="select-demo-column">
+          <sp-select id="sel-sm" [label]="'inputs.020' | translate" size="sm" [options]="(this.frameworkOptions) | translate" [placeholder]="'select.defaultPlaceholder' | translate"></sp-select>
+          <sp-select id="sel-md" [label]="'inputs.022' | translate" size="md" [options]="(this.frameworkOptions) | translate" [placeholder]="'select.defaultPlaceholder' | translate"></sp-select>
+          <sp-select id="sel-lg" [label]="'inputs.024' | translate" size="lg" [options]="(this.frameworkOptions) | translate" [placeholder]="'select.defaultPlaceholder' | translate"></sp-select>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="select-demo-column"&gt;
+  &lt;sp-select id="sel-sm" label="Small (sm)" size="sm" [options]="this.frameworkOptions"&gt;&lt;/sp-select&gt;
+  &lt;sp-select id="sel-md" label="Medium (md)" size="md" [options]="this.frameworkOptions"&gt;&lt;/sp-select&gt;
+  &lt;sp-select id="sel-lg" label="Large (lg)" size="lg" [options]="this.frameworkOptions"&gt;&lt;/sp-select&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.013' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'segmented-control.014' | translate"><code>// The framework options shared by these examples
+public readonly frameworkOptions: SpSelectOption[] = [
+  &#123; label: 'Angular', value: 'angular' &#125;,
+  &#123; label: 'React', value: 'react' &#125;,
+  &#123; label: 'Vue.js', value: 'vue' &#125;,
+  &#123; label: 'Svelte', value: 'svelte' &#125;
+];</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!-- Disabled select -->
-    <div class="section">
-      <h3>Disabled Select</h3>
-      <sp-select
-        id="s3"
-        label="Disabled"
-        [disabled]="true"
-        [options]="[
-          { label: 'Option A', value: 'A' },
-          { label: 'Option B', value: 'B' }
-        ]"></sp-select>
+  <div class="doc-section">
+    <h3>{{ 'inputs.026' | translate }}</h3>
+    <p class="section-desc">{{ 'select.014' | translate }}<code>#64748b</code>{{ 'select.015' | translate }} <code>focusColor</code> {{ 'select.016' | translate }} <code>--sp-border-color-focus</code> {{ 'select.017' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="select-demo-column">
+          <sp-select id="select-focus-default" [label]="'inputs.031' | translate" [options]="(this.frameworkOptions) | translate" [placeholder]="'select.defaultPlaceholder' | translate"></sp-select>
+          <sp-select
+            id="select-focus-custom"
+            [label]="'inputs.033' | translate"
+            focusColor="#0f766e"
+            [options]="(this.frameworkOptions) | translate" [placeholder]="'select.defaultPlaceholder' | translate"></sp-select>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="select-demo-column"&gt;
+  &lt;sp-select id="select-focus-default" label="Focus predefinito" [options]="this.frameworkOptions"&gt;&lt;/sp-select&gt;
+  &lt;sp-select
+    id="select-focus-custom"
+    label="Focus personalizzato"
+    focusColor="#0f766e"
+    [options]="this.frameworkOptions"&gt;&lt;/sp-select&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.013' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'segmented-control.014' | translate"><code>// The framework options shared by these examples
+public readonly frameworkOptions: SpSelectOption[] = [
+  &#123; label: 'Angular', value: 'angular' &#125;,
+  &#123; label: 'React', value: 'react' &#125;,
+  &#123; label: 'Vue.js', value: 'vue' &#125;,
+  &#123; label: 'Svelte', value: 'svelte' &#125;
+];</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.035' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'inputs.036' | translate"><code>/* Optional application-wide focus color in the global stylesheet */
+:root &#123;
+  --sp-border-color-focus: #0f766e;
+&#125;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!-- Error state -->
-    <div class="section">
-      <h3>Select with Error</h3>
-      <sp-select
-        id="s4"
-        label="Error example"
-        [hasError]="true"
-        errorMessage="This field is required"
-        [options]="[
-          { label: 'Red', value: 'red' },
-          { label: 'Green', value: 'green' },
-          { label: 'Blue', value: 'blue' }
-        ]"></sp-select>
+  <div class="doc-section">
+    <h3>{{ 'select.018' | translate }}</h3>
+    <p class="section-desc">{{ 'select.019' | translate }} <code>aria-invalid</code>{{ 'select.020' | translate }} <code>hasError</code> {{ 'select.021' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="select-demo-column">
+          <sp-select
+            id="sel-err"
+            [label]="'select.022' | translate"
+            [value]="this.requiredFramework()"
+            (changeInput)="this.onRequiredFrameworkChange($event)"
+            [hasError]="!this.requiredFramework()"
+            [errorMessage]="'select.023' | translate"
+            [options]="(this.frameworkOptions) | translate" [placeholder]="'select.defaultPlaceholder' | translate"></sp-select>
+
+          <sp-btn-txt [text]="'select.024' | translate" (buttonClick)="this.resetRequiredFramework()"></sp-btn-txt>
+
+          <sp-select
+            id="sel-dis"
+            [label]="'select.025' | translate"
+            [disabled]="true"
+            [options]="(this.frameworkOptions) | translate" [placeholder]="'select.defaultPlaceholder' | translate"></sp-select>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="select-demo-column"&gt;
+  &lt;sp-select
+    id="sel-err"
+    label="Selezione Obbligatoria"
+    [value]="this.requiredFramework()"
+    (changeInput)="this.onRequiredFrameworkChange($event)"
+    [hasError]="!this.requiredFramework()"
+    errorMessage="Seleziona un'opzione prima di proseguire"
+    [options]="this.frameworkOptions"&gt;&lt;/sp-select&gt;
+
+  &lt;sp-btn-txt text="Azzera selezione" (buttonClick)="this.resetRequiredFramework()"&gt;&lt;/sp-btn-txt&gt;
+
+  &lt;sp-select
+    id="sel-dis"
+    label="Campo Disabilitato"
+    [disabled]="true"
+    [options]="this.frameworkOptions"&gt;&lt;/sp-select&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'select.026' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'select.027' | translate"><code>// The framework options shared by these examples
+public readonly frameworkOptions: SpSelectOption[] = [
+  &#123; label: 'Angular', value: 'angular' &#125;,
+  &#123; label: 'React', value: 'react' &#125;,
+  &#123; label: 'Vue.js', value: 'vue' &#125;,
+  &#123; label: 'Svelte', value: 'svelte' &#125;
+];
+
+// The required selection state
+private readonly _requiredFramework = signal&lt;string&gt;('');
+
+// The readonly selected value exposed to the template
+public readonly requiredFramework = this._requiredFramework.asReadonly();
+
+/**
+ * Updates the required demo selection.
+ * &#64;param value The selected framework value
+ * &#64;returns void
+ */
+public onRequiredFrameworkChange(value: string): void &#123;
+  this._requiredFramework.set(value);
+&#125;
+
+/**
+ * Restores the empty selection to demonstrate the required error again.
+ * &#64;returns void
+ */
+public resetRequiredFramework(): void &#123;
+  this._requiredFramework.set('');
+&#125;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!-- Select with ngModel / change event -->
-    <div class="section">
-      <h3>Select with Live Change</h3>
-      <sp-select
-        id="s5"
-        label="Full name"
-        [options]="[
-          { label: 'John', value: 'john' },
-          { label: 'Mary', value: 'mary' },
-          { label: 'Alice', value: 'alice' }
-        ]"
-        (changeInput)="onSelectChange($event)"></sp-select>
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.047' | translate }} <code>&#64;aledevsharp/sp-lib</code>{{ 'inputs.048' | translate }} <code>[(value)]</code> {{ 'inputs.049' | translate }} <code>[(ngModel)]</code> {{ 'inputs.050' | translate }} <code>FormsModule</code>; <code>[formControl]</code> {{ 'accordion.023' | translate }} <code>formControlName</code> {{ 'inputs.051' | translate }} <code>ReactiveFormsModule</code>{{ 'inputs.052' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; SpSelectComponent, SpSelectOption, SpBtnTxtComponent &#125; from '&#64;aledevsharp/sp-lib';
 
-      <sp-select
-        id="s6"
-        label="Favorite fruit"
-        placeholder="Choose fruit"
-        [(ngModel)]="this.favoriteFruit"
-        [options]="[
-          { label: 'Apple', value: 'apple' },
-          { label: 'Banana', value: 'banana' },
-          { label: 'Orange', value: 'orange' }
-        ]"></sp-select>
+&#64;Component(&#123;
+  selector: 'app-field-example',
+  standalone: true,
+  imports: [SpSelectComponent, SpBtnTxtComponent],
+  templateUrl: './field-example.component.html',
+  styleUrl: './field-example.component.scss'
+&#125;)
+export class FieldExampleComponent &#123;
+  // Add the state and handlers shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+// Region: Variables &amp; Layout
+// ================================
+.select-demo-column &#123;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+&#125;
 
-      <p>Selected fruit: {{ favoriteFruit }}</p>
+.bound-value-box &#123;
+  background-color: var(--sp-bg-surface-card);
+  border: 1px dashed var(--sp-border-color);
+  border-radius: var(--sp-radius-sm, 6px);
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+
+  strong &#123;
+    color: var(--sp-color-accent);
+  &#125;
+&#125;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'select.028' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>id</code></td><td><code>string</code></td><td><code>generato</code></td><td>{{ 'inputs.054' | translate }}</td></tr>
+          <tr><td><code>label</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.055' | translate }}</td></tr>
+          <tr><td><code>value</code></td><td><code>ModelSignal&lt;string&gt;</code></td><td><code>''</code></td><td>{{ 'inputs.056' | translate }}</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.057' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'inputs.058' | translate }}</td></tr>
+          <tr><td><code>hasError</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.059' | translate }}</td></tr>
+          <tr><td><code>errorMessage</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.060' | translate }}</td></tr>
+          <tr><td><code>hint</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.061' | translate }}</td></tr>
+          <tr><td><code>focusColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.062' | translate }}</td></tr>
+          <tr><td><code>labelColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.063' | translate }}</td></tr>
+          <tr><td><code>changeInput</code></td><td><code>OutputEmitterRef&lt;string&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.064' | translate }}</td></tr>
+          <tr><td><code>options</code></td><td><code>SpSelectOption[]</code></td><td><code>[]</code></td><td>{{ 'select.029' | translate }}</td></tr>
+          <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>'Select an option...'</code></td><td>{{ 'select.030' | translate }}</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

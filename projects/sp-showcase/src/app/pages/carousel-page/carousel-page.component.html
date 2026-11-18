@@ -1,0 +1,577 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'carousel.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'carousel.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'carousel.003' | translate }}</h3>
+    <p class="section-desc">{{ 'carousel.004' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="demo-stage-toolbar">
+                <div class="toolbar-group">
+                  <span class="toolbar-label">{{ 'carousel.005' | translate }}</span>
+                  <sp-segmented-control
+                    [options]="(effectOptions) | translate"
+                    [(value)]="effect"
+                    size="sm"
+                  ></sp-segmented-control>
+                </div>
+
+                <div class="toolbar-group">
+                  <span class="toolbar-label">{{ 'carousel.006' | translate }}</span>
+                  <sp-segmented-control
+                    [options]="(indicatorOptions) | translate"
+                    [(value)]="indicatorType"
+                    size="sm"
+                  ></sp-segmented-control>
+                </div>
+
+                <label class="toolbar-toggle">
+                  <span>{{ 'carousel.007' | translate }}</span>
+                  <sp-switch [(value)]="autoplay"></sp-switch>
+                </label>
+
+                <label class="toolbar-toggle">
+                  <span>{{ 'carousel.008' | translate }}</span>
+                  <sp-switch [(value)]="loop"></sp-switch>
+                </label>
+        </div>
+        <div class="carousel-stage-wrapper">
+                <div class="carousel-preview-box">
+                  <sp-carousel
+                    #primaryCarousel
+                    [(activeIndex)]="activeIndex"
+                    [items]="(galleryItems) | translate"
+                    [pauseOnHover]="false"
+                    [ariaLabel]="'carousel.galleryAria' | translate"
+                    [autoplay]="autoplay"
+                    [interval]="interval"
+                    [loop]="loop"
+                    [showArrows]="showArrows"
+                    [showIndicators]="showIndicators"
+                    [indicatorType]="indicatorType"
+                    [effect]="effect"
+                    aspectRatio="16/9"
+                  ></sp-carousel>
+                </div>
+
+                <!-- External Programmatic Controls -->
+                <div class="carousel-controls-bar">
+                  <div class="controls-left">
+                    <sp-btn [text]="'carousel.009' | translate" variant="outline" size="sm" (buttonClick)="onPrev()"></sp-btn>
+                    <sp-btn [text]="'carousel.010' | translate" variant="outline" size="sm" (buttonClick)="onNext()"></sp-btn>
+                    <sp-btn [text]="'carousel.011' | translate" variant="ghost" size="sm" (buttonClick)="onPause()"></sp-btn>
+                    <sp-btn [text]="'carousel.012' | translate" variant="ghost" size="sm" (buttonClick)="onPlay()"></sp-btn>
+                  </div>
+                  <div class="controls-status">
+                    {{ 'carousel.013' | translate }} <strong>{{ (activeIndex + 1) | translate }} / {{ (galleryItems.length) | translate }}</strong>
+                  </div>
+                </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="demo-stage-toolbar"&gt;
+        &lt;div class="toolbar-group"&gt;
+          &lt;span class="toolbar-label"&gt;Transizione:&lt;/span&gt;
+          &lt;sp-segmented-control
+            [options]="effectOptions"
+            [(value)]="effect"
+            size="sm"
+          &gt;&lt;/sp-segmented-control&gt;
+        &lt;/div&gt;
+
+        &lt;div class="toolbar-group"&gt;
+          &lt;span class="toolbar-label"&gt;Indicatori:&lt;/span&gt;
+          &lt;sp-segmented-control
+            [options]="indicatorOptions"
+            [(value)]="indicatorType"
+            size="sm"
+          &gt;&lt;/sp-segmented-control&gt;
+        &lt;/div&gt;
+
+        &lt;label class="toolbar-toggle"&gt;
+          &lt;span&gt;Autoplay:&lt;/span&gt;
+          &lt;sp-switch [(value)]="autoplay"&gt;&lt;/sp-switch&gt;
+        &lt;/label&gt;
+
+        &lt;label class="toolbar-toggle"&gt;
+          &lt;span&gt;Loop:&lt;/span&gt;
+          &lt;sp-switch [(value)]="loop"&gt;&lt;/sp-switch&gt;
+        &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="carousel-stage-wrapper"&gt;
+        &lt;div class="carousel-preview-box"&gt;
+          &lt;sp-carousel
+            #primaryCarousel
+            [(activeIndex)]="activeIndex"
+            [items]="galleryItems"
+            [pauseOnHover]="false"
+            ariaLabel="Galleria immagini dimostrative"
+            [autoplay]="autoplay"
+            [interval]="interval"
+            [loop]="loop"
+            [showArrows]="showArrows"
+            [showIndicators]="showIndicators"
+            [indicatorType]="indicatorType"
+            [effect]="effect"
+            aspectRatio="16/9"
+          &gt;&lt;/sp-carousel&gt;
+        &lt;/div&gt;
+
+        &lt;!-- External Programmatic Controls --&gt;
+        &lt;div class="carousel-controls-bar"&gt;
+          &lt;div class="controls-left"&gt;
+            &lt;sp-btn text="&amp;larr; Indietro" variant="outline" size="sm" (buttonClick)="onPrev()"&gt;&lt;/sp-btn&gt;
+            &lt;sp-btn text="Avanti &amp;rarr;" variant="outline" size="sm" (buttonClick)="onNext()"&gt;&lt;/sp-btn&gt;
+            &lt;sp-btn text="Pausa" variant="ghost" size="sm" (buttonClick)="onPause()"&gt;&lt;/sp-btn&gt;
+            &lt;sp-btn text="Riproduci" variant="ghost" size="sm" (buttonClick)="onPlay()"&gt;&lt;/sp-btn&gt;
+          &lt;/div&gt;
+          &lt;div class="controls-status"&gt;
+            Slide attiva: &lt;strong&gt;&#123;&#123; activeIndex + 1 &#125;&#125; / &#123;&#123; galleryItems.length &#125;&#125;&lt;/strong&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'carousel.014' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'carousel.015' | translate"><code>// Primary carousel component reference
+  public readonly primaryCarousel = viewChild&lt;SpCarouselComponent&gt;('primaryCarousel');
+
+  // Carousel interactive settings
+  public activeIndex = 0;
+  public autoplay = true;
+  public interval = 4000;
+  public loop = true;
+  public showArrows = true;
+  public showIndicators = true;
+  public indicatorType: SpCarouselIndicatorType = 'bars';
+  public effect: SpCarouselEffect = 'slide';
+
+  // Demo gallery image items
+  public galleryItems: SpCarouselItem[] = [
+    &#123;
+      src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80',
+      alt: 'Composizione astratta colorata',
+      title: 'Galleria di immagini',
+      description: 'Una slide con immagine, titolo e descrizione forniti attraverso items.'
+    &#125;,
+    &#123;
+      src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80',
+      alt: 'Scena illuminata da luci colorate',
+      title: 'Navigazione tra le slide',
+      description: 'Usa frecce, indicatori o comandi esterni per cambiare la slide attiva.'
+    &#125;,
+    &#123;
+      src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80',
+      alt: 'Postazione di lavoro con computer',
+      title: 'Scorrimento o dissolvenza',
+      description: 'Il selettore Transizione alterna lo scorrimento orizzontale e la dissolvenza della galleria.'
+    &#125;
+  ];
+
+  // Indicator type segmented options
+  public indicatorOptions = [
+    &#123; label: 'Progress Bars', value: 'bars' &#125;,
+    &#123; label: 'Dots', value: 'dots' &#125;,
+    &#123; label: 'Numbers', value: 'numbers' &#125;
+  ];
+
+  // Effect segmented options
+  public effectOptions = [
+    &#123; label: 'Scorrimento', value: 'slide' &#125;,
+    &#123; label: 'Dissolvenza', value: 'fade' &#125;
+  ];
+
+  /**
+   * Triggers next slide programmatically.
+   * &#64;returns void
+   */
+  public onNext(): void &#123;
+    this.primaryCarousel()?.next();
+  &#125;
+
+  /**
+   * Triggers previous slide programmatically.
+   * &#64;returns void
+   */
+  public onPrev(): void &#123;
+    this.primaryCarousel()?.prev();
+  &#125;
+
+  /**
+   * Pauses the carousel timer.
+   * &#64;returns void
+   */
+  public onPause(): void &#123;
+    this.primaryCarousel()?.pause();
+  &#125;
+
+  /**
+   * Resumes the carousel timer.
+   * &#64;returns void
+   */
+  public onPlay(): void &#123;
+    this.autoplay = true;
+    this.primaryCarousel()?.play();
+  &#125;</code></pre>
+      </details>
+    </div>
+  </div>
+  <div class="doc-section">
+    <h3>{{ 'carousel.016' | translate }}</h3>
+    <p class="section-desc">{{ 'carousel.017' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="carousel-custom-container">
+                  <sp-carousel
+                    [autoplay]="true"
+                    effect="slide"
+                    [ariaLabel]="'carousel.reviewsAria' | translate"
+                    [interval]="5000"
+                    [indicatorType]="'dots'"
+                    [loop]="true"
+                  >
+                    <!-- Custom Slide 1 -->
+                    <sp-carousel-slide [ariaLabel]="'carousel.marcoAria' | translate">
+                      <div class="testimonial-slide-card">
+                        <div class="testimonial-header">
+                          <sp-avatar name="Marco Rossi" size="lg"></sp-avatar>
+                          <div class="user-info">
+                            <h4>{{ 'carousel.018' | translate }}</h4>
+                            <span>{{ 'carousel.019' | translate }}</span>
+                          </div>
+                        </div>
+                        <p class="quote">
+                          {{ 'carousel.020' | translate }}
+                        </p>
+                        <div class="rating-stars">★★★★★</div>
+                      </div>
+                    </sp-carousel-slide>
+
+                    <!-- Custom Slide 2 -->
+                    <sp-carousel-slide [ariaLabel]="'carousel.elenaAria' | translate">
+                      <div class="testimonial-slide-card">
+                        <div class="testimonial-header">
+                          <sp-avatar name="Elena Bianchi" size="lg"></sp-avatar>
+                          <div class="user-info">
+                            <h4>{{ 'carousel.021' | translate }}</h4>
+                            <span>{{ 'carousel.022' | translate }}</span>
+                          </div>
+                        </div>
+                        <p class="quote">
+                          {{ 'carousel.023' | translate }}
+                        </p>
+                        <div class="rating-stars">★★★★★</div>
+                      </div>
+                    </sp-carousel-slide>
+
+                    <!-- Custom Slide 3 -->
+                    <sp-carousel-slide [ariaLabel]="'carousel.sofiaAria' | translate">
+                      <div class="testimonial-slide-card">
+                        <div class="testimonial-header">
+                          <sp-avatar name="Sofia Romano" size="lg"></sp-avatar>
+                          <div class="user-info">
+                            <h4>{{ 'carousel.024' | translate }}</h4>
+                            <span>{{ 'carousel.025' | translate }}</span>
+                          </div>
+                        </div>
+                        <p class="quote">
+                          {{ 'carousel.026' | translate }}
+                        </p>
+                        <div class="rating-stars">★★★★★</div>
+                      </div>
+                    </sp-carousel-slide>
+                  </sp-carousel>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="carousel-custom-container"&gt;
+          &lt;sp-carousel
+            [autoplay]="true"
+            effect="slide"
+            ariaLabel="Recensioni dimostrative"
+            [interval]="5000"
+            [indicatorType]="'dots'"
+            [loop]="true"
+          &gt;
+            &lt;!-- Custom Slide 1 --&gt;
+            &lt;sp-carousel-slide ariaLabel="Recensione Marco"&gt;
+              &lt;div class="testimonial-slide-card"&gt;
+                &lt;div class="testimonial-header"&gt;
+                  &lt;sp-avatar name="Marco Rossi" size="lg"&gt;&lt;/sp-avatar&gt;
+                  &lt;div class="user-info"&gt;
+                    &lt;h4&gt;Marco Rossi&lt;/h4&gt;
+                    &lt;span&gt;Frontend Engineer · Profilo dimostrativo&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="quote"&gt;
+                  Questa card dimostrativa combina avatar, nome, ruolo e un testo personalizzato all’interno di una slide proiettata.
+                &lt;/p&gt;
+                &lt;div class="rating-stars"&gt;★★★★★&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/sp-carousel-slide&gt;
+
+            &lt;!-- Custom Slide 2 --&gt;
+            &lt;sp-carousel-slide ariaLabel="Recensione Elena"&gt;
+              &lt;div class="testimonial-slide-card"&gt;
+                &lt;div class="testimonial-header"&gt;
+                  &lt;sp-avatar name="Elena Bianchi" size="lg"&gt;&lt;/sp-avatar&gt;
+                  &lt;div class="user-info"&gt;
+                    &lt;h4&gt;Elena Bianchi&lt;/h4&gt;
+                    &lt;span&gt;Designer · Profilo dimostrativo&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="quote"&gt;
+                  Il contenuto può essere composto con i componenti della libreria e con gli stili della propria applicazione.
+                &lt;/p&gt;
+                &lt;div class="rating-stars"&gt;★★★★★&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/sp-carousel-slide&gt;
+
+            &lt;!-- Custom Slide 3 --&gt;
+            &lt;sp-carousel-slide ariaLabel="Recensione Sofia"&gt;
+              &lt;div class="testimonial-slide-card"&gt;
+                &lt;div class="testimonial-header"&gt;
+                  &lt;sp-avatar name="Sofia Romano" size="lg"&gt;&lt;/sp-avatar&gt;
+                  &lt;div class="user-info"&gt;
+                    &lt;h4&gt;Sofia Romano&lt;/h4&gt;
+                    &lt;span&gt;Architect · Profilo dimostrativo&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="quote"&gt;
+                  Le frecce e gli indicatori permettono di passare fra tre esempi fittizi; le cinque stelle sono decorative.
+                &lt;/p&gt;
+                &lt;div class="rating-stars"&gt;★★★★★&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/sp-carousel-slide&gt;
+          &lt;/sp-carousel&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'carousel.027' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChild &#125; from '&#64;angular/core';
+import &#123; SpCarouselComponent, SpCarouselSlideComponent, SpCarouselItem, SpCarouselEffect, SpCarouselIndicatorType, SpBtnComponent, SpSwitchComponent, SpSegmentedControlComponent, SpAvatarComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpCarouselComponent, SpCarouselSlideComponent, SpBtnComponent, SpSwitchComponent, SpSegmentedControlComponent, SpAvatarComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+// Project: SpLib Showcase
+// File name: carousel-page.component.scss
+// File description: Styles for the SpCarousel showcase page.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+.demo-stage-toolbar &#123;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  background-color: var(--sp-bg-surface-raised, #f8fafc);
+  border-bottom: 1px solid var(--sp-border-color, #e2e8f0);
+
+  .toolbar-group &#123;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .toolbar-label &#123;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--sp-text-secondary, #64748b);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    &#125;
+  &#125;
+
+  .toolbar-toggle &#123;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--sp-text-primary, #0f172a);
+    cursor: pointer;
+  &#125;
+&#125;
+
+.carousel-stage-wrapper &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+&#125;
+
+.carousel-preview-box &#123;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+&#125;
+
+.carousel-controls-bar &#123;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  border-radius: var(--sp-radius-box, 12px);
+  background-color: var(--sp-bg-surface-raised, #f1f5f9);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+
+  .controls-left &#123;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  &#125;
+
+  .controls-status &#123;
+    font-size: 0.8125rem;
+    color: var(--sp-text-secondary, #64748b);
+
+    strong &#123;
+      color: var(--sp-text-primary, #0f172a);
+    &#125;
+  &#125;
+&#125;
+
+// Custom Slides Testimonial Card
+.carousel-custom-container &#123;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+&#125;
+
+.testimonial-slide-card &#123;
+  padding: 44px 40px;
+  background-color: var(--sp-card-bg, #ffffff);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  border-radius: var(--sp-radius-card, 16px);
+  box-shadow: var(--sp-shadow-card, 0 4px 18px rgba(0, 0, 0, 0.06));
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .testimonial-header &#123;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .user-info &#123;
+      h4 &#123;
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--sp-text-primary, #0f172a);
+      &#125;
+
+      span &#123;
+        font-size: 0.8125rem;
+        color: var(--sp-text-secondary, #64748b);
+      &#125;
+    &#125;
+  &#125;
+
+  .quote &#123;
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--sp-text-primary, #1e293b);
+    font-style: italic;
+  &#125;
+
+  .rating-stars &#123;
+    color: #f59e0b;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+  &#125;
+&#125;
+
+// Region: Responsive Demo Layout
+.carousel-stage-wrapper &#123; width: 100%; min-width: 0; &#125;
+.carousel-custom-container, .carousel-preview-box &#123; min-width: 0; &#125;
+&#64;media (max-width: 600px) &#123;
+  .demo-stage-toolbar .toolbar-group &#123; flex-wrap: wrap; &#125;
+  .testimonial-slide-card &#123; padding: 28px 24px 44px; &#125;
+&#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'carousel.028' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>activeIndex</code></td><td><code>model&lt;number&gt;</code></td><td><code>0</code></td><td>{{ 'carousel.029' | translate }}</td></tr>
+          <tr><td><code>items</code></td><td><code>SpCarouselItem[]</code></td><td><code>[]</code></td><td>{{ 'carousel.030' | translate }}</td></tr>
+          <tr><td><code>autoplay</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'carousel.031' | translate }}</td></tr>
+          <tr><td><code>interval</code></td><td><code>number</code></td><td><code>5000</code></td><td>{{ 'carousel.032' | translate }}</td></tr>
+          <tr><td><code>pauseOnHover</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'carousel.033' | translate }}</td></tr>
+          <tr><td><code>loop</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'carousel.034' | translate }}</td></tr>
+          <tr><td><code>showArrows / showIndicators</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'carousel.035' | translate }}</td></tr>
+          <tr><td><code>indicatorType</code></td><td><code>'bars' | 'dots' | 'numbers'</code></td><td><code>'bars'</code></td><td>{{ 'carousel.036' | translate }}</td></tr>
+          <tr><td><code>arrowsPlacement</code></td><td><code>'inside' | 'outside' | 'bottom'</code></td><td><code>'inside'</code></td><td>{{ 'carousel.037' | translate }}</td></tr>
+          <tr><td><code>effect</code></td><td><code>'slide' | 'fade'</code></td><td><code>'slide'</code></td><td>{{ 'carousel.038' | translate }}</td></tr>
+          <tr><td><code>height</code></td><td><code>string</code></td><td><code>'auto'</code></td><td>{{ 'carousel.039' | translate }}</td></tr>
+          <tr><td><code>aspectRatio</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'carousel.040' | translate }}</td></tr>
+          <tr><td><code>ariaLabel</code></td><td><code>string</code></td><td><code>'Galleria carosello'</code></td><td>{{ 'carousel.041' | translate }}</td></tr>
+          <tr><td><code>slideChange</code></td><td><code>output&lt;number&gt;</code></td><td><code>—</code></td><td>{{ 'carousel.042' | translate }}</td></tr>
+          <tr><td><code>next() / prev() / goTo(index)</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'carousel.043' | translate }}</td></tr>
+          <tr><td><code>pause() / play()</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'carousel.044' | translate }}</td></tr>
+          <tr><td><code>isPaused / progressPercent</code></td><td><code>signal&lt;boolean&gt; / signal&lt;number&gt;</code></td><td><code>false / 0</code></td><td>{{ 'carousel.045' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="doc-section">
+    <h3>{{ 'carousel.046' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>src / alt</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.047' | translate }}</td></tr>
+          <tr><td><code>title / description</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.048' | translate }}</td></tr>
+          <tr><td><code>ctaText</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.049' | translate }}</td></tr>
+          <tr><td><code>ctaLink</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.050' | translate }}</td></tr>
+          <tr><td><code>SpCarouselSlideComponent.ariaLabel</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'carousel.051' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

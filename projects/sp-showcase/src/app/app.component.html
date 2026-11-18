@@ -1,2 +1,206 @@
-<!--Router outlet-->
-<router-outlet></router-outlet>
+<!-- Region: Showcase Shell -->
+<div class="showcase-shell" showcaseI18nLabels (keydown.escape)="closeNavigation(menuToggle)">
+  <!-- Region: Top Navigation Bar -->
+  <header class="showcase-navbar">
+    <div class="brand-group">
+      <a routerLink="/showcase" class="brand-logo" [attr.aria-label]="'nav.001' | translate">
+        <img class="logo-glyph" src="sp-lib-mark.svg" alt="" width="32" height="32" />
+        <span class="logo-text">{{ 'nav.002' | translate }}</span>
+      </a>
+      <span class="brand-badge">{{ 'nav.003' | translate }}</span>
+    </div>
+
+    <button
+      #menuToggle
+      type="button"
+      class="mobile-menu-toggle"
+      aria-controls="showcase-navigation"
+      [attr.aria-expanded]="navigationOpen()"
+      (click)="navigationOpen.set(!navigationOpen())">
+      {{ (navigationOpen() ? 'nav.closeMenu' : 'nav.openMenu') | translate }}
+    </button>
+
+    <div class="nav-actions">
+      <!-- Region: Showcase Language -->
+      <select
+        #languageSelect
+        class="language-select"
+        [attr.aria-label]="'language.label' | translate"
+        [value]="i18n.language()"
+        (change)="i18n.setLanguage(languageSelect.value)">
+        <option value="en" lang="en">English</option>
+        <option value="it" lang="it">Italiano</option>
+      </select>
+
+      <!-- npm Package Link -->
+      <a
+        href="https://www.npmjs.com/package/@aledevsharp/sp-lib"
+        target="_blank"
+        rel="noopener noreferrer"
+        [attr.aria-label]="'nav.004' | translate"
+        class="nav-external-link">
+        {{ 'nav.005' | translate }}
+      </a>
+
+      <!-- GitHub Link -->
+      <a
+        href="https://github.com/AleDevSharp/Npm-Sp-Angular-Lib"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-external-link">
+        {{ 'nav.006' | translate }}
+      </a>
+    </div>
+  </header>
+
+  <!-- Region: Body Layout (Sidebar + Content) -->
+  <div class="showcase-body">
+    <!-- Region: Left Navigation Sidebar -->
+    <nav id="showcase-navigation" class="showcase-sidebar" [class.is-open]="navigationOpen()" [attr.aria-label]="'nav.007' | translate" (click)="onNavigationClick($event, contentArea)">
+      <!-- Group: Overview -->
+      <div class="nav-group-title">{{ 'nav.008' | translate }}</div>
+      <ul class="nav-list">
+        <li>
+          <a routerLink="/showcase" routerLinkActive="active-link" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }">
+            <span>{{ 'nav.009' | translate }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Group: Form Controls -->
+      <div class="nav-group-title">{{ 'nav.010' | translate }}</div>
+      <ul class="nav-list">
+        <li>
+          <a routerLink="/buttons" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.011' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/inputs" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.012' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/select" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.013' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/switch" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.014' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/segmented-control" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.015' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/toggle-list" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.016' | translate }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Group: Feedback & Layout -->
+      <div class="nav-group-title">{{ 'nav.017' | translate }}</div>
+      <ul class="nav-list">
+        <li>
+          <a routerLink="/progress-bars" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.018' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dividers" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.019' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/tooltip" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.020' | translate }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Group: Data Display -->
+      <div class="nav-group-title">{{ 'nav.021' | translate }}</div>
+      <ul class="nav-list">
+        <li>
+          <a routerLink="/card" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.022' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/badge" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.023' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/chip" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.024' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/avatar" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.025' | translate }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Group: Motion UI -->
+      <div class="nav-group-title">{{ 'nav.026' | translate }}</div>
+      <ul class="nav-list">
+        <li>
+          <a routerLink="/accordion" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.027' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/tabs" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.028' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/skeleton" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.029' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/counter" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.030' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/ripple" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.031' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/speed-dial" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.032' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/marquee" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.033' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/modal-drawer" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.034' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/carousel" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+            <span>{{ 'nav.035' | translate }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Region: Main Scrollable Content Viewport -->
+    <main #contentArea class="showcase-content-area" tabindex="-1">
+      <router-outlet (activate)="this.resetContentScroll(contentArea)"></router-outlet>
+    </main>
+  </div>
+</div>

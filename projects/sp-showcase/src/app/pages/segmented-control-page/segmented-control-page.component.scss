@@ -1,0 +1,77 @@
+// ================================
+// Region: Demo Layout
+// ================================
+.segmented-demo-column {
+  width: 100%;
+  min-width: 0;
+}
+
+.demo-stage-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  overflow-x: auto;
+  background-color: var(--sp-bg-surface-card);
+  border-radius: var(--sp-radius-md, 8px);
+  border: 1px dashed var(--sp-border-subtle);
+}
+
+// ================================
+// Region: Selection Feedback
+// ================================
+.demo-feedback {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px dashed var(--sp-border-color);
+  border-radius: var(--sp-radius-sm, 6px);
+  font-size: 0.875rem;
+  color: var(--sp-text-secondary);
+
+  code {
+    background-color: var(--sp-bg-surface-raised);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sp-color-accent);
+    font-weight: 600;
+  }
+}
+
+// ================================
+// Region: Size and Full-Width Examples
+// ================================
+.sizes-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.size-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  .size-label {
+    min-width: 150px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--sp-text-secondary);
+  }
+}
+
+.block-preview-box {
+  width: 100%;
+  max-width: 550px;
+  min-width: 0;
+  padding: 24px;
+  border-radius: var(--sp-radius-lg, 12px);
+  border: 1px solid var(--sp-border-subtle);
+  background-color: var(--sp-bg-surface-card);
+
+  sp-segmented-control {
+    display: block;
+    width: 100%;
+  }
+}

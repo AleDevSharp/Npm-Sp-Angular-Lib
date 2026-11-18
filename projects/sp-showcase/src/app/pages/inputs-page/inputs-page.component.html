@@ -1,238 +1,293 @@
-<div class="master">
-  <div class="content">
-    <!-- Header -->
-    <div class="header">
-      <p>Input Component</p>
-      <sp-divider></sp-divider>
-    </div>
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'inputs.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'inputs.002' | translate }}</p>
+  </div>
 
-    <p class="desc">Showcase of input usage examples:</p>
+  <div class="doc-section">
+    <h3>{{ 'inputs.003' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.004' | translate }} <code>[(value)]</code> {{ 'inputs.005' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="inputs-demo-column">
+          <sp-input
+            id="user-input"
+            [label]="'inputs.006' | translate"
+            [(value)]="this.usernameValue"
+            [hint]="'inputs.007' | translate"
+            [clearable]="true"></sp-input>
 
-    <!--Standard input-->
-    <div class="section">
-      <h3>Standard Input</h3>
-
-      <sp-input
-        id="'std1"
-        label="Name"></sp-input>
-
-      <sp-input
-        id="std2"
-        label="Email"
-        type="email"></sp-input>
-
-      <sp-input
-        id="std3"
-        label="Username"
-        placeholder="Enter your username"></sp-input>
-    </div>
-
-    <!--Placeholder examples-->
-    <div class="section">
-      <h3>Placeholder Variants</h3>
-
-      <sp-input
-        id="ph1"
-        label="City"
-        placeholder="Rome"></sp-input>
-
-      <sp-input
-        id="ph2"
-        label="Address"
-        placeholder="Via Garibaldi 25"></sp-input>
-    </div>
-
-    <!--Color Variants-->
-    <div class="section">
-      <h3>Color Variants</h3>
-
-      <sp-input
-        id="c1"
-        label="Primary"
-        borderColor="#2196f3"></sp-input>
-
-      <sp-input
-        id="c2"
-        label="Success"
-        borderColor="#4caf50"></sp-input>
-
-      <sp-input
-        id="c3"
-        label="Warning"
-        borderColor="#ff9800"></sp-input>
-
-      <sp-input
-        id="c4"
-        label="Danger"
-        borderColor="#e53935"></sp-input>
-    </div>
-
-    <!--Radius Variants-->
-    <div class="section">
-      <h3>Border Radius Variants</h3>
-
-      <sp-input
-        id="r1"
-        label="Sharp"
-        borderRadius="0px"></sp-input>
-      <sp-input
-        id="r2"
-        label="Small"
-        borderRadius="4px"></sp-input>
-      <sp-input
-        id="r3"
-        label="Round"
-        borderRadius="12px"></sp-input>
-      <sp-input
-        id="r4"
-        label="Pill"
-        borderRadius="50px"></sp-input>
-    </div>
-
-    <!--Disabled input-->
-    <div class="section">
-      <h3>Disabled Inputs</h3>
-
-      <sp-input
-        id="d1"
-        label="Username"
-        value="alex"
-        [disabled]="true"></sp-input>
-      <sp-input
-        id="d2"
-        label="Email"
-        placeholder="Disabled…"
-        [disabled]="true"></sp-input>
-    </div>
-
-    <!--Error states-->
-    <div class="section">
-      <h3>Error States</h3>
-
-      <sp-input
-        id="e1"
-        label="Email"
-        [hasError]="true"
-        errorMessage="Invalid email"></sp-input>
-
-      <sp-input
-        id="e2"
-        label="Password"
-        [hasError]="true"
-        errorMessage="Password too short"></sp-input>
-    </div>
-
-    <!--Prefix & Suffix-->
-    <div class="section">
-      <h3>Prefix & Suffix</h3>
-
-      <sp-input
-        id="p1"
-        label="Search"
-        prefix="🔍"
-        placeholder="Search here…"></sp-input>
-
-      <sp-input
-        id="p2"
-        label="Price"
-        suffix="€"
-        type="number"
-        placeholder="0.00"></sp-input>
-
-      <sp-input
-        id="p3"
-        label="Phone"
-        prefix="+39"
-        placeholder="345 123 4567"></sp-input>
-    </div>
-
-    <!--Password with eye toggle-->
-    <div class="section">
-      <h3>Password Input (Manual Toggle Example)</h3>
-
-      <div style="display: flex; gap: 10px; align-items: center">
-        <sp-input
-          id="pw1"
-          label="Password"
-          [type]="this.passwordVisible() ? 'text' : 'password'"
-          suffix="👁"
-          placeholder="Enter password"></sp-input>
-
-        <button
-          (click)="togglePassword()"
-          style="padding: 5px 10px; border-radius: 6px; background: #ddd">
-          Toggle
-        </button>
+          <div class="bound-value-box">
+            {{ 'inputs.008' | translate }} <strong>{{ this.usernameValue() }}</strong>
+          </div>
+        </div>
       </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="inputs-demo-column"&gt;
+  &lt;sp-input
+    id="user-input"
+    label="Nome Utente"
+    [(value)]="this.usernameValue"
+    hint="Modifica il testo per verificare il binding in tempo reale"
+    [clearable]="true"&gt;&lt;/sp-input&gt;
+
+  &lt;div class="bound-value-box"&gt;
+    Valore corrente nel Signal: &lt;strong&gt;&#123;&#123; this.usernameValue() &#125;&#125;&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.009' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'inputs.010' | translate"><code>// The writable username signal used by the two-way binding
+public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!--Size Variants-->
-    <div class="section">
-      <h3>Size Variants</h3>
+  <div class="doc-section">
+    <h3>{{ 'inputs.011' | translate }}</h3>
+    <p class="section-desc">{{ 'dividers.018' | translate }} <code>prefix</code> {{ 'accordion.023' | translate }} <code>suffix</code> {{ 'inputs.012' | translate }} <code>[prefix]</code> {{ 'accordion.023' | translate }} <code>[suffix]</code>.</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="inputs-demo-column">
+          <sp-input
+            id="url-input"
+            [label]="'inputs.013' | translate"
+            prefix="https://"
+            suffix=".com"
+            [placeholder]="'inputs.014' | translate"></sp-input>
 
-      <sp-input
-        id="s1"
-        label="Small"
-        padding="4px"></sp-input>
-      <sp-input
-        id="s2"
-        label="Medium"
-        padding="8px"></sp-input>
-      <sp-input
-        id="s3"
-        label="Large"
-        padding="14px"></sp-input>
+          <sp-input
+            id="price-input"
+            [label]="'inputs.015' | translate"
+            prefix="€"
+            placeholder="0.00"></sp-input>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="inputs-demo-column"&gt;
+  &lt;sp-input
+    id="url-input"
+    label="Sito Web"
+    prefix="https://"
+    suffix=".com"
+    placeholder="iltuosito"&gt;&lt;/sp-input&gt;
+
+  &lt;sp-input
+    id="price-input"
+    label="Prezzo"
+    prefix="€"
+    placeholder="0.00"&gt;&lt;/sp-input&gt;
+&lt;/div&gt;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!--Live input-->
-    <div class="section">
-      <h3>Live Input Demo</h3>
-
-      <!-- Using output event -->
-      <sp-input
-        id="live1"
-        label="Full Name"
-        placeholder="John Doe"
-        (changeInput)="onNameChange($event)"></sp-input>
-      <p>Value from event: {{ nameFromEvent }}</p>
-
-      <!-- Using ngModel -->
-      <sp-input
-        id="live2"
-        label="Email"
-        placeholder="example@mail.com"
-        [(ngModel)]="this.emailValue"></sp-input>
-      <p>Value from ngModel: {{ this.emailValue }}</p>
+  <div class="doc-section">
+    <h3>{{ 'buttons.020' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.016' | translate }} <code>sm</code> {{ 'inputs.017' | translate }} <code>md</code> {{ 'inputs.018' | translate }} <code>lg</code> {{ 'inputs.019' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="inputs-demo-column">
+          <sp-input id="size-sm" [label]="'inputs.020' | translate" size="sm" [placeholder]="'inputs.021' | translate"></sp-input>
+          <sp-input id="size-md" [label]="'inputs.022' | translate" size="md" [placeholder]="'inputs.023' | translate"></sp-input>
+          <sp-input id="size-lg" [label]="'inputs.024' | translate" size="lg" [placeholder]="'inputs.025' | translate"></sp-input>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="inputs-demo-column"&gt;
+  &lt;sp-input id="size-sm" label="Small (sm)" size="sm" placeholder="Compatto"&gt;&lt;/sp-input&gt;
+  &lt;sp-input id="size-md" label="Medium (md)" size="md" placeholder="Standard"&gt;&lt;/sp-input&gt;
+  &lt;sp-input id="size-lg" label="Large (lg)" size="lg" placeholder="In evidenza"&gt;&lt;/sp-input&gt;
+&lt;/div&gt;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!--Full form example-->
-    <div class="section">
-      <h3>Full Form Example</h3>
+  <div class="doc-section">
+    <h3>{{ 'inputs.026' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.027' | translate }}<code>#64748b</code>); <code>focusColor</code> {{ 'inputs.028' | translate }} <code>--sp-border-color-focus</code> {{ 'inputs.029' | translate }} <code>borderColor</code> {{ 'inputs.030' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="inputs-demo-column">
+          <sp-input id="input-focus-default" [label]="'inputs.031' | translate" [placeholder]="'inputs.032' | translate"></sp-input>
+          <sp-input
+            id="input-focus-custom"
+            [label]="'inputs.033' | translate"
+            borderColor="#94a3b8"
+            focusColor="#2563eb"
+            [placeholder]="'inputs.034' | translate"></sp-input>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="inputs-demo-column"&gt;
+  &lt;sp-input id="input-focus-default" label="Focus predefinito" placeholder="Focus neutro"&gt;&lt;/sp-input&gt;
+  &lt;sp-input
+    id="input-focus-custom"
+    label="Focus personalizzato"
+    borderColor="#94a3b8"
+    focusColor="#2563eb"
+    placeholder="Bordo grigio, focus blu"&gt;&lt;/sp-input&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.035' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'inputs.036' | translate"><code>/* Optional application-wide focus color in the global stylesheet */
+:root &#123;
+  --sp-border-color-focus: #0f766e;
+&#125;</code></pre>
+      </details>
+    </div>
+  </div>
 
-      <sp-input
-        id="ff1"
-        label="Full name"
-        placeholder="John Doe"></sp-input>
-      <sp-input
-        id="ff2"
-        label="Email"
-        placeholder="example@mail.com"></sp-input>
-      <sp-input
-        id="ff3"
-        label="Phone"
-        prefix="+39"></sp-input>
-      <sp-input
-        id="ff4"
-        label="City"
-        placeholder="Rome"></sp-input>
-      <sp-input
-        id="ff5"
-        label="Password"
-        type="password"></sp-input>
+  <div class="doc-section">
+    <h3>{{ 'inputs.037' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.004' | translate }} <code>hasError</code> {{ 'inputs.038' | translate }} <code>errorMessage</code> {{ 'inputs.039' | translate }} <code>aria-invalid</code> {{ 'inputs.040' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="inputs-demo-column">
+          <sp-input
+            id="error-input"
+            [label]="'inputs.041' | translate"
+            type="email"
+            [formControl]="emailControl"
+            [hasError]="emailControl.invalid"
+            [errorMessage]="'inputs.042' | translate"></sp-input>
 
-      <button style="margin-top: 15px; padding: 8px 12px; background: #2196f3; color: white; border-radius: 5px; border: none">
-        Submit
-      </button>
+          <sp-input
+            id="disabled-input"
+            [label]="'inputs.043' | translate"
+            value="account_sospeso"
+            [disabled]="true"
+            [hint]="'inputs.044' | translate"></sp-input>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="inputs-demo-column"&gt;
+  &lt;sp-input
+    id="error-input"
+    label="Indirizzo Email"
+    type="email"
+    [formControl]="emailControl"
+    [hasError]="emailControl.invalid"
+    errorMessage="Inserisci un indirizzo email valido (es. utente&#64;dominio.it)"&gt;&lt;/sp-input&gt;
+
+  &lt;sp-input
+    id="disabled-input"
+    label="Account Bloccato"
+    value="account_sospeso"
+    [disabled]="true"
+    hint="Questo campo non è modificabile"&gt;&lt;/sp-input&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'inputs.046' | translate"><code>import &#123; FormControl, Validators &#125; from '&#64;angular/forms';
+
+// The email control validating both empty and malformed addresses
+  public readonly emailControl = new FormControl('email_non_valida', &#123;
+    nonNullable: true,
+    validators: [Validators.required, Validators.email]
+  &#125;);</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.047' | translate }} <code>&#64;aledevsharp/sp-lib</code>{{ 'inputs.048' | translate }} <code>[(value)]</code> {{ 'inputs.049' | translate }} <code>[(ngModel)]</code> {{ 'inputs.050' | translate }} <code>FormsModule</code>; <code>[formControl]</code> {{ 'accordion.023' | translate }} <code>formControlName</code> {{ 'inputs.051' | translate }} <code>ReactiveFormsModule</code>{{ 'inputs.052' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; ReactiveFormsModule &#125; from '&#64;angular/forms';
+import &#123; SpInputComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-field-example',
+  standalone: true,
+  imports: [SpInputComponent, ReactiveFormsModule],
+  templateUrl: './field-example.component.html',
+  styleUrl: './field-example.component.scss'
+&#125;)
+export class FieldExampleComponent &#123;
+  // Add the state and handlers shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+// Region: Variables &amp; Layout
+// ================================
+.inputs-demo-column &#123;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+&#125;
+
+.bound-value-box &#123;
+  background-color: var(--sp-bg-surface-card);
+  border: 1px dashed var(--sp-border-color);
+  border-radius: var(--sp-radius-sm, 6px);
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+
+  strong &#123;
+    color: var(--sp-color-accent);
+  &#125;
+&#125;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'inputs.053' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>id</code></td><td><code>string</code></td><td><code>generato</code></td><td>{{ 'inputs.054' | translate }}</td></tr>
+          <tr><td><code>label</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.055' | translate }}</td></tr>
+          <tr><td><code>value</code></td><td><code>ModelSignal&lt;string&gt;</code></td><td><code>''</code></td><td>{{ 'inputs.056' | translate }}</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.057' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'inputs.058' | translate }}</td></tr>
+          <tr><td><code>hasError</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.059' | translate }}</td></tr>
+          <tr><td><code>errorMessage</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.060' | translate }}</td></tr>
+          <tr><td><code>hint</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.061' | translate }}</td></tr>
+          <tr><td><code>focusColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.062' | translate }}</td></tr>
+          <tr><td><code>labelColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.063' | translate }}</td></tr>
+          <tr><td><code>changeInput</code></td><td><code>OutputEmitterRef&lt;string&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.064' | translate }}</td></tr>
+          <tr><td><code>type</code></td><td><code>string</code></td><td><code>'text'</code></td><td>{{ 'inputs.065' | translate }}</td></tr>
+          <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.066' | translate }}</td></tr>
+          <tr><td><code>readonly</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.067' | translate }}</td></tr>
+          <tr><td><code>prefix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.068' | translate }}</td></tr>
+          <tr><td><code>suffix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.068' | translate }}</td></tr>
+          <tr><td><code>clearable</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.069' | translate }}</td></tr>
+          <tr><td><code>borderColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.070' | translate }}</td></tr>
+          <tr><td><code>backgroundColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.071' | translate }}</td></tr>
+          <tr><td><code>textColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.072' | translate }}</td></tr>
+          <tr><td><code>borderRadius</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.073' | translate }}</td></tr>
+          <tr><td><code>padding</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.074' | translate }}</td></tr>
+          <tr><td><code>inputFocus</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.075' | translate }}</td></tr>
+          <tr><td><code>inputBlur</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.076' | translate }}</td></tr>
+          <tr><td><code>inputFocus</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.075' | translate }}</td></tr>
+          <tr><td><code>inputBlur</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.077' | translate }}</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

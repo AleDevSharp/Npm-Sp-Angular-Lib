@@ -1,10 +1,659 @@
+// ==============================================================
+// Project: SpLib Showcase
+// File: styles.scss
+// Description: Plasmic-inspired Light Design System for SpLib Showcase
+// Author: Alessio Giacché
+// Date: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../../sp-lib/src/lib/styles/tokens';
+
+// ================================
+// Region: Design Tokens & Palette (Plasmic Light Theme)
+// ================================
+:root {
+  color-scheme: light;
+
+  // Plasmic Light Measured Canvas & Surfaces
+  --sp-bg-canvas: #FFF7F9;
+  --sp-bg-surface: #F5EDEF;
+  --sp-bg-surface-raised: #EDE6E8;
+  --sp-bg-surface-card: #FFFFFF;
+  --sp-bg-surface-hover: #E9EEF6;
+
+  // Plasmic Light Text
+  --sp-text-primary: #1C1417;
+  --sp-text-secondary: #70696C;
+  --sp-text-muted: #9E969A;
+
+  // Fallback Aliases
+  --sp-card-bg: var(--sp-bg-surface-card);
+  --sp-bg-secondary: var(--sp-bg-surface);
+  --sp-bg-primary: var(--sp-bg-surface-card);
+  --sp-primary: var(--sp-color-accent);
+
+  // Plasmic Borders
+  --sp-border-color: #DBD4D6;
+  --sp-border-subtle: #EDE6E8;
+  --sp-border-hairline: #8636F8;
+
+  // Plasmic Accents & Chromatic Palette
+  --sp-color-accent: #E00E59;
+  --sp-color-pink: #F44B88;
+  --sp-color-purple: #8636F8;
+  --sp-color-blue: #0091FF;
+  --sp-color-orange: #FF9421;
+  --sp-color-focus-ring: #F44B88;
+
+  // Plasmic Signature Gradients
+  --sp-gradient-brand: linear-gradient(81.31deg, #8636F8 2.26%, #F020B3 34.84%, #F8475E 67.42%, #FF9421 100%);
+  --sp-gradient-blue: linear-gradient(90deg, #0091FF 0%, #8636F8 100%);
+  --sp-gradient-soft: linear-gradient(81.31deg, rgba(134, 54, 248, 0.08) 2.26%, rgba(240, 32, 179, 0.08) 34.84%, rgba(248, 71, 94, 0.08) 67.42%, rgba(255, 148, 33, 0.08) 100%);
+  --sp-gradient-ambient: radial-gradient(80% 50% at 50% 0%, rgba(244, 75, 136, 0.06) 0%, rgba(134, 54, 248, 0.03) 40%, rgba(255, 247, 249, 0) 100%);
+
+  // Radii
+  --sp-radius-full: 9999px;
+  --sp-radius-card: 16px;
+  --sp-radius-box: 12px;
+  --sp-radius-sm: 6px;
+
+  // Shadows
+  --sp-shadow-subtle: rgba(0, 0, 0, 0.03) 0px 2px 8px 0px;
+  --sp-shadow-card: rgba(0, 0, 0, 0.05) 0px 4px 20px -4px, rgba(0, 0, 0, 0.02) 0px 2px 6px -2px;
+  --sp-shadow-outline: rgba(0, 0, 0, 0.08) 0px 8px 32px -8px, rgba(0, 0, 0, 0.05) 0px 8px 20px -16px;
+  --sp-shadow-brand-glow: rgba(224, 14, 89, 0.25) 0px 6px 20px -2px;
+}
+
+// ================================
+// Region: Modern Reset & Base
+// ================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--sp-text-primary);
+  background-color: var(--sp-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  p {
-    font-family: 'Times New Roman', Times, serif;
+// ================================
+// Region: Typography (Inter with Negative Tracking)
+// ================================
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.5rem 0;
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--sp-text-primary);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: 1.75rem;
+  letter-spacing: -1.2px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  letter-spacing: -0.6px;
+}
+
+h4 {
+  font-size: 1.0625rem;
+  letter-spacing: -0.3px;
+}
+
+p {
+  margin: 0 0 1rem 0;
+  color: var(--sp-text-secondary);
+  font-family: inherit;
+  letter-spacing: -0.2px;
+}
+
+a {
+  color: var(--sp-color-accent);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+}
+
+// ================================
+// Region: Global Showcase Shell
+// ================================
+.showcase-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--sp-bg-canvas);
+}
+
+// Topbar Header
+.showcase-navbar {
+  height: 64px;
+  border-bottom: 1px solid var(--sp-border-color);
+  background-color: rgba(255, 247, 249, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  flex-shrink: 0;
+  z-index: 999;
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    .brand-logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--sp-text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+
+      .logo-glyph {
+        display: block;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        box-shadow: var(--sp-shadow-brand-glow);
+      }
+
+      .logo-text {
+        background: var(--sp-gradient-brand);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+      }
+    }
+
+    .brand-badge {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: var(--sp-radius-full);
+      background: var(--sp-gradient-soft);
+      border: 1px solid rgba(224, 14, 89, 0.25);
+      color: var(--sp-color-accent);
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .nav-external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--sp-text-primary);
+      background: var(--sp-bg-surface-card);
+      border: 1px solid var(--sp-border-color);
+      padding: 7px 16px;
+      border-radius: var(--sp-radius-full);
+      box-shadow: var(--sp-shadow-subtle);
+      transition: all 0.15s ease;
+
+      &:hover {
+        color: var(--sp-color-accent);
+        border-color: var(--sp-color-accent);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Body with Sidebar & Content
+.showcase-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+// Sidebar
+.showcase-sidebar {
+  width: 275px;
+  border-right: 1px solid var(--sp-border-color);
+  background-color: var(--sp-bg-surface);
+  overflow-y: auto;
+  padding: 18px 12px 36px 12px;
+  flex-shrink: 0;
+
+  .nav-group-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.44px;
+    color: var(--sp-text-muted);
+    padding: 18px 16px 8px 16px;
+
+    &:first-child {
+      padding-top: 6px;
+    }
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 2px;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: -0.2px;
+        color: var(--sp-text-secondary);
+        border-radius: var(--sp-radius-full);
+        transition: all 0.15s ease;
+        text-decoration: none;
+
+        &:hover {
+          background-color: var(--sp-bg-surface-raised);
+          color: var(--sp-text-primary);
+        }
+
+        &.active-link {
+          background: var(--sp-gradient-brand);
+          color: #ffffff;
+          font-weight: 600;
+          box-shadow: var(--sp-shadow-brand-glow);
+        }
+      }
+    }
+  }
+}
+
+// Main Scrollable Area
+.showcase-content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 36px 56px 64px 56px;
+  background-color: var(--sp-bg-canvas);
+  background-image: var(--sp-gradient-ambient);
+  background-repeat: no-repeat;
+  background-size: 100% 480px;
+
+  @media (max-width: 900px) {
+    padding: 24px 20px 48px 20px;
+  }
+}
+
+// ================================
+// Region: Reusable Documentation UI
+// ================================
+.doc-page {
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.doc-header {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--sp-border-color);
+
+  .doc-title-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+
+    h1 {
+      margin: 0;
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: var(--sp-text-primary);
+    }
+  }
+
+  .doc-subtitle {
+    font-size: 1.0625rem;
+    color: var(--sp-text-secondary);
+    line-height: 1.6;
+    letter-spacing: -0.2px;
+    margin: 0;
+  }
+}
+
+.doc-section {
+  margin-bottom: 44px;
+
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    color: var(--sp-text-primary);
+    margin-bottom: 6px;
+  }
+
+  .section-desc {
+    font-size: 0.9375rem;
+    color: var(--sp-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    letter-spacing: -0.2px;
+  }
+}
+
+// Demo Card Container
+.demo-card {
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-card);
+  background-color: var(--sp-bg-surface-card);
+  box-shadow: var(--sp-shadow-card);
+  overflow: hidden;
+  margin-bottom: 24px;
+
+  .demo-stage {
+    padding: 32px;
+    background-color: var(--sp-bg-surface);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    min-height: 90px;
+  }
+
+  .demo-code {
+    background-color: #060317;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    min-width: 0;
+    position: relative;
+
+    summary {
+      padding: 14px 24px;
+      color: #cbd5e1;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      cursor: pointer;
+
+      &::marker {
+        color: var(--sp-color-pink);
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--sp-color-pink);
+        outline-offset: -3px;
+      }
+    }
+
+    .code-hide {
+      display: none;
+    }
+
+    &[open] {
+      > summary {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .code-show {
+        display: none;
+      }
+
+      .code-hide {
+        display: inline;
+      }
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px 24px;
+      color: #ffffff;
+      overflow-x: auto;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--sp-radius-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+    }
+  }
+}
+
+// Code Card Snippets
+.code-card {
+  border-radius: var(--sp-radius-box);
+  background-color: #060317;
+  border: 1px solid rgba(134, 54, 248, 0.25);
+  overflow: hidden;
+  margin-bottom: 16px;
+
+  .code-title {
+    padding: 10px 18px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--sp-color-pink);
+  }
+
+  pre {
+    margin: 0;
+    padding: 16px 20px;
+    color: #ffffff;
+    overflow-x: auto;
+  }
+}
+
+// API Reference Table
+.table-responsive {
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-box);
+  overflow-x: auto;
+  background-color: var(--sp-bg-surface-card);
+  box-shadow: var(--sp-shadow-subtle);
+}
+
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+
+  th, td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--sp-border-subtle);
+  }
+
+  th {
+    background-color: var(--sp-bg-surface);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--sp-text-primary);
+    border-bottom: 1px solid var(--sp-border-color);
+  }
+
+  td {
+    color: var(--sp-text-secondary);
+
+    code {
+      background-color: var(--sp-bg-surface-raised);
+      padding: 3px 8px;
+      border-radius: var(--sp-radius-sm);
+      color: var(--sp-color-accent);
+      font-weight: 600;
+      font-size: 0.8125rem;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+// ================================
+// Region: Responsive Showcase Layout
+// ================================
+@media (max-width: 900px) {
+  .showcase-shell {
+    height: 100dvh;
+  }
+
+  .showcase-navbar {
+    gap: 12px;
+    padding-inline: 16px;
+  }
+
+  .showcase-body {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .showcase-sidebar {
+    display: none;
+    width: 100%;
+    max-height: 45dvh;
+    border-right: 0;
+    border-bottom: 1px solid var(--sp-border-color);
+    padding: 12px 16px;
+    overscroll-behavior: contain;
+
+    &.is-open {
+      display: block;
+    }
+
+    .nav-list li a {
+      min-height: 44px;
+    }
+  }
+
+  .showcase-content-area {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .doc-page {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .doc-title-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .showcase-navbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    height: auto;
+    padding: 10px 16px;
+    gap: 10px;
+
+    .brand-group {
+      gap: 8px;
+    }
+
+    .nav-actions {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .nav-external-link {
+        min-height: 44px;
+        padding: 8px 12px;
+      }
+    }
+  }
+
+  .showcase-content-area {
+    padding: 24px 16px 40px;
+  }
+
+  .doc-header {
+    margin-bottom: 24px;
+
+    .doc-title-row h1 {
+      font-size: 1.8rem;
+      letter-spacing: -1px;
+    }
+  }
+
+  .demo-card .demo-stage {
+    padding: 16px;
+    gap: 12px;
+    min-width: 0;
+    overflow-x: auto;
+  }
+
+  .demo-card .demo-code pre,
+  .code-card pre {
+    padding: 16px;
+  }
+
+  .api-table {
+    min-width: 560px;
+  }
+
+  .mobile-api-table {
+    overflow-x: auto;
   }
 }

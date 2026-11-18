@@ -1,0 +1,381 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: marquee-page.component.scss
+// File description: Styles for MarqueePageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+
+// ================================
+// Region: Playground Layout
+// ================================
+
+.playground-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.playground-layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  width: 100%;
+  min-height: 400px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.playground-controls {
+  padding: 24px;
+  background-color: var(--sp-bg-surface);
+  border-right: 1px solid var(--sp-border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 860px) {
+    border-right: none;
+    border-bottom: 1px solid var(--sp-border-color);
+  }
+}
+
+.control-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sp-text-muted);
+}
+
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.choice-btn {
+  padding: 5px 12px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: var(--sp-radius-full, 9999px);
+  border: 1px solid var(--sp-border-color);
+  background: var(--sp-bg-surface-card, #ffffff);
+  color: var(--sp-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: var(--sp-text-primary);
+    border-color: var(--sp-color-purple, #8636F8);
+  }
+
+  &.active {
+    background: var(--sp-gradient-brand);
+    color: #ffffff;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: var(--sp-shadow-brand-glow);
+  }
+}
+
+.switch-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--sp-border-color);
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+}
+
+// ================================
+// Region: Live Stage Surface
+// ================================
+
+.stage-container {
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sp-bg-canvas);
+  position: relative;
+}
+
+.stage-surface {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-image: radial-gradient(var(--sp-border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+
+  &.stage-vertical {
+    min-height: 380px;
+  }
+}
+
+.stage-footer {
+  padding: 12px 20px;
+  background-color: var(--sp-bg-surface);
+  border-top: 1px solid var(--sp-border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+}
+
+.footer-label {
+  font-weight: 600;
+  color: var(--sp-text-muted);
+}
+
+.footer-status {
+  font-weight: 600;
+  color: var(--sp-color-accent);
+
+  &.paused {
+    color: var(--sp-color-orange);
+  }
+}
+
+// ================================
+// Region: Tech Pills
+// ================================
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: var(--sp-radius-md, 8px);
+  background-color: var(--sp-bg-canvas, #ffffff);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.08);
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -2px rgb(0 0 0 / 0.12);
+  }
+
+  .tech-icon {
+    font-size: 1.25rem;
+  }
+
+  .tech-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+
+    .tech-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--sp-text-primary, #0f172a);
+    }
+
+    .tech-cat {
+      font-size: 0.6875rem;
+      color: var(--sp-text-muted, #94a3b8);
+    }
+  }
+}
+
+// ================================
+// Region: Multi-Row Bi-Directional
+// ================================
+
+.dual-marquee-card {
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brand-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--sp-radius-full, 9999px);
+  background-color: var(--sp-bg-surface, #f8fafc);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--sp-text-primary, #0f172a);
+  white-space: nowrap;
+
+  &.brand-item-accent {
+    background-color: rgb(255 172 28 / 0.08);
+    border-color: rgb(255 172 28 / 0.35);
+    color: #b45309;
+  }
+
+  .brand-glyph {
+    font-size: 1.125rem;
+  }
+}
+
+// ================================
+// Region: Reviews Bubbles
+// ================================
+
+.reviews-card {
+  padding: 32px 16px;
+}
+
+.review-bubble {
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: var(--sp-radius-lg, 12px);
+  background-color: var(--sp-bg-surface, #f8fafc);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.06);
+
+  .review-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .review-meta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+
+      .review-author {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--sp-text-primary, #0f172a);
+      }
+
+      .review-role {
+        font-size: 0.6875rem;
+        color: var(--sp-text-muted, #94a3b8);
+      }
+    }
+
+    .review-stars {
+      color: #f59e0b;
+      font-size: 0.875rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  .review-text {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--sp-text-secondary, #64748b);
+    line-height: 1.45;
+  }
+}
+
+// ================================
+// Region: Vertical News Ticker
+// ================================
+
+.vertical-card {
+  padding: 24px;
+}
+
+.news-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--sp-radius-md, 8px);
+  background-color: var(--sp-bg-surface, #f8fafc);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+
+  .news-time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--sp-text-muted, #94a3b8);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .news-text {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--sp-text-primary, #0f172a);
+  }
+}
+
+// ================================
+// Region: Dark Mode
+// ================================
+
+[data-theme='dark'] {
+  .playground-controls,
+  .stage-footer,
+  .brand-item,
+  .review-bubble,
+  .news-row {
+    background-color: #1e293b;
+    border-color: #334155;
+  }
+
+  .stage-surface {
+    background-image: radial-gradient(#334155 1px, transparent 1px);
+  }
+
+  .choice-btn {
+    background: #0f172a;
+    border-color: #334155;
+    color: #94a3b8;
+
+    &:hover {
+      color: #f8fafc;
+      border-color: #475569;
+    }
+
+    &.active {
+      background-color: var(--sp-color-primary, #ffac1c);
+      color: #1c1917;
+      border-color: var(--sp-color-primary, #ffac1c);
+    }
+  }
+
+  .tech-pill {
+    background-color: #1e293b;
+    border-color: #334155;
+
+    .tech-name {
+      color: #f8fafc;
+    }
+  }
+
+  .brand-item-accent {
+    background-color: rgb(255 172 28 / 0.15) !important;
+    border-color: rgb(255 172 28 / 0.4) !important;
+    color: #ffac1c !important;
+  }
+
+  .switch-toggle-row {
+    border-top-color: #334155;
+  }
+}
+
+/* Constrain flex/grid children so the scrolling track cannot expand the page. */
+.dual-marquee-card, .reviews-card, .vertical-card { width: 100%; min-width: 0; box-sizing: border-box; }
+.choice-btn:focus-visible { outline: 3px solid var(--sp-color-primary); outline-offset: 3px; }

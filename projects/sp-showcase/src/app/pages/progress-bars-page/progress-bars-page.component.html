@@ -1,165 +1,310 @@
-<div class="master">
-  <div class="content">
-    <!-- Header -->
-    <div class="header">
-      <p>Progressbar Components</p>
-      <sp-divider></sp-divider>
-    </div>
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'home.031' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'progress-bars.001' | translate }}</p>
+  </div>
 
-    <p class="desc">Showcase of all progress bar component variations:</p>
+  <div class="doc-section">
+    <h3>{{ 'progress-bars.002' | translate }}</h3>
+    <p class="section-desc">{{ 'progress-bars.003' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="progress-demo-controls">
+          <sp-btn text="-15%" size="sm" variant="outline" (buttonClick)="this.decrease()"></sp-btn>
+          <span class="percentage-display">{{ (this.dynamicPercentage()) | translate }}%</span>
+          <sp-btn text="+15%" size="sm" variant="outline" (buttonClick)="this.increase()"></sp-btn>
+          <sp-btn
+            [text]="(this.isIndeterminate() ? 'Determinato' : 'Indeterminato') | translate"
+            size="sm"
+            (buttonClick)="this.toggleIndeterminate()"></sp-btn>
+        </div>
 
-    <!--Standard-->
-    <div class="section">
-      <h3>Standard Progressbar</h3>
-      <sp-progressbar></sp-progressbar>
-      <sp-progressbar [percentage]="25"></sp-progressbar>
-      <sp-progressbar [percentage]="100"></sp-progressbar>
-    </div>
+        <div class="progress-display-grid">
+          <!-- Linear -->
+          <div class="progress-item">
+            <span class="item-label">{{ 'progress-bars.006' | translate }}</span>
+            <sp-progressbar
+              [percentage]="this.dynamicPercentage()"
+              [indeterminate]="this.isIndeterminate()"></sp-progressbar>
+          </div>
 
-    <!--Color variants-->
-    <div class="section">
-      <h3>Progressbar - Color Variants</h3>
+          <!-- Rounded with Text -->
+          <div class="progress-item">
+            <span class="item-label">{{ 'progress-bars.007' | translate }}</span>
+            <sp-progressbar-rounded
+              [percentage]="this.dynamicPercentage()"></sp-progressbar-rounded>
+          </div>
 
-      <sp-progressbar
-        color="#ff9800"
-        [percentage]="40"></sp-progressbar>
-      <sp-progressbar
-        color="#4caf50"
-        [percentage]="60"></sp-progressbar>
-      <sp-progressbar
-        color="#2196f3"
-        [percentage]="75"></sp-progressbar>
-      <sp-progressbar
-        color="#e91e63"
-        [percentage]="90"></sp-progressbar>
-      <sp-progressbar
-        color="#9c27b0"
-        [percentage]="50"></sp-progressbar>
-    </div>
-
-    <!--Height variants-->
-    <div class="section">
-      <h3>Progressbar - Height Variants</h3>
-
-      @if (this.showVariant) {
-        <sp-progressbar
-          height="4px"
-          [percentage]="40"></sp-progressbar>
-        <sp-progressbar
-          height="7px"
-          [percentage]="40"></sp-progressbar>
-        <sp-progressbar
-          height="12px"
-          [percentage]="40"></sp-progressbar>
-        <sp-progressbar
-          height="18px"
-          [percentage]="40"></sp-progressbar>
-      }
-    </div>
-
-    <!--Indeterminate Progressbar-->
-    <div class="section">
-      <h3>Indeterminate Progressbar</h3>
-
-      @if (this.showVariant) {
-        <sp-progressbar
-          [indeterminate]="true"
-          color="#ff9800"></sp-progressbar>
-        <sp-progressbar
-          [indeterminate]="true"
-          color="#4caf50"></sp-progressbar>
-        <sp-progressbar
-          [indeterminate]="true"
-          color="#2196f3"></sp-progressbar>
-      }
-    </div>
-
-    <!--Rounded progressbar-->
-    <div class="section">
-      <h3>Rounded Progressbar</h3>
-
-      <!-- Slate / UI Modern -->
-      <sp-progressbar-rounded
-        color="#607d8b"
-        [percentage]="30"
-        [showText]="true"></sp-progressbar-rounded>
-
-      <!-- Green Success -->
-      <sp-progressbar-rounded
-        color="#4caf50"
-        [percentage]="40"></sp-progressbar-rounded>
-
-      <!-- Pink Accent -->
-      <sp-progressbar-rounded
-        color="#e91e63"
-        [percentage]="55"
-        [showText]="true"></sp-progressbar-rounded>
-
-      <!-- Orange Warning -->
-      <sp-progressbar-rounded
-        color="#ff9800"
-        [percentage]="75"></sp-progressbar-rounded>
-
-      <!-- Blue Info -->
-      <sp-progressbar-rounded
-        color="#2196f3"
-        [percentage]="90"
-        [showText]="true"></sp-progressbar-rounded>
-
-      <!-- Purple Strong -->
-      <sp-progressbar-rounded
-        color="#9c27b0"
-        [percentage]="100"
-        [showText]="true"></sp-progressbar-rounded>
-
-      <sp-progressbar-rounded
-        color="#9c27b0"
-        [percentage]="100"
-        [showText]="false"></sp-progressbar-rounded>
-    </div>
-
-    <!--Circular progressbar-->
-    <div class="section">
-      <h3>Circular Progressbar</h3>
-
-      <div class="circle-row">
-        <sp-progressbar-circular
-          [percentage]="25"
-          color="#ff9800"
-          [size]="70"
-          [stroke]="6"></sp-progressbar-circular>
-
-        <sp-progressbar-circular
-          [percentage]="60"
-          color="#4caf50"
-          [size]="80"
-          [stroke]="8"></sp-progressbar-circular>
-
-        <sp-progressbar-circular
-          [percentage]="100"
-          color="#2196f3"
-          [size]="90"
-          [stroke]="10"></sp-progressbar-circular>
+          <!-- Circular SVG -->
+          <div class="progress-item circular-center">
+            <span class="item-label">{{ 'progress-bars.008' | translate }}</span>
+            <sp-progressbar-circular
+              [percentage]="this.dynamicPercentage()"
+              [indeterminate]="this.isIndeterminate()"></sp-progressbar-circular>
+          </div>
+        </div>
       </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="progress-demo-controls"&gt;
+  &lt;sp-btn text="-15%" size="sm" variant="outline" (buttonClick)="this.decrease()"&gt;&lt;/sp-btn&gt;
+  &lt;span class="percentage-display"&gt;&#123;&#123; this.dynamicPercentage() &#125;&#125;%&lt;/span&gt;
+  &lt;sp-btn text="+15%" size="sm" variant="outline" (buttonClick)="this.increase()"&gt;&lt;/sp-btn&gt;
+  &lt;sp-btn
+    [text]="this.isIndeterminate() ? 'Determinato' : 'Indeterminato'"
+    size="sm"
+    (buttonClick)="this.toggleIndeterminate()"&gt;&lt;/sp-btn&gt;
+&lt;/div&gt;
+
+&lt;div class="progress-display-grid"&gt;
+  &lt;!-- Linear --&gt;
+  &lt;div class="progress-item"&gt;
+    &lt;span class="item-label"&gt;Barra Lineare (SpProgressbar)&lt;/span&gt;
+    &lt;sp-progressbar
+      [percentage]="this.dynamicPercentage()"
+      [indeterminate]="this.isIndeterminate()"&gt;&lt;/sp-progressbar&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Rounded with Text --&gt;
+  &lt;div class="progress-item"&gt;
+    &lt;span class="item-label"&gt;Arrotondata con Testo (SpProgressbarRounded)&lt;/span&gt;
+    &lt;sp-progressbar-rounded
+      [percentage]="this.dynamicPercentage()"&gt;&lt;/sp-progressbar-rounded&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Circular SVG --&gt;
+  &lt;div class="progress-item circular-center"&gt;
+    &lt;span class="item-label"&gt;Circolare SVG (SpProgressbarCircular)&lt;/span&gt;
+    &lt;sp-progressbar-circular
+      [percentage]="this.dynamicPercentage()"
+      [indeterminate]="this.isIndeterminate()"&gt;&lt;/sp-progressbar-circular&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'badge.023' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'badge.024' | translate"><code>// The demo progress percentage
+public readonly dynamicPercentage = signal&lt;number&gt;(45);
+
+// The indeterminate mode for linear and circular progress
+public readonly isIndeterminate = signal&lt;boolean&gt;(false);
+
+/**
+ * Increases progress by 15%.
+ * &#64;returns void
+ */
+public increase(): void &#123;
+  this.dynamicPercentage.update((v) =&gt; Math.min(v + 15, 100));
+&#125;
+
+/**
+ * Decreases progress by 15%.
+ * &#64;returns void
+ */
+public decrease(): void &#123;
+  this.dynamicPercentage.update((v) =&gt; Math.max(v - 15, 0));
+&#125;
+
+/**
+ * Toggles indeterminate animation mode.
+ * &#64;returns void
+ */
+public toggleIndeterminate(): void &#123;
+  this.isIndeterminate.set(!this.isIndeterminate());
+&#125;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!--Spinner-->
-    <div class="section">
-      <h3>Spinner</h3>
-
-      <div class="spinner-row">
-        <sp-spinner></sp-spinner>
-
-        <sp-spinner
-          primaryColor="#4caf50"
-          [size]="50"
-          animationSpeed="0.7s"></sp-spinner>
-
-        <sp-spinner
-          primaryColor="#2196f3"
-          [size]="60"
-          animationSpeed="0.4s"></sp-spinner>
+  <div class="doc-section">
+    <h3>{{ 'progress-bars.009' | translate }}</h3>
+    <p class="section-desc">{{ 'progress-bars.010' | translate }} <code>size</code> {{ 'progress-bars.011' | translate }} <code>stroke</code> {{ 'progress-bars.012' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="circular-row">
+          <sp-progressbar-circular [percentage]="25" color="#ef4444" [size]="70"></sp-progressbar-circular>
+          <sp-progressbar-circular [percentage]="65" color="#ffac1c" [size]="85"></sp-progressbar-circular>
+          <sp-progressbar-circular [percentage]="100" color="#10b981" [size]="100"></sp-progressbar-circular>
+          <sp-progressbar-circular [indeterminate]="true" color="#06b6d4" [size]="85"></sp-progressbar-circular>
+        </div>
       </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="circular-row"&gt;
+  &lt;sp-progressbar-circular [percentage]="25" color="#ef4444" [size]="70"&gt;&lt;/sp-progressbar-circular&gt;
+  &lt;sp-progressbar-circular [percentage]="65" color="#ffac1c" [size]="85"&gt;&lt;/sp-progressbar-circular&gt;
+  &lt;sp-progressbar-circular [percentage]="100" color="#10b981" [size]="100"&gt;&lt;/sp-progressbar-circular&gt;
+  &lt;sp-progressbar-circular [indeterminate]="true" color="#06b6d4" [size]="85"&gt;&lt;/sp-progressbar-circular&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'progress-bars.013' | translate }}</h3>
+    <p class="section-desc">{{ 'progress-bars.014' | translate }} <code>size</code> {{ 'progress-bars.015' | translate }} <code>primaryColor</code> {{ 'progress-bars.016' | translate }} <code>animationSpeed</code> {{ 'progress-bars.017' | translate }} <code>0.8s</code>{{ 'progress-bars.018' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="spinners-row">
+          <sp-spinner [size]="24" primaryColor="#ffac1c"></sp-spinner>
+          <sp-spinner [size]="36" primaryColor="#10b981"></sp-spinner>
+          <sp-spinner [size]="48" primaryColor="#06b6d4"></sp-spinner>
+          <sp-spinner [size]="64" primaryColor="#ef4444"></sp-spinner>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="spinners-row"&gt;
+  &lt;sp-spinner [size]="24" primaryColor="#ffac1c"&gt;&lt;/sp-spinner&gt;
+  &lt;sp-spinner [size]="36" primaryColor="#10b981"&gt;&lt;/sp-spinner&gt;
+  &lt;sp-spinner [size]="48" primaryColor="#06b6d4"&gt;&lt;/sp-spinner&gt;
+  &lt;sp-spinner [size]="64" primaryColor="#ef4444"&gt;&lt;/sp-spinner&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'progress-bars.019' | translate }} <code>&#64;aledevsharp/sp-lib</code> {{ 'progress-bars.020' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; SpProgressbarComponent, SpProgressbarRoundedComponent, SpProgressbarCircularComponent, SpSpinnerComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpProgressbarComponent, SpProgressbarRoundedComponent, SpProgressbarCircularComponent, SpSpinnerComponent, SpBtnComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+// Region: Variables &amp; Layout
+// ================================
+.progress-demo-controls &#123;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 24px;
+&#125;
+
+.percentage-display &#123;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--sp-color-accent);
+  min-width: 48px;
+  text-align: center;
+&#125;
+
+.progress-display-grid &#123;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+&#125;
+
+.progress-item &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  .item-label &#123;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--sp-text-secondary, #64748b);
+  &#125;
+
+  &amp;.circular-center &#123;
+    align-items: center;
+  &#125;
+&#125;
+
+.circular-row,
+.spinners-row &#123;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+&#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'progress-bars.021' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>color</code></td><td><code>string</code></td><td><code>'#ffac1c'</code></td><td>{{ 'progress-bars.022' | translate }}</td></tr>
+          <tr><td><code>height</code></td><td><code>string</code></td><td><code>'6px'</code></td><td>{{ 'progress-bars.023' | translate }}</td></tr>
+          <tr><td><code>percentage</code></td><td><code>number</code></td><td><code>50</code></td><td>{{ 'progress-bars.024' | translate }}</td></tr>
+          <tr><td><code>indeterminate</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'progress-bars.025' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'progress-bars.026' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>color</code></td><td><code>string</code></td><td><code>'#ffac1c'</code></td><td>{{ 'progress-bars.022' | translate }}</td></tr>
+          <tr><td><code>height</code></td><td><code>string</code></td><td><code>'16px'</code></td><td>{{ 'progress-bars.023' | translate }}</td></tr>
+          <tr><td><code>percentage</code></td><td><code>number</code></td><td><code>60</code></td><td>{{ 'progress-bars.024' | translate }}</td></tr>
+          <tr><td><code>showText</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'progress-bars.027' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'progress-bars.028' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>size</code></td><td><code>number</code></td><td><code>80</code></td><td>{{ 'progress-bars.029' | translate }}</td></tr>
+          <tr><td><code>stroke</code></td><td><code>number</code></td><td><code>8</code></td><td>{{ 'progress-bars.030' | translate }}</td></tr>
+          <tr><td><code>percentage</code></td><td><code>number</code></td><td><code>50</code></td><td>{{ 'progress-bars.024' | translate }}</td></tr>
+          <tr><td><code>color</code></td><td><code>string</code></td><td><code>'#ffac1c'</code></td><td>{{ 'progress-bars.022' | translate }}</td></tr>
+          <tr><td><code>indeterminate</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'progress-bars.025' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'progress-bars.031' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>primaryColor</code></td><td><code>string</code></td><td><code>'#ffac1c'</code></td><td>{{ 'progress-bars.032' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>number</code></td><td><code>36</code></td><td>{{ 'progress-bars.033' | translate }}</td></tr>
+          <tr><td><code>animationSpeed</code></td><td><code>string</code></td><td><code>'0.8s'</code></td><td>{{ 'progress-bars.034' | translate }}</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

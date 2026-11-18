@@ -1,0 +1,22 @@
+// ================================
+// Region: Demo Layout and Feedback
+// ================================
+.toggle-demo-column {
+  width: 100%;
+  min-width: 0;
+}
+
+.demo-feedback {
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--sp-border-subtle);
+  font-size: 0.875rem;
+  color: var(--sp-text-secondary);
+
+  code {
+    background-color: var(--sp-bg-surface-raised);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sp-color-accent);
+  }
+}

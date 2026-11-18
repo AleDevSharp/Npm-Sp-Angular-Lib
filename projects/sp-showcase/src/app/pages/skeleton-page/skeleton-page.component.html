@@ -1,0 +1,501 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'skeleton.001' | translate }}</h1></div>
+    <p class="doc-subtitle">
+      {{ 'skeleton.002' | translate }}
+    </p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'skeleton.003' | translate }}</h3>
+    <p class="section-desc">
+      {{ 'skeleton.004' | translate }}
+      <code>[width]="56"</code>
+      {{ 'skeleton.005' | translate }}
+    </p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="skeleton-demo-column">
+          <div class="controls-row">
+            <span>
+              {{ 'skeleton.006' | translate }}
+              <strong>{{ (isLoading() ? 'In caricamento (Skeleton attivo)' : 'Dati caricati (Card reale)') | translate }}</strong>
+            </span>
+            <sp-btn
+              [text]="(isLoading() ? 'Mostra Dati Reali' : 'Ripristina Skeleton') | translate"
+              size="sm"
+              variant="outline"
+              (buttonClick)="toggleLoading()"></sp-btn>
+          </div>
+
+          <div class="card-comparison-wrapper">
+            @if (isLoading()) {
+              <!-- Skeleton Card State -->
+              <div class="profile-card skeleton-mode">
+                <div class="profile-header">
+                  <sp-skeleton
+                    variant="circle"
+                    [width]="56"
+                    [height]="56"></sp-skeleton>
+                  <div class="profile-meta">
+                    <sp-skeleton
+                      variant="text"
+                      [width]="160"
+                      [height]="18"></sp-skeleton>
+                    <sp-skeleton
+                      variant="text"
+                      [width]="100"
+                      [height]="13"></sp-skeleton>
+                  </div>
+                </div>
+
+                <div class="profile-body">
+                  <sp-skeleton
+                    variant="text"
+                    [lines]="3"></sp-skeleton>
+                </div>
+
+                <div class="profile-footer">
+                  <sp-skeleton
+                    variant="rect"
+                    [width]="110"
+                    [height]="34"
+                    borderRadius="8px"></sp-skeleton>
+                  <sp-skeleton
+                    variant="rect"
+                    [width]="110"
+                    [height]="34"
+                    borderRadius="8px"></sp-skeleton>
+                </div>
+              </div>
+            } @else {
+              <!-- Real Populated Card State -->
+              <div class="profile-card loaded-mode">
+                <div class="profile-header">
+                  <div class="real-avatar">{{ 'badge.018' | translate }}</div>
+                  <div class="profile-meta">
+                    <h4>{{ 'skeleton.011' | translate }}</h4>
+                    <span>{{ 'skeleton.012' | translate }}</span>
+                  </div>
+                </div>
+
+                <div class="profile-body">
+                  <p>
+                    {{ 'skeleton.013' | translate }}
+                  </p>
+                </div>
+
+                <div class="profile-footer">
+                  <sp-btn
+                    [text]="'skeleton.014' | translate"
+                    size="sm"></sp-btn>
+                  <sp-btn
+                    [text]="'skeleton.015' | translate"
+                    size="sm"
+                    variant="outline"></sp-btn>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="skeleton-demo-column"&gt;
+  &lt;div class="controls-row"&gt;
+    &lt;span&gt;Stato corrente: &lt;strong&gt;&#123;&#123; isLoading() ? 'In caricamento (Skeleton attivo)' : 'Dati caricati (Card reale)' &#125;&#125;&lt;/strong&gt;&lt;/span&gt;
+    &lt;sp-btn
+      [text]="isLoading() ? 'Mostra Dati Reali' : 'Ripristina Skeleton'"
+      size="sm"
+      variant="outline"
+      (buttonClick)="toggleLoading()"
+    &gt;&lt;/sp-btn&gt;
+  &lt;/div&gt;
+
+  &lt;div class="card-comparison-wrapper"&gt;
+    &#64;if (isLoading()) &#123;
+      &lt;!-- Skeleton Card State --&gt;
+      &lt;div class="profile-card skeleton-mode"&gt;
+        &lt;div class="profile-header"&gt;
+          &lt;sp-skeleton variant="circle" [width]="56" [height]="56"&gt;&lt;/sp-skeleton&gt;
+          &lt;div class="profile-meta"&gt;
+            &lt;sp-skeleton variant="text" [width]="160" [height]="18"&gt;&lt;/sp-skeleton&gt;
+            &lt;sp-skeleton variant="text" [width]="100" [height]="13"&gt;&lt;/sp-skeleton&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="profile-body"&gt;
+          &lt;sp-skeleton variant="text" [lines]="3"&gt;&lt;/sp-skeleton&gt;
+        &lt;/div&gt;
+
+        &lt;div class="profile-footer"&gt;
+          &lt;sp-skeleton variant="rect" [width]="110" [height]="34" borderRadius="8px"&gt;&lt;/sp-skeleton&gt;
+          &lt;sp-skeleton variant="rect" [width]="110" [height]="34" borderRadius="8px"&gt;&lt;/sp-skeleton&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#125; &#64;else &#123;
+      &lt;!-- Real Populated Card State --&gt;
+      &lt;div class="profile-card loaded-mode"&gt;
+        &lt;div class="profile-header"&gt;
+          &lt;div class="real-avatar"&gt;AG&lt;/div&gt;
+          &lt;div class="profile-meta"&gt;
+            &lt;h4&gt;Alessio Giacché&lt;/h4&gt;
+            &lt;span&gt;Software Engineer&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="profile-body"&gt;
+          &lt;p&gt;Specializzato in architettura Angular Enterprise, Design Systems ad alte prestazioni e librerie di componenti scalabili e modulari.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class="profile-footer"&gt;
+          &lt;sp-btn text="Segui" size="sm"&gt;&lt;/sp-btn&gt;
+          &lt;sp-btn text="Messaggio" size="sm" variant="outline"&gt;&lt;/sp-btn&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#125;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.032' | translate }}</summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.033' | translate"><code>// The simulated loading state
+public readonly isLoading = signal&lt;boolean&gt;(true);
+
+/**
+ * Switches between placeholders and the sample profile.
+ * &#64;returns void
+ */
+public toggleLoading(): void &#123;
+  this.isLoading.update(value =&gt; !value);
+&#125;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'skeleton.016' | translate }}</h3>
+    <p class="section-desc">
+      {{ 'skeleton.017' | translate }}
+    </p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="skeleton-demo-column">
+          <div class="shapes-grid">
+            <!-- Text & Paragraphs -->
+            <div class="shape-box">
+              <span class="shape-title">{{ 'skeleton.018' | translate }}</span>
+              <sp-skeleton
+                variant="text"
+                [lines]="4"></sp-skeleton>
+            </div>
+
+            <!-- Circles / Avatars -->
+            <div class="shape-box">
+              <span class="shape-title">{{ 'skeleton.019' | translate }}</span>
+              <div class="circles-row">
+                <sp-skeleton
+                  variant="circle"
+                  [width]="28"
+                  [height]="28"></sp-skeleton>
+                <sp-skeleton
+                  variant="circle"
+                  [width]="44"
+                  [height]="44"></sp-skeleton>
+                <sp-skeleton
+                  variant="circle"
+                  [width]="64"
+                  [height]="64"></sp-skeleton>
+              </div>
+            </div>
+
+            <!-- Banner / Rectangles -->
+            <div class="shape-box">
+              <span class="shape-title">{{ 'skeleton.020' | translate }}</span>
+              <sp-skeleton
+                variant="rect"
+                [height]="130"></sp-skeleton>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="skeleton-demo-column"&gt;
+  &lt;div class="shapes-grid"&gt;
+    &lt;!-- Text &amp; Paragraphs --&gt;
+    &lt;div class="shape-box"&gt;
+      &lt;span class="shape-title"&gt;Paragrafo Multi-riga (lines="4"):&lt;/span&gt;
+      &lt;sp-skeleton variant="text" [lines]="4"&gt;&lt;/sp-skeleton&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Circles / Avatars --&gt;
+    &lt;div class="shape-box"&gt;
+      &lt;span class="shape-title"&gt;Cerchi Avatar (28, 44 e 64 px):&lt;/span&gt;
+      &lt;div class="circles-row"&gt;
+        &lt;sp-skeleton variant="circle" [width]="28" [height]="28"&gt;&lt;/sp-skeleton&gt;
+        &lt;sp-skeleton variant="circle" [width]="44" [height]="44"&gt;&lt;/sp-skeleton&gt;
+        &lt;sp-skeleton variant="circle" [width]="64" [height]="64"&gt;&lt;/sp-skeleton&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Banner / Rectangles --&gt;
+    &lt;div class="shape-box"&gt;
+      &lt;span class="shape-title"&gt;Rettangolo Banner / Immagine (rect):&lt;/span&gt;
+      &lt;sp-skeleton variant="rect" [height]="130"&gt;&lt;/sp-skeleton&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">
+      {{ 'skeleton.021' | translate }}
+      <code>&#64;if</code>
+      {{ 'skeleton.022' | translate }}
+    </p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; SpSkeletonComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpSkeletonComponent, SpBtnComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>.skeleton-demo-column &#123; width: 100%; min-width: 0; &#125;
+
+.controls-row &#123;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--sp-border-subtle);
+  font-size: 14px;
+  color: var(--sp-text-secondary);
+
+  strong &#123;
+    color: var(--sp-primary);
+  &#125;
+&#125;
+
+.card-comparison-wrapper &#123;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+&#125;
+
+.profile-card &#123;
+  width: 100%;
+  max-width: 440px;
+  padding: 24px;
+  border-radius: var(--sp-radius-lg);
+  border: 1px solid var(--sp-border-subtle);
+  background-color: var(--sp-card-bg);
+  box-shadow: var(--sp-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &amp;.loaded-mode &#123;
+    animation: sp-card-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  &#125;
+&#125;
+
+&#64;keyframes sp-card-fade-in &#123;
+  from &#123;
+    opacity: 0;
+    transform: translateY(6px);
+  &#125;
+  to &#123;
+    opacity: 1;
+    transform: translateY(0);
+  &#125;
+&#125;
+
+.profile-header &#123;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+&#125;
+
+.real-avatar &#123;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sp-primary) 0%, #a855f7 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+&#125;
+
+.profile-meta &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h4 &#123;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--sp-text-primary);
+  &#125;
+
+  span &#123;
+    font-size: 13px;
+    color: var(--sp-text-secondary);
+  &#125;
+&#125;
+
+.profile-body p &#123;
+  margin: 0;
+  font-size: 14px;
+  color: var(--sp-text-secondary);
+  line-height: 1.6;
+&#125;
+
+.profile-footer &#123;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--sp-border-subtle);
+&#125;
+
+.shapes-grid &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+&#125;
+
+.shape-box &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .shape-title &#123;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--sp-text-secondary);
+  &#125;
+&#125;
+
+.circles-row &#123;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+&#125;
+
+// ================================
+// Region: Placeholder Host Sizing
+// ================================
+.profile-header &gt; sp-skeleton &#123;
+  width: 56px;
+  flex: 0 0 56px;
+&#125;
+
+.profile-meta &#123;
+  flex: 1;
+  min-width: 0;
+&#125;
+
+.circles-row &gt; sp-skeleton,
+.profile-footer &gt; sp-skeleton &#123;
+  width: auto;
+  flex: 0 0 auto;
+&#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'skeleton.023' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>variant</code></td>
+            <td><code>'text' | 'circle' | 'rect'</code></td>
+            <td><code>'text'</code></td>
+            <td>{{ 'skeleton.024' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>lines</code></td>
+            <td><code>number</code></td>
+            <td><code>1</code></td>
+            <td>{{ 'skeleton.025' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>width</code></td>
+            <td><code>string | number | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>
+              {{ 'skeleton.026' | translate }}
+            </td>
+          </tr>
+          <tr>
+            <td><code>height</code></td>
+            <td><code>string | number | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'skeleton.027' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>borderRadius</code></td>
+            <td><code>string | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'skeleton.028' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>animated</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'skeleton.029' | translate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

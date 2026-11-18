@@ -1,0 +1,51 @@
+.chip-demo-column { width: 100%; min-width: 0; }
+
+.chips-flex-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card-footer-row {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--sp-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  font-size: 14px;
+  color: var(--sp-text-secondary);
+
+  code {
+    background-color: var(--sp-bg-secondary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sp-primary);
+    font-weight: 600;
+  }
+}
+
+.feedback-text {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--sp-text-secondary);
+
+  code {
+    background-color: var(--sp-bg-secondary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sp-primary);
+    font-weight: 600;
+  }
+}
+
+.sizes-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}

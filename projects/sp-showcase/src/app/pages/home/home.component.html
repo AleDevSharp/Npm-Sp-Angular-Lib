@@ -1,20 +1,260 @@
-<div class="master">
-  <div class="left">
-    <h1>
-      Sp Library
-      <br />
-      Showcase
+<!-- Region: Home Hero -->
+<div class="home-container">
+  <div class="home-hero">
+    <div class="hero-badge">{{ 'home.001' | translate }}</div>
+    <h1 class="hero-title">
+      {{ 'home.002' | translate }} <span class="gradient-text">{{ 'home.003' | translate }}</span>
     </h1>
+    <p class="hero-subtitle">
+      <strong>{{ 'nav.002' | translate }}</strong> {{ 'home.004' | translate }}
+    </p>
+
+    <!-- Region: Quick Install -->
+    <div class="install-box">
+      <span class="prompt-symbol">$</span>
+      <code class="command-text">{{ this.installCommand }}</code>
+      <button
+        type="button"
+        class="copy-btn"
+        (click)="this.copyInstallCommand()"
+        [attr.aria-label]="(this.isCopied() ? 'Comando copiato' : 'Copia comando') | translate">
+        
+        {{ (this.isCopied() ? '✓ Copiato!' : 'Copia') | translate }}
+      </button>
+    </div>
   </div>
-  <div class="right">
-    <div class="components-title">Components</div>
-    <ul class="components-list">
-      <li><a routerLink="/buttons">Buttons</a></li>
-      <li><a routerLink="/inputs">Inputs</a></li>
-      <li><a routerLink="/select">Select</a></li>
-      <li><a routerLink="/switch">Switch</a></li>
-      <li><a routerLink="/progress-bars">Progress bar</a></li>
-      <li><a routerLink="/dividers">Dividers</a></li>
-    </ul>
+
+  <!-- Region: Features Grid -->
+  <div class="features-section">
+    <h2>{{ 'home.009' | translate }}</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>{{ 'home.010' | translate }}</h3>
+        <p>{{ 'home.011' | translate }}<code>input()</code>, <code>output()</code>, <code>model()</code>{{ 'home.012' | translate }}</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>{{ 'home.013' | translate }}</h3>
+        <p>{{ 'home.014' | translate }}<code>--sp-*</code>{{ 'home.015' | translate }}</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">♿</div>
+        <h3>{{ 'home.016' | translate }}</h3>
+        <p>{{ 'home.017' | translate }}</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>{{ 'home.018' | translate }}</h3>
+        <p>{{ 'home.019' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Region: Quick Navigation Cards -->
+  <div class="components-preview-section">
+    <h2>{{ 'home.020' | translate }}</h2>
+    <div class="components-cards-grid">
+      <a routerLink="/buttons" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🔘</span>
+          <span class="comp-tag">{{ 'buttons.001' | translate }}</span>
+        </div>
+        <h4>{{ 'home.021' | translate }}</h4>
+        <p>{{ 'home.022' | translate }}</p>
+      </a>
+
+      <a routerLink="/inputs" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">✏️</span>
+          <span class="comp-tag">{{ 'home.023' | translate }}</span>
+        </div>
+        <h4>{{ 'home.024' | translate }}</h4>
+        <p>{{ 'home.025' | translate }}</p>
+      </a>
+
+      <a routerLink="/select" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🔽</span>
+          <span class="comp-tag">{{ 'home.023' | translate }}</span>
+        </div>
+        <h4>{{ 'home.026' | translate }}</h4>
+        <p>{{ 'home.027' | translate }}</p>
+      </a>
+
+      <a routerLink="/switch" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🔲</span>
+          <span class="comp-tag">{{ 'home.023' | translate }}</span>
+        </div>
+        <h4>{{ 'home.028' | translate }}</h4>
+        <p>{{ 'home.029' | translate }}</p>
+      </a>
+
+      <a routerLink="/progress-bars" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">⏳</span>
+          <span class="comp-tag">{{ 'home.030' | translate }}</span>
+        </div>
+        <h4>{{ 'home.031' | translate }}</h4>
+        <p>{{ 'home.032' | translate }}</p>
+      </a>
+
+      <a routerLink="/dividers" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">➖</span>
+          <span class="comp-tag">{{ 'home.033' | translate }}</span>
+        </div>
+        <h4>{{ 'dividers.001' | translate }}</h4>
+        <p>{{ 'home.034' | translate }}</p>
+      </a>
+
+      <a routerLink="/tooltip" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">💬</span>
+          <span class="comp-tag">{{ 'home.035' | translate }}</span>
+        </div>
+        <h4>{{ 'home.036' | translate }}</h4>
+        <p>{{ 'home.037' | translate }}</p>
+      </a>
+
+      <a routerLink="/card" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🃏</span>
+          <span class="comp-tag">{{ 'nav.021' | translate }}</span>
+        </div>
+        <h4>{{ 'card.001' | translate }}</h4>
+        <p>{{ 'home.038' | translate }}</p>
+      </a>
+
+      <a routerLink="/segmented-control" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">💊</span>
+          <span class="comp-tag">{{ 'home.039' | translate }}</span>
+        </div>
+        <h4>{{ 'home.040' | translate }}</h4>
+        <p>{{ 'home.041' | translate }}</p>
+      </a>
+
+      <a routerLink="/toggle-list" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">📋</span>
+          <span class="comp-tag">{{ 'home.023' | translate }}</span>
+        </div>
+        <h4>{{ 'home.042' | translate }}</h4>
+        <p>{{ 'home.043' | translate }}</p>
+      </a>
+
+      <a routerLink="/badge" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🔴</span>
+          <span class="comp-tag">{{ 'home.044' | translate }}</span>
+        </div>
+        <h4>{{ 'home.045' | translate }}</h4>
+        <p>{{ 'home.046' | translate }}</p>
+      </a>
+
+      <a routerLink="/chip" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🏷️</span>
+          <span class="comp-tag">{{ 'home.047' | translate }}</span>
+        </div>
+        <h4>{{ 'home.048' | translate }}</h4>
+        <p>{{ 'home.049' | translate }}</p>
+      </a>
+
+      <a routerLink="/avatar" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">👤</span>
+          <span class="comp-tag">{{ 'home.050' | translate }}</span>
+        </div>
+        <h4>{{ 'home.051' | translate }}</h4>
+        <p>{{ 'home.052' | translate }}</p>
+      </a>
+
+      <a routerLink="/accordion" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">📂</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.053' | translate }}</h4>
+        <p>{{ 'home.054' | translate }}</p>
+      </a>
+
+      <a routerLink="/tabs" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">📑</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.055' | translate }}</h4>
+        <p>{{ 'home.056' | translate }}</p>
+      </a>
+
+      <a routerLink="/skeleton" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">💀</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.057' | translate }}</h4>
+        <p>{{ 'home.058' | translate }}</p>
+      </a>
+
+      <a routerLink="/counter" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">⏱️</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.059' | translate }}</h4>
+        <p>{{ 'home.060' | translate }}</p>
+      </a>
+
+      <a routerLink="/ripple" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🌊</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.061' | translate }}</h4>
+        <p>{{ 'home.062' | translate }}</p>
+      </a>
+
+      <a routerLink="/speed-dial" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">⚡</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.063' | translate }}</h4>
+        <p>{{ 'home.064' | translate }}</p>
+      </a>
+
+      <a routerLink="/marquee" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">📜</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.065' | translate }}</h4>
+        <p>{{ 'home.066' | translate }}</p>
+      </a>
+
+      <a routerLink="/modal-drawer" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🪟</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.067' | translate }}</h4>
+        <p>{{ 'home.068' | translate }}</p>
+      </a>
+
+      <a routerLink="/carousel" class="component-nav-card">
+        <div class="card-header">
+          <span class="comp-icon">🎠</span>
+          <span class="comp-tag">{{ 'nav.026' | translate }}</span>
+        </div>
+        <h4>{{ 'home.069' | translate }}</h4>
+        <p>{{ 'home.070' | translate }}</p>
+      </a>
+    </div>
   </div>
 </div>

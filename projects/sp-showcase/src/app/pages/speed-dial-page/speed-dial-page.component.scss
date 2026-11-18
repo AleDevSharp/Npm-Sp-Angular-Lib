@@ -1,0 +1,231 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: speed-dial-page.component.scss
+// File description: Styles for SpeedDialPageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+
+// ================================
+// Region: Playground Layout
+// ================================
+
+.playground-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.playground-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 480px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.playground-controls {
+  padding: 24px;
+  background-color: var(--sp-bg-surface);
+  border-right: 1px solid var(--sp-border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 860px) {
+    border-right: none;
+    border-bottom: 1px solid var(--sp-border-color);
+  }
+}
+
+.control-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sp-text-muted);
+}
+
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.choice-btn {
+  padding: 5px 12px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: var(--sp-radius-full, 9999px);
+  border: 1px solid var(--sp-border-color);
+  background: var(--sp-bg-surface-card, #ffffff);
+  color: var(--sp-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: var(--sp-text-primary);
+    border-color: var(--sp-color-purple, #8636F8);
+  }
+
+  &.active {
+    background: var(--sp-gradient-brand);
+    color: #ffffff;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: var(--sp-shadow-brand-glow);
+  }
+}
+
+.switch-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--sp-border-color);
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+}
+
+// ================================
+// Region: Live Stage Surface
+// ================================
+
+.stage-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sp-bg-canvas);
+  position: relative;
+}
+
+.stage-surface {
+  flex: 1;
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: visible;
+  background-image: radial-gradient(var(--sp-border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.stage-placeholder-text {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--sp-text-muted);
+  pointer-events: none;
+}
+
+.speed-dial-wrapper {
+  position: relative;
+}
+
+.stage-footer {
+  padding: 12px 20px;
+  background-color: var(--sp-bg-surface);
+  border-top: 1px solid var(--sp-border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+}
+
+.footer-label {
+  font-weight: 600;
+  color: var(--sp-text-muted);
+}
+
+.footer-status {
+  font-weight: 600;
+  color: var(--sp-color-accent);
+}
+
+// ================================
+// Region: Radial Showcase Grid
+// ================================
+
+.radial-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.radial-stage-box {
+  min-height: 220px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 24px;
+  background-color: var(--sp-bg-surface);
+  border-radius: var(--sp-radius-md, 8px);
+  position: relative;
+
+  &.corner-box {
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 36px;
+    padding-bottom: 24px;
+  }
+}
+
+// ================================
+// Region: Dark Mode
+// ================================
+
+[data-theme='dark'] {
+  .playground-controls,
+  .stage-footer,
+  .radial-stage-box {
+    background-color: #1e293b;
+    border-color: #334155;
+  }
+
+  .choice-btn {
+    background: #0f172a;
+    border-color: #334155;
+    color: #94a3b8;
+
+    &:hover {
+      color: #f8fafc;
+      border-color: #475569;
+    }
+
+    &.active {
+      background-color: var(--sp-color-primary, #ffac1c);
+      color: #1c1917;
+      border-color: var(--sp-color-primary, #ffac1c);
+    }
+  }
+
+  .stage-surface {
+    background-image: radial-gradient(#334155 1px, transparent 1px);
+  }
+
+  .switch-toggle-row {
+    border-top-color: #334155;
+  }
+}
+
+/* Reserve space for all four linear actions and every radial direction. */
+.playground-layout { display: flex; flex-direction: column; width: 100%; min-width: 0; }
+.playground-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border-right: 0; border-bottom: 1px solid var(--sp-border-color); }
+.stage-container { overflow-x: auto; width: 100%; }
+.stage-surface { min-width: 640px; min-height: 680px; box-sizing: border-box; }
+.stage-footer { min-width: 600px; }
+.radial-showcase-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); width: 100%; }
+.radial-stage-box { min-height: 380px; min-width: 300px; align-items: center; justify-content: center; padding: 12px; }
+.choice-btn:focus-visible { outline: 3px solid var(--sp-color-primary); outline-offset: 3px; }

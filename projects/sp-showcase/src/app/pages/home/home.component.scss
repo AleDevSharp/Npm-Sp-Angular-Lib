@@ -1,59 +1,304 @@
+// ==============================================================
+// Project: SpLib Showcase
+// File: home.component.scss
+// Description: Plasmic-inspired Light Design for Homepage
+// Author: Alessio Giacché
+// Date: 11-11-2026
+// License: MIT
+// ==============================================================
+
 // ================================
-// Region: Main content
+// Region: Variables
 // ================================
-.master {
-  display: flex;
-  width: 100%;
-  height: 100%;
+$card-radius: var(--sp-radius-card, 16px);
+$card-transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+
+// ================================
+// Region: Container & Hero
+// ================================
+.home-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8px 0 64px 0;
 }
 
-.left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.home-hero {
+  text-align: center;
+  padding: 48px 24px 56px 24px;
+  border-bottom: 1px solid var(--sp-border-color);
+  position: relative;
 
-  width: 60%;
-  background-color: black;
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: var(--sp-radius-full);
+    background: var(--sp-gradient-soft);
+    border: 1px solid rgba(224, 14, 89, 0.25);
+    color: var(--sp-color-accent);
+    margin-bottom: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
 
-  h1 {
-    color: white;
-    text-align: center;
+  .hero-title {
+    font-size: 3.125rem;
+    font-weight: 800;
+    line-height: 1.12;
+    margin-bottom: 18px;
+    letter-spacing: -2.5px;
+    color: var(--sp-text-primary);
+
+    @media (max-width: 768px) {
+      font-size: 2.25rem;
+      letter-spacing: -1.5px;
+    }
+
+    .gradient-text {
+      background: var(--sp-gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--sp-text-secondary);
+    max-width: 720px;
+    margin: 0 auto 36px auto;
+    line-height: 1.65;
+    letter-spacing: -0.2px;
   }
 }
 
-.right {
-  width: 40%;
-  background-color: orange;
-  padding: 2rem;
-  display: flex;
+// ================================
+// Region: Install Box (Pill Shape)
+// ================================
+.install-box {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  gap: 14px;
+  background-color: var(--sp-bg-surface-card);
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-full);
+  padding: 8px 10px 8px 22px;
+  box-shadow: var(--sp-shadow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
-  .components-title {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+  &:hover {
+    border-color: var(--sp-color-purple);
   }
 
-  .components-list {
-    padding: 0;
-    margin: 0;
-    align-content: start;
+  .prompt-symbol {
+    color: var(--sp-color-pink);
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
   }
 
-  .components-list li {
-    margin-bottom: 0.8rem;
+  .command-text {
+    font-family: ui-monospace, Menlo, Monaco, monospace;
+    font-size: 0.9375rem;
+    color: var(--sp-text-primary);
+    font-weight: 600;
   }
 
-  .components-list a {
-    text-decoration: none;
-    color: black;
-  }
-
-  .components-list a:hover {
-    text-decoration: underline;
+  .copy-btn {
+    background: var(--sp-gradient-brand);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--sp-radius-full);
+    padding: 8px 18px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     cursor: pointer;
-    color: white;
+    box-shadow: var(--sp-shadow-brand-glow);
+    transition: transform 0.15s ease, filter 0.15s ease;
+
+    &:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// ================================
+// Region: Features Section
+// ================================
+.features-section {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--sp-border-color);
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+  }
+
+  .feature-card {
+    background-color: var(--sp-bg-surface-card);
+    border: 1px solid var(--sp-border-color);
+    border-radius: $card-radius;
+    padding: 28px 22px;
+    box-shadow: var(--sp-shadow-subtle);
+    transition: $card-transition;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: rgba(224, 14, 89, 0.4);
+      box-shadow: var(--sp-shadow-card);
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--sp-radius-full);
+      background: var(--sp-gradient-soft);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: var(--sp-text-secondary);
+      margin: 0;
+      line-height: 1.55;
+
+      code {
+        background-color: var(--sp-bg-surface-raised);
+        padding: 2px 5px;
+        border-radius: 4px;
+        color: var(--sp-color-accent);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// ================================
+// Region: Components Preview Grid
+// ================================
+.components-preview-section {
+  padding: 56px 0 0 0;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .components-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+  }
+
+  .component-nav-card {
+    display: block;
+    background-color: var(--sp-bg-surface-card);
+    border: 1px solid var(--sp-border-color);
+    border-radius: var(--sp-radius-box);
+    padding: 24px;
+    transition: $card-transition;
+    text-decoration: none;
+    box-shadow: var(--sp-shadow-subtle);
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: var(--sp-color-purple);
+      box-shadow: rgba(134, 54, 248, 0.12) 0px 14px 28px -4px;
+      text-decoration: none;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+
+      .comp-icon {
+        font-size: 1.5rem;
+      }
+
+      .comp-tag {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 3px 10px;
+        border-radius: var(--sp-radius-full);
+        background-color: var(--sp-bg-surface);
+        border: 1px solid var(--sp-border-subtle);
+        color: var(--sp-text-secondary);
+      }
+    }
+
+    h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin: 0 0 8px 0;
+      color: var(--sp-text-primary);
+    }
+
+    p {
+      font-size: 0.875rem;
+      margin: 0;
+      color: var(--sp-text-secondary);
+      line-height: 1.55;
+    }
+  }
+}
+
+// ================================
+// Region: Mobile Homepage
+// ================================
+@media (max-width: 600px) {
+  .home-hero {
+    padding: 24px 0 32px;
+  }
+
+  .install-box {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 12px;
+    gap: 10px;
+    border-radius: var(--sp-radius-box);
+
+    .command-text {
+      overflow-wrap: anywhere;
+      min-width: 0;
+    }
+  }
+
+  .features-section .features-grid,
+  .components-preview-section .components-cards-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

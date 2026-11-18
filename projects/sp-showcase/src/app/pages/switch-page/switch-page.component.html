@@ -1,84 +1,180 @@
-<div class="master">
-  <div class="content">
-    <!-- Header -->
-    <div class="header">
-      <p>Switch Component</p>
-      <sp-divider></sp-divider>
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'switch.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'switch.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'switch.003' | translate }}</h3>
+    <p class="section-desc">{{ 'inputs.004' | translate }} <code>[(value)]</code> {{ 'switch.004' | translate }} <code>[formControl]</code>{{ 'switch.005' | translate }} <code>[(value)]</code>.</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="switch-demo-column">
+          <sp-switch id="notif-switch" [label]="'switch.006' | translate" [(value)]="this.notificationsEnabled"></sp-switch>
+          <sp-switch id="backup-switch" [label]="'switch.007' | translate" [(value)]="this.autoBackup"></sp-switch>
+          <div class="bound-value-box">
+            {{ 'switch.008' | translate }} <strong>{{ (this.notificationsEnabled() ? 'ATTIVO (True)' : 'DISATTIVATO (False)') | translate }}</strong>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="switch-demo-column"&gt;
+  &lt;sp-switch id="notif-switch" label="Ricevi notifiche push" [(value)]="this.notificationsEnabled"&gt;&lt;/sp-switch&gt;
+  &lt;sp-switch id="backup-switch" label="Esegui backup automatico notturno" [(value)]="this.autoBackup"&gt;&lt;/sp-switch&gt;
+  &lt;div class="bound-value-box"&gt;
+    Stato notifiche: &lt;strong&gt;&#123;&#123; this.notificationsEnabled() ? 'ATTIVO (True)' : 'DISATTIVATO (False)' &#125;&#125;&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.009' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'inputs.010' | translate"><code>// The notification state
+public readonly notificationsEnabled = signal&lt;boolean&gt;(true);
+
+// The automatic backup state
+public readonly autoBackup = signal&lt;boolean&gt;(false);</code></pre>
+      </details>
     </div>
+  </div>
 
-    <p class="desc">Showcase of switch usage examples:</p>
-
-    <!-- Standard switches -->
-    <div class="section">
-      <h3>Standard Switch</h3>
-      <sp-switch
-        id="s1"
-        label="Default On"
-        [value]="true"></sp-switch>
-      <sp-switch
-        id="s2"
-        label="Default Off"
-        [value]="false"></sp-switch>
+  <div class="doc-section">
+    <h3>{{ 'buttons.020' | translate }}</h3>
+    <p class="section-desc">{{ 'switch.011' | translate }} <code>sm</code> {{ 'switch.012' | translate }} <code>md</code> {{ 'switch.013' | translate }} <code>lg</code> {{ 'switch.014' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="switch-demo-column">
+          <sp-switch id="sw-sm" [label]="'inputs.020' | translate" size="sm" [value]="true"></sp-switch>
+          <sp-switch id="sw-md" [label]="'inputs.022' | translate" size="md" [value]="true"></sp-switch>
+          <sp-switch id="sw-lg" [label]="'inputs.024' | translate" size="lg" [value]="true"></sp-switch>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="switch-demo-column"&gt;
+  &lt;sp-switch id="sw-sm" label="Small (sm)" size="sm" [value]="true"&gt;&lt;/sp-switch&gt;
+  &lt;sp-switch id="sw-md" label="Medium (md)" size="md" [value]="true"&gt;&lt;/sp-switch&gt;
+  &lt;sp-switch id="sw-lg" label="Large (lg)" size="lg" [value]="true"&gt;&lt;/sp-switch&gt;
+&lt;/div&gt;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!-- Disabled switches -->
-    <div class="section">
-      <h3>Disabled Switch</h3>
-      <sp-switch
-        id="s3"
-        label="Disabled On"
-        [value]="true"
-        [disabled]="true"></sp-switch>
-      <sp-switch
-        id="s4"
-        label="Disabled Off"
-        [value]="false"
-        [disabled]="true"></sp-switch>
+  <div class="doc-section">
+    <h3>{{ 'switch.015' | translate }}</h3>
+    <p class="section-desc"><code>activeColor</code> {{ 'switch.016' | translate }} <code>inactiveColor</code> {{ 'switch.017' | translate }} <code>thumbColor</code> {{ 'switch.018' | translate }} <code>labelColor</code> {{ 'switch.019' | translate }} <code>--sp-color-primary</code> {{ 'switch.020' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="switch-demo-column">
+          <sp-switch id="sw-green" [label]="'switch.021' | translate" activeColor="#10b981" [value]="true"></sp-switch>
+          <sp-switch id="sw-danger" [label]="'switch.022' | translate" activeColor="#ef4444" [value]="true"></sp-switch>
+          <sp-switch
+            id="sw-custom"
+            [label]="'switch.023' | translate"
+            activeColor="#2563eb"
+            inactiveColor="#cbd5e1"
+            thumbColor="#f8fafc"
+            labelColor="#334155"
+            [value]="true"></sp-switch>
+          <sp-switch id="sw-dis-on" [label]="'switch.024' | translate" [disabled]="true" [value]="true"></sp-switch>
+          <sp-switch id="sw-dis-off" [label]="'switch.025' | translate" [disabled]="true" [value]="false"></sp-switch>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="switch-demo-column"&gt;
+  &lt;sp-switch id="sw-green" label="Verde quando attivo" activeColor="#10b981" [value]="true"&gt;&lt;/sp-switch&gt;
+  &lt;sp-switch id="sw-danger" label="Rosso quando attivo" activeColor="#ef4444" [value]="true"&gt;&lt;/sp-switch&gt;
+  &lt;sp-switch
+    id="sw-custom"
+    label="Colori personalizzati (blu / grigio)"
+    activeColor="#2563eb"
+    inactiveColor="#cbd5e1"
+    thumbColor="#f8fafc"
+    labelColor="#334155"
+    [value]="true"&gt;&lt;/sp-switch&gt;
+  &lt;sp-switch id="sw-dis-on" label="Disabilitato (On)" [disabled]="true" [value]="true"&gt;&lt;/sp-switch&gt;
+  &lt;sp-switch id="sw-dis-off" label="Disabilitato (Off)" [disabled]="true" [value]="false"&gt;&lt;/sp-switch&gt;
+&lt;/div&gt;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!-- Switches with different colors -->
-    <div class="section">
-      <h3>Custom Colors</h3>
-      <sp-switch
-        id="s5"
-        label="Green Active"
-        [activeColor]="'#4caf50'"
-        [value]="true"></sp-switch>
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'segmented-control.019' | translate }} <code>&#64;aledevsharp/sp-lib</code>{{ 'segmented-control.020' | translate }} <code>[(value)]</code> {{ 'segmented-control.021' | translate }} <code>[(ngModel)]</code> {{ 'inputs.050' | translate }} <code>FormsModule</code>{{ 'segmented-control.022' | translate }} <code>[formControl]</code> {{ 'accordion.023' | translate }} <code>formControlName</code> {{ 'inputs.051' | translate }} <code>ReactiveFormsModule</code>{{ 'segmented-control.023' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; SpSwitchComponent &#125; from '&#64;aledevsharp/sp-lib';
 
-      <sp-switch
-        id="s6"
-        label="Red Active"
-        [activeColor]="'#e53935'"
-        [value]="false"></sp-switch>
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpSwitchComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+// Region: Variables &amp; Layout
+// ================================
+.switch-demo-column &#123;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+&#125;
+
+.bound-value-box &#123;
+  background-color: var(--sp-bg-surface-card);
+  border: 1px dashed var(--sp-border-color);
+  border-radius: var(--sp-radius-sm, 6px);
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+
+  strong &#123;
+    color: var(--sp-color-accent);
+  &#125;
+&#125;</code></pre>
+      </details>
     </div>
+  </div>
 
-    <!-- Switches with custom sizes -->
-    <div class="section">
-      <h3>Custom Sizes</h3>
-      <sp-switch
-        id="s7"
-        label="Large Switch"
-        [width]="'60px'"
-        [height]="'30px'"
-        [value]="true"></sp-switch>
-
-      <sp-switch
-        id="s8"
-        label="Small Switch"
-        [width]="'30px'"
-        [height]="'15px'"
-        [value]="false"></sp-switch>
-    </div>
-
-    <!-- Switches with error -->
-    <div class="section">
-      <h3>Switch with Error</h3>
-      <sp-switch
-        id="s9"
-        label="Error State"
-        [hasError]="true"
-        [errorMessage]="'This switch has an error'"
-        [value]="false"></sp-switch>
+  <div class="doc-section">
+    <h3>{{ 'switch.026' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>id</code></td><td><code>string</code></td><td><code>generato</code></td><td>{{ 'switch.027' | translate }}</td></tr>
+          <tr><td><code>label</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.028' | translate }}</td></tr>
+          <tr><td><code>labelColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.063' | translate }}</td></tr>
+          <tr><td><code>value</code></td><td><code>ModelSignal&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'switch.029' | translate }}</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'switch.030' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'switch.031' | translate }}</td></tr>
+          <tr><td><code>hasError</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'switch.032' | translate }}</td></tr>
+          <tr><td><code>errorMessage</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.033' | translate }}</td></tr>
+          <tr><td><code>activeColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.034' | translate }}</td></tr>
+          <tr><td><code>inactiveColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.035' | translate }}</td></tr>
+          <tr><td><code>thumbColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.036' | translate }}</td></tr>
+          <tr><td><code>width</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.037' | translate }}</td></tr>
+          <tr><td><code>height</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.038' | translate }}</td></tr>
+          <tr><td><code>changeInput</code></td><td><code>OutputEmitterRef&lt;boolean&gt;</code></td><td><code>—</code></td><td>{{ 'switch.039' | translate }}</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

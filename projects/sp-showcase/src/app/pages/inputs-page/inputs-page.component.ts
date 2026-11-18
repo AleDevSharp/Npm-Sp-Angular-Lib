@@ -1,45 +1,69 @@
-import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: inputs-page.component.ts
+// File description: Showcase documentation page for SpInputComponent with reactive forms and styling variants.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
 
-import { SpInputComponent } from '../../../../../sp-lib/src/lib/sp-input/sp-input.component';
-import { SpDividerComponent } from '../../../../../sp-lib/src/public-api';
+// Import
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+
+import { SpInputComponent } from '../../../../../sp-lib/src/public-api';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 /**
- * InputsPageComponent component
- * @author Alessio Giacché
- * @version 1.0.0
+ * InputsPageComponent
+ * @version 2.0.0
  * @since 2.0.0
+ * @author Alessio Giacché
  */
 @Component({
   selector: 'app-inputs-page',
-  imports: [CommonModule, FormsModule, SpDividerComponent, SpInputComponent],
   standalone: true,
+  imports: [TranslatePipe, CommonModule, FormsModule, ReactiveFormsModule, SpInputComponent],
   templateUrl: './inputs-page.component.html',
-  styleUrl: './inputs-page.component.scss'
+  styleUrl: './inputs-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputsPageComponent {
-  // Password visible flag
-  public passwordVisible = signal<boolean>(false);
+  // Two-way binding value for username demonstration
+  public readonly usernameValue = signal<string>('alessio_dev');
 
-  // Name from the event
-  public nameFromEvent = '';
+  // Value emitted from changeInput output
+  public readonly liveValue = signal<string>('');
 
-  // For email value ng model demo
-  public emailValue = '';
+  // The email control validating both empty and malformed addresses
+  public readonly emailControl = new FormControl('email_non_valida', {
+    nonNullable: true,
+    validators: [Validators.required, Validators.email]
+  });
+
+  // Password visibility toggle flag
+  public readonly showPassword = signal<boolean>(false);
 
   /**
-   * Toggle password
+   * Constructor for InputsPageComponent component
    */
-  public togglePassword(): void {
-    this.passwordVisible.set(!this.passwordVisible());
+  constructor() {}
+
+  /**
+   * Handles change input event.
+   * @param val The updated input value
+   * @returns void
+   */
+  public onLiveChange(val: string): void {
+    this.liveValue.set(val);
   }
 
   /**
-   * Change the name
-   * @param value the event string value
+   * Toggles password field type between password and text.
+   * @returns void
    */
-  public onNameChange(value: string): void {
-    this.nameFromEvent = value;
+  public togglePassword(): void {
+    this.showPassword.set(!this.showPassword());
   }
 }

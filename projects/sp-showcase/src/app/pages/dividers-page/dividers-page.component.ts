@@ -1,23 +1,36 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: dividers-page.component.ts
+// File description: Showcase documentation page for SpDividerComponent with orientation and label variants.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
 
-import { SpDividerComponent } from '../../../../../sp-lib/src/public-api';
+// Import
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { SpBtnComponent, SpDividerComponent } from '../../../../../sp-lib/src/public-api';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 /**
- * DividersPageComponent component
- * @author Alessio Giacché
- * @version 1.0.0
+ * DividersPageComponent
+ * @version 2.0.0
  * @since 2.0.0
+ * @author Alessio Giacché
  */
 @Component({
   selector: 'app-dividers-page',
   standalone: true,
-  imports: [
-    CommonModule,
-    // Component import
-    SpDividerComponent
-  ],
+  imports: [TranslatePipe, CommonModule, SpBtnComponent, SpDividerComponent],
   templateUrl: './dividers-page.component.html',
-  styleUrl: './dividers-page.component.scss'
+  styleUrl: './dividers-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DividersPageComponent {}
+export class DividersPageComponent {
+  /**
+   * Constructor for DividersPageComponent component
+   */
+  constructor() {}
+}

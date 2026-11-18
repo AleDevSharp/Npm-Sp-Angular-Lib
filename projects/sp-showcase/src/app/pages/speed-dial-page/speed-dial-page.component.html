@@ -1,0 +1,931 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'speed-dial.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'speed-dial.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'marquee.003' | translate }}</h3>
+    <p class="section-desc">{{ 'speed-dial.003' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="playground-layout">        <!-- Controls Sidebar -->
+            <div class="playground-controls">
+              <div class="control-block">
+                <span class="control-title">{{ 'marquee.005' | translate }}</span>
+                <div class="choice-group">
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="direction() === 'up'"
+                    (click)="setDirection('up')"
+                  >
+                    {{ 'marquee.011' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="direction() === 'down'"
+                    (click)="setDirection('down')"
+                  >
+                    {{ 'marquee.013' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="direction() === 'left'"
+                    (click)="setDirection('left')"
+                  >
+                    {{ 'marquee.007' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="direction() === 'right'"
+                    (click)="setDirection('right')"
+                  >
+                    {{ 'marquee.009' | translate }}
+                  </button>
+                </div>
+              </div>
+
+              <div class="control-block">
+                <span class="control-title">{{ 'speed-dial.004' | translate }}</span>
+                <div class="choice-group">
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="type() === 'linear'"
+                    (click)="setType('linear')"
+                  >
+                    {{ 'speed-dial.006' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="type() === 'semi-circle'"
+                    (click)="setType('semi-circle')"
+                  >
+                    {{ 'speed-dial.008' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="type() === 'quarter-circle'"
+                    (click)="setType('quarter-circle')"
+                  >
+                    {{ 'speed-dial.010' | translate }}
+                  </button>
+                </div>
+              </div>
+
+              <div class="control-block">
+                <span class="control-title">{{ 'speed-dial.011' | translate }}</span>
+                <div class="choice-group">
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="trigger() === 'click'"
+                    (click)="setTrigger('click')"
+                  >
+                    {{ 'speed-dial.013' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="trigger() === 'hover'"
+                    (click)="setTrigger('hover')"
+                  >
+                    {{ 'speed-dial.015' | translate }}
+                  </button>
+                </div>
+              </div>
+
+              <div class="control-block">
+                <span class="control-title">{{ 'speed-dial.016' | translate }}</span>
+                <div class="choice-group">
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="size() === 'sm'"
+                    (click)="setSize('sm')"
+                  >
+                    {{ 'speed-dial.017' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="size() === 'md'"
+                    (click)="setSize('md')"
+                  >
+                    {{ 'speed-dial.018' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="size() === 'lg'"
+                    (click)="setSize('lg')"
+                  >
+                    {{ 'speed-dial.019' | translate }}
+                  </button>
+                </div>
+              </div>
+
+              <div class="control-block">
+                <span class="control-title">{{ 'speed-dial.020' | translate }}</span>
+                <div class="choice-group">
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="color() === 'primary'"
+                    (click)="setColor('primary')"
+                  >
+                    {{ 'badge.029' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="color() === 'success'"
+                    (click)="setColor('success')"
+                  >
+                    {{ 'badge.030' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="color() === 'danger'"
+                    (click)="setColor('danger')"
+                  >
+                    {{ 'badge.032' | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="choice-btn"
+                    [class.active]="color() === 'info'"
+                    (click)="setColor('info')"
+                  >
+                    {{ 'badge.033' | translate }}
+                  </button>
+                </div>
+              </div>
+
+              <div class="switch-toggle-row">
+                <span>{{ 'speed-dial.025' | translate }}</span>
+                <sp-switch
+                  [(value)]="backdrop"
+                  size="sm"
+                ></sp-switch>
+              </div>
+
+              <div class="switch-toggle-row">
+                <span>{{ 'speed-dial.026' | translate }}</span>
+                <sp-switch
+                  [(value)]="showLabels"
+                  size="sm"
+                ></sp-switch>
+              </div>
+            </div>
+
+            <!-- Stage Live Display -->
+            <div class="stage-container">
+              <div class="stage-surface">
+                <div class="stage-placeholder-text">
+                  {{ 'speed-dial.027' | translate }}
+                </div>
+
+                <!-- Positioned Speed Dial -->
+                <div class="speed-dial-wrapper">
+                  <sp-speed-dial
+                    [items]="(actions) | translate"
+                    [radius]="130"
+                    [direction]="direction()"
+                    [type]="type()"
+                    [trigger]="trigger()"
+                    [size]="size()"
+                    [color]="color()"
+                    [backdrop]="backdrop()"
+                    [showLabels]="showLabels()"
+                    (itemClick)="recordAction('Azione selezionata: ' + ($event.label || $event.id))"
+                  ></sp-speed-dial>
+                </div>
+              </div>
+
+              <div class="stage-footer">
+                <span class="footer-label">{{ 'speed-dial.029' | translate }}</span>
+                <span class="footer-status">{{ (lastAction()) | translate }}</span>
+              </div>
+            </div></div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="playground-layout"&gt;        &lt;!-- Controls Sidebar --&gt;
+    &lt;div class="playground-controls"&gt;
+      &lt;div class="control-block"&gt;
+        &lt;span class="control-title"&gt;Direzione:&lt;/span&gt;
+        &lt;div class="choice-group"&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="direction() === 'up'"
+            (click)="setDirection('up')"
+          &gt;
+            ↑ Up
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="direction() === 'down'"
+            (click)="setDirection('down')"
+          &gt;
+            ↓ Down
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="direction() === 'left'"
+            (click)="setDirection('left')"
+          &gt;
+            ← Left
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="direction() === 'right'"
+            (click)="setDirection('right')"
+          &gt;
+            → Right
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="control-block"&gt;
+        &lt;span class="control-title"&gt;Geometria:&lt;/span&gt;
+        &lt;div class="choice-group"&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="type() === 'linear'"
+            (click)="setType('linear')"
+          &gt;
+            Linear
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="type() === 'semi-circle'"
+            (click)="setType('semi-circle')"
+          &gt;
+            Semi-Circle
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="type() === 'quarter-circle'"
+            (click)="setType('quarter-circle')"
+          &gt;
+            Quarter-Circle
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="control-block"&gt;
+        &lt;span class="control-title"&gt;Trigger:&lt;/span&gt;
+        &lt;div class="choice-group"&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="trigger() === 'click'"
+            (click)="setTrigger('click')"
+          &gt;
+            Click
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="trigger() === 'hover'"
+            (click)="setTrigger('hover')"
+          &gt;
+            Hover
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="control-block"&gt;
+        &lt;span class="control-title"&gt;Dimensione:&lt;/span&gt;
+        &lt;div class="choice-group"&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="size() === 'sm'"
+            (click)="setSize('sm')"
+          &gt;
+            SM
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="size() === 'md'"
+            (click)="setSize('md')"
+          &gt;
+            MD
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="size() === 'lg'"
+            (click)="setSize('lg')"
+          &gt;
+            LG
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="control-block"&gt;
+        &lt;span class="control-title"&gt;Colore FAB:&lt;/span&gt;
+        &lt;div class="choice-group"&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="color() === 'primary'"
+            (click)="setColor('primary')"
+          &gt;
+            Primary
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="color() === 'success'"
+            (click)="setColor('success')"
+          &gt;
+            Success
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="color() === 'danger'"
+            (click)="setColor('danger')"
+          &gt;
+            Danger
+          &lt;/button&gt;
+          &lt;button
+            type="button"
+            class="choice-btn"
+            [class.active]="color() === 'info'"
+            (click)="setColor('info')"
+          &gt;
+            Info
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="switch-toggle-row"&gt;
+        &lt;span&gt;Backdrop Oscurante Blur&lt;/span&gt;
+        &lt;sp-switch
+          [(value)]="backdrop"
+          size="sm"
+        &gt;&lt;/sp-switch&gt;
+      &lt;/div&gt;
+
+      &lt;div class="switch-toggle-row"&gt;
+        &lt;span&gt;Mostra Etichette Pills&lt;/span&gt;
+        &lt;sp-switch
+          [(value)]="showLabels"
+          size="sm"
+        &gt;&lt;/sp-switch&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Stage Live Display --&gt;
+    &lt;div class="stage-container"&gt;
+      &lt;div class="stage-surface"&gt;
+        &lt;div class="stage-placeholder-text"&gt;
+          Usa il trigger selezionato. Su schermi stretti scorri orizzontalmente la demo.
+        &lt;/div&gt;
+
+        &lt;!-- Positioned Speed Dial --&gt;
+        &lt;div class="speed-dial-wrapper"&gt;
+          &lt;sp-speed-dial
+            [items]="actions"
+            [radius]="130"
+            [direction]="direction()"
+            [type]="type()"
+            [trigger]="trigger()"
+            [size]="size()"
+            [color]="color()"
+            [backdrop]="backdrop()"
+            [showLabels]="showLabels()"
+            (itemClick)="recordAction('Azione selezionata: ' + ($event.label || $event.id))"
+          &gt;&lt;/sp-speed-dial&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="stage-footer"&gt;
+        &lt;span class="footer-label"&gt;Ultima selezione:&lt;/span&gt;
+        &lt;span class="footer-status"&gt;&#123;&#123; lastAction() &#125;&#125;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'badge.023' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'badge.024' | translate"><code>// The selected direction for the interactive speed dial
+  public readonly direction = signal&lt;SpSpeedDialDirection&gt;('up');
+
+  // The selected geometry layout type (linear, semi-circle, quarter-circle)
+  public readonly type = signal&lt;SpSpeedDialType&gt;('linear');
+
+  // The selected trigger mode (click or hover)
+  public readonly trigger = signal&lt;SpSpeedDialTrigger&gt;('click');
+
+  // The selected size preset for the speed dial
+  public readonly size = signal&lt;SpSpeedDialSize&gt;('md');
+
+  // The selected semantic color theme
+  public readonly color = signal&lt;SpSpeedDialColor&gt;('primary');
+
+  // The toggle indicating whether the backdrop blur is active
+  public readonly backdrop = signal&lt;boolean&gt;(false);
+
+  // The toggle indicating whether action text labels are shown
+  public readonly showLabels = signal&lt;boolean&gt;(true);
+
+  // The signal holding the message of the last clicked action item
+  public readonly lastAction = signal&lt;string&gt;('Nessuna azione eseguita');
+
+  // The list of quick action items for the playground demo
+  public readonly actions: SpSpeedDialItem[] = [
+    &#123;
+      id: 'copy',
+      label: 'Copia Link',
+      icon: '📋',
+      color: 'neutral'
+    &#125;,
+    &#123;
+      id: 'share',
+      label: 'Condividi',
+      icon: '🚀',
+      color: 'info'
+    &#125;,
+    &#123;
+      id: 'favorite',
+      label: 'Aggiungi ai Preferiti',
+      icon: '⭐',
+      color: 'warning'
+    &#125;,
+    &#123;
+      id: 'download',
+      label: 'Esporta PDF',
+      icon: '📥',
+      color: 'success'
+    &#125;
+  ];
+
+  // Radial fan-out demo items with colorful icons
+  public readonly radialActions: SpSpeedDialItem[] = [
+    &#123; id: 'camera', label: 'Fotocamera', icon: '📷', color: 'primary' &#125;,
+    &#123; id: 'gallery', label: 'Galleria', icon: '🖼️', color: 'info' &#125;,
+    &#123; id: 'document', label: 'Documento', icon: '📄', color: 'success' &#125;,
+    &#123; id: 'location', label: 'Posizione', icon: '📍', color: 'danger' &#125;
+  ];
+
+
+  /**
+   * Updates the selected expansion direction.
+   * &#64;param dir The new direction
+   * &#64;returns void
+   */
+  public setDirection(dir: SpSpeedDialDirection): void &#123;
+    this.direction.set(dir);
+  &#125;
+
+  /**
+   * Updates the selected layout geometry type.
+   * &#64;param val The new layout type
+   * &#64;returns void
+   */
+  public setType(val: SpSpeedDialType): void &#123;
+    this.type.set(val);
+  &#125;
+
+  /**
+   * Updates the trigger activation mode.
+   * &#64;param mode The new trigger mode
+   * &#64;returns void
+   */
+  public setTrigger(mode: SpSpeedDialTrigger): void &#123;
+    this.trigger.set(mode);
+  &#125;
+
+  /**
+   * Updates the size variant of the speed dial.
+   * &#64;param s The new size
+   * &#64;returns void
+   */
+  public setSize(s: SpSpeedDialSize): void &#123;
+    this.size.set(s);
+  &#125;
+
+  /**
+   * Updates the color theme of the primary FAB.
+   * &#64;param c The new color
+   * &#64;returns void
+   */
+  public setColor(c: SpSpeedDialColor): void &#123;
+    this.color.set(c);
+  &#125;
+
+  /**
+   * Logs and records an executed action for display in the showcase toast.
+   * &#64;param msg The message describing the action
+   * &#64;returns void
+   */
+  public recordAction(msg: string): void &#123;
+    this.lastAction.set(msg);
+  &#125;</code></pre>
+      </details>
+    </div>
+  </div>
+  <div class="doc-section">
+    <h3>{{ 'speed-dial.030' | translate }}</h3>
+    <p class="section-desc">{{ 'speed-dial.031' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="radial-showcase-grid">      <sp-card variant="elevated">
+            <sp-card-header [title]="'speed-dial.032' | translate" [subtitle]="'speed-dial.033' | translate"></sp-card-header>
+            <sp-card-content>
+              <div class="radial-stage-box">
+                <sp-speed-dial
+                  [items]="(radialActions) | translate"
+                  direction="up"
+                  type="semi-circle"
+                  color="primary"
+                  [radius]="130"
+                  [showLabels]="false"
+                  (itemClick)="recordAction('Radial Click: ' + ($event.label || $event.id))"
+                ></sp-speed-dial>
+              </div>
+            </sp-card-content>
+          </sp-card>
+
+          <sp-card variant="elevated">
+            <sp-card-header [title]="'speed-dial.035' | translate" [subtitle]="'speed-dial.036' | translate"></sp-card-header>
+            <sp-card-content>
+              <div class="radial-stage-box">
+                <sp-speed-dial
+                  [items]="(radialActions) | translate"
+                  direction="left"
+                  type="quarter-circle"
+                  color="info"
+                  [radius]="130"
+                  [showLabels]="false"
+                  (itemClick)="recordAction('Quarter Click: ' + ($event.label || $event.id))"
+                ></sp-speed-dial>
+              </div>
+            </sp-card-content>
+          </sp-card></div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="radial-showcase-grid"&gt;      &lt;sp-card variant="elevated"&gt;
+    &lt;sp-card-header title="Semicerchio verso l’alto" subtitle="Arco di 180°, raggio 130 px"&gt;&lt;/sp-card-header&gt;
+    &lt;sp-card-content&gt;
+      &lt;div class="radial-stage-box"&gt;
+        &lt;sp-speed-dial
+          [items]="radialActions"
+          direction="up"
+          type="semi-circle"
+          color="primary"
+          [radius]="130"
+          [showLabels]="false"
+          (itemClick)="recordAction('Radial Click: ' + ($event.label || $event.id))"
+        &gt;&lt;/sp-speed-dial&gt;
+      &lt;/div&gt;
+    &lt;/sp-card-content&gt;
+  &lt;/sp-card&gt;
+
+  &lt;sp-card variant="elevated"&gt;
+    &lt;sp-card-header title="Quarto di cerchio verso sinistra" subtitle="Arco di 90° centrato a sinistra, raggio 130 px"&gt;&lt;/sp-card-header&gt;
+    &lt;sp-card-content&gt;
+      &lt;div class="radial-stage-box"&gt;
+        &lt;sp-speed-dial
+          [items]="radialActions"
+          direction="left"
+          type="quarter-circle"
+          color="info"
+          [radius]="130"
+          [showLabels]="false"
+          (itemClick)="recordAction('Quarter Click: ' + ($event.label || $event.id))"
+        &gt;&lt;/sp-speed-dial&gt;
+      &lt;/div&gt;
+    &lt;/sp-card-content&gt;
+  &lt;/sp-card&gt;&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'speed-dial.038' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; SpSpeedDialComponent, SpSpeedDialItem, SpSpeedDialDirection, SpSpeedDialType, SpSpeedDialTrigger, SpSpeedDialSize, SpSpeedDialColor, SpSwitchComponent, SpCardComponent, SpCardHeaderComponent, SpCardContentComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpSpeedDialComponent, SpSwitchComponent, SpCardComponent, SpCardHeaderComponent, SpCardContentComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+// Project: SpLib
+// File name: speed-dial-page.component.scss
+// File description: Styles for SpeedDialPageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+
+// ================================
+// Region: Playground Layout
+// ================================
+
+.playground-card &#123;
+  padding: 0;
+  overflow: hidden;
+&#125;
+
+.playground-layout &#123;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 480px;
+
+  &#64;media (max-width: 860px) &#123;
+    grid-template-columns: 1fr;
+  &#125;
+&#125;
+
+.playground-controls &#123;
+  padding: 24px;
+  background-color: var(--sp-bg-surface);
+  border-right: 1px solid var(--sp-border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &#64;media (max-width: 860px) &#123;
+    border-right: none;
+    border-bottom: 1px solid var(--sp-border-color);
+  &#125;
+&#125;
+
+.control-block &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+&#125;
+
+.control-title &#123;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sp-text-muted);
+&#125;
+
+.choice-group &#123;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+&#125;
+
+.choice-btn &#123;
+  padding: 5px 12px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: var(--sp-radius-full, 9999px);
+  border: 1px solid var(--sp-border-color);
+  background: var(--sp-bg-surface-card, #ffffff);
+  color: var(--sp-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &amp;:hover &#123;
+    color: var(--sp-text-primary);
+    border-color: var(--sp-color-purple, #8636F8);
+  &#125;
+
+  &amp;.active &#123;
+    background: var(--sp-gradient-brand);
+    color: #ffffff;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: var(--sp-shadow-brand-glow);
+  &#125;
+&#125;
+
+.switch-toggle-row &#123;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--sp-border-color);
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+&#125;
+
+// ================================
+// Region: Live Stage Surface
+// ================================
+
+.stage-container &#123;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sp-bg-canvas);
+  position: relative;
+&#125;
+
+.stage-surface &#123;
+  flex: 1;
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: visible;
+  background-image: radial-gradient(var(--sp-border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+&#125;
+
+.stage-placeholder-text &#123;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--sp-text-muted);
+  pointer-events: none;
+&#125;
+
+.speed-dial-wrapper &#123;
+  position: relative;
+&#125;
+
+.stage-footer &#123;
+  padding: 12px 20px;
+  background-color: var(--sp-bg-surface);
+  border-top: 1px solid var(--sp-border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+&#125;
+
+.footer-label &#123;
+  font-weight: 600;
+  color: var(--sp-text-muted);
+&#125;
+
+.footer-status &#123;
+  font-weight: 600;
+  color: var(--sp-color-accent);
+&#125;
+
+// ================================
+// Region: Radial Showcase Grid
+// ================================
+
+.radial-showcase-grid &#123;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+&#125;
+
+.radial-stage-box &#123;
+  min-height: 220px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 24px;
+  background-color: var(--sp-bg-surface);
+  border-radius: var(--sp-radius-md, 8px);
+  position: relative;
+
+  &amp;.corner-box &#123;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 36px;
+    padding-bottom: 24px;
+  &#125;
+&#125;
+
+// ================================
+// Region: Dark Mode
+// ================================
+
+[data-theme='dark'] &#123;
+  .playground-controls,
+  .stage-footer,
+  .radial-stage-box &#123;
+    background-color: #1e293b;
+    border-color: #334155;
+  &#125;
+
+  .choice-btn &#123;
+    background: #0f172a;
+    border-color: #334155;
+    color: #94a3b8;
+
+    &amp;:hover &#123;
+      color: #f8fafc;
+      border-color: #475569;
+    &#125;
+
+    &amp;.active &#123;
+      background-color: var(--sp-color-primary, #ffac1c);
+      color: #1c1917;
+      border-color: var(--sp-color-primary, #ffac1c);
+    &#125;
+  &#125;
+
+  .stage-surface &#123;
+    background-image: radial-gradient(#334155 1px, transparent 1px);
+  &#125;
+
+  .switch-toggle-row &#123;
+    border-top-color: #334155;
+  &#125;
+&#125;
+
+/* Reserve space for all four linear actions and every radial direction. */
+.playground-layout &#123; display: flex; flex-direction: column; width: 100%; min-width: 0; &#125;
+.playground-controls &#123; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border-right: 0; border-bottom: 1px solid var(--sp-border-color); &#125;
+.stage-container &#123; overflow-x: auto; width: 100%; &#125;
+.stage-surface &#123; min-width: 640px; min-height: 680px; box-sizing: border-box; &#125;
+.stage-footer &#123; min-width: 600px; &#125;
+.radial-showcase-grid &#123; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); width: 100%; &#125;
+.radial-stage-box &#123; min-height: 380px; min-width: 300px; align-items: center; justify-content: center; padding: 12px; &#125;
+.choice-btn:focus-visible &#123; outline: 3px solid var(--sp-color-primary); outline-offset: 3px; &#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'speed-dial.039' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>items</code></td><td><code>SpSpeedDialItem[]</code></td><td><code>[]</code></td><td>{{ 'speed-dial.040' | translate }}</td></tr>
+          <tr><td><code>direction</code></td><td><code>'up' | 'down' | 'left' | 'right'</code></td><td><code>'up'</code></td><td>{{ 'speed-dial.041' | translate }}</td></tr>
+          <tr><td><code>type</code></td><td><code>'linear' | 'semi-circle' | 'quarter-circle'</code></td><td><code>'linear'</code></td><td>{{ 'speed-dial.042' | translate }}</td></tr>
+          <tr><td><code>trigger</code></td><td><code>'click' | 'hover'</code></td><td><code>'click'</code></td><td>{{ 'speed-dial.043' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'speed-dial.044' | translate }}</td></tr>
+          <tr><td><code>color</code></td><td><code>SpSpeedDialColor</code></td><td><code>'primary'</code></td><td>{{ 'speed-dial.045' | translate }}</td></tr>
+          <tr><td><code>opened</code></td><td><code>model&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'speed-dial.046' | translate }}</td></tr>
+          <tr><td><code>rotateAnimation</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.047' | translate }}</td></tr>
+          <tr><td><code>icon / activeIcon</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'speed-dial.048' | translate }}</td></tr>
+          <tr><td><code>backdrop</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'speed-dial.049' | translate }}</td></tr>
+          <tr><td><code>backdropDismiss</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.050' | translate }}</td></tr>
+          <tr><td><code>closeOnItemClick</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.051' | translate }}</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'speed-dial.052' | translate }}</td></tr>
+          <tr><td><code>ariaLabel</code></td><td><code>string</code></td><td><code>'Quick actions speed dial'</code></td><td>{{ 'speed-dial.053' | translate }}</td></tr>
+          <tr><td><code>radius</code></td><td><code>number</code></td><td><code>85</code></td><td>{{ 'speed-dial.054' | translate }}</td></tr>
+          <tr><td><code>showLabels</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.055' | translate }}</td></tr>
+          <tr><td><code>itemClick</code></td><td><code>output&lt;SpSpeedDialItem&gt;</code></td><td><code>—</code></td><td>{{ 'speed-dial.056' | translate }}</td></tr>
+          <tr><td><code>onOpen / onClose</code></td><td><code>output&lt;void&gt;</code></td><td><code>—</code></td><td>{{ 'speed-dial.057' | translate }}</td></tr>
+          <tr><td><code>open() / close() / toggle()</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'speed-dial.058' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="doc-section">
+    <h3>{{ 'speed-dial.059' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>id</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'speed-dial.060' | translate }}</td></tr>
+          <tr><td><code>label / ariaLabel / title</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'speed-dial.061' | translate }}</td></tr>
+          <tr><td><code>icon</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'speed-dial.062' | translate }}</td></tr>
+          <tr><td><code>color</code></td><td><code>SpSpeedDialColor</code></td><td><code>'primary'</code></td><td>{{ 'speed-dial.063' | translate }}</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'speed-dial.064' | translate }}</td></tr>
+          <tr><td><code>command</code></td><td><code>(item: SpSpeedDialItem) =&gt; void</code></td><td><code>—</code></td><td>{{ 'speed-dial.065' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

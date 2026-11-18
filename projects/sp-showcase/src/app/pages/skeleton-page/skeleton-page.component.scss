@@ -1,0 +1,149 @@
+.skeleton-demo-column { width: 100%; min-width: 0; }
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--sp-border-subtle);
+  font-size: 14px;
+  color: var(--sp-text-secondary);
+
+  strong {
+    color: var(--sp-primary);
+  }
+}
+
+.card-comparison-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 24px;
+  border-radius: var(--sp-radius-lg);
+  border: 1px solid var(--sp-border-subtle);
+  background-color: var(--sp-card-bg);
+  box-shadow: var(--sp-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &.loaded-mode {
+    animation: sp-card-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes sp-card-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.real-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sp-primary) 0%, #a855f7 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h4 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--sp-text-primary);
+  }
+
+  span {
+    font-size: 13px;
+    color: var(--sp-text-secondary);
+  }
+}
+
+.profile-body p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--sp-text-secondary);
+  line-height: 1.6;
+}
+
+.profile-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--sp-border-subtle);
+}
+
+.shapes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.shape-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .shape-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--sp-text-secondary);
+  }
+}
+
+.circles-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+// ================================
+// Region: Placeholder Host Sizing
+// ================================
+.profile-header > sp-skeleton {
+  width: 56px;
+  flex: 0 0 56px;
+}
+
+.profile-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.circles-row > sp-skeleton,
+.profile-footer > sp-skeleton {
+  width: auto;
+  flex: 0 0 auto;
+}

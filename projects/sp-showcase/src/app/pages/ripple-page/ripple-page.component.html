@@ -1,0 +1,468 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'ripple.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'ripple.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'ripple.003' | translate }}</h3>
+    <p class="section-desc">{{ 'ripple.004' | translate }} <code>--sp-ripple-color</code>{{ 'ripple.005' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="ripple-demo-column">
+          <div class="ripple-showcase-grid">
+            <!-- Variant 1: Standard Button -->
+            <div class="ripple-demo-item">
+              <span class="item-label">{{ 'ripple.006' | translate }}</span>
+              <button class="custom-ripple-btn primary-btn" spRipple>
+                {{ 'ripple.007' | translate }}
+              </button>
+              <span class="item-hint">{{ 'ripple.008' | translate }}</span>
+            </div>
+
+            <!-- Variant 2: Centered Origin -->
+            <div class="ripple-demo-item">
+              <span class="item-label">{{ 'ripple.009' | translate }}</span>
+              <button class="custom-ripple-btn secondary-btn" spRipple [spRippleCentered]="true">
+                {{ 'ripple.010' | translate }}
+              </button>
+              <span class="item-hint">{{ 'ripple.011' | translate }}</span>
+            </div>
+
+            <!-- Variant 3: Custom Accent Color -->
+            <div class="ripple-demo-item">
+              <span class="item-label">{{ 'ripple.012' | translate }}</span>
+              <button
+                class="custom-ripple-btn emerald-btn"
+                spRipple
+                [spRippleColor]="'rgba(16, 185, 129, 0.45)'"
+              >
+                {{ 'ripple.013' | translate }}
+              </button>
+              <span class="item-hint">{{ 'ripple.014' | translate }}</span>
+            </div>
+
+            <!-- Variant 4: Slow Motion Fluid Wave -->
+            <div class="ripple-demo-item">
+              <span class="item-label">{{ 'ripple.015' | translate }}</span>
+              <button
+                class="custom-ripple-btn purple-btn"
+                spRipple
+                [spRippleDuration]="1200"
+                [spRippleColor]="'rgba(168, 85, 247, 0.4)'"
+              >
+                {{ 'ripple.016' | translate }}
+              </button>
+              <span class="item-hint">{{ 'ripple.017' | translate }}</span>
+            </div>
+
+            <!-- Variant 5: Circular Unbounded (Icon Button) -->
+            <div class="ripple-demo-item">
+              <span class="item-label">{{ 'ripple.018' | translate }}</span>
+              <div class="icon-buttons-row">
+                <button class="round-icon-btn" spRipple [spRippleUnbounded]="true" [title]="'ripple.019' | translate">
+                  ❤️
+                </button>
+                <button class="round-icon-btn" spRipple [spRippleUnbounded]="true" [title]="'ripple.020' | translate">
+                  🔗
+                </button>
+                <button class="round-icon-btn" spRipple [spRippleUnbounded]="true" [title]="'ripple.021' | translate">
+                  ⭐
+                </button>
+              </div>
+              <span class="item-hint">{{ 'ripple.022' | translate }}</span>
+            </div>
+
+            <!-- Variant 6: Programmatic Trigger -->
+            <div class="ripple-demo-item">
+              <span class="item-label">{{ 'ripple.023' | translate }}</span>
+              <div
+                #progRipple="spRipple"
+                class="target-box"
+                spRipple
+                [spRippleColor]="'rgba(255, 172, 28, 0.45)'"
+              >
+                {{ 'ripple.024' | translate }}
+              </div>
+              <sp-btn [text]="'ripple.025' | translate" size="sm" variant="outline" (buttonClick)="launchProgrammatic()"></sp-btn>
+              <span class="item-hint">{{ 'ripple.026' | translate }} <code>launch()</code></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="ripple-demo-column"&gt;
+  &lt;div class="ripple-showcase-grid"&gt;
+    &lt;!-- Variant 1: Standard Button --&gt;
+    &lt;div class="ripple-demo-item"&gt;
+      &lt;span class="item-label"&gt;Ripple Predefinito&lt;/span&gt;
+      &lt;button class="custom-ripple-btn primary-btn" spRipple&gt;
+        Clicca per Ripple
+      &lt;/button&gt;
+      &lt;span class="item-hint"&gt;Origine sul cursore, colore contrasto tema&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Variant 2: Centered Origin --&gt;
+    &lt;div class="ripple-demo-item"&gt;
+      &lt;span class="item-label"&gt;Origine Centrata&lt;/span&gt;
+      &lt;button class="custom-ripple-btn secondary-btn" spRipple [spRippleCentered]="true"&gt;
+        Ripple dal Centro
+      &lt;/button&gt;
+      &lt;span class="item-hint"&gt;Espansione radiale dal baricentro&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Variant 3: Custom Accent Color --&gt;
+    &lt;div class="ripple-demo-item"&gt;
+      &lt;span class="item-label"&gt;Colore Personalizzato&lt;/span&gt;
+      &lt;button
+        class="custom-ripple-btn emerald-btn"
+        spRipple
+        [spRippleColor]="'rgba(16, 185, 129, 0.45)'"
+      &gt;
+        Onda Verde Smeraldo
+      &lt;/button&gt;
+      &lt;span class="item-hint"&gt;Tinta rgba personalizzabile via input&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Variant 4: Slow Motion Fluid Wave --&gt;
+    &lt;div class="ripple-demo-item"&gt;
+      &lt;span class="item-label"&gt;Slow Motion (1200ms)&lt;/span&gt;
+      &lt;button
+        class="custom-ripple-btn purple-btn"
+        spRipple
+        [spRippleDuration]="1200"
+        [spRippleColor]="'rgba(168, 85, 247, 0.4)'"
+      &gt;
+        Onda Lenta ed Elegante
+      &lt;/button&gt;
+      &lt;span class="item-hint"&gt;Durata espansione 1.2 secondi&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Variant 5: Circular Unbounded (Icon Button) --&gt;
+    &lt;div class="ripple-demo-item"&gt;
+      &lt;span class="item-label"&gt;Icona Unbounded (Senza Limiti)&lt;/span&gt;
+      &lt;div class="icon-buttons-row"&gt;
+        &lt;button class="round-icon-btn" spRipple [spRippleUnbounded]="true" title="Mi Piace"&gt;
+          ❤️
+        &lt;/button&gt;
+        &lt;button class="round-icon-btn" spRipple [spRippleUnbounded]="true" title="Condividi"&gt;
+          🔗
+        &lt;/button&gt;
+        &lt;button class="round-icon-btn" spRipple [spRippleUnbounded]="true" title="Preferiti"&gt;
+          ⭐
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;span class="item-hint"&gt;Ideale per Action Icon e Checkbox&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Variant 6: Programmatic Trigger --&gt;
+    &lt;div class="ripple-demo-item"&gt;
+      &lt;span class="item-label"&gt;Innesco Programmatico&lt;/span&gt;
+      &lt;div
+        #progRipple="spRipple"
+        class="target-box"
+        spRipple
+        [spRippleColor]="'rgba(255, 172, 28, 0.45)'"
+      &gt;
+        Target Box
+      &lt;/div&gt;
+      &lt;sp-btn text="Attiva da Codice" size="sm" variant="outline" (buttonClick)="launchProgrammatic()"&gt;&lt;/sp-btn&gt;
+      &lt;span class="item-hint"&gt;Richiamabile via &lt;code&gt;launch()&lt;/code&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'ripple.027' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'ripple.028' | translate"><code>// The directive exported by the programmatic target
+public readonly progRipple = viewChild&lt;SpRippleDirective&gt;('progRipple');
+
+/**
+ * Triggers a ripple programmatically from center.
+ * &#64;returns void
+ */
+public launchProgrammatic(): void &#123;
+  const dir = this.progRipple();
+  if (dir) &#123;
+    dir.launch();
+  &#125;
+&#125;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'ripple.029' | translate }}</h3>
+    <p class="section-desc">{{ 'ripple.030' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="ripple-demo-column">
+          <div class="cards-grid">
+            <div class="interactive-card" spRipple>
+              <div class="card-icon">🚀</div>
+              <h4>{{ 'ripple.031' | translate }}</h4>
+              <p>{{ 'ripple.032' | translate }}</p>
+            </div>
+
+            <div class="interactive-card" spRipple [spRippleColor]="'rgba(59, 130, 246, 0.2)'">
+              <div class="card-icon">💎</div>
+              <h4>{{ 'ripple.033' | translate }}</h4>
+              <p>{{ 'ripple.034' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="ripple-demo-column"&gt;
+  &lt;div class="cards-grid"&gt;
+    &lt;div class="interactive-card" spRipple&gt;
+      &lt;div class="card-icon"&gt;🚀&lt;/div&gt;
+      &lt;h4&gt;SpLib Fast Acceleration&lt;/h4&gt;
+      &lt;p&gt;La direttiva aggiunge un’onda visiva alla superficie senza implementare azioni di navigazione.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="interactive-card" spRipple [spRippleColor]="'rgba(59, 130, 246, 0.2)'"&gt;
+      &lt;div class="card-icon"&gt;💎&lt;/div&gt;
+      &lt;h4&gt;Superficie con colore personalizzato&lt;/h4&gt;
+      &lt;p&gt;Il colore dell’onda può essere adattato al contrasto della superficie tramite input o token CSS.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'ripple.035' | translate }} <code>#progRipple="spRipple"</code> {{ 'ripple.036' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChild &#125; from '&#64;angular/core';
+import &#123; SpRippleDirective, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpRippleDirective, SpBtnComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+// Project: SpLib
+// File name: ripple-page.component.scss
+// File description: Styles for RipplePageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+.ripple-showcase-grid &#123;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+&#125;
+
+.ripple-demo-item &#123;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  background: var(--sp-bg-secondary, rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-md);
+&#125;
+
+.item-label &#123;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sp-text-secondary);
+&#125;
+
+.item-hint &#123;
+  font-size: 12px;
+  color: var(--sp-text-secondary);
+  opacity: 0.8;
+&#125;
+
+.custom-ripple-btn &#123;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--sp-radius-md);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, filter 0.15s ease;
+
+  &amp;:hover &#123;
+    filter: brightness(1.08);
+  &#125;
+
+  &amp;:active &#123;
+    transform: scale(0.98);
+  &#125;
+
+  &amp;.primary-btn &#123;
+    background: var(--sp-gradient-brand);
+    color: #ffffff;
+    box-shadow: var(--sp-shadow-brand-glow);
+  &#125;
+
+  &amp;.secondary-btn &#123;
+    background: #334155;
+    color: #ffffff;
+  &#125;
+
+  &amp;.emerald-btn &#123;
+    background: #ecfdf5;
+    color: #047857;
+  &#125;
+
+  &amp;.purple-btn &#123;
+    background: #f5f3ff;
+    color: #6d28d9;
+  &#125;
+&#125;
+
+.icon-buttons-row &#123;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+&#125;
+
+.round-icon-btn &#123;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--sp-border-subtle);
+  background: var(--sp-bg-surface, rgba(255, 255, 255, 0.05));
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+
+  &amp;:hover &#123;
+    background-color: var(--sp-bg-surface-hover, rgba(255, 255, 255, 0.1));
+    transform: scale(1.08);
+  &#125;
+&#125;
+
+.target-box &#123;
+  width: 100%;
+  height: 64px;
+  border-radius: var(--sp-radius-md);
+  border: 2px dashed var(--sp-border-subtle);
+  background: rgba(224, 14, 89, 0.05);
+  color: var(--sp-color-accent);
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+&#125;
+
+.cards-grid &#123;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+&#125;
+
+.interactive-card &#123;
+  padding: 24px;
+  border-radius: var(--sp-radius-lg);
+  border: 1px solid var(--sp-border-subtle);
+  background: var(--sp-card-bg, rgba(255, 255, 255, 0.03));
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+
+  &amp;:hover &#123;
+    transform: translateY(-3px);
+    box-shadow: var(--sp-shadow-md);
+  &#125;
+
+  .card-icon &#123;
+    font-size: 28px;
+  &#125;
+
+  h4 &#123;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--sp-text-primary);
+  &#125;
+
+  p &#123;
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--sp-text-secondary);
+    line-height: 1.5;
+  &#125;
+&#125;
+
+.ripple-demo-column &#123; width: 100%; min-width: 0; &#125;
+
+.primary-btn,
+.secondary-btn &#123; --sp-ripple-color: rgba(255, 255, 255, 0.55); &#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'ripple.037' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>spRipple</code></td><td><code>boolean | string | undefined</code></td><td><code>undefined</code></td><td>{{ 'ripple.038' | translate }}</td></tr>
+          <tr><td><code>spRippleColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'ripple.039' | translate }}</td></tr>
+          <tr><td><code>spRippleDuration</code></td><td><code>number</code></td><td><code>600</code></td><td>{{ 'ripple.040' | translate }}</td></tr>
+          <tr><td><code>spRippleCentered</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'ripple.041' | translate }}</td></tr>
+          <tr><td><code>spRippleUnbounded</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'ripple.042' | translate }}</td></tr>
+          <tr><td><code>spRippleDisabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'ripple.043' | translate }}</td></tr>
+          <tr><td><code>launch(x?, y?, config?)</code></td><td><code>(number?, number?, SpRippleConfig?) =&gt; void</code></td><td><code>—</code></td><td>{{ 'ripple.044' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'ripple.045' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>color</code></td><td><code>string</code></td><td><code>opzionale</code></td><td>{{ 'ripple.046' | translate }}</td></tr>
+          <tr><td><code>centered</code></td><td><code>boolean</code></td><td><code>opzionale</code></td><td>{{ 'ripple.047' | translate }}</td></tr>
+          <tr><td><code>duration</code></td><td><code>number</code></td><td><code>opzionale</code></td><td>{{ 'ripple.048' | translate }}</td></tr>
+          <tr><td><code>unbounded</code></td><td><code>boolean</code></td><td><code>opzionale</code></td><td>{{ 'ripple.049' | translate }}</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>opzionale</code></td><td>{{ 'ripple.050' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

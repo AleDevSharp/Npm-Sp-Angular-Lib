@@ -1,0 +1,409 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'badge.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'badge.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'badge.003' | translate }}</h3>
+    <p class="section-desc"><code>[dot]="true"</code> {{ 'badge.004' | translate }} <code>[pulse]="true"</code> {{ 'badge.005' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="dots-row">
+          <div class="status-item">
+            <sp-badge color="success" [dot]="true" [pulse]="true"></sp-badge>
+            <span class="status-name">{{ 'badge.006' | translate }}</span>
+          </div>
+
+          <div class="status-item">
+            <sp-badge color="primary" [dot]="true" [pulse]="true"></sp-badge>
+            <span class="status-name">{{ 'badge.007' | translate }}</span>
+          </div>
+
+          <div class="status-item">
+            <sp-badge color="warning" [dot]="true" [pulse]="true"></sp-badge>
+            <span class="status-name">{{ 'badge.008' | translate }}</span>
+          </div>
+
+          <div class="status-item">
+            <sp-badge color="danger" [dot]="true" [pulse]="true"></sp-badge>
+            <span class="status-name">{{ 'badge.009' | translate }}</span>
+          </div>
+
+          <div class="status-item">
+            <sp-badge color="secondary" [dot]="true" [pulse]="false"></sp-badge>
+            <span class="status-name">{{ 'badge.010' | translate }}</span>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="dots-row"&gt;
+  &lt;div class="status-item"&gt;
+    &lt;sp-badge color="success" [dot]="true" [pulse]="true"&gt;&lt;/sp-badge&gt;
+    &lt;span class="status-name"&gt;Live / Online&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class="status-item"&gt;
+    &lt;sp-badge color="primary" [dot]="true" [pulse]="true"&gt;&lt;/sp-badge&gt;
+    &lt;span class="status-name"&gt;Processing&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class="status-item"&gt;
+    &lt;sp-badge color="warning" [dot]="true" [pulse]="true"&gt;&lt;/sp-badge&gt;
+    &lt;span class="status-name"&gt;Degraded&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class="status-item"&gt;
+    &lt;sp-badge color="danger" [dot]="true" [pulse]="true"&gt;&lt;/sp-badge&gt;
+    &lt;span class="status-name"&gt;Critical Alert&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class="status-item"&gt;
+    &lt;sp-badge color="secondary" [dot]="true" [pulse]="false"&gt;&lt;/sp-badge&gt;
+    &lt;span class="status-name"&gt;Offline (Fisso)&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'badge.011' | translate }}</h3>
+    <p class="section-desc"><code>[max]="99"</code> {{ 'badge.012' | translate }} <code>99+</code> {{ 'badge.013' | translate }} <code>placement</code> {{ 'badge.014' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="badge-demo-column">
+          <div class="overlays-row">
+            <!-- Interactive Bell -->
+            <sp-badge [content]="(notificationCount()) | translate" color="danger" placement="top-right" [max]="99">
+              <button type="button" class="icon-trigger-btn" [attr.aria-label]="'badge.015' | translate">
+                🔔
+              </button>
+            </sp-badge>
+          
+            <!-- Message Counter -->
+            <sp-badge [content]="'badge.016' | translate" color="primary" placement="top-right">
+              <button type="button" class="icon-trigger-btn" [attr.aria-label]="'badge.017' | translate">
+                ✉️
+              </button>
+            </sp-badge>
+          
+            <!-- Profile Online Dot -->
+            <sp-badge color="success" [dot]="true" placement="bottom-right" [pulse]="true">
+              <div class="avatar-box">{{ 'badge.018' | translate }}</div>
+            </sp-badge>
+          </div>
+          <div class="counter-actions">
+            <span>{{ 'badge.019' | translate }} <code>{{ notificationCount() }}</code> {{ 'badge.020' | translate }} <code>{{ notificationCount() > 99 ? '99+' : notificationCount() }}</code>)</span>
+            <div class="actions-group">
+              <sp-btn [text]="'badge.021' | translate" size="sm" (buttonClick)="incrementCount()"></sp-btn>
+              <sp-btn [text]="'badge.022' | translate" size="sm" variant="outline" (buttonClick)="resetCount()"></sp-btn>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="badge-demo-column"&gt;
+  &lt;div class="overlays-row"&gt;
+    &lt;!-- Interactive Bell --&gt;
+    &lt;sp-badge [content]="notificationCount()" color="danger" placement="top-right" [max]="99"&gt;
+      &lt;button type="button" class="icon-trigger-btn" aria-label="Notifiche"&gt;
+        🔔
+      &lt;/button&gt;
+    &lt;/sp-badge&gt;
+  
+    &lt;!-- Message Counter --&gt;
+    &lt;sp-badge content="New" color="primary" placement="top-right"&gt;
+      &lt;button type="button" class="icon-trigger-btn" aria-label="Messaggi"&gt;
+        ✉️
+      &lt;/button&gt;
+    &lt;/sp-badge&gt;
+  
+    &lt;!-- Profile Online Dot --&gt;
+    &lt;sp-badge color="success" [dot]="true" placement="bottom-right" [pulse]="true"&gt;
+      &lt;div class="avatar-box"&gt;AG&lt;/div&gt;
+    &lt;/sp-badge&gt;
+  &lt;/div&gt;
+  &lt;div class="counter-actions"&gt;
+    &lt;span&gt;Valore corrente: &lt;code&gt;&#123;&#123; notificationCount() &#125;&#125;&lt;/code&gt; (Visualizzato: &lt;code&gt;&#123;&#123; notificationCount() &gt; 99 ? '99+' : notificationCount() &#125;&#125;&lt;/code&gt;)&lt;/span&gt;
+    &lt;div class="actions-group"&gt;
+      &lt;sp-btn text="+15 Notifiche" size="sm" (buttonClick)="incrementCount()"&gt;&lt;/sp-btn&gt;
+      &lt;sp-btn text="Azzera" size="sm" variant="outline" (buttonClick)="resetCount()"&gt;&lt;/sp-btn&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'badge.023' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'badge.024' | translate"><code>// The notification count
+public readonly notificationCount = signal&lt;number&gt;(5);
+
+/**
+ * Increments the notification count.
+ * &#64;returns void
+ */
+public incrementCount(): void &#123;
+  this.notificationCount.update(c =&gt; c + 15);
+&#125;
+
+/**
+ * Resets the notification count.
+ * &#64;returns void
+ */
+public resetCount(): void &#123;
+  this.notificationCount.set(0);
+&#125;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'badge.025' | translate }}</h3>
+    <p class="section-desc">{{ 'badge.026' | translate }} <code>secondary</code>; <code>variant="dot"</code> {{ 'badge.027' | translate }} <code>[dot]="true"</code>.</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="variants-stack">
+          <div class="variant-row">
+            <span class="v-label">{{ 'badge.028' | translate }}</span>
+            <div class="badges-inline-group">
+              <sp-badge [content]="'badge.029' | translate" color="primary" variant="solid"></sp-badge>
+              <sp-badge [content]="'badge.030' | translate" color="success" variant="solid"></sp-badge>
+              <sp-badge [content]="'badge.031' | translate" color="warning" variant="solid"></sp-badge>
+              <sp-badge [content]="'badge.032' | translate" color="danger" variant="solid"></sp-badge>
+              <sp-badge [content]="'badge.033' | translate" color="info" variant="solid"></sp-badge>
+            </div>
+          </div>
+
+          <div class="variant-row">
+            <span class="v-label">{{ 'badge.034' | translate }}</span>
+            <div class="badges-inline-group">
+              <sp-badge [content]="'badge.029' | translate" color="primary" variant="soft"></sp-badge>
+              <sp-badge [content]="'badge.030' | translate" color="success" variant="soft"></sp-badge>
+              <sp-badge [content]="'badge.031' | translate" color="warning" variant="soft"></sp-badge>
+              <sp-badge [content]="'badge.032' | translate" color="danger" variant="soft"></sp-badge>
+              <sp-badge [content]="'badge.033' | translate" color="info" variant="soft"></sp-badge>
+            </div>
+          </div>
+
+          <div class="variant-row">
+            <span class="v-label">{{ 'badge.035' | translate }}</span>
+            <div class="badges-inline-group">
+              <sp-badge [content]="'badge.029' | translate" color="primary" variant="outline"></sp-badge>
+              <sp-badge [content]="'badge.030' | translate" color="success" variant="outline"></sp-badge>
+              <sp-badge [content]="'badge.031' | translate" color="warning" variant="outline"></sp-badge>
+              <sp-badge [content]="'badge.032' | translate" color="danger" variant="outline"></sp-badge>
+              <sp-badge [content]="'badge.033' | translate" color="info" variant="outline"></sp-badge>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="variants-stack"&gt;
+  &lt;div class="variant-row"&gt;
+    &lt;span class="v-label"&gt;Solid:&lt;/span&gt;
+    &lt;div class="badges-inline-group"&gt;
+      &lt;sp-badge content="Primary" color="primary" variant="solid"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Success" color="success" variant="solid"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Warning" color="warning" variant="solid"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Danger" color="danger" variant="solid"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Info" color="info" variant="solid"&gt;&lt;/sp-badge&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="variant-row"&gt;
+    &lt;span class="v-label"&gt;Soft:&lt;/span&gt;
+    &lt;div class="badges-inline-group"&gt;
+      &lt;sp-badge content="Primary" color="primary" variant="soft"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Success" color="success" variant="soft"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Warning" color="warning" variant="soft"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Danger" color="danger" variant="soft"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Info" color="info" variant="soft"&gt;&lt;/sp-badge&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="variant-row"&gt;
+    &lt;span class="v-label"&gt;Outline:&lt;/span&gt;
+    &lt;div class="badges-inline-group"&gt;
+      &lt;sp-badge content="Primary" color="primary" variant="outline"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Success" color="success" variant="outline"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Warning" color="warning" variant="outline"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Danger" color="danger" variant="outline"&gt;&lt;/sp-badge&gt;
+      &lt;sp-badge content="Info" color="info" variant="outline"&gt;&lt;/sp-badge&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'badge.036' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+import &#123; SpBadgeComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpBadgeComponent, SpBtnComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>.badge-demo-column,
+.variants-stack &#123; width: 100%; min-width: 0; &#125;
+
+.dots-row &#123;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+&#125;
+
+.status-item &#123;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .status-name &#123;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--sp-text-secondary);
+  &#125;
+&#125;
+
+.overlays-row &#123;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  padding: 16px 0;
+&#125;
+
+.icon-trigger-btn &#123;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--sp-radius-md);
+  border: 1px solid var(--sp-border-subtle);
+  background-color: var(--sp-bg-secondary);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--sp-transition-fast) ease;
+
+  &amp;:hover &#123;
+    background-color: var(--sp-border-subtle);
+  &#125;
+&#125;
+
+.avatar-box &#123;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sp-primary) 0%, #a855f7 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+&#125;
+
+.counter-actions &#123;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--sp-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  font-size: 14px;
+  color: var(--sp-text-secondary);
+
+  code &#123;
+    background-color: var(--sp-bg-secondary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sp-primary);
+    font-weight: 600;
+  &#125;
+
+  .actions-group &#123;
+    display: flex;
+    gap: 10px;
+  &#125;
+&#125;
+
+.variants-stack &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: var(--sp-card-bg);
+  padding: 24px;
+  border-radius: var(--sp-radius-lg);
+  border: 1px solid var(--sp-border-subtle);
+&#125;
+
+.variant-row &#123;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+
+  .v-label &#123;
+    min-width: 90px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--sp-text-secondary);
+  &#125;
+&#125;
+
+.badges-inline-group &#123;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+&#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'badge.037' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>content</code></td><td><code>string | number | null | undefined</code></td><td><code>null</code></td><td>{{ 'badge.038' | translate }}</td></tr>
+          <tr><td><code>color</code></td><td><code>'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info'</code></td><td><code>'primary'</code></td><td>{{ 'badge.039' | translate }}</td></tr>
+          <tr><td><code>variant</code></td><td><code>'solid' | 'soft' | 'outline' | 'dot'</code></td><td><code>'solid'</code></td><td>{{ 'badge.040' | translate }}</td></tr>
+          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'badge.041' | translate }}</td></tr>
+          <tr><td><code>placement</code></td><td><code>'inline' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'</code></td><td><code>'inline'</code></td><td>{{ 'badge.042' | translate }}</td></tr>
+          <tr><td><code>dot</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'badge.043' | translate }}</td></tr>
+          <tr><td><code>pulse</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'badge.044' | translate }}</td></tr>
+          <tr><td><code>max</code></td><td><code>number</code></td><td><code>99</code></td><td>{{ 'badge.045' | translate }}</td></tr>
+          <tr><td><code>hidden</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'badge.046' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

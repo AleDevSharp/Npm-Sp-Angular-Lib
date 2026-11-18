@@ -1,0 +1,1051 @@
+<div class="doc-page">
+  <!-- Region: Header -->
+  <div class="doc-header">
+    <div class="doc-title-row"><h1>{{ 'marquee.001' | translate }}</h1></div>
+    <p class="doc-subtitle">{{ 'marquee.002' | translate }}</p>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'marquee.003' | translate }}</h3>
+    <p class="section-desc">{{ 'marquee.004' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="playground-layout">        <!-- Controls Sidebar -->
+                <div class="playground-controls">
+                  <div class="control-block">
+                    <span class="control-title">{{ 'marquee.005' | translate }}</span>
+                    <div class="choice-group">
+                      <button
+                        type="button"
+                        class="choice-btn"
+                        [class.active]="direction() === 'left'"
+                        (click)="setDirection('left')"
+                      >
+                        {{ 'marquee.007' | translate }}
+                      </button>
+                      <button
+                        type="button"
+                        class="choice-btn"
+                        [class.active]="direction() === 'right'"
+                        (click)="setDirection('right')"
+                      >
+                        {{ 'marquee.009' | translate }}
+                      </button>
+                      <button
+                        type="button"
+                        class="choice-btn"
+                        [class.active]="direction() === 'up'"
+                        (click)="setDirection('up')"
+                      >
+                        {{ 'marquee.011' | translate }}
+                      </button>
+                      <button
+                        type="button"
+                        class="choice-btn"
+                        [class.active]="direction() === 'down'"
+                        (click)="setDirection('down')"
+                      >
+                        {{ 'marquee.013' | translate }}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="control-block">
+                    <span class="control-title">{{ 'marquee.014' | translate }}</span>
+                    <div class="choice-group">
+                      <button
+                        type="button"
+                        class="choice-btn"
+                        [class.active]="speed() === 10"
+                        (click)="setSpeed(10)"
+                      >
+                        {{ 'marquee.015' | translate }}
+                      </button>
+                      <button
+                        type="button"
+                        class="choice-btn"
+                        [class.active]="speed() === 20"
+                        (click)="setSpeed(20)"
+                      >
+                        {{ 'marquee.016' | translate }}
+                      </button>
+                      <button
+                        type="button"
+                        class="choice-btn"
+                        [class.active]="speed() === 40"
+                        (click)="setSpeed(40)"
+                      >
+                        {{ 'marquee.017' | translate }}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="control-block">
+                    <span class="control-title">{{ 'marquee.018' | translate }}</span>
+                    <sp-btn
+                      [text]="(isMarqueePaused() ? '▶ Avvia Scorrimento' : '⏸ Pausa Scorrimento') | translate"
+                      size="sm"
+                      [variant]="isMarqueePaused() ? 'solid' : 'outline'"
+                      (buttonClick)="togglePlayPause()"
+                    ></sp-btn>
+                  </div>
+
+                  <div class="switch-toggle-row">
+                    <span>{{ 'marquee.021' | translate }}</span>
+                    <sp-switch
+                      [(value)]="fade"
+                      size="sm"
+                    ></sp-switch>
+                  </div>
+
+                  <div class="switch-toggle-row">
+                    <span>{{ 'marquee.022' | translate }}</span>
+                    <sp-switch
+                      [(value)]="pauseOnHover"
+                      size="sm"
+                    ></sp-switch>
+                  </div>
+
+                  <div class="switch-toggle-row">
+                    <span>{{ 'marquee.023' | translate }}</span>
+                    <sp-switch
+                      [(value)]="pauseOnClick"
+                      size="sm"
+                    ></sp-switch>
+                  </div>
+
+                  <div class="switch-toggle-row">
+                    <span>{{ 'marquee.024' | translate }}</span>
+                    <sp-switch
+                      [(value)]="reverse"
+                      size="sm"
+                    ></sp-switch>
+                  </div>
+                </div>
+
+                <!-- Stage Live Viewport -->
+                <div class="stage-container">
+                  <div class="stage-surface" [class.stage-vertical]="direction() === 'up' || direction() === 'down'">
+                    <sp-marquee
+                      #playgroundMarquee
+                      [direction]="direction()"
+                      [speed]="speed()"
+                      [fade]="fade()"
+                      [pauseOnHover]="pauseOnHover()"
+                      [pauseOnClick]="pauseOnClick()"
+                      [reverse]="reverse()"
+                      gap="1.5rem"
+                    >
+                      <ng-template spMarqueeItem>
+                        @for (tech of techLogos; track tech.name) {
+                          <div class="tech-pill">
+                            <span class="tech-icon">{{ (tech.icon) | translate }}</span>
+                            <div class="tech-info">
+                              <span class="tech-name">{{ (tech.name) | translate }}</span>
+                              <span class="tech-cat">{{ (tech.category) | translate }}</span>
+                            </div>
+                          </div>
+                        }
+                      </ng-template>
+                    </sp-marquee>
+                  </div>
+
+                  <div class="stage-footer">
+                    <span class="footer-label">{{ 'marquee.025' | translate }}</span>
+                    <span class="footer-status" [class.paused]="playgroundMarquee.isEffectivelyPaused()">
+                      
+                      {{ (isMarqueePaused() ? 'In pausa manuale' : playgroundMarquee.isEffectivelyPaused() ? 'In pausa al passaggio del mouse' : 'In scorrimento') | translate }}
+                    </span>
+                  </div>
+                </div></div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="playground-layout"&gt;        &lt;!-- Controls Sidebar --&gt;
+        &lt;div class="playground-controls"&gt;
+          &lt;div class="control-block"&gt;
+            &lt;span class="control-title"&gt;Direzione:&lt;/span&gt;
+            &lt;div class="choice-group"&gt;
+              &lt;button
+                type="button"
+                class="choice-btn"
+                [class.active]="direction() === 'left'"
+                (click)="setDirection('left')"
+              &gt;
+                ← Left
+              &lt;/button&gt;
+              &lt;button
+                type="button"
+                class="choice-btn"
+                [class.active]="direction() === 'right'"
+                (click)="setDirection('right')"
+              &gt;
+                → Right
+              &lt;/button&gt;
+              &lt;button
+                type="button"
+                class="choice-btn"
+                [class.active]="direction() === 'up'"
+                (click)="setDirection('up')"
+              &gt;
+                ↑ Up
+              &lt;/button&gt;
+              &lt;button
+                type="button"
+                class="choice-btn"
+                [class.active]="direction() === 'down'"
+                (click)="setDirection('down')"
+              &gt;
+                ↓ Down
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="control-block"&gt;
+            &lt;span class="control-title"&gt;Velocità:&lt;/span&gt;
+            &lt;div class="choice-group"&gt;
+              &lt;button
+                type="button"
+                class="choice-btn"
+                [class.active]="speed() === 10"
+                (click)="setSpeed(10)"
+              &gt;
+                Veloce (10s)
+              &lt;/button&gt;
+              &lt;button
+                type="button"
+                class="choice-btn"
+                [class.active]="speed() === 20"
+                (click)="setSpeed(20)"
+              &gt;
+                Media (20s)
+              &lt;/button&gt;
+              &lt;button
+                type="button"
+                class="choice-btn"
+                [class.active]="speed() === 40"
+                (click)="setSpeed(40)"
+              &gt;
+                Lenta (40s)
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="control-block"&gt;
+            &lt;span class="control-title"&gt;Controllo Play/Pause:&lt;/span&gt;
+            &lt;sp-btn
+              [text]="isMarqueePaused() ? '▶ Avvia Scorrimento' : '⏸ Pausa Scorrimento'"
+              size="sm"
+              [variant]="isMarqueePaused() ? 'solid' : 'outline'"
+              (buttonClick)="togglePlayPause()"
+            &gt;&lt;/sp-btn&gt;
+          &lt;/div&gt;
+
+          &lt;div class="switch-toggle-row"&gt;
+            &lt;span&gt;Sfumatura Bordi (Fade)&lt;/span&gt;
+            &lt;sp-switch
+              [(value)]="fade"
+              size="sm"
+            &gt;&lt;/sp-switch&gt;
+          &lt;/div&gt;
+
+          &lt;div class="switch-toggle-row"&gt;
+            &lt;span&gt;Pausa su Hover&lt;/span&gt;
+            &lt;sp-switch
+              [(value)]="pauseOnHover"
+              size="sm"
+            &gt;&lt;/sp-switch&gt;
+          &lt;/div&gt;
+
+          &lt;div class="switch-toggle-row"&gt;
+            &lt;span&gt;Pausa su Click&lt;/span&gt;
+            &lt;sp-switch
+              [(value)]="pauseOnClick"
+              size="sm"
+            &gt;&lt;/sp-switch&gt;
+          &lt;/div&gt;
+
+          &lt;div class="switch-toggle-row"&gt;
+            &lt;span&gt;Inverti (Reverse)&lt;/span&gt;
+            &lt;sp-switch
+              [(value)]="reverse"
+              size="sm"
+            &gt;&lt;/sp-switch&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Stage Live Viewport --&gt;
+        &lt;div class="stage-container"&gt;
+          &lt;div class="stage-surface" [class.stage-vertical]="direction() === 'up' || direction() === 'down'"&gt;
+            &lt;sp-marquee
+              #playgroundMarquee
+              [direction]="direction()"
+              [speed]="speed()"
+              [fade]="fade()"
+              [pauseOnHover]="pauseOnHover()"
+              [pauseOnClick]="pauseOnClick()"
+              [reverse]="reverse()"
+              gap="1.5rem"
+            &gt;
+              &lt;ng-template spMarqueeItem&gt;
+                &#64;for (tech of techLogos; track tech.name) &#123;
+                  &lt;div class="tech-pill"&gt;
+                    &lt;span class="tech-icon"&gt;&#123;&#123; tech.icon &#125;&#125;&lt;/span&gt;
+                    &lt;div class="tech-info"&gt;
+                      &lt;span class="tech-name"&gt;&#123;&#123; tech.name &#125;&#125;&lt;/span&gt;
+                      &lt;span class="tech-cat"&gt;&#123;&#123; tech.category &#125;&#125;&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &#125;
+              &lt;/ng-template&gt;
+            &lt;/sp-marquee&gt;
+          &lt;/div&gt;
+
+          &lt;div class="stage-footer"&gt;
+            &lt;span class="footer-label"&gt;Stato Animazione:&lt;/span&gt;
+            &lt;span class="footer-status" [class.paused]="playgroundMarquee.isEffectivelyPaused()"&gt;
+              &#123;&#123; isMarqueePaused() ? 'In pausa manuale' : playgroundMarquee.isEffectivelyPaused() ? 'In pausa al passaggio del mouse' : 'In scorrimento' &#125;&#125;
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;&lt;/div&gt;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'carousel.014' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'carousel.015' | translate"><code>// Reference to main playground marquee component
+  public readonly playgroundMarquee = viewChild&lt;SpMarqueeComponent&gt;('playgroundMarquee');
+
+  // The active direction for playground demo
+  public readonly direction = signal&lt;SpMarqueeDirection&gt;('left');
+
+  // The scrolling speed in seconds for one complete cycle
+  public readonly speed = signal&lt;number&gt;(20);
+
+  // The toggle indicating whether edge gradient fade is applied
+  public readonly fade = signal&lt;boolean&gt;(true);
+
+  // The toggle indicating whether scrolling pauses upon mouse hover
+  public readonly pauseOnHover = signal&lt;boolean&gt;(true);
+
+  // The toggle indicating whether clicking pauses the marquee
+  public readonly pauseOnClick = signal&lt;boolean&gt;(false);
+
+  // The toggle indicating whether direction is inverted
+  public readonly reverse = signal&lt;boolean&gt;(false);
+
+  // Tech stack items for main interactive ticker
+  public readonly techLogos = [
+    &#123; name: 'Angular', icon: '🅰️', category: 'Framework' &#125;,
+    &#123; name: 'TypeScript', icon: '🔷', category: 'Language' &#125;,
+    &#123; name: 'RxJS', icon: '⚡', category: 'Reactive' &#125;,
+    &#123; name: 'SCSS Tokens', icon: '🎨', category: 'Styling' &#125;,
+    &#123; name: 'Vite &amp; esbuild', icon: '🚀', category: 'Bundler' &#125;,
+    &#123; name: 'Karma &amp; Jasmine', icon: '🧪', category: 'Testing' &#125;,
+    &#123; name: 'Node.js', icon: '🟢', category: 'Runtime' &#125;,
+    &#123; name: 'WAI-ARIA', icon: '♿', category: 'Accessibility' &#125;
+  ];
+
+  // Testimonial cards for rich template marquee
+  public readonly reviews = [
+    &#123;
+      author: 'Marco Rossi',
+      role: 'Frontend Lead',
+      avatar: 'MR',
+      rating: 5,
+      text: 'Un esempio di card con testo abbastanza lungo da mostrare la lettura durante la pausa.'
+    &#125;,
+    &#123;
+      author: 'Elena Bianchi',
+      role: 'Senior Product Designer',
+      avatar: 'EB',
+      rating: 5,
+      text: 'Avatar, ruolo e contenuto sono composti in un template personalizzato.'
+    &#125;,
+    &#123;
+      author: 'Davide Moretti',
+      role: 'Fullstack Architect',
+      avatar: 'DM',
+      rating: 5,
+      text: 'Ogni card è ripetuta nel tracciato insieme alle altre recensioni dimostrative.'
+    &#125;,
+    &#123;
+      author: 'Sofia Conti',
+      role: 'Design System Engineer',
+      avatar: 'SC',
+      rating: 5,
+      text: 'Il passaggio del mouse sospende temporaneamente lo scorrimento della riga.'
+    &#125;
+  ];
+
+  // Breaking news items for vertical ticker
+  public readonly newsItems = [
+    &#123; time: '12:00', tag: 'RELEASE', text: 'Esempio di annuncio per una nuova versione del prodotto.' &#125;,
+    &#123; time: '11:45', tag: 'UPDATE', text: 'Esempio di aggiornamento della raccolta di componenti.' &#125;,
+    &#123; time: '11:15', tag: 'PERF', text: 'Esempio di notifica sullo stato delle verifiche.' &#125;,
+    &#123; time: '10:30', tag: 'FEATURE', text: 'Esempio di annuncio relativo al tema dell’interfaccia.' &#125;
+  ];
+
+
+  /**
+   * Sets the scrolling direction for the playground.
+   * &#64;param dir The new direction
+   * &#64;returns void
+   */
+  public setDirection(dir: SpMarqueeDirection): void &#123;
+    this.direction.set(dir);
+  &#125;
+
+  /**
+   * Sets the scroll speed in seconds.
+   * &#64;param s The duration in seconds
+   * &#64;returns void
+   */
+  public setSpeed(s: number): void &#123;
+    this.speed.set(s);
+  &#125;
+
+  /**
+   * Toggles the play/pause state of the playground marquee.
+   * &#64;returns void
+   */
+  public togglePlayPause(): void &#123;
+    const marquee = this.playgroundMarquee();
+    if (marquee) &#123;
+      marquee.togglePause();
+    &#125;
+  &#125;
+
+  /**
+   * Returns whether the playground marquee is currently paused.
+   * &#64;returns A boolean indicating if paused
+   */
+  public isMarqueePaused(): boolean &#123;
+    const marquee = this.playgroundMarquee();
+    return marquee ? marquee.isPaused() : false;
+  &#125;</code></pre>
+      </details>
+    </div>
+  </div>
+  <div class="doc-section">
+    <h3>{{ 'marquee.029' | translate }}</h3>
+    <p class="section-desc">{{ 'marquee.030' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="dual-marquee-card">      <!-- First Row: Left -->
+              <sp-marquee
+                direction="left"
+                [speed]="28"
+                [fade]="true"
+                gap="1.25rem"
+                [pauseOnHover]="true"
+              >
+                <ng-template spMarqueeItem>
+                  @for (tech of techLogos; track tech.name) {
+                    <div class="brand-item">
+                      <span class="brand-glyph">{{ (tech.icon) | translate }}</span>
+                      <span class="brand-title">{{ (tech.name) | translate }}</span>
+                    </div>
+                  }
+                </ng-template>
+              </sp-marquee>
+
+              <!-- Second Row: Right -->
+              <sp-marquee
+                direction="right"
+                [speed]="32"
+                [fade]="true"
+                gap="1.25rem"
+                [pauseOnHover]="true"
+              >
+                <ng-template spMarqueeItem>
+                  @for (tech of techLogos; track tech.name) {
+                    <div class="brand-item brand-item-accent">
+                      <span class="brand-glyph">{{ (tech.icon) | translate }}</span>
+                      <span class="brand-title">{{ (tech.name) | translate }} {{ 'marquee.031' | translate }}</span>
+                    </div>
+                  }
+                </ng-template>
+              </sp-marquee></div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="dual-marquee-card"&gt;      &lt;!-- First Row: Left --&gt;
+      &lt;sp-marquee
+        direction="left"
+        [speed]="28"
+        [fade]="true"
+        gap="1.25rem"
+        [pauseOnHover]="true"
+      &gt;
+        &lt;ng-template spMarqueeItem&gt;
+          &#64;for (tech of techLogos; track tech.name) &#123;
+            &lt;div class="brand-item"&gt;
+              &lt;span class="brand-glyph"&gt;&#123;&#123; tech.icon &#125;&#125;&lt;/span&gt;
+              &lt;span class="brand-title"&gt;&#123;&#123; tech.name &#125;&#125;&lt;/span&gt;
+            &lt;/div&gt;
+          &#125;
+        &lt;/ng-template&gt;
+      &lt;/sp-marquee&gt;
+
+      &lt;!-- Second Row: Right --&gt;
+      &lt;sp-marquee
+        direction="right"
+        [speed]="32"
+        [fade]="true"
+        gap="1.25rem"
+        [pauseOnHover]="true"
+      &gt;
+        &lt;ng-template spMarqueeItem&gt;
+          &#64;for (tech of techLogos; track tech.name) &#123;
+            &lt;div class="brand-item brand-item-accent"&gt;
+              &lt;span class="brand-glyph"&gt;&#123;&#123; tech.icon &#125;&#125;&lt;/span&gt;
+              &lt;span class="brand-title"&gt;&#123;&#123; tech.name &#125;&#125; Pro&lt;/span&gt;
+            &lt;/div&gt;
+          &#125;
+        &lt;/ng-template&gt;
+      &lt;/sp-marquee&gt;&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+  <div class="doc-section">
+    <h3>{{ 'marquee.032' | translate }}</h3>
+    <p class="section-desc">{{ 'marquee.033' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="reviews-card">      <sp-marquee
+                direction="left"
+                [speed]="35"
+                [fade]="true"
+                gap="1.5rem"
+                [pauseOnHover]="true"
+              >
+                <ng-template spMarqueeItem>
+                  @for (review of reviews; track review.author) {
+                    <div class="review-bubble">
+                      <div class="review-top">
+                        <sp-avatar [name]="review.author" size="sm"></sp-avatar>
+                        <div class="review-meta">
+                          <span class="review-author">{{ (review.author) | translate }}</span>
+                          <span class="review-role">{{ (review.role) | translate }}</span>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                      </div>
+                      <p class="review-text">“{{ (review.text) | translate }}”</p>
+                    </div>
+                  }
+                </ng-template>
+              </sp-marquee></div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="reviews-card"&gt;      &lt;sp-marquee
+        direction="left"
+        [speed]="35"
+        [fade]="true"
+        gap="1.5rem"
+        [pauseOnHover]="true"
+      &gt;
+        &lt;ng-template spMarqueeItem&gt;
+          &#64;for (review of reviews; track review.author) &#123;
+            &lt;div class="review-bubble"&gt;
+              &lt;div class="review-top"&gt;
+                &lt;sp-avatar [name]="review.author" size="sm"&gt;&lt;/sp-avatar&gt;
+                &lt;div class="review-meta"&gt;
+                  &lt;span class="review-author"&gt;&#123;&#123; review.author &#125;&#125;&lt;/span&gt;
+                  &lt;span class="review-role"&gt;&#123;&#123; review.role &#125;&#125;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="review-stars"&gt;★★★★★&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;p class="review-text"&gt;“&#123;&#123; review.text &#125;&#125;”&lt;/p&gt;
+            &lt;/div&gt;
+          &#125;
+        &lt;/ng-template&gt;
+      &lt;/sp-marquee&gt;&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+  <div class="doc-section">
+    <h3>{{ 'marquee.034' | translate }}</h3>
+    <p class="section-desc">{{ 'marquee.035' | translate }}</p>
+    <div class="demo-card">
+      <div class="demo-stage">
+        <div class="vertical-card">      <sp-marquee
+                direction="up"
+                [speed]="18"
+                [fade]="true"
+                gap="1rem"
+                fadeWidth="40px"
+                [pauseOnHover]="true"
+              >
+                <ng-template spMarqueeItem>
+                  @for (news of newsItems; track news.time) {
+                    <div class="news-row">
+                      <span class="news-time">{{ (news.time) | translate }}</span>
+                      <sp-badge [content]="(news.tag) | translate" variant="soft" color="primary"></sp-badge>
+                      <span class="news-text">{{ (news.text) | translate }}</span>
+                    </div>
+                  }
+                </ng-template>
+              </sp-marquee></div>
+      </div>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+&lt;div class="vertical-card"&gt;      &lt;sp-marquee
+        direction="up"
+        [speed]="18"
+        [fade]="true"
+        gap="1rem"
+        fadeWidth="40px"
+        [pauseOnHover]="true"
+      &gt;
+        &lt;ng-template spMarqueeItem&gt;
+          &#64;for (news of newsItems; track news.time) &#123;
+            &lt;div class="news-row"&gt;
+              &lt;span class="news-time"&gt;&#123;&#123; news.time &#125;&#125;&lt;/span&gt;
+              &lt;sp-badge [content]="news.tag" variant="soft" color="primary"&gt;&lt;/sp-badge&gt;
+              &lt;span class="news-text"&gt;&#123;&#123; news.text &#125;&#125;&lt;/span&gt;
+            &lt;/div&gt;
+          &#125;
+        &lt;/ng-template&gt;
+      &lt;/sp-marquee&gt;&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'accordion.043' | translate }}</h3>
+    <p class="section-desc">{{ 'marquee.036' | translate }}</p>
+    <div class="demo-card">
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal, viewChild &#125; from '&#64;angular/core';
+import &#123; SpMarqueeComponent, SpMarqueeItemDirective, SpMarqueeDirection, SpBtnComponent, SpSwitchComponent, SpAvatarComponent, SpBadgeComponent &#125; from '&#64;aledevsharp/sp-lib';
+
+&#64;Component(&#123;
+  selector: 'app-control-example',
+  standalone: true,
+  imports: [SpMarqueeComponent, SpMarqueeItemDirective, SpBtnComponent, SpSwitchComponent, SpAvatarComponent, SpBadgeComponent],
+  templateUrl: './control-example.component.html',
+  styleUrl: './control-example.component.scss'
+&#125;)
+export class ControlExampleComponent &#123;
+  // Add the state and options shown in the relevant examples here.
+&#125;</code></pre>
+      </details>
+      <details class="demo-code">
+        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
+        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+// Project: SpLib
+// File name: marquee-page.component.scss
+// File description: Styles for MarqueePageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+
+// ================================
+// Region: Playground Layout
+// ================================
+
+.playground-card &#123;
+  padding: 0;
+  overflow: hidden;
+&#125;
+
+.playground-layout &#123;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  width: 100%;
+  min-height: 400px;
+
+  &#64;media (max-width: 860px) &#123;
+    grid-template-columns: 1fr;
+  &#125;
+&#125;
+
+.playground-controls &#123;
+  padding: 24px;
+  background-color: var(--sp-bg-surface);
+  border-right: 1px solid var(--sp-border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &#64;media (max-width: 860px) &#123;
+    border-right: none;
+    border-bottom: 1px solid var(--sp-border-color);
+  &#125;
+&#125;
+
+.control-block &#123;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+&#125;
+
+.control-title &#123;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sp-text-muted);
+&#125;
+
+.choice-group &#123;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+&#125;
+
+.choice-btn &#123;
+  padding: 5px 12px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: var(--sp-radius-full, 9999px);
+  border: 1px solid var(--sp-border-color);
+  background: var(--sp-bg-surface-card, #ffffff);
+  color: var(--sp-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &amp;:hover &#123;
+    color: var(--sp-text-primary);
+    border-color: var(--sp-color-purple, #8636F8);
+  &#125;
+
+  &amp;.active &#123;
+    background: var(--sp-gradient-brand);
+    color: #ffffff;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: var(--sp-shadow-brand-glow);
+  &#125;
+&#125;
+
+.switch-toggle-row &#123;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--sp-border-color);
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary);
+&#125;
+
+// ================================
+// Region: Live Stage Surface
+// ================================
+
+.stage-container &#123;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sp-bg-canvas);
+  position: relative;
+&#125;
+
+.stage-surface &#123;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-image: radial-gradient(var(--sp-border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+
+  &amp;.stage-vertical &#123;
+    min-height: 380px;
+  &#125;
+&#125;
+
+.stage-footer &#123;
+  padding: 12px 20px;
+  background-color: var(--sp-bg-surface);
+  border-top: 1px solid var(--sp-border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+&#125;
+
+.footer-label &#123;
+  font-weight: 600;
+  color: var(--sp-text-muted);
+&#125;
+
+.footer-status &#123;
+  font-weight: 600;
+  color: var(--sp-color-accent);
+
+  &amp;.paused &#123;
+    color: var(--sp-color-orange);
+  &#125;
+&#125;
+
+// ================================
+// Region: Tech Pills
+// ================================
+
+.tech-pill &#123;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: var(--sp-radius-md, 8px);
+  background-color: var(--sp-bg-canvas, #ffffff);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.08);
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &amp;:hover &#123;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -2px rgb(0 0 0 / 0.12);
+  &#125;
+
+  .tech-icon &#123;
+    font-size: 1.25rem;
+  &#125;
+
+  .tech-info &#123;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+
+    .tech-name &#123;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--sp-text-primary, #0f172a);
+    &#125;
+
+    .tech-cat &#123;
+      font-size: 0.6875rem;
+      color: var(--sp-text-muted, #94a3b8);
+    &#125;
+  &#125;
+&#125;
+
+// ================================
+// Region: Multi-Row Bi-Directional
+// ================================
+
+.dual-marquee-card &#123;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+&#125;
+
+.brand-item &#123;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--sp-radius-full, 9999px);
+  background-color: var(--sp-bg-surface, #f8fafc);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--sp-text-primary, #0f172a);
+  white-space: nowrap;
+
+  &amp;.brand-item-accent &#123;
+    background-color: rgb(255 172 28 / 0.08);
+    border-color: rgb(255 172 28 / 0.35);
+    color: #b45309;
+  &#125;
+
+  .brand-glyph &#123;
+    font-size: 1.125rem;
+  &#125;
+&#125;
+
+// ================================
+// Region: Reviews Bubbles
+// ================================
+
+.reviews-card &#123;
+  padding: 32px 16px;
+&#125;
+
+.review-bubble &#123;
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: var(--sp-radius-lg, 12px);
+  background-color: var(--sp-bg-surface, #f8fafc);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.06);
+
+  .review-top &#123;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .review-meta &#123;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+
+      .review-author &#123;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--sp-text-primary, #0f172a);
+      &#125;
+
+      .review-role &#123;
+        font-size: 0.6875rem;
+        color: var(--sp-text-muted, #94a3b8);
+      &#125;
+    &#125;
+
+    .review-stars &#123;
+      color: #f59e0b;
+      font-size: 0.875rem;
+      letter-spacing: 1px;
+    &#125;
+  &#125;
+
+  .review-text &#123;
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--sp-text-secondary, #64748b);
+    line-height: 1.45;
+  &#125;
+&#125;
+
+// ================================
+// Region: Vertical News Ticker
+// ================================
+
+.vertical-card &#123;
+  padding: 24px;
+&#125;
+
+.news-row &#123;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--sp-radius-md, 8px);
+  background-color: var(--sp-bg-surface, #f8fafc);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+
+  .news-time &#123;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--sp-text-muted, #94a3b8);
+    font-variant-numeric: tabular-nums;
+  &#125;
+
+  .news-text &#123;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--sp-text-primary, #0f172a);
+  &#125;
+&#125;
+
+// ================================
+// Region: Dark Mode
+// ================================
+
+[data-theme='dark'] &#123;
+  .playground-controls,
+  .stage-footer,
+  .brand-item,
+  .review-bubble,
+  .news-row &#123;
+    background-color: #1e293b;
+    border-color: #334155;
+  &#125;
+
+  .stage-surface &#123;
+    background-image: radial-gradient(#334155 1px, transparent 1px);
+  &#125;
+
+  .choice-btn &#123;
+    background: #0f172a;
+    border-color: #334155;
+    color: #94a3b8;
+
+    &amp;:hover &#123;
+      color: #f8fafc;
+      border-color: #475569;
+    &#125;
+
+    &amp;.active &#123;
+      background-color: var(--sp-color-primary, #ffac1c);
+      color: #1c1917;
+      border-color: var(--sp-color-primary, #ffac1c);
+    &#125;
+  &#125;
+
+  .tech-pill &#123;
+    background-color: #1e293b;
+    border-color: #334155;
+
+    .tech-name &#123;
+      color: #f8fafc;
+    &#125;
+  &#125;
+
+  .brand-item-accent &#123;
+    background-color: rgb(255 172 28 / 0.15) !important;
+    border-color: rgb(255 172 28 / 0.4) !important;
+    color: #ffac1c !important;
+  &#125;
+
+  .switch-toggle-row &#123;
+    border-top-color: #334155;
+  &#125;
+&#125;
+
+/* Constrain flex/grid children so the scrolling track cannot expand the page. */
+.dual-marquee-card, .reviews-card, .vertical-card &#123; width: 100%; min-width: 0; box-sizing: border-box; &#125;
+.choice-btn:focus-visible &#123; outline: 3px solid var(--sp-color-primary); outline-offset: 3px; &#125;
+</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h3>{{ 'marquee.037' | translate }}</h3>
+    <div class="table-responsive">
+      <table class="api-table">
+        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <tbody>
+          <tr><td><code>items</code></td><td><code>any[]</code></td><td><code>[]</code></td><td>{{ 'marquee.038' | translate }}</td></tr>
+          <tr><td><code>direction</code></td><td><code>'left' | 'right' | 'up' | 'down'</code></td><td><code>'left'</code></td><td>{{ 'marquee.039' | translate }}</td></tr>
+          <tr><td><code>speed</code></td><td><code>number</code></td><td><code>25</code></td><td>{{ 'marquee.040' | translate }}</td></tr>
+          <tr><td><code>duration</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'marquee.041' | translate }}</td></tr>
+          <tr><td><code>gap</code></td><td><code>string</code></td><td><code>'2rem'</code></td><td>{{ 'marquee.042' | translate }}</td></tr>
+          <tr><td><code>pauseOnHover</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'marquee.043' | translate }}</td></tr>
+          <tr><td><code>pauseOnClick</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'marquee.044' | translate }}</td></tr>
+          <tr><td><code>fade</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'marquee.045' | translate }}</td></tr>
+          <tr><td><code>fadeWidth</code></td><td><code>string</code></td><td><code>'64px'</code></td><td>{{ 'marquee.046' | translate }}</td></tr>
+          <tr><td><code>repeat</code></td><td><code>number</code></td><td><code>2</code></td><td>{{ 'marquee.047' | translate }}</td></tr>
+          <tr><td><code>reverse</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'marquee.048' | translate }}</td></tr>
+          <tr><td><code>ariaLabel</code></td><td><code>string</code></td><td><code>'Marquee content scroller'</code></td><td>{{ 'marquee.049' | translate }}</td></tr>
+          <tr><td><code>isPaused</code></td><td><code>signal&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'marquee.050' | translate }}</td></tr>
+          <tr><td><code>isEffectivelyPaused</code></td><td><code>computed&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'marquee.051' | translate }}</td></tr>
+          <tr><td><code>pause() / play() / togglePause()</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'marquee.052' | translate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
