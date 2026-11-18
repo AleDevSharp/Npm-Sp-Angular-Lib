@@ -1,36 +1,136 @@
 // ================================
-// Region: Main content
+// Region: Variables & Mixins
+// ================================
+$select-radius: 6px;
+$select-transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+// ================================
+// Region: Wrapper & Label
 // ================================
 .sp-select-wrapper {
-  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 .sp-select-label {
-  font-size: 0.9rem;
-  margin-bottom: 0.2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--sp-text-primary, #0f172a);
 }
 
+// ================================
+// Region: Container & Field
+// ================================
+.sp-select-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  background-color: var(--sp-bg-canvas, #ffffff);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  border-radius: $select-radius;
+  box-sizing: border-box;
+  transition: $select-transition;
+
+  &:hover:not(.is-disabled) {
+    border-color: var(--sp-border-color-hover, #cbd5e1);
+  }
+
+  &:focus-within:not(.is-disabled) {
+    border-color: var(--sp-select-focus-color, var(--sp-border-color-focus, #64748b));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sp-select-focus-color, var(--sp-border-color-focus, #64748b)) 25%, transparent);
+  }
+
+  &.has-error {
+    border-color: var(--sp-color-danger, #ef4444) !important;
+
+    &:focus-within {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+    }
+  }
+
+  &.is-disabled {
+    background-color: var(--sp-bg-surface, #f8fafc);
+    opacity: 0.65;
+    cursor: not-allowed;
+
+    .sp-select-field {
+      cursor: not-allowed;
+    }
+  }
+}
+
+// ================================
+// Region: Sizing Presets
+// ================================
+.sp-select-sm {
+  min-height: 30px;
+
+  .sp-select-field {
+    font-size: 0.8125rem;
+    padding: 3px 28px 3px 8px;
+  }
+}
+
+.sp-select-md {
+  min-height: 38px;
+
+  .sp-select-field {
+    font-size: 0.875rem;
+    padding: 6px 32px 6px 12px;
+  }
+}
+
+.sp-select-lg {
+  min-height: 46px;
+
+  .sp-select-field {
+    font-size: 1rem;
+    padding: 8px 38px 8px 16px;
+  }
+}
+
+// ================================
+// Region: Select Field & Arrow
+// ================================
 .sp-select-field {
-  padding: 0.4rem 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  flex: 1;
+  width: 100%;
+  border: none;
   outline: none;
-  transition: border-color 0.2s;
+  background: transparent;
+  color: var(--sp-text-primary, #0f172a);
+  font-family: inherit;
+  cursor: pointer;
 }
 
-.sp-select-field:focus {
-  border-color: var(--header-footer-color);
+.sp-select-arrow {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  color: var(--sp-text-secondary, #64748b);
 }
 
-.has-error {
-  border-color: red;
+// ================================
+// Region: Error & Hint
+// ================================
+.sp-select-error {
+  margin: 4px 0 0 0;
+  font-size: 0.8125rem;
+  color: var(--sp-color-danger, #ef4444);
 }
 
-.sp-error-message {
-  font-size: 0.8rem;
-  color: red;
-  margin-top: 0.2rem;
+.sp-select-hint {
+  margin: 4px 0 0 0;
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary, #64748b);
 }

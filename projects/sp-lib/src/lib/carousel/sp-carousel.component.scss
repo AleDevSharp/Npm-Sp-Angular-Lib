@@ -1,0 +1,297 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-carousel.component.scss
+// File description: Modern styles, transitions, and indicators for SpCarousel.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+@use '../styles/tokens';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sp-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--sp-radius-card, 16px);
+  background-color: var(--sp-bg-secondary, #0f172a);
+  outline: none;
+  user-select: none;
+  box-shadow: var(--sp-shadow-card, 0 4px 20px -4px rgba(0, 0, 0, 0.1));
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--sp-color-focus-ring, #f44b88);
+  }
+}
+
+// ================================
+// Region: Viewport & Track
+// ================================
+.sp-carousel-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sp-carousel-track {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+// Effect: Fade Mode
+.sp-carousel-effect-fade {
+  .sp-carousel-track {
+    position: relative;
+    transform: none !important;
+  }
+
+  .sp-carousel-item-slide,
+  ::ng-deep sp-carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-out;
+    transform: scale(0.98);
+
+    &.sp-carousel-item-active,
+    &.sp-carousel-slide-active,
+    .sp-carousel-slide-active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+      position: relative;
+    }
+  }
+}
+
+// Data Item Slide
+.sp-carousel-item-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .sp-carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .sp-carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 28px 48px 28px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.75) 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .sp-carousel-caption-title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.6px;
+      color: #ffffff;
+    }
+
+    .sp-carousel-caption-desc {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
+    }
+
+    .sp-carousel-caption-cta {
+      margin-top: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--sp-color-pink, #f44b88);
+      cursor: pointer;
+    }
+  }
+}
+
+// ================================
+// Region: Navigation Arrows
+// ================================
+.sp-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--sp-radius-full, 9999px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #ffffff;
+    color: var(--sp-primary, #8636f8);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  &.sp-carousel-arrow-prev {
+    left: 16px;
+  }
+
+  &.sp-carousel-arrow-next {
+    right: 16px;
+  }
+
+  [data-theme='dark'] & {
+    background-color: rgba(15, 23, 42, 0.8);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(30, 41, 59, 0.95);
+      color: var(--sp-color-pink, #f44b88);
+    }
+  }
+}
+
+// Arrows Outside Placement
+.sp-carousel-arrows-outside {
+  padding: 0 54px;
+  overflow: visible;
+
+  .sp-carousel-arrow-prev {
+    left: 0;
+  }
+  .sp-carousel-arrow-next {
+    right: 0;
+  }
+}
+
+// ================================
+// Region: Indicators
+// ================================
+.sp-carousel-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 24px;
+  pointer-events: none;
+
+  button {
+    pointer-events: auto;
+  }
+}
+
+// Style: Progress Bars
+.sp-carousel-indicators-bars {
+  .sp-carousel-indicator-bar-btn {
+    flex: 1;
+    max-width: 80px;
+    height: 20px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .sp-carousel-bar-track {
+      width: 100%;
+      height: 4px;
+      border-radius: var(--sp-radius-full, 9999px);
+      background-color: rgba(255, 255, 255, 0.35);
+      overflow: hidden;
+      display: block;
+      backdrop-filter: blur(4px);
+    }
+
+    .sp-carousel-bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--sp-gradient-brand, linear-gradient(90deg, #8636f8, #f44b88));
+      transition: width 0.05s linear;
+    }
+  }
+}
+
+// Style: Dots
+.sp-carousel-indicators-dots {
+  .sp-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--sp-radius-full, 9999px);
+    border: none;
+    background-color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.sp-carousel-dot-active {
+      width: 26px;
+      background: var(--sp-gradient-brand, #ffffff);
+      box-shadow: 0 0 10px rgba(244, 75, 136, 0.5);
+    }
+  }
+}
+
+// Style: Numbers
+.sp-carousel-indicators-numbers {
+  justify-content: flex-end;
+  right: 18px;
+  left: auto;
+
+  .sp-carousel-numbers-badge {
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: var(--sp-radius-full, 9999px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-variant-numeric: tabular-nums;
+  }
+}

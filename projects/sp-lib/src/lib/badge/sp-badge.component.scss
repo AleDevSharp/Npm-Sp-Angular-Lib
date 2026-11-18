@@ -1,0 +1,287 @@
+@use '../styles/tokens' as *;
+
+// ================================
+// Region: Host and Overlay Placement
+// ================================
+:host {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.sp-badge-element {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+
+  &.sp-badge--top-right,
+  &.sp-badge--top-left,
+  &.sp-badge--bottom-right,
+  &.sp-badge--bottom-left {
+    position: absolute;
+    z-index: 1;
+    border: 2px solid var(--sp-bg-canvas, #ffffff);
+  }
+
+  &.sp-badge--top-right { top: 0; right: 0; transform: translate(50%, -50%); }
+  &.sp-badge--top-left { top: 0; left: 0; transform: translate(-50%, -50%); }
+  &.sp-badge--bottom-right { bottom: 0; right: 0; transform: translate(50%, 50%); }
+  &.sp-badge--bottom-left { bottom: 0; left: 0; transform: translate(-50%, 50%); }
+}
+
+// ==============================================================
+// Project: SpLib
+// File name: sp-badge.component.scss
+// File description: Styles for badge component, radar ping animation, and overlay placements.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+
+// ==============================================================
+// Region: Host & Layout
+// ==============================================================
+:host {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.sp-badge-element {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  box-sizing: border-box;
+  transition: transform var(--sp-transition-fast) ease,
+              opacity var(--sp-transition-fast) ease;
+
+  // Region: Overlay Positions
+  &:not(.sp-badge--inline) {
+    position: absolute;
+    z-index: 2;
+    border: 2px solid var(--sp-card-bg);
+  }
+
+  &.sp-badge--top-right {
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  &.sp-badge--top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &.sp-badge--bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+  }
+
+  &.sp-badge--bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+  }
+}
+
+// ==============================================================
+// Region: Radar Ping Wave Animation
+// ==============================================================
+.sp-badge-ping {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background-color: inherit;
+  pointer-events: none;
+  animation: sp-badge-radar 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes sp-badge-radar {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  75%, 100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+// ==============================================================
+// Region: Dot Mode
+// ==============================================================
+.sp-badge--dot {
+  border-radius: 50% !important;
+  padding: 0 !important;
+
+  &.sp-badge--sm {
+    width: 6px;
+    height: 6px;
+  }
+
+  &.sp-badge--md {
+    width: 8px;
+    height: 8px;
+  }
+
+  &.sp-badge--lg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+// ==============================================================
+// Region: Standard Text / Counter Badges
+// ==============================================================
+.sp-badge--sm:not(.sp-badge--dot) {
+  height: 18px;
+  min-width: 18px;
+  padding: 0 5px;
+  font-size: 11px;
+  border-radius: var(--sp-radius-full);
+}
+
+.sp-badge--md:not(.sp-badge--dot) {
+  height: 22px;
+  min-width: 22px;
+  padding: 0 7px;
+  font-size: 12px;
+  border-radius: var(--sp-radius-full);
+}
+
+.sp-badge--lg:not(.sp-badge--dot) {
+  height: 26px;
+  min-width: 26px;
+  padding: 0 9px;
+  font-size: 13.5px;
+  border-radius: var(--sp-radius-full);
+}
+
+// ==============================================================
+// Region: Color & Variant Matrix
+// ==============================================================
+
+// Primary
+.sp-badge--primary {
+  &.sp-badge--solid,
+  &.sp-badge--dot {
+    background-color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+    color: #ffffff;
+  }
+  &.sp-badge--soft {
+    background-color: color-mix(in srgb, var(--sp-primary, var(--sp-color-primary, #ffac1c)) 14%, transparent);
+    color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+  }
+  &.sp-badge--outline {
+    background-color: transparent;
+    color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+    border: 1.5px solid var(--sp-primary, var(--sp-color-primary, #ffac1c));
+  }
+}
+
+// Secondary
+.sp-badge--secondary {
+  &.sp-badge--solid,
+  &.sp-badge--dot {
+    background-color: var(--sp-secondary, var(--sp-color-secondary, #64748b));
+    color: #ffffff;
+  }
+  &.sp-badge--soft {
+    background-color: rgba(100, 116, 139, 0.14);
+    color: var(--sp-text-secondary);
+  }
+  &.sp-badge--outline {
+    background-color: transparent;
+    color: var(--sp-text-secondary);
+    border: 1.5px solid var(--sp-border-strong, var(--sp-border-color-hover, #cbd5e1));
+  }
+}
+
+// Success
+.sp-badge--success {
+  &.sp-badge--solid,
+  &.sp-badge--dot {
+    background-color: var(--sp-success, var(--sp-color-success, #10b981));
+    color: #ffffff;
+  }
+  &.sp-badge--soft {
+    background-color: rgba(16, 185, 129, 0.14);
+    color: var(--sp-success, var(--sp-color-success, #10b981));
+  }
+  &.sp-badge--outline {
+    background-color: transparent;
+    color: var(--sp-success, var(--sp-color-success, #10b981));
+    border: 1.5px solid var(--sp-success, var(--sp-color-success, #10b981));
+  }
+}
+
+// Warning
+.sp-badge--warning {
+  &.sp-badge--solid,
+  &.sp-badge--dot {
+    background-color: var(--sp-warning, var(--sp-color-warning, #f59e0b));
+    color: #1a1a1a;
+  }
+  &.sp-badge--soft {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #d97706;
+  }
+  &.sp-badge--outline {
+    background-color: transparent;
+    color: #d97706;
+    border: 1.5px solid var(--sp-warning, var(--sp-color-warning, #f59e0b));
+  }
+}
+
+// Danger
+.sp-badge--danger {
+  &.sp-badge--solid,
+  &.sp-badge--dot {
+    background-color: var(--sp-danger, var(--sp-color-danger, #ef4444));
+    color: #ffffff;
+  }
+  &.sp-badge--soft {
+    background-color: rgba(239, 68, 68, 0.14);
+    color: var(--sp-danger, var(--sp-color-danger, #ef4444));
+  }
+  &.sp-badge--outline {
+    background-color: transparent;
+    color: var(--sp-danger, var(--sp-color-danger, #ef4444));
+    border: 1.5px solid var(--sp-danger, var(--sp-color-danger, #ef4444));
+  }
+}
+
+// Info
+.sp-badge--info {
+  &.sp-badge--solid,
+  &.sp-badge--dot {
+    background-color: var(--sp-info, var(--sp-color-info, #06b6d4));
+    color: #ffffff;
+  }
+  &.sp-badge--soft {
+    background-color: rgba(6, 182, 212, 0.14);
+    color: var(--sp-info, var(--sp-color-info, #06b6d4));
+  }
+  &.sp-badge--outline {
+    background-color: transparent;
+    color: var(--sp-info, var(--sp-color-info, #06b6d4));
+    border: 1.5px solid var(--sp-info, var(--sp-color-info, #06b6d4));
+  }
+}

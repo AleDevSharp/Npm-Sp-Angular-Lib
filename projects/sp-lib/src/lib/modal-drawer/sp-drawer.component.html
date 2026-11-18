@@ -1,0 +1,49 @@
+@if (visible()) {
+  <div
+    class="sp-drawer-overlay"
+    [class.sp-drawer-backdrop-none]="!backdrop()"
+    [class.sp-drawer-blur]="backdrop() && backdropBlur()"
+    (click)="onBackdropClick($event)"
+  >
+    <div
+      #panelContainer
+      class="sp-drawer-panel"
+      [class]="'sp-drawer-' + placement() + ' sp-drawer-' + size()"
+      role="dialog"
+      aria-modal="true"
+      tabindex="-1"
+      [attr.aria-labelledby]="title() ? titleId : null"
+    >
+      <!-- Header -->
+      <div class="sp-drawer-header">
+        <ng-content select="[spDrawerHeader]"></ng-content>
+        @if (title()) {
+          <h3 [id]="titleId" class="sp-drawer-title">{{ title() }}</h3>
+        }
+        @if (showCloseButton()) {
+          <button
+            type="button"
+            class="sp-drawer-close-btn"
+            aria-label="Chiudi pannello laterale"
+            (click)="close()"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        }
+      </div>
+
+      <!-- Body Content -->
+      <div class="sp-drawer-body">
+        <ng-content></ng-content>
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="sp-drawer-footer">
+        <ng-content select="[spDrawerFooter]"></ng-content>
+      </div>
+    </div>
+  </div>
+}

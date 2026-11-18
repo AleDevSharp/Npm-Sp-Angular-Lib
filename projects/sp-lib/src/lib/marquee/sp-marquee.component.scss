@@ -1,0 +1,193 @@
+// Region: Host Sizing
+// Allow a marquee flex/grid item to shrink below its track's intrinsic width.
+sp-marquee {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+// ================================
+// Region: Variables & Mixins
+// ================================
+
+// ================================
+// Region: Marquee Container
+// ================================
+
+.sp-marquee {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  max-width: 100%;
+  width: 100%;
+
+  // Horizontal directions
+  &.sp-marquee-left,
+  &.sp-marquee-right {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  // Vertical directions
+  &.sp-marquee-up,
+  &.sp-marquee-down {
+    flex-direction: column;
+    align-items: center;
+    height: 320px;
+  }
+
+  // Gradient edge fading mask (Horizontal)
+  &.sp-marquee-fade.sp-marquee-left,
+  &.sp-marquee-fade.sp-marquee-right {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black var(--sp-marquee-fade-width, 64px),
+      black calc(100% - var(--sp-marquee-fade-width, 64px)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black var(--sp-marquee-fade-width, 64px),
+      black calc(100% - var(--sp-marquee-fade-width, 64px)),
+      transparent 100%
+    );
+  }
+
+  // Gradient edge fading mask (Vertical)
+  &.sp-marquee-fade.sp-marquee-up,
+  &.sp-marquee-fade.sp-marquee-down {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black var(--sp-marquee-fade-width, 64px),
+      black calc(100% - var(--sp-marquee-fade-width, 64px)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black var(--sp-marquee-fade-width, 64px),
+      black calc(100% - var(--sp-marquee-fade-width, 64px)),
+      transparent 100%
+    );
+  }
+
+  // Hover and click pause states
+&.sp-marquee-paused .sp-marquee-track {
+    animation-play-state: paused !important;
+  }
+}
+
+// ================================
+// Region: Marquee Track
+// ================================
+
+.sp-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  will-change: transform;
+  gap: var(--sp-marquee-gap, 2rem);
+
+  .sp-marquee-left &,
+  .sp-marquee-right & {
+    min-width: 100%;
+    padding-right: var(--sp-marquee-gap, 2rem);
+  }
+
+  .sp-marquee-up &,
+  .sp-marquee-down & {
+    flex-direction: column;
+    min-height: 100%;
+    padding-bottom: var(--sp-marquee-gap, 2rem);
+    width: 100%;
+  }
+
+  // Direction animations
+  .sp-marquee-left & {
+    animation: spMarqueeScrollLeft var(--sp-marquee-duration, 25s) linear infinite;
+  }
+
+  .sp-marquee-right & {
+    animation: spMarqueeScrollRight var(--sp-marquee-duration, 25s) linear infinite;
+  }
+
+  .sp-marquee-up & {
+    animation: spMarqueeScrollUp var(--sp-marquee-duration, 25s) linear infinite;
+  }
+
+  .sp-marquee-down & {
+    animation: spMarqueeScrollDown var(--sp-marquee-duration, 25s) linear infinite;
+  }
+}
+
+// ================================
+// Region: Keyframes
+// ================================
+
+@keyframes spMarqueeScrollLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes spMarqueeScrollRight {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes spMarqueeScrollUp {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes spMarqueeScrollDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// ================================
+// Region: Default Items
+// ================================
+
+.sp-marquee-default-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: var(--sp-radius-full, 9999px);
+  background-color: var(--sp-bg-surface, #f8fafc);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  color: var(--sp-text-primary, #0f172a);
+  font-weight: 500;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+}
+
+// Dark Mode Support
+[data-theme='dark'] {
+  .sp-marquee-default-item {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+  }
+}

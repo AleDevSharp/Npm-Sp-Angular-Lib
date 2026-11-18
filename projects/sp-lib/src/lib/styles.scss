@@ -1,1 +1,6 @@
-@import '~bootstrap/scss/bootstrap';
+// ================================
+// Region: SpLib Core Styles
+// ================================
+
+@use './styles/tokens';
+@use './ripple/sp-ripple';

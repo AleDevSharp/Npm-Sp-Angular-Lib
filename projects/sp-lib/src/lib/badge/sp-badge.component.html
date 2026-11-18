@@ -1,0 +1,36 @@
+<!-- Region: Host Projected Content -->
+<ng-content></ng-content>
+
+<!-- Region: Badge Element -->
+@if (!hidden()) {
+  <span
+    class="sp-badge-element"
+    [class.sp-badge--dot]="isDotMode()"
+    [class.sp-badge--pulse]="pulse()"
+    [class.sp-badge--inline]="placement() === 'inline'"
+    [class.sp-badge--top-right]="placement() === 'top-right'"
+    [class.sp-badge--top-left]="placement() === 'top-left'"
+    [class.sp-badge--bottom-right]="placement() === 'bottom-right'"
+    [class.sp-badge--bottom-left]="placement() === 'bottom-left'"
+    [class.sp-badge--sm]="size() === 'sm'"
+    [class.sp-badge--md]="size() === 'md'"
+    [class.sp-badge--lg]="size() === 'lg'"
+    [class.sp-badge--solid]="variant() === 'solid'"
+    [class.sp-badge--soft]="variant() === 'soft'"
+    [class.sp-badge--outline]="variant() === 'outline'"
+    [class.sp-badge--primary]="color() === 'primary'"
+    [class.sp-badge--secondary]="color() === 'secondary'"
+    [class.sp-badge--success]="color() === 'success'"
+    [class.sp-badge--warning]="color() === 'warning'"
+    [class.sp-badge--danger]="color() === 'danger'"
+    [class.sp-badge--info]="color() === 'info'"
+  >
+    @if (pulse()) {
+      <span class="sp-badge-ping" aria-hidden="true"></span>
+    }
+
+    @if (!isDotMode()) {
+      <span class="sp-badge-text">{{ displayContent() }}</span>
+    }
+  </span>
+}

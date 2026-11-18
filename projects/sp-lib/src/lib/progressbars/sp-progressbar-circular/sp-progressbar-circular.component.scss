@@ -1,36 +1,54 @@
 // ================================
-// Region: Main content
+// Region: Variables
 // ================================
-.circular-progress {
+$circular-track-color: var(--sp-border-color, #e2e8f0);
+
+// ================================
+// Region: Layout & Circles
+// ================================
+.sp-circular-progress {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  display: inline-block;
+  box-sizing: border-box;
+}
 
-  svg {
-    transform: rotate(-90deg);
-    width: 100%;
-    height: 100%;
+.sp-circular-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+  &.is-indeterminate {
+    animation: spSpinCircle 1.4s linear infinite;
   }
+}
 
-  circle {
-    fill: none;
-    stroke-width: 8;
-    stroke-linecap: round;
+.sp-circular-track {
+  fill: transparent;
+  stroke: $circular-track-color;
+}
+
+.sp-circular-fill {
+  fill: transparent;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.35s ease;
+}
+
+.sp-circular-label {
+  position: absolute;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sp-text-primary, #0f172a);
+  pointer-events: none;
+}
+
+@keyframes spSpinCircle {
+  0% {
+    transform: rotate(0deg);
   }
-
-  .track {
-    stroke: #eee;
-  }
-
-  .progress {
-    transition: stroke-dashoffset 0.6s ease;
-  }
-
-  span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px;
-    font-weight: bold;
+  100% {
+    transform: rotate(360deg);
   }
 }

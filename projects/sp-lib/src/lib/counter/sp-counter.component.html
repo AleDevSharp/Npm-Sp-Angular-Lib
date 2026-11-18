@@ -1,0 +1,9 @@
+<!-- Region: Number Counter Display -->
+<span
+  class="sp-counter"
+  [class.sp-counter--counting]="isCounting()"
+  [class.sp-counter--completed]="isCompleted()"
+  aria-live="polite"
+>
+  {{ displayValue() }}
+</span>

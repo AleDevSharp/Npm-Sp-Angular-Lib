@@ -1,0 +1,407 @@
+sp-speed-dial { display: inline-flex; vertical-align: middle; }
+
+// ================================
+// Region: Variables & Mixins
+// ================================
+
+.sp-speed-dial-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(15 23 42 / 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: spSpeedDialBackdropFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spSpeedDialBackdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// ================================
+// Region: Component Host & Container
+// ================================
+
+.sp-speed-dial {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  user-select: none;
+
+  &.sp-speed-dial-opened { z-index: 1000; }
+
+  &.sp-speed-dial-disabled {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+}
+
+// ================================
+// Region: Primary Trigger FAB
+// ================================
+
+.sp-speed-dial-trigger-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sp-radius-full, 9999px);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.22), 0 4px 10px -2px rgb(0 0 0 / 0.12);
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 12px 28px -4px rgb(0 0 0 / 0.28), 0 6px 14px -2px rgb(0 0 0 / 0.16);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0) scale(0.96);
+  }
+
+  &:focus-visible {
+    box-shadow:
+      0 0 0 3px var(--sp-bg-canvas, #ffffff),
+      0 0 0 6px var(--sp-color-primary, #ffac1c);
+  }
+
+  // Rotation effect for trigger icon
+  &.sp-speed-dial-rotate {
+    .sp-speed-dial-default-svg,
+    .sp-speed-dial-main-icon {
+      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    &.sp-speed-dial-trigger-active {
+      .sp-speed-dial-default-svg,
+      .sp-speed-dial-main-icon {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  // Trigger Color Variants
+  &.sp-speed-dial-trigger-primary {
+    background-color: var(--sp-color-primary, #ffac1c);
+    color: var(--sp-color-primary-contrast, #1c1917);
+  }
+
+  &.sp-speed-dial-trigger-secondary {
+    background-color: var(--sp-color-secondary, #64748b);
+    color: var(--sp-color-secondary-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-trigger-success {
+    background-color: var(--sp-color-success, #10b981);
+    color: var(--sp-color-success-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-trigger-warning {
+    background-color: var(--sp-color-warning, #f59e0b);
+    color: var(--sp-color-warning-contrast, #1c1917);
+  }
+
+  &.sp-speed-dial-trigger-danger {
+    background-color: var(--sp-color-danger, #ef4444);
+    color: var(--sp-color-danger-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-trigger-info {
+    background-color: var(--sp-color-info, #06b6d4);
+    color: var(--sp-color-info-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-trigger-neutral {
+    background-color: var(--sp-text-primary, #0f172a);
+    color: #ffffff;
+  }
+}
+
+// ================================
+// Region: Sizing Presets
+// ================================
+
+.sp-speed-dial-size-sm {
+  --sp-speed-dial-action-size: 36px;
+  .sp-speed-dial-trigger-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.125rem;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .sp-speed-dial-action-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.875rem;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .sp-speed-dial-label {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+}
+
+.sp-speed-dial-size-md {
+  --sp-speed-dial-action-size: 44px;
+  .sp-speed-dial-trigger-btn {
+    width: 56px;
+    height: 56px;
+    font-size: 1.375rem;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .sp-speed-dial-action-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .sp-speed-dial-label {
+    font-size: 0.8125rem;
+    padding: 4px 10px;
+  }
+}
+
+.sp-speed-dial-size-lg {
+  --sp-speed-dial-action-size: 52px;
+  .sp-speed-dial-trigger-btn {
+    width: 66px;
+    height: 66px;
+    font-size: 1.625rem;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .sp-speed-dial-action-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.125rem;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .sp-speed-dial-label {
+    font-size: 0.875rem;
+    padding: 5px 12px;
+  }
+}
+
+// ================================
+// Region: Action Items & Layout
+// ================================
+
+.sp-speed-dial-list {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.sp-speed-dial-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--sp-speed-dial-action-size, 44px);
+  height: var(--sp-speed-dial-action-size, 44px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.3);
+  transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: var(--item-delay, 0ms);
+}
+
+.sp-speed-dial-opened .sp-speed-dial-item {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(calc(-50% + var(--item-tx, 0px)), calc(-50% + var(--item-ty, 0px))) scale(1);
+}
+
+.sp-speed-dial-opened .sp-speed-dial-item-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.sp-speed-dial-item:hover,
+.sp-speed-dial-item:focus-within { z-index: 2; }
+
+// ================================
+// Region: Action Buttons
+// ================================
+
+.sp-speed-dial-action-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sp-radius-full, 9999px);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  box-shadow: 0 4px 14px -2px rgb(0 0 0 / 0.16);
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px -2px rgb(0 0 0 / 0.22);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    box-shadow:
+      0 0 0 2px var(--sp-bg-canvas, #ffffff),
+      0 0 0 4px var(--sp-color-primary, #ffac1c);
+  }
+
+  // Semantic Action Button Colors
+  &.sp-speed-dial-action-primary {
+    background-color: var(--sp-color-primary, #ffac1c);
+    color: var(--sp-color-primary-contrast, #1c1917);
+  }
+
+  &.sp-speed-dial-action-secondary {
+    background-color: var(--sp-color-secondary, #64748b);
+    color: var(--sp-color-secondary-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-action-success {
+    background-color: var(--sp-color-success, #10b981);
+    color: var(--sp-color-success-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-action-warning {
+    background-color: var(--sp-color-warning, #f59e0b);
+    color: var(--sp-color-warning-contrast, #1c1917);
+  }
+
+  &.sp-speed-dial-action-danger {
+    background-color: var(--sp-color-danger, #ef4444);
+    color: var(--sp-color-danger-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-action-info {
+    background-color: var(--sp-color-info, #06b6d4);
+    color: var(--sp-color-info-contrast, #ffffff);
+  }
+
+  &.sp-speed-dial-action-neutral {
+    background-color: var(--sp-bg-surface, #f8fafc);
+    color: var(--sp-text-primary, #0f172a);
+    border: 1px solid var(--sp-border-color, #e2e8f0);
+  }
+}
+
+// ================================
+// Region: Action Label Pills
+// ================================
+
+.sp-speed-dial-label {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--sp-radius-full, 9999px);
+  background-color: var(--sp-bg-canvas, #ffffff);
+  color: var(--sp-text-primary, #0f172a);
+  font-weight: 500;
+  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.14), 0 1px 3px rgb(0 0 0 / 0.08);
+  border: 1px solid var(--sp-border-color, #e2e8f0);
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -2px rgb(0 0 0 / 0.18);
+  }
+}
+
+// Dark Mode Support
+[data-theme='dark'] {
+  .sp-speed-dial-label {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.4);
+  }
+
+  .sp-speed-dial-action-neutral {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+  }
+}
+
+// Labels do not participate in action positioning.
+.sp-speed-dial-label {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.sp-speed-dial-label:hover { transform: translateY(-50%); }
+
+.sp-speed-dial-left .sp-speed-dial-label,
+.sp-speed-dial-right .sp-speed-dial-label,
+.sp-speed-dial-radial .sp-speed-dial-label {
+  top: auto;
+  right: auto;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sp-speed-dial-item:hover .sp-speed-dial-label,
+.sp-speed-dial-item:focus-within .sp-speed-dial-label { opacity: 1; pointer-events: auto; }

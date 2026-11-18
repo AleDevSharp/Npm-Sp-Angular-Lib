@@ -1,50 +1,64 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-divider.component.ts
+// File description: Clean divider component supporting horizontal/vertical orientations and center labels.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// Import
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 /**
- * SpDividerComponent component
- * @author Alessio Giacché
- * @version 1.0.0
+ * SpDividerComponent
+ * @version 2.0.0
  * @since 1.0.2
+ * @author Alessio Giacché
  */
 @Component({
   selector: 'sp-divider',
+  host: { '[class.sp-divider-host-vertical]': 'orientation() === "vertical" && !label()' },
   standalone: true,
   imports: [CommonModule],
   templateUrl: './sp-divider.component.html',
-  styleUrl: './sp-divider.component.scss'
+  styleUrl: './sp-divider.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpDividerComponent {
-  // The divider height
+  // The divider height or thickness
   public height = input<string>('1px');
 
-  // The divider color
-  public color = input<string>('#666');
+  // The divider line color
+  public color = input<string>('');
 
   // The divider orientation
   public orientation = input<'horizontal' | 'vertical'>('horizontal');
 
-  // The divider border style
+  // The divider border style pattern
   public borderStyle = input<'solid' | 'dashed' | 'dotted'>('solid');
 
-  // The divider border width
+  // The divider border thickness width
   public borderWidth = input<string>('1px');
 
   // The divider border color
-  public borderColor = input<string>('#666');
+  public borderColor = input<string>('');
 
-  // The divider margin top
+  // The divider margin top spacing
   public marginTop = input<string>('0px');
 
-  // The divider margin bottom
+  // The divider margin bottom spacing
   public marginBottom = input<string>('0px');
 
-  // The divider center label
+  // The optional center label text
   public label = input<string>('');
 
-  // The divider center label color
-  public labelColor = input<string>('#666');
+  // The optional label text color
+  public labelColor = input<string>('');
 
-  // Constructor for SDividerComponent component
+  /**
+   * Constructor for SpDividerComponent component
+   */
   constructor() {}
 }

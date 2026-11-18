@@ -1,0 +1,141 @@
+<div
+  class="sp-carousel-container"
+  [class]="'sp-carousel-effect-' + effect() + ' sp-carousel-arrows-' + arrowsPlacement()"
+  role="region"
+  aria-roledescription="carousel"
+  [attr.aria-label]="ariaLabel()"
+  tabindex="0"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
+  <!-- Main Viewport -->
+  <div
+    #viewportRef
+    class="sp-carousel-viewport"
+    [style.height]="height()"
+    [style.aspect-ratio]="aspectRatio() || null"
+  >
+    <!-- Slides Track -->
+    <div
+      class="sp-carousel-track"
+      [style.transform]="effect() === 'slide' ? 'translate3d(' + (-activeIndex() * 100) + '%, 0, 0)' : null"
+    >
+      <!-- Projected custom slide components -->
+      <ng-content></ng-content>
+
+      <!-- Quick Data Items Loop -->
+      @if (items().length > 0) {
+        @for (item of items(); track $index) {
+          <div
+            class="sp-carousel-item-slide"
+            [class.sp-carousel-item-active]="$index === activeIndex()"
+            role="group"
+            aria-roledescription="slide"
+            [attr.aria-label]="item.title || ('Slide ' + ($index + 1))"
+          >
+            @if (item.src) {
+              <img [src]="item.src" [alt]="item.alt || item.title || 'Slide image'" class="sp-carousel-image" />
+            }
+            @if (item.title || item.description || item.ctaText) {
+              <div class="sp-carousel-caption">
+                @if (item.title) {
+                  <h3 class="sp-carousel-caption-title">{{ item.title }}</h3>
+                }
+                @if (item.description) {
+                  <p class="sp-carousel-caption-desc">{{ item.description }}</p>
+                }
+                @if (item.ctaText) {
+                  <span class="sp-carousel-caption-cta">{{ item.ctaText }} &rarr;</span>
+                }
+              </div>
+            }
+          </div>
+        }
+      }
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  @if (showArrows() && totalCount() > 1) {
+    <button
+      type="button"
+      class="sp-carousel-arrow sp-carousel-arrow-prev"
+      aria-label="Diapositiva precedente"
+      [disabled]="!loop() && activeIndex() === 0"
+      (click)="prev()"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="sp-carousel-arrow sp-carousel-arrow-next"
+      aria-label="Diapositiva successiva"
+      [disabled]="!loop() && activeIndex() === totalCount() - 1"
+      (click)="next()"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  }
+
+  <!-- Indicators -->
+  @if (showIndicators() && totalCount() > 1) {
+    <!-- Style: Progress Bars -->
+    @if (indicatorType() === 'bars') {
+      <div class="sp-carousel-indicators sp-carousel-indicators-bars" role="tablist">
+        @for (idx of slideIndices(); track idx) {
+          <button
+            type="button"
+            class="sp-carousel-indicator-bar-btn"
+            role="tab"
+            [attr.aria-selected]="idx === activeIndex()"
+            [attr.aria-label]="'Vai alla diapositiva ' + (idx + 1)"
+            (click)="goTo(idx)"
+          >
+            <span class="sp-carousel-bar-track">
+              <span
+                class="sp-carousel-bar-fill"
+                [style.width.%]="
+                  idx < activeIndex() ? 100 :
+                  idx === activeIndex() ? (autoplay() && !isPaused() ? progressPercent() : 100) : 0
+                "
+              ></span>
+            </span>
+          </button>
+        }
+      </div>
+    }
+
+    <!-- Style: Dots -->
+    @if (indicatorType() === 'dots') {
+      <div class="sp-carousel-indicators sp-carousel-indicators-dots" role="tablist">
+        @for (idx of slideIndices(); track idx) {
+          <button
+            type="button"
+            class="sp-carousel-dot"
+            [class.sp-carousel-dot-active]="idx === activeIndex()"
+            role="tab"
+            [attr.aria-selected]="idx === activeIndex()"
+            [attr.aria-label]="'Vai alla diapositiva ' + (idx + 1)"
+            (click)="goTo(idx)"
+          ></button>
+        }
+      </div>
+    }
+
+    <!-- Style: Numbers -->
+    @if (indicatorType() === 'numbers') {
+      <div class="sp-carousel-indicators sp-carousel-indicators-numbers">
+        <span class="sp-carousel-numbers-badge">
+          {{ activeIndex() + 1 }} / {{ totalCount() }}
+        </span>
+      </div>
+    }
+  }
+</div>

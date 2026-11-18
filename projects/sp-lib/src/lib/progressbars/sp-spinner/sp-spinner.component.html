@@ -1,5 +1,11 @@
+<!-- Region: Spinner -->
 <div
-  class="master"
-  [style.--primary-color]="this.primaryColor()"
-  [style.--spinner-size.px]="this.size()"
-  [style.--animation-speed]="this.animationSpeed()"></div>
+  class="sp-spinner"
+  role="status"
+  aria-label="Loading"
+  [style.--sp-spinner-color]="this.primaryColor()"
+  [style.width.px]="this.size()"
+  [style.height.px]="this.size()"
+  [style.animation-duration]="this.animationSpeed()">
+  <span class="sp-spinner-sr-only">Loading...</span>
+</div>

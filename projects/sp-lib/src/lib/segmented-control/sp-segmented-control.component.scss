@@ -1,0 +1,199 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-segmented-control.component.scss
+// File description: Styles for segmented control pill switch and animated indicator.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Base Container
+// ==============================================================
+:host {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sp-segmented-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--sp-bg-secondary);
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-md);
+  padding: 3px;
+  user-select: none;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &.sp-segmented--block {
+    display: flex;
+    width: 100%;
+
+    .sp-segmented-option {
+      flex: 1 1 0;
+      justify-content: center;
+    }
+  }
+
+  &.sp-segmented--disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ==============================================================
+// Region: Sliding Physical Background Indicator
+// ==============================================================
+.sp-segmented-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--sp-card-bg);
+  border-radius: calc(var(--sp-radius-md) - 2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  will-change: transform, width, height;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.15s ease;
+
+  &.sp-segmented-indicator--visible {
+    opacity: 1;
+  }
+}
+
+[data-theme='dark'] .sp-segmented-indicator {
+  background-color: var(--sp-bg-elevated);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// ==============================================================
+// Region: Option Buttons
+// ==============================================================
+.sp-segmented-option {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--sp-text-secondary);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--sp-transition-fast) ease;
+  border-radius: calc(var(--sp-radius-md) - 2px);
+
+  &:hover:not(:disabled) {
+    color: var(--sp-text-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--sp-primary);
+    outline-offset: -2px;
+  }
+
+  &.sp-segmented-option--active {
+    color: var(--sp-text-primary);
+    font-weight: 600;
+  }
+
+  &.sp-segmented-option--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+// ==============================================================
+// Region: Sizes
+// ==============================================================
+.sp-segmented--sm {
+  padding: 2px;
+  border-radius: var(--sp-radius-sm);
+
+  .sp-segmented-indicator {
+    border-radius: calc(var(--sp-radius-sm) - 1px);
+  }
+
+  .sp-segmented-option {
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.sp-segmented--md {
+  padding: 3px;
+  border-radius: var(--sp-radius-md);
+
+  .sp-segmented-indicator {
+    border-radius: calc(var(--sp-radius-md) - 2px);
+  }
+
+  .sp-segmented-option {
+    padding: 6px 14px;
+    font-size: 13.5px;
+    line-height: 18px;
+  }
+}
+
+.sp-segmented--lg {
+  padding: 4px;
+  border-radius: var(--sp-radius-lg);
+
+  .sp-segmented-indicator {
+    border-radius: calc(var(--sp-radius-lg) - 2px);
+  }
+
+  .sp-segmented-option {
+    padding: 8px 18px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+// ==============================================================
+// Region: Option Icon & Badge
+// ==============================================================
+.sp-segmented-option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+  }
+}
+
+.sp-segmented-option-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--sp-radius-full);
+  background-color: var(--sp-border-subtle);
+  color: var(--sp-text-secondary);
+}
+
+.sp-segmented-option--active .sp-segmented-option-badge {
+  background-color: rgba(var(--sp-primary-rgb), 0.12);
+  color: var(--sp-primary);
+}

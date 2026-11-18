@@ -1,0 +1,41 @@
+<!-- Region: Avatar Group Container -->
+<div
+  class="sp-avatar-group"
+  [class.sp-avatar-group--spread]="hoverSpread()"
+  [class.sp-avatar-group--xs]="size() === 'xs'"
+  [class.sp-avatar-group--sm]="size() === 'sm'"
+  [class.sp-avatar-group--md]="size() === 'md'"
+  [class.sp-avatar-group--lg]="size() === 'lg'"
+  [class.sp-avatar-group--xl]="size() === 'xl'"
+  role="group"
+  aria-label="Gruppo avatar"
+>
+  <!-- Region: Dynamic Avatar Items -->
+  @for (item of visibleItems(); track item.name) {
+    <div class="sp-avatar-group-item">
+      <sp-avatar
+        [src]="item.src"
+        [name]="item.name"
+        [alt]="item.alt || item.name"
+        [size]="size()"
+        [shape]="shape()"
+        [status]="item.status"
+      ></sp-avatar>
+    </div>
+  }
+
+  <!-- Region: Projected Avatar Elements -->
+  <ng-content></ng-content>
+
+  <!-- Region: Excess Count Indicator -->
+  @if (excessCount() > 0) {
+    <div
+      class="sp-avatar-group-item sp-avatar-excess"
+      [class.sp-avatar-excess--circle]="shape() === 'circle'"
+      [class.sp-avatar-excess--rounded]="shape() === 'rounded'"
+      [attr.aria-label]="'+' + excessCount() + ' altri membri'"
+    >
+      <span class="sp-avatar-excess-text">+{{ excessCount() }}</span>
+    </div>
+  }
+</div>

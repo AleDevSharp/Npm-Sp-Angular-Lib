@@ -1,21 +1,36 @@
+<!-- Region: Circular Progress Bar -->
 <div
-  class="circular-progress"
+  class="sp-circular-progress"
+  role="progressbar"
+  [attr.aria-valuenow]="!this.indeterminate() ? this.percentage() : null"
+  aria-valuemin="0"
+  aria-valuemax="100"
   [style.width.px]="this.size()"
   [style.height.px]="this.size()">
-  <svg viewBox="0 0 100 100">
+  <svg viewBox="0 0 100 100" class="sp-circular-svg" [class.is-indeterminate]="this.indeterminate()">
+    <!-- Background track -->
     <circle
-      class="track"
+      class="sp-circular-track"
       cx="50"
       cy="50"
-      r="45"></circle>
+      [attr.r]="this.radius"
+      [style.stroke-width]="this.stroke()"></circle>
+    <!-- Progress stroke -->
     <circle
-      class="progress"
+      class="sp-circular-fill"
       cx="50"
       cy="50"
-      r="45"
+      [attr.r]="this.radius"
       [style.stroke]="this.color()"
-      [style.stroke-dasharray]="circumference"
-      [style.stroke-dashoffset]="circumference * (1 - this.percentage() / 100)"></circle>
+      [style.stroke-width]="this.stroke()"
+      [style.stroke-dasharray]="this.circumference"
+      [style.stroke-dashoffset]="!this.indeterminate() ? this.dashOffset() : (this.circumference * 0.75)"></circle>
   </svg>
-  <span *ngIf="!indeterminate">{{ this.percentage() }}%</span>
+
+  <!-- Region: Center Label -->
+  @if (!this.indeterminate()) {
+    <span class="sp-circular-label">
+      {{ this.percentage() }}%
+    </span>
+  }
 </div>

@@ -1,0 +1,34 @@
+<div
+  class="sp-marquee"
+  [class]="'sp-marquee-' + effectiveDirection()"
+  [class.sp-marquee-fade]="fade()"
+  [class.sp-marquee-paused]="isEffectivelyPaused()"
+  [class.sp-marquee-pause-hover]="pauseOnHover()"
+  [style]="containerStyles()"
+  (click)="onContainerClick()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  role="region"
+  [attr.aria-label]="ariaLabel()"
+>
+  @for (trackIdx of trackIndices(); track trackIdx) {
+    <div
+      class="sp-marquee-track"
+      [attr.aria-hidden]="trackIdx > 0 ? 'true' : null"
+    >
+      @if (items().length > 0) {
+        @for (item of items(); track $index) {
+          @if (itemTemplate()) {
+            <ng-container
+              *ngTemplateOutlet="itemTemplate()!; context: { $implicit: item, index: $index }"
+            ></ng-container>
+          } @else {
+            <div class="sp-marquee-default-item">{{ item }}</div>
+          }
+        }
+      } @else if (itemTemplate()) {
+        <ng-container *ngTemplateOutlet="itemTemplate()!"></ng-container>
+      }
+    </div>
+  }
+</div>

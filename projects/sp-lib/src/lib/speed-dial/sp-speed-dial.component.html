@@ -1,0 +1,110 @@
+<!-- ================================
+     Region: Speed Dial Backdrop
+     ================================ -->
+@if (backdrop() && opened()) {
+  <div
+    class="sp-speed-dial-backdrop"
+    (click)="onBackdropClick($event)"
+    aria-hidden="true"
+  ></div>
+}
+
+<!-- ================================
+     Region: Speed Dial Host Container
+     ================================ -->
+<div
+  class="sp-speed-dial"
+  [class]="'sp-speed-dial-' + direction() + ' sp-speed-dial-size-' + size()"
+  [class.sp-speed-dial-opened]="opened()"
+  [class.sp-speed-dial-disabled]="disabled()"
+  [class.sp-speed-dial-radial]="isRadial()"
+>
+  <!-- Speed Dial Action Items List -->
+  <ul
+    class="sp-speed-dial-list"
+    role="menu"
+    [attr.aria-hidden]="!opened()"
+  >
+    @for (item of items(); track item.id || item.label || $index) {
+      <li
+        class="sp-speed-dial-item"
+        [style]="getItemStyle($index, items().length)"
+        [class.sp-speed-dial-item-disabled]="item.disabled"
+        role="none"
+      >
+        <!-- Item Action Label Pill -->
+        @if (showLabels() && item.label) {
+          <span
+            class="sp-speed-dial-label"
+            [class]="'sp-speed-dial-label-' + (item.color || 'neutral')"
+            (click)="onItemSelect(item, $event)"
+          >
+            {{ item.label }}
+          </span>
+        }
+
+        <!-- Item Action Button -->
+        <button
+          type="button"
+          class="sp-speed-dial-action-btn"
+          [class]="'sp-speed-dial-action-' + (item.color || 'primary')"
+          [disabled]="disabled() || item.disabled"
+          [attr.aria-label]="item.ariaLabel || item.label || ('Action ' + ($index + 1))"
+          [title]="item.title || item.label || ''"
+          spRipple
+          [spRippleCentered]="true"
+          (click)="onItemSelect(item, $event)"
+          [tabindex]="opened() && !disabled() && !item.disabled ? 0 : -1"
+          role="menuitem"
+        >
+          @if (item.icon) {
+            <span class="sp-speed-dial-icon" [innerHTML]="item.icon"></span>
+          } @else {
+            <span class="sp-speed-dial-icon">•</span>
+          }
+        </button>
+      </li>
+    }
+  </ul>
+
+  <!-- Primary Floating Action Button (FAB) Trigger -->
+  <button
+    type="button"
+    class="sp-speed-dial-trigger-btn"
+    [class]="'sp-speed-dial-trigger-' + color()"
+    [class.sp-speed-dial-trigger-active]="opened()"
+    [class.sp-speed-dial-rotate]="rotateAnimation() && !activeIcon()"
+    [disabled]="disabled()"
+    aria-haspopup="menu"
+    [attr.aria-expanded]="opened()"
+    [attr.aria-label]="ariaLabel()"
+    spRipple
+    [spRippleCentered]="true"
+    (click)="onTriggerClick($event)"
+  >
+    <ng-content select="[spSpeedDialTrigger]">
+      @if (opened() && activeIcon()) {
+        <span class="sp-speed-dial-main-icon" [innerHTML]="activeIcon()"></span>
+      } @else if (icon()) {
+        <span class="sp-speed-dial-main-icon" [innerHTML]="icon()"></span>
+      } @else {
+        <!-- Geometric plus icon transforming into close cross on rotation -->
+        <svg
+          class="sp-speed-dial-default-svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      }
+    </ng-content>
+  </button>
+</div>

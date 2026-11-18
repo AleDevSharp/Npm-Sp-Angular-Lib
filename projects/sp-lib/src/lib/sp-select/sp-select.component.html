@@ -1,42 +1,70 @@
+<!-- Region: Select Wrapper -->
 <div class="sp-select-wrapper">
-  <!-- Label -->
+  <!-- Region: Label -->
   @if (this.label()) {
     <label
       class="sp-select-label"
-      [for]="this.id()"
-      [style.color]="this.labelColor()">
+      [attr.for]="this.id()"
+      [style.color]="this.labelColor() || null">
       {{ this.label() }}
     </label>
   }
 
-  <!-- Select -->
-  <select
-    [id]="this.id()"
-    class="sp-select-field"
-    [disabled]="this.disabled()"
-    [ngClass]="{ 'has-error': this.hasError() }"
-    [value]="this.value()"
-    (change)="this.onSelectChange($event)">
-    @if (this.placeholder()) {
-      <option
-        value=""
-        disabled
-        selected
-        hidden>
-        {{ this.placeholder() }}
-      </option>
-    }
+  <!-- Region: Native Select Container -->
+  <div
+    class="sp-select-container"
+    [class.sp-select-sm]="this.size() === 'sm'"
+    [class.sp-select-md]="this.size() === 'md'"
+    [class.sp-select-lg]="this.size() === 'lg'"
+    [class.has-error]="this.hasError()"
+    [style.--sp-select-focus-color]="this.focusColor() || null"
+    [class.is-disabled]="this.effectiveDisabled()">
+    <select
+      [id]="this.id()"
+      class="sp-select-field"
+      [disabled]="this.effectiveDisabled()"
+      [attr.aria-invalid]="this.hasError()"
+      [attr.aria-describedby]="this.hasError() && this.errorMessage() ? this.id() + '-error' : null"
+      (change)="this.onSelectChange($event)"
+      (blur)="this.onBlur()">
+      @if (this.placeholder()) {
+        <option
+          value=""
+          [disabled]="true"
+          [selected]="!this.displayValue()">
+          {{ this.placeholder() }}
+        </option>
+      }
 
-    <option
-      *ngFor="let option of this.options()"
-      [value]="option.value"
-      [selected]="option.value === this.value()">
-      {{ option.label }}
-    </option>
-  </select>
+      @for (option of this.options(); track option.value) {
+        <option
+          [value]="option.value"
+          [disabled]="option.disabled ?? false"
+          [selected]="option.value === this.displayValue()">
+          {{ option.label }}
+        </option>
+      }
+    </select>
 
-  <!-- Error -->
+    <!-- Region: Custom Dropdown Arrow -->
+    <span class="sp-select-arrow" aria-hidden="true">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </span>
+  </div>
+
+  <!-- Region: Error Message -->
   @if (this.hasError() && this.errorMessage()) {
-    <p class="sp-error-message">{{ this.errorMessage() }}</p>
+    <p class="sp-select-error" [id]="this.id() + '-error'" role="alert">
+      {{ this.errorMessage() }}
+    </p>
+  }
+
+  <!-- Region: Hint -->
+  @if (!this.hasError() && this.hint()) {
+    <p class="sp-select-hint">
+      {{ this.hint() }}
+    </p>
   }
 </div>

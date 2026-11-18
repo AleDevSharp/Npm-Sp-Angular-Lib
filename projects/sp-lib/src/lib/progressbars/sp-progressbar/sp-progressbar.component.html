@@ -1,9 +1,14 @@
+<!-- Region: Progressbar Template -->
 <div
-  class="progress"
+  class="sp-progressbar-track"
+  role="progressbar"
+  [attr.aria-valuenow]="!this.indeterminate() ? this.percentage() : null"
+  aria-valuemin="0"
+  aria-valuemax="100"
   [style.height]="this.height()">
   <div
-    class="progress-bar progress-bar-striped"
-    [ngClass]="{ indeterminate: this.indeterminate() }"
+    class="sp-progressbar-fill"
+    [class.is-indeterminate]="this.indeterminate()"
     [style.width.%]="!this.indeterminate() ? this.percentage() : null"
-    [style.--color]="this.color()"></div>
+    [style.background-color]="this.color()"></div>
 </div>

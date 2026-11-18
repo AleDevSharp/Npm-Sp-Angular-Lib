@@ -1,33 +1,49 @@
+<!-- Region: Switch Wrapper -->
 <div class="sp-switch-wrapper">
-  <!-- Label -->
-  @if (this.label()) {
-    <label
-      class="sp-switch-label"
-      [for]="this.id()"
-      [style.color]="this.labelColor()">
-      {{ this.label() }}
-    </label>
-  }
-
-  <!-- Switch -->
-  <label
-    class="switch"
-    [style.width]="this.width()"
-    [style.height]="this.height()"
-    [style.--active-color]="this.activeColor()"
-    [style.--inactive-color]="this.inactiveColor()"
-    [style.--thumb-color]="this.thumbColor()">
-    <input
-      type="checkbox"
+  <div
+    class="sp-switch-control"
+    [class.is-disabled]="this.effectiveDisabled()"
+    (click)="this.toggle()">
+    <!-- Region: Visual Track -->
+    <div
+      class="sp-switch-track"
+      role="switch"
+      tabindex="0"
       [id]="this.id()"
-      [checked]="this.value()"
-      [disabled]="this.disabled()"
-      (change)="onChange($event)" />
-    <span class="slider"></span>
-  </label>
+      [attr.aria-checked]="this.checked()"
+      [attr.aria-disabled]="this.effectiveDisabled()"
+      [attr.aria-label]="this.label() || 'Switch toggle'"
+      [class.sp-switch-sm]="this.size() === 'sm'"
+      [class.sp-switch-md]="this.size() === 'md'"
+      [class.sp-switch-lg]="this.size() === 'lg'"
+      [class.is-checked]="this.checked()"
+      [class.has-error]="this.hasError()"
+      [style.width]="this.width() || null"
+      [style.height]="this.height() || null"
+      [style.--sp-switch-active-bg]="this.activeColor() || null"
+      [style.--sp-switch-inactive-bg]="this.inactiveColor() || null"
+      (keydown)="this.onKeyDown($event)">
+      <!-- Region: Visual Thumb -->
+      <span
+        class="sp-switch-thumb"
+        [style.background-color]="this.thumbColor() || null"></span>
+    </div>
 
-  <!-- Error message -->
+    <!-- Region: Label -->
+    @if (this.label()) {
+      <label
+        class="sp-switch-label"
+        [attr.for]="this.id()"
+        [style.color]="this.labelColor() || null">
+        {{ this.label() }}
+      </label>
+    }
+  </div>
+
+  <!-- Region: Error Message -->
   @if (this.hasError() && this.errorMessage()) {
-    <p class="sp-error-message">{{ this.errorMessage() }}</p>
+    <p class="sp-switch-error" role="alert">
+      {{ this.errorMessage() }}
+    </p>
   }
 </div>

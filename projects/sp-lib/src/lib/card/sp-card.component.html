@@ -1,0 +1,23 @@
+<!-- Region: Card Container -->
+<div
+  class="sp-card-box"
+  [class.variant-elevated]="this.variant() === 'elevated'"
+  [class.variant-outlined]="this.variant() === 'outlined'"
+  [class.variant-glass]="this.variant() === 'glass'"
+  [class.variant-flat]="this.variant() === 'flat'"
+  [class.size-sm]="this.size() === 'sm'"
+  [class.size-md]="this.size() === 'md'"
+  [class.size-lg]="this.size() === 'lg'"
+  [class.is-interactive]="this.interactive()"
+  [class.is-clickable]="this.clickable()"
+  [attr.tabindex]="this.clickable() ? 0 : null"
+  [attr.role]="this.clickable() ? 'button' : null"
+  (click)="this.onClick()"
+  (keydown)="this.onKeyDown($event)">
+  <ng-content select="sp-card-media"></ng-content>
+
+  <!-- Region: Card Internal Body -->
+  <div class="sp-card-body">
+    <ng-content></ng-content>
+  </div>
+</div>

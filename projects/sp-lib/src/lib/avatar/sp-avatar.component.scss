@@ -1,0 +1,176 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-avatar.component.scss
+// File description: Styles for user avatar, initials fallback, and status presence dots.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Base Avatar
+// ==============================================================
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.sp-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  user-select: none;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform var(--sp-transition-fast) ease,
+              box-shadow var(--sp-transition-fast) ease;
+
+  // Shapes
+  &.sp-avatar--circle {
+    border-radius: 50%;
+  }
+
+  &.sp-avatar--rounded {
+    border-radius: var(--sp-radius-lg);
+  }
+}
+
+// ==============================================================
+// Region: Image & Initials
+// ==============================================================
+.sp-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+.sp-avatar-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// ==============================================================
+// Region: Sizes
+// ==============================================================
+.sp-avatar--xs {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+
+  &.sp-avatar--rounded {
+    border-radius: 6px;
+  }
+
+  .sp-avatar-status {
+    width: 7px;
+    height: 7px;
+    border-width: 1.5px;
+  }
+}
+
+.sp-avatar--sm {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+
+  &.sp-avatar--rounded {
+    border-radius: 8px;
+  }
+
+  .sp-avatar-status {
+    width: 9px;
+    height: 9px;
+    border-width: 1.5px;
+  }
+}
+
+.sp-avatar--md {
+  width: 40px;
+  height: 40px;
+  font-size: 14.5px;
+
+  &.sp-avatar--rounded {
+    border-radius: 10px;
+  }
+
+  .sp-avatar-status {
+    width: 11px;
+    height: 11px;
+    border-width: 2px;
+  }
+}
+
+.sp-avatar--lg {
+  width: 48px;
+  height: 48px;
+  font-size: 17px;
+
+  &.sp-avatar--rounded {
+    border-radius: 12px;
+  }
+
+  .sp-avatar-status {
+    width: 13px;
+    height: 13px;
+    border-width: 2px;
+  }
+}
+
+.sp-avatar--xl {
+  width: 64px;
+  height: 64px;
+  font-size: 22px;
+
+  &.sp-avatar--rounded {
+    border-radius: 16px;
+  }
+
+  .sp-avatar-status {
+    width: 16px;
+    height: 16px;
+    border-width: 2.5px;
+  }
+}
+
+// ==============================================================
+// Region: Status Presence Dot
+// ==============================================================
+.sp-avatar-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--sp-avatar-status-border, var(--sp-card-bg, var(--sp-bg-canvas, #ffffff)));
+  box-sizing: border-box;
+  transform: none;
+  z-index: 2;
+
+  &.sp-avatar-status--online {
+    background-color: var(--sp-success, var(--sp-color-success, #10b981));
+  }
+
+  &.sp-avatar-status--offline {
+    background-color: #94a3b8;
+  }
+
+  &.sp-avatar-status--busy {
+    background-color: var(--sp-danger, var(--sp-color-danger, #ef4444));
+  }
+
+  &.sp-avatar-status--away {
+    background-color: var(--sp-warning, var(--sp-color-warning, #f59e0b));
+  }
+}

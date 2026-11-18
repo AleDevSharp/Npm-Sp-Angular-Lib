@@ -1,0 +1,12 @@
+<!-- Region: Tab Panel Body -->
+@if (active()) {
+  <div
+    class="sp-tab-panel"
+    [id]="panelId"
+    role="tabpanel"
+    [attr.aria-labelledby]="headerId"
+    tabindex="0"
+  >
+    <ng-content></ng-content>
+  </div>
+}

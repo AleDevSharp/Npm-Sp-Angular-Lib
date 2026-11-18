@@ -1,40 +1,65 @@
 // ================================
-// Region: Main content
+// Region: Variables
 // ================================
-.divider {
-  display: flex;
-}
+$divider-default-color: var(--sp-border-color, #e2e8f0);
 
-.divider.horizontal {
+// ================================
+// Region: Host Layout
+// ================================
+:host {
+  display: block;
   width: 100%;
 }
 
-.divider.vertical {
-  display: inline-block;
-  height: auto;
+:host(.sp-divider-host-vertical) {
+  display: inline-flex;
+  align-items: center;
   width: auto;
+  flex: 0 0 auto;
 }
 
-.divider-with-text {
+// ================================
+// Region: Simple Line Divider
+// ================================
+.sp-divider-line-only {
+  box-sizing: border-box;
+
+  &.is-horizontal {
+    width: 100%;
+    border-bottom: 1px solid $divider-default-color;
+  }
+
+  &.is-vertical {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    min-height: 1em;
+    border-left: 1px solid $divider-default-color;
+    margin: 0 8px;
+  }
+}
+
+// ================================
+// Region: Divider with Label
+// ================================
+.sp-divider-with-label {
   display: flex;
   align-items: center;
-  text-align: center;
   width: 100%;
+  text-align: center;
+  gap: 12px;
 
-  span {
-    padding: 0 10px;
-    font-size: 14px;
-  }
-
-  &:before,
-  &:after {
-    content: '';
+  .sp-divider-line {
     flex: 1;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $divider-default-color;
   }
 
-  i {
-    padding: 0 10px;
-    font-size: 16px;
+  .sp-divider-label-text {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--sp-text-secondary, #64748b);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }

@@ -1,50 +1,80 @@
+<!-- Region: Input Wrapper -->
 <div class="sp-input-wrapper">
-  <!-- Label -->
+  <!-- Region: Label -->
   @if (this.label()) {
     <label
       class="sp-input-label"
-      [for]="this.id()"
-      [style.color]="this.labelColor()">
+      [attr.for]="this.id()"
+      [style.color]="this.labelColor() || null">
       {{ this.label() }}
     </label>
   }
 
+  <!-- Region: Input Container -->
   <div
     class="sp-input-container"
-    [ngClass]="{
-      'has-error': this.hasError(),
-      disabled: this.disabled()
-    }"
-    [style.border-color]="this.borderColor()"
-    [style.border-radius]="this.borderRadius()"
-    [style.background-color]="this.backgroundColor()"
-    [style.padding]="this.padding()">
-    <!-- Prefix slot -->
+    [class.sp-input-sm]="this.size() === 'sm'"
+    [class.sp-input-md]="this.size() === 'md'"
+    [class.sp-input-lg]="this.size() === 'lg'"
+    [class.has-error]="this.hasError()"
+    [style.--sp-input-focus-color]="this.focusColor() || null"
+    [class.is-disabled]="this.effectiveDisabled()"
+    [class.is-readonly]="this.readonly()"
+    [style.--sp-input-border-color]="this.borderColor() || null"
+    [style.border-radius]="this.borderRadius() || null"
+    [style.background-color]="this.backgroundColor() || null"
+    [style.padding]="this.padding() || null">
+    <!-- Region: Prefix Slot -->
     @if (this.prefix()) {
-      <span class="prefix">{{ this.prefix() }}</span>
+      <span class="sp-input-prefix">{{ this.prefix() }}</span>
     }
+    <ng-content select="[prefix]"></ng-content>
 
-    <!-- Input field -->
+    <!-- Region: Native Input Field -->
     <input
       class="sp-input-field"
       [id]="this.id()"
       [type]="this.type()"
       [placeholder]="this.placeholder()"
-      [disabled]="this.disabled()"
-      [value]="this.value()"
+      [disabled]="this.effectiveDisabled()"
+      [readOnly]="this.readonly()"
+      [value]="this.displayValue()"
+      [attr.aria-invalid]="this.hasError()"
+      [attr.aria-describedby]="this.hasError() && this.errorMessage() ? this.id() + '-error' : null"
+      [style.color]="this.textColor() || null"
       (input)="this.onInput($event)"
-      [style.color]="this.textColor()" />
+      (focus)="this.onFocus($event)"
+      (blur)="this.onBlur($event)" />
 
-    <!-- Suffix slot -->
-    @if (this.suffix()) {
-      <span class="suffix">{{ this.suffix() }}</span>
+    <!-- Region: Clear Button -->
+    @if (this.clearable() && this.displayValue() && !this.effectiveDisabled() && !this.readonly()) {
+      <button
+        type="button"
+        class="sp-input-clear-btn"
+        (click)="this.clearValue()"
+        aria-label="Clear input">
+        &times;
+      </button>
     }
+
+    <!-- Region: Suffix Slot -->
+    @if (this.suffix()) {
+      <span class="sp-input-suffix">{{ this.suffix() }}</span>
+    }
+    <ng-content select="[suffix]"></ng-content>
   </div>
 
-  <!-- Error message -->
+  <!-- Region: Error Message -->
   @if (this.hasError() && this.errorMessage()) {
-    <p class="sp-error-message">
+    <p class="sp-input-error" [id]="this.id() + '-error'" role="alert">
       {{ this.errorMessage() }}
+    </p>
+  }
+
+  <!-- Region: Hint -->
+  @if (!this.hasError() && this.hint()) {
+    <p class="sp-input-hint">
+      {{ this.hint() }}
     </p>
   }
 </div>

@@ -1,12 +1,22 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-input.component.ts
+// File description: Accessible, themeable form text input component implementing ControlValueAccessor.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// Import
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, input, model, output, signal } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**
- * SpInputComponent component
- * @author Alessio Giacché
- * @version 1.0.0
+ * SpInputComponent
+ * @version 2.0.0
  * @since 2.0.0
+ * @author Alessio Giacché
  */
 @Component({
   selector: 'sp-input',
@@ -20,103 +30,187 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
     }
   ],
   templateUrl: './sp-input.component.html',
-  styleUrl: './sp-input.component.scss'
+  styleUrl: './sp-input.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpInputComponent implements ControlValueAccessor {
-  // Unique ID for the input field
-  public id = input<string>('');
+  // The unique identifier for the input field
+  public id = input<string>(`sp-input-${Math.random().toString(36).substring(2, 9)}`);
 
-  // Label text displayed above the input
+  // The label text displayed above the input
   public label = input<string>('');
 
-  // Input type (text, email, password, number, etc.)
+  // The HTML input type (text, email, password, number, etc.)
   public type = input<string>('text');
 
-  // Placeholder text
+  // The placeholder text
   public placeholder = input<string>('');
 
-  // Input value
-  public value = input<string>('');
+  // The two-way model value for the input field
+  public value = model<string>('');
 
-  // Whether the input is disabled
+  // The external disabled flag input
   public disabled = input<boolean>(false);
 
-  // Whether the input is in error state
+  // The readonly attribute flag
+  public readonly = input<boolean>(false);
+
+  // The input size preset
+  public size = input<'sm' | 'md' | 'lg'>('md');
+
+  // The custom focus border and ring color; falls back to the shared focus token
+  public focusColor = input<string>('');
+
+  // The error state flag
   public hasError = input<boolean>(false);
 
-  // Error message shown under the input
+  // The error message text displayed under the field
   public errorMessage = input<string>('');
 
-  // Optional prefix text/icon
+  // The optional helper/hint text displayed under the field
+  public hint = input<string>('');
+
+  // The optional prefix text or icon
   public prefix = input<string>('');
 
-  // Optional suffix text/icon
+  // The optional suffix text or icon
   public suffix = input<string>('');
 
-  // Border color
-  public borderColor = input<string>('#ccc');
+  // The custom border color override
+  public borderColor = input<string>('');
 
-  // Background color
-  public backgroundColor = input<string>('#ffffff');
+  // The custom background color override
+  public backgroundColor = input<string>('');
 
-  // Text color
-  public textColor = input<string>('#333');
+  // The custom text color override
+  public textColor = input<string>('');
 
-  // Border radius (ex: "4px", "10px")
-  public borderRadius = input<string>('4px');
+  // The custom border radius override
+  public borderRadius = input<string>('');
 
-  // Padding inside the input container
-  public padding = input<string>('8px');
+  // The custom padding override
+  public padding = input<string>('');
 
-  // Label color
-  public labelColor = input<string>('var(--secondary-color)');
+  // The custom label color override
+  public labelColor = input<string>('');
 
-  // Emits whenever the input value changes
+  // The clearable button flag
+  public clearable = input<boolean>(false);
+
+  // The output event emitted whenever the input value changes
   public changeInput = output<string>();
 
-  // Callbacks Angular Forms
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  private onChange = (_: any) => {};
-  private onTouched = () => {};
+  // The output event emitted when the input loses focus
+  public inputBlur = output<FocusEvent>();
+
+  // The output event emitted when the input receives focus
+  public inputFocus = output<FocusEvent>();
+
+  // Private signal for form control disabled state via ControlValueAccessor
+  private readonly _cvaDisabled = signal<boolean>(false);
+
+  // Private signal for internal fallback value
+  private readonly _internalValue = signal<string>('');
+
+  // The effective disabled status combining input and form control state
+  public readonly effectiveDisabled = computed(() => this.disabled() || this._cvaDisabled());
+
+  // The effective string value to display in the input element
+  public readonly displayValue = computed(() => this.value() || this._internalValue());
+
+  // The ControlValueAccessor onChange callback
+  private onChange: (val: string) => void = () => {};
+
+  // The ControlValueAccessor onTouched callback
+  private onTouched: () => void = () => {};
 
   /**
-   * Handles input event and updates the value signal
+   * Constructor for SpInputComponent component
+   */
+  constructor() {}
+
+  /**
+   * Handles user input events and synchronizes signals with Angular forms.
+   * @param event The native input DOM event
+   * @returns void
    */
   public onInput(event: Event): void {
     const target = event.target as HTMLInputElement;
-    this.value.apply(target.value);
-    this.changeInput.emit(target.value);
+    const newVal = target.value;
+    this.value.set(newVal);
+    this._internalValue.set(newVal);
+    this.changeInput.emit(newVal);
+    this.onChange(newVal);
+  }
 
-    // Angular Forms
-    this.onChange(target.value);
+  /**
+   * Handles focus event on the input.
+   * @param event The native focus event
+   * @returns void
+   */
+  public onFocus(event: FocusEvent): void {
+    this.inputFocus.emit(event);
+  }
+
+  /**
+   * Handles blur event on the input.
+   * @param event The native focus event
+   * @returns void
+   */
+  public onBlur(event: FocusEvent): void {
     this.onTouched();
+    this.inputBlur.emit(event);
   }
 
   /**
-   * Write value from ngModel/FormControl
+   * Clears the input field when clearable button is clicked.
+   * @returns void
    */
-  public writeValue(obj: any): void {
-    this.value.apply(obj);
+  public clearValue(): void {
+    if (this.effectiveDisabled() || this.readonly()) {
+      return;
+    }
+    this.value.set('');
+    this._internalValue.set('');
+    this.changeInput.emit('');
+    this.onChange('');
   }
 
   /**
-   * Register callback for changes
+   * Writes a new value from the form model into the component.
+   * @param obj The incoming value
+   * @returns void
    */
-  public registerOnChange(fn: any): void {
+  public writeValue(obj: unknown): void {
+    const stringVal = obj !== null && obj !== undefined ? String(obj) : '';
+    this.value.set(stringVal);
+    this._internalValue.set(stringVal);
+  }
+
+  /**
+   * Registers a callback function that should be called when the control value changes in the UI.
+   * @param fn The callback function
+   * @returns void
+   */
+  public registerOnChange(fn: (val: string) => void): void {
     this.onChange = fn;
   }
 
   /**
-   * Register callback for touch
+   * Registers a callback function that should be called when the control receives a blur event.
+   * @param fn The callback function
+   * @returns void
    */
-  public registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
   /**
-   * Optional: handle disabled state
+   * Sets the disabled state when controlled by an Angular form.
+   * @param isDisabled Whether the control is disabled
+   * @returns void
    */
-  public setDisabledState?(isDisabled: boolean): void {
-    this.disabled.apply(isDisabled);
+  public setDisabledState(isDisabled: boolean): void {
+    this._cvaDisabled.set(isDisabled);
   }
 }

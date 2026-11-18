@@ -1,0 +1,101 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-skeleton.component.scss
+// File description: Styles for shimmer skeleton loader and light beam animation.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Root Container
+// ==============================================================
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sp-skeleton-root {
+  display: block;
+  width: 100%;
+}
+
+.sp-skeleton-paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+// ==============================================================
+// Region: Skeleton Item Base
+// ==============================================================
+.sp-skeleton-item {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--sp-bg-secondary);
+  box-sizing: border-box;
+  user-select: none;
+
+  // Diagonal Shimmer Light Beam Effect
+  &.sp-skeleton--animated::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 100%
+    );
+    animation: sp-shimmer-wave 1.6s ease-in-out infinite;
+    content: '';
+    pointer-events: none;
+  }
+}
+
+[data-theme='dark'] .sp-skeleton-item.sp-skeleton--animated::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes sp-shimmer-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// ==============================================================
+// Region: Variants (Text, Circle, Rect)
+// ==============================================================
+.sp-skeleton--text {
+  height: 14px;
+  width: 100%;
+  border-radius: var(--sp-radius-sm);
+}
+
+.sp-skeleton--circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sp-skeleton--rect {
+  width: 100%;
+  height: 180px;
+  border-radius: var(--sp-radius-lg);
+}

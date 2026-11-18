@@ -1,0 +1,28 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-counter.component.scss
+// File description: Styles for animated rolling number counter and tabular digits.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Digit Layout
+// ==============================================================
+:host {
+  display: inline-block;
+  vertical-align: baseline;
+  font-variant-numeric: tabular-nums;
+}
+
+.sp-counter {
+  display: inline-block;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  line-height: inherit;
+  user-select: none;
+  box-sizing: border-box;
+}

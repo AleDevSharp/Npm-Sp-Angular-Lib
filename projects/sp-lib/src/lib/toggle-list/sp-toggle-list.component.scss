@@ -1,0 +1,230 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-toggle-list.component.scss
+// File description: Styles for option cards toggle list and animated checkmark/radio indicators.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Layout Containers
+// ==============================================================
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sp-toggle-list {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+
+  &.sp-toggle-list--vertical {
+    flex-direction: column;
+  }
+
+  &.sp-toggle-list--grid {
+    display: grid;
+    gap: 14px;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  &.sp-toggle-list--disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
+
+// ==============================================================
+// Region: Toggle Card
+// ==============================================================
+.sp-toggle-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background-color: var(--sp-card-bg);
+  border: 1px solid var(--sp-border-subtle);
+  border-radius: var(--sp-radius-lg);
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--sp-shadow-xs);
+  transition: border-color var(--sp-transition-fast) ease,
+              background-color var(--sp-transition-fast) ease,
+              box-shadow var(--sp-transition-fast) ease,
+              transform var(--sp-transition-fast) ease;
+
+  &:hover:not(.sp-toggle-card--disabled) {
+    border-color: var(--sp-border-strong);
+    background-color: var(--sp-bg-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--sp-shadow-sm);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--sp-primary);
+    outline-offset: 2px;
+  }
+
+  // Selected State
+  &.sp-toggle-card--selected {
+    border-color: var(--sp-primary);
+    background-color: rgba(var(--sp-primary-rgb), 0.04);
+    box-shadow: 0 0 0 1px var(--sp-primary), var(--sp-shadow-xs);
+
+    &:hover:not(.sp-toggle-card--disabled) {
+      background-color: rgba(var(--sp-primary-rgb), 0.07);
+    }
+  }
+
+  // Disabled State
+  &.sp-toggle-card--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: var(--sp-bg-secondary);
+  }
+}
+
+// ==============================================================
+// Region: Selection Indicators (Radio / Checkbox)
+// ==============================================================
+.sp-toggle-indicator {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border: 2px solid var(--sp-border-strong);
+  border-radius: 50%;
+  background-color: var(--sp-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--sp-transition-fast) ease,
+              background-color var(--sp-transition-fast) ease;
+
+  // Radio Inner Dot
+  .sp-toggle-radio-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--sp-primary);
+    transform: scale(0);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  // Checkbox Variant
+  &.sp-toggle-indicator--checkbox {
+    border-radius: 6px;
+
+    .sp-toggle-check-icon {
+      width: 14px;
+      height: 14px;
+      color: #ffffff;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.15s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+      path {
+        stroke-dasharray: 20;
+        stroke-dashoffset: 20;
+        transition: stroke-dashoffset 0.25s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+      }
+    }
+  }
+}
+
+// Selected Indicator State
+.sp-toggle-card--selected {
+  .sp-toggle-indicator {
+    border-color: var(--sp-primary);
+    background-color: var(--sp-card-bg);
+
+    .sp-toggle-radio-dot {
+      transform: scale(1);
+    }
+
+    &.sp-toggle-indicator--checkbox {
+      background-color: var(--sp-primary);
+      border-color: var(--sp-primary);
+
+      .sp-toggle-check-icon {
+        opacity: 1;
+        transform: scale(1);
+
+        path {
+          stroke-dashoffset: 0;
+        }
+      }
+    }
+  }
+}
+
+// ==============================================================
+// Region: Card Body & Details
+// ==============================================================
+.sp-toggle-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sp-toggle-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sp-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sp-primary);
+  line-height: 1;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+}
+
+.sp-toggle-label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--sp-text-primary);
+  line-height: 1.35;
+}
+
+.sp-toggle-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  padding: 2px 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  border-radius: var(--sp-radius-full);
+  background-color: var(--sp-bg-secondary);
+  color: var(--sp-text-secondary);
+  border: 1px solid var(--sp-border-subtle);
+}
+
+.sp-toggle-card--selected .sp-toggle-badge {
+  background-color: rgba(var(--sp-primary-rgb), 0.12);
+  color: var(--sp-primary);
+  border-color: rgba(var(--sp-primary-rgb), 0.2);
+}
+
+.sp-toggle-description {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: var(--sp-text-secondary);
+  line-height: 1.45;
+}

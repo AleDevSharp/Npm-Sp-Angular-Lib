@@ -1,15 +1,143 @@
 // ================================
-// Region: Main content
+// Region: Variables & Mixins
 // ================================
-.custom-button {
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  display: flex;
+$btn-radius: 6px;
+$btn-font-weight: 500;
+$btn-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+// ================================
+// Region: Base Button Layout
+// ================================
+.sp-btn {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: inherit;
+  font-weight: $btn-font-weight;
+  border-radius: $btn-radius;
+  border: 1px solid transparent;
+  outline: none;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: $btn-transition;
+  box-sizing: border-box;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 172, 28, 0.4);
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+  }
 }
 
-.custom-button:hover {
-  opacity: 0.9;
+// ================================
+// Region: Sizing Presets
+// ================================
+.sp-btn-sm {
+  font-size: 0.8125rem;
+  padding: 4px 10px;
+  min-height: 28px;
+  gap: 6px;
+}
+
+.sp-btn-md {
+  font-size: 0.875rem;
+  padding: 8px 16px;
+  min-height: 36px;
+  gap: 8px;
+}
+
+.sp-btn-lg {
+  font-size: 1rem;
+  padding: 10px 22px;
+  min-height: 44px;
+  gap: 10px;
+}
+
+// ================================
+// Region: Variants
+// ================================
+.sp-btn-solid {
+  background-color: var(--sp-btn-custom-color, #ffac1c);
+  color: #ffffff;
+  border-color: var(--sp-btn-custom-color, #ffac1c);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  &:hover:not(:disabled) {
+    filter: brightness(0.92);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &:active:not(:disabled) {
+    filter: brightness(0.85);
+  }
+}
+
+.sp-btn-outline {
+  background-color: transparent;
+  color: var(--sp-btn-custom-color, #ffac1c);
+  border-color: var(--sp-btn-custom-color, #ffac1c);
+
+  &:hover:not(:disabled) {
+    background-color: rgba(255, 172, 28, 0.1);
+  }
+
+  &:active:not(:disabled) {
+    background-color: rgba(255, 172, 28, 0.18);
+  }
+}
+
+.sp-btn-ghost {
+  background-color: transparent;
+  color: var(--sp-btn-custom-color, #ffac1c);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:active:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// ================================
+// Region: Loading Spinner & Content
+// ================================
+.sp-btn-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  transition: opacity 0.2s ease;
+
+  &.sp-btn-content-hidden {
+    visibility: hidden;
+  }
+}
+
+.sp-btn-spinner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spBtnSpin 0.7s linear infinite;
+}
+
+@keyframes spBtnSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

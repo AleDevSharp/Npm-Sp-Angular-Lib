@@ -1,0 +1,66 @@
+<!-- Region: Accordion Item -->
+<div
+  class="sp-accordion-item"
+  [class.sp-accordion-item--expanded]="expanded()"
+  [class.sp-accordion-item--disabled]="disabled()"
+>
+  <!-- Region: Header Trigger Button -->
+  <button
+    type="button"
+    class="sp-accordion-header"
+    [id]="headerId"
+    [attr.aria-expanded]="expanded()"
+    [attr.aria-controls]="contentId"
+    [attr.aria-disabled]="disabled()"
+    [disabled]="disabled()"
+    (click)="toggle()"
+  >
+    <!-- Leading Icon -->
+    @if (icon()) {
+      <span class="sp-accordion-icon" [innerHTML]="icon()" aria-hidden="true"></span>
+    }
+
+    <!-- Header Titles -->
+    <div class="sp-accordion-titles">
+      <span class="sp-accordion-title">{{ title() }}</span>
+      @if (subtitle()) {
+        <span class="sp-accordion-subtitle">{{ subtitle() }}</span>
+      }
+    </div>
+
+    <!-- Custom Actions Slot -->
+    <ng-content select="[header-end]"></ng-content>
+
+    <!-- Rotating Chevron -->
+    <span
+      class="sp-accordion-chevron"
+      [class.sp-accordion-chevron--rotated]="expanded()"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 20 20" fill="none">
+        <path
+          d="M5 7.5L10 12.5L15 7.5"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </span>
+  </button>
+
+  <!-- Region: Collapsible Region -->
+  <div
+    class="sp-accordion-collapse"
+    [class.sp-accordion-collapse--open]="expanded()"
+    [id]="contentId"
+    role="region"
+    [attr.aria-labelledby]="headerId"
+  >
+    <div class="sp-accordion-collapse-inner">
+      <div class="sp-accordion-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

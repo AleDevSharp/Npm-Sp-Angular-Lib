@@ -1,0 +1,35 @@
+<!-- Region: Skeleton Placeholder Container -->
+<div
+  class="sp-skeleton-root"
+  role="status"
+  aria-busy="true"
+  aria-live="polite"
+  aria-label="Caricamento in corso..."
+>
+  @if (variant() === 'text' && lines() > 1) {
+    <!-- Region: Multi-line Paragraph Placeholder -->
+    <div class="sp-skeleton-paragraph">
+      @for (idx of lineIndices(); track idx) {
+        <div
+          class="sp-skeleton-item sp-skeleton--text"
+          [class.sp-skeleton--animated]="animated()"
+          [style.width]="getLineWidth(idx)"
+          [style.height]="formattedHeight()"
+          [style.border-radius]="borderRadius()"
+        ></div>
+      }
+    </div>
+  } @else {
+    <!-- Region: Single Item (Text, Circle, or Rect) -->
+    <div
+      class="sp-skeleton-item"
+      [class.sp-skeleton--text]="variant() === 'text'"
+      [class.sp-skeleton--circle]="variant() === 'circle'"
+      [class.sp-skeleton--rect]="variant() === 'rect'"
+      [class.sp-skeleton--animated]="animated()"
+      [style.width]="formattedWidth()"
+      [style.height]="formattedHeight()"
+      [style.border-radius]="borderRadius()"
+    ></div>
+  }
+</div>

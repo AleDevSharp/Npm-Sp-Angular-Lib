@@ -1,0 +1,290 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-tabs.component.scss
+// File description: Styles for animated tabs with sliding indicator and orientation modes.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Layout Containers
+// ==============================================================
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sp-tabs-container {
+  width: 100%;
+  box-sizing: border-box;
+
+  &.sp-tabs--horizontal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.sp-tabs--vertical {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    .sp-tablist {
+      flex-direction: column;
+      align-items: stretch;
+      min-width: 190px;
+      flex-shrink: 0;
+    }
+
+    .sp-tabs-content {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+  }
+}
+
+// ==============================================================
+// Region: Tablist Header Track
+// ==============================================================
+.sp-tablist {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  user-select: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// ==============================================================
+// Region: Sliding Physical Indicator
+// ==============================================================
+.sp-tabs-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  will-change: transform, width, height;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.15s ease;
+
+  &.sp-tabs-indicator--visible {
+    opacity: 1;
+  }
+}
+
+// ==============================================================
+// Region: Variant: Line (Sliding Underline)
+// ==============================================================
+.sp-tabs--line {
+  &.sp-tabs--horizontal {
+    .sp-tablist {
+      border-bottom: 1px solid var(--sp-border-subtle);
+    }
+
+    .sp-tabs-indicator {
+      background-color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+      border-radius: 2px 2px 0 0;
+    }
+  }
+
+  &.sp-tabs--vertical {
+    .sp-tablist {
+      border-right: 1px solid var(--sp-border-subtle);
+    }
+
+    .sp-tabs-indicator {
+      background-color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
+  .sp-tab-header-btn {
+    border-radius: var(--sp-radius-md) var(--sp-radius-md) 0 0;
+
+    &.sp-tab-header-btn--active {
+      color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+    }
+  }
+}
+
+// ==============================================================
+// Region: Variant: Pill (Capsule Background)
+// ==============================================================
+.sp-tabs--pill {
+  .sp-tablist {
+    background-color: var(--sp-bg-secondary, var(--sp-bg-surface, #f8fafc));
+    border: 1px solid var(--sp-border-subtle);
+    border-radius: var(--sp-radius-lg);
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .sp-tabs-indicator {
+    background-color: var(--sp-card-bg, var(--sp-bg-canvas, #ffffff));
+    border-radius: calc(var(--sp-radius-lg) - 2px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  .sp-tab-header-btn {
+    border-radius: calc(var(--sp-radius-lg) - 2px);
+
+    &.sp-tab-header-btn--active {
+      color: var(--sp-text-primary);
+    }
+  }
+}
+
+[data-theme='dark'] .sp-tabs--pill .sp-tabs-indicator {
+  background-color: var(--sp-bg-elevated);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// ==============================================================
+// Region: Variant: Enclosed (Browser Tabs)
+// ==============================================================
+.sp-tabs--enclosed {
+  .sp-tablist {
+    border-bottom: 1px solid var(--sp-border-subtle);
+    gap: 4px;
+  }
+
+  .sp-tabs-indicator {
+    background-color: var(--sp-card-bg, var(--sp-bg-canvas, #ffffff));
+    border: 1px solid var(--sp-border-subtle);
+    border-bottom: 1px solid var(--sp-card-bg, var(--sp-bg-canvas, #ffffff));
+    border-radius: var(--sp-radius-md) var(--sp-radius-md) 0 0;
+  }
+
+  .sp-tab-header-btn {
+    border-radius: var(--sp-radius-md) var(--sp-radius-md) 0 0;
+
+    &.sp-tab-header-btn--active {
+      color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+    }
+  }
+}
+
+// ==============================================================
+// Region: Tab Header Buttons
+// ==============================================================
+.sp-tab-header-btn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--sp-text-secondary);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: color var(--sp-transition-fast) ease;
+
+  &:hover:not(:disabled) {
+    color: var(--sp-text-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--sp-primary, var(--sp-color-primary, #ffac1c));
+    outline-offset: -2px;
+  }
+
+  &.sp-tab-header-btn--active {
+    font-weight: 600;
+  }
+
+  &.sp-tab-header-btn--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+// ==============================================================
+// Region: Sizing Presets
+// ==============================================================
+.sp-tabs--sm .sp-tab-header-btn {
+  padding: 6px 12px;
+  font-size: 12.5px;
+
+  .sp-tab-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.sp-tabs--md .sp-tab-header-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+
+  .sp-tab-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.sp-tabs--lg .sp-tab-header-btn {
+  padding: 12px 22px;
+  font-size: 15.5px;
+
+  .sp-tab-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// ==============================================================
+// Region: Icon & Badge
+// ==============================================================
+.sp-tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+.sp-tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--sp-radius-full);
+  background-color: var(--sp-bg-secondary, var(--sp-bg-surface, #f8fafc));
+  color: var(--sp-text-secondary);
+  border: 1px solid var(--sp-border-subtle);
+}
+
+.sp-tab-header-btn--active .sp-tab-badge {
+  background-color: color-mix(in srgb, var(--sp-primary, var(--sp-color-primary, #ffac1c)) 12%, transparent);
+  color: var(--sp-primary, var(--sp-color-primary, #ffac1c));
+  border-color: color-mix(in srgb, var(--sp-primary, var(--sp-color-primary, #ffac1c)) 20%, transparent);
+}
+
+// ==============================================================
+// Region: Content Area
+// ==============================================================
+.sp-tabs-content {
+  width: 100%;
+}

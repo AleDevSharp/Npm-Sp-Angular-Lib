@@ -1,67 +1,129 @@
 // ================================
-// Region: Main content
+// Region: Variables & Mixins
+// ================================
+$switch-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+// ================================
+// Region: Wrapper & Control
 // ================================
 .sp-switch-wrapper {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
 
-  .sp-switch-label {
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
+.sp-switch-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.sp-switch-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--sp-text-primary, #0f172a);
+  cursor: inherit;
+}
+
+// ================================
+// Region: Track & Thumb
+// ================================
+.sp-switch-track {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  background-color: var(--sp-switch-inactive-bg, var(--sp-border-color, #e2e8f0));
+  border-radius: 9999px;
+  transition: $switch-transition;
+  outline: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sp-switch-active-bg, var(--sp-color-primary, #ffac1c)) 35%, transparent);
   }
 
-  .switch {
-    position: relative;
-    display: inline-block;
-
-    input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: var(--inactive-color, #ccc);
-      transition: 0.4s;
-      border-radius: 999px;
-
-      &:before {
-        content: '';
-        position: absolute;
-        height: calc(100% - 4px);
-        width: calc(100% / 2 - 2px); // pallina proporzionata
-        left: 2px;
-        bottom: 2px;
-        background-color: var(--thumb-color, #fff);
-        transition: 0.4s;
-        border-radius: 50%;
-      }
-    }
-
-    input:checked + .slider {
-      background-color: var(--active-color, #4caf50);
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(calc(100%));
-    }
-
-    input:disabled + .slider {
-      background-color: #eee;
-      cursor: not-allowed;
-    }
+  &.is-checked {
+    background-color: var(--sp-switch-active-bg, var(--sp-color-primary, #ffac1c));
   }
 
-  .sp-error-message {
-    font-size: 0.8rem;
-    color: red;
-    margin-top: 0.2rem;
+  &.has-error {
+    box-shadow: 0 0 0 2px var(--sp-color-danger, #ef4444);
   }
+}
+
+.sp-switch-thumb {
+  display: block;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  transition: $switch-transition;
+}
+
+// ================================
+// Region: Sizing Presets
+// ================================
+// Small
+.sp-switch-sm {
+  width: 32px;
+  height: 18px;
+  padding: 2px;
+
+  .sp-switch-thumb {
+    width: 14px;
+    height: 14px;
+  }
+
+  &.is-checked .sp-switch-thumb {
+    transform: translateX(14px);
+  }
+}
+
+// Medium (Default)
+.sp-switch-md {
+  width: 44px;
+  height: 24px;
+  padding: 2px;
+
+  .sp-switch-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.is-checked .sp-switch-thumb {
+    transform: translateX(20px);
+  }
+}
+
+// Large
+.sp-switch-lg {
+  width: 56px;
+  height: 30px;
+  padding: 3px;
+
+  .sp-switch-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.is-checked .sp-switch-thumb {
+    transform: translateX(26px);
+  }
+}
+
+// ================================
+// Region: Error
+// ================================
+.sp-switch-error {
+  margin: 4px 0 0 0;
+  font-size: 0.8125rem;
+  color: var(--sp-color-danger, #ef4444);
 }

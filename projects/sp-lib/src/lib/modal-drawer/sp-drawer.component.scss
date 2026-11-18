@@ -1,0 +1,231 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-drawer.component.scss
+// File description: Styles and spring slide-in transitions for the SpDrawer component.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+@use '../styles/tokens';
+
+:host {
+  display: contents;
+}
+
+// ================================
+// Region: Overlay & Backdrop
+// ================================
+.sp-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background-color: rgba(15, 23, 42, 0.6);
+  animation: sp-drawer-fade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  &.sp-drawer-backdrop-none {
+    background-color: transparent;
+    pointer-events: none;
+
+    .sp-drawer-panel {
+      pointer-events: auto;
+    }
+  }
+
+  &.sp-drawer-blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+// ================================
+// Region: Drawer Panel
+// ================================
+.sp-drawer-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sp-card-bg, #ffffff);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  outline: none;
+  overflow: hidden;
+  will-change: transform;
+
+  // Placement: Right
+  &.sp-drawer-right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-left: 1px solid var(--sp-border-color, #e2e8f0);
+    animation: sp-drawer-slide-right 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    &.sp-drawer-sm { width: 320px; }
+    &.sp-drawer-md { width: 420px; }
+    &.sp-drawer-lg { width: 620px; }
+    &.sp-drawer-full { width: 100vw; }
+    max-width: 100vw;
+  }
+
+  // Placement: Left
+  &.sp-drawer-left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid var(--sp-border-color, #e2e8f0);
+    animation: sp-drawer-slide-left 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    &.sp-drawer-sm { width: 320px; }
+    &.sp-drawer-md { width: 420px; }
+    &.sp-drawer-lg { width: 620px; }
+    &.sp-drawer-full { width: 100vw; }
+    max-width: 100vw;
+  }
+
+  // Placement: Top
+  &.sp-drawer-top {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid var(--sp-border-color, #e2e8f0);
+    animation: sp-drawer-slide-top 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    &.sp-drawer-sm { height: 240px; }
+    &.sp-drawer-md { height: 360px; }
+    &.sp-drawer-lg { height: 500px; }
+    &.sp-drawer-full { height: 100vh; }
+    max-height: 100vh;
+  }
+
+  // Placement: Bottom
+  &.sp-drawer-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--sp-border-color, #e2e8f0);
+    animation: sp-drawer-slide-bottom 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    &.sp-drawer-sm { height: 260px; }
+    &.sp-drawer-md { height: 400px; }
+    &.sp-drawer-lg { height: 560px; }
+    &.sp-drawer-full { height: 100vh; }
+    max-height: 100vh;
+  }
+}
+
+// ================================
+// Region: Header
+// ================================
+.sp-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--sp-border-color, #e2e8f0);
+  gap: 12px;
+
+  &:empty {
+    display: none;
+  }
+
+  .sp-drawer-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: var(--sp-text-primary, #0f172a);
+    line-height: 1.3;
+  }
+
+  .sp-drawer-close-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin-left: auto;
+    padding: 0;
+    border: none;
+    border-radius: var(--sp-radius-full, 9999px);
+    background-color: var(--sp-bg-secondary, #f1f5f9);
+    color: var(--sp-text-secondary, #64748b);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      background-color: #fee2e2;
+      color: #ef4444;
+
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--sp-primary, #8636f8);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// ================================
+// Region: Body
+// ================================
+.sp-drawer-body {
+  padding: 24px;
+  overflow-y: auto;
+  color: var(--sp-text-secondary, #334155);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+// ================================
+// Region: Footer
+// ================================
+.sp-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--sp-border-color, #e2e8f0);
+  background-color: var(--sp-bg-secondary, #fafafa);
+
+  &:empty {
+    display: none;
+  }
+}
+
+// ================================
+// Region: Keyframe Animations
+// ================================
+@keyframes sp-drawer-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sp-drawer-slide-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes sp-drawer-slide-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes sp-drawer-slide-top {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes sp-drawer-slide-bottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}

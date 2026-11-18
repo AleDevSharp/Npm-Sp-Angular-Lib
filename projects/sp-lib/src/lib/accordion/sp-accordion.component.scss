@@ -1,0 +1,67 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-accordion.component.scss
+// File description: Styles for root accordion container and variant wrappers.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Base Accordion
+// ==============================================================
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sp-accordion {
+  width: 100%;
+  box-sizing: border-box;
+
+  // Contained: One single card containing all items with inner dividers
+  &.sp-accordion--contained {
+    background-color: var(--sp-card-bg);
+    border: 1px solid var(--sp-border-subtle);
+    border-radius: var(--sp-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--sp-shadow-xs);
+
+    ::ng-deep sp-accordion-item:not(:last-child) .sp-accordion-item {
+      border-bottom: 1px solid var(--sp-border-subtle);
+    }
+  }
+
+  // Separated: Floating cards separated by vertical gap
+  &.sp-accordion--separated {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    ::ng-deep .sp-accordion-item {
+      background-color: var(--sp-card-bg);
+      border: 1px solid var(--sp-border-subtle);
+      border-radius: var(--sp-radius-lg);
+      box-shadow: var(--sp-shadow-xs);
+      overflow: hidden;
+      transition: border-color var(--sp-transition-fast) ease,
+                  box-shadow var(--sp-transition-fast) ease;
+
+      &.sp-accordion-item--expanded {
+        border-color: var(--sp-border-strong);
+        box-shadow: var(--sp-shadow-sm);
+      }
+    }
+  }
+
+  // Ghost: Transparent background with subtle bottom borders
+  &.sp-accordion--ghost {
+    background: transparent;
+
+    ::ng-deep sp-accordion-item:not(:last-child) .sp-accordion-item {
+      border-bottom: 1px solid var(--sp-border-subtle);
+    }
+  }
+}

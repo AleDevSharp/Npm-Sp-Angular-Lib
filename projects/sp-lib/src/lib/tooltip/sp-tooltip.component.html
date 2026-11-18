@@ -1,0 +1,33 @@
+<!-- Region: Tooltip Container -->
+<div
+  class="sp-tooltip-panel"
+  role="tooltip"
+  [class.is-visible]="this.visible()"
+  [class.pos-top]="this.position() === 'top'"
+  [class.pos-bottom]="this.position() === 'bottom'"
+  [class.pos-left]="this.position() === 'left'"
+  [class.pos-right]="this.position() === 'right'"
+  [class.theme-dark]="this.theme() === 'dark'"
+  [class.theme-light]="this.theme() === 'light'"
+  [class.theme-primary]="this.theme() === 'primary'"
+  [style.top.px]="this.top()"
+  [style.left.px]="this.left()">
+  <!-- Region: Content -->
+  <div class="sp-tooltip-body">
+    @if (this.template()) {
+      <ng-container *ngTemplateOutlet="this.template()"></ng-container>
+    } @else {
+      <span class="sp-tooltip-text">{{ this.text() }}</span>
+    }
+
+    <!-- Region: Optional Keyboard Shortcut Badge -->
+    @if (this.shortcut()) {
+      <kbd class="sp-tooltip-kbd">{{ this.shortcut() }}</kbd>
+    }
+  </div>
+
+  <!-- Region: Directional Arrow -->
+  @if (this.showArrow()) {
+    <span class="sp-tooltip-arrow" aria-hidden="true"></span>
+  }
+</div>

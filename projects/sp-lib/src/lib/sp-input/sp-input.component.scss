@@ -1,56 +1,171 @@
 // ================================
-// Region: Main content
+// Region: Variables & Mixins
+// ================================
+$input-border-radius: 6px;
+$input-transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+// ================================
+// Region: Wrapper & Label
 // ================================
 .sp-input-wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 .sp-input-label {
-  font-size: 0.9rem;
-  margin-bottom: 4px;
+  font-size: 0.875rem;
   font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--sp-text-primary, #0f172a);
+  transition: color 0.15s ease;
 }
 
+// ================================
+// Region: Container
+// ================================
 .sp-input-container {
   display: flex;
   align-items: center;
-  gap: 6px;
-  border: 1px solid #ccc;
-  transition: all 0.2s ease;
+  position: relative;
+  width: 100%;
+  background-color: var(--sp-bg-canvas, #ffffff);
+  border: 1px solid var(--sp-input-border-color, var(--sp-border-color, #e2e8f0));
+  border-radius: $input-border-radius;
+  box-sizing: border-box;
+  transition: $input-transition;
+
+  &:hover:not(.is-disabled) {
+    border-color: var(--sp-input-border-color, var(--sp-border-color-hover, #cbd5e1));
+  }
+
+  &:focus-within:not(.is-disabled) {
+    border-color: var(--sp-input-focus-color, var(--sp-border-color-focus, #64748b));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sp-input-focus-color, var(--sp-border-color-focus, #64748b)) 25%, transparent);
+  }
+
+  &.has-error {
+    border-color: var(--sp-color-danger, #ef4444) !important;
+
+    &:focus-within {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+    }
+  }
+
+  &.is-disabled {
+    background-color: var(--sp-bg-surface, #f8fafc);
+    opacity: 0.65;
+    cursor: not-allowed;
+
+    .sp-input-field {
+      cursor: not-allowed;
+    }
+  }
+
+  &.is-readonly {
+    background-color: var(--sp-bg-surface, #f8fafc);
+  }
 }
 
-.sp-input-container:hover {
-  border-color: #999;
+// ================================
+// Region: Sizing
+// ================================
+.sp-input-sm {
+  min-height: 30px;
+  padding: 3px 8px;
+  font-size: 0.8125rem;
+
+  .sp-input-field {
+    font-size: 0.8125rem;
+  }
 }
 
-.sp-input-container.has-error {
-  border-color: #e53935 !important;
+.sp-input-md {
+  min-height: 38px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+
+  .sp-input-field {
+    font-size: 0.875rem;
+  }
 }
 
-.sp-input-container.disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.sp-input-lg {
+  min-height: 46px;
+  padding: 8px 16px;
+  font-size: 1rem;
+
+  .sp-input-field {
+    font-size: 1rem;
+  }
 }
 
+// ================================
+// Region: Native Field & Slots
+// ================================
 .sp-input-field {
   flex: 1;
+  width: 100%;
   border: none;
   outline: none;
-  font-size: 0.95rem;
   background: transparent;
+  color: var(--sp-text-primary, #0f172a);
+  font-family: inherit;
+  padding: 0;
+
+  &::placeholder {
+    color: var(--sp-text-muted, #94a3b8);
+    opacity: 1;
+  }
 }
 
-.prefix,
-.suffix {
-  font-size: 0.9rem;
-  opacity: 0.8;
+.sp-input-prefix,
+.sp-input-suffix {
+  display: inline-flex;
+  align-items: center;
+  color: var(--sp-text-secondary, #64748b);
+  font-size: 0.875rem;
+  user-select: none;
 }
 
-.sp-error-message {
-  margin-top: 4px;
-  font-size: 0.8rem;
-  color: #e53935;
+.sp-input-prefix {
+  margin-right: 8px;
+}
+
+.sp-input-suffix {
+  margin-left: 8px;
+}
+
+.sp-input-clear-btn {
+  background: transparent;
+  border: none;
+  color: var(--sp-text-muted, #94a3b8);
+  font-size: 1.125rem;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--sp-text-primary, #0f172a);
+  }
+}
+
+// ================================
+// Region: Error & Hint
+// ================================
+.sp-input-error {
+  margin: 4px 0 0 0;
+  font-size: 0.8125rem;
+  color: var(--sp-color-danger, #ef4444);
+  font-weight: 400;
+}
+
+.sp-input-hint {
+  margin: 4px 0 0 0;
+  font-size: 0.8125rem;
+  color: var(--sp-text-secondary, #64748b);
 }

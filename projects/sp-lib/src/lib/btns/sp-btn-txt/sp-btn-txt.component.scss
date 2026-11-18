@@ -1,14 +1,40 @@
 // ================================
-// Region: Main content
+// Region: Variables
 // ================================
-.text-button {
-  background: none;
-  border: none;
-  color: var(--text-color, #007bff);
-  padding: 0;
-  font-size: 16px;
-}
+$txt-btn-transition: all 0.15s ease-in-out;
 
-.text-button.disabled {
-  opacity: 0.3;
+// ================================
+// Region: Layout & Styling
+// ================================
+.sp-btn-txt {
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 4px;
+  transition: $txt-btn-transition;
+  text-decoration: none;
+
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(255, 172, 28, 0.5);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.45;
+    cursor: not-allowed !important;
+    text-decoration: none !important;
+  }
 }

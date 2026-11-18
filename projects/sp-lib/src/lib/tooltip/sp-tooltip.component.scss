@@ -1,0 +1,161 @@
+// ================================
+// Region: Variables & Mixins
+// ================================
+$tooltip-radius: 6px;
+$arrow-size: 5px;
+$tooltip-transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                     transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+
+// ================================
+// Region: Panel & Base Layout
+// ================================
+.sp-tooltip-panel {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  border-radius: $tooltip-radius;
+  padding: 6px 10px;
+  max-width: min(280px, calc(100vw - 16px));
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: $tooltip-transition;
+
+  &.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ================================
+// Region: Body Content & KBD
+// ================================
+.sp-tooltip-body {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: normal;
+}
+
+.sp-tooltip-text {
+  font-weight: 500;
+}
+
+.sp-tooltip-kbd {
+  font-family: ui-monospace, Menlo, Monaco, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: inherit;
+  line-height: 1.2;
+}
+
+// ================================
+// Region: Color Themes
+// ================================
+// Dark Theme (Default)
+.theme-dark {
+  background-color: #0f172a;
+  color: #f8fafc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid #1e293b;
+
+  .sp-tooltip-arrow {
+    background-color: #0f172a;
+    border-color: #1e293b;
+  }
+}
+
+// Light Theme
+.theme-light {
+  background-color: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e2e8f0;
+
+  .sp-tooltip-kbd {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #475569;
+  }
+
+  .sp-tooltip-arrow {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+  }
+}
+
+// Primary Theme
+.theme-primary {
+  background-color: var(--sp-color-primary, #ffac1c);
+  color: #1c1917;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(255, 172, 28, 0.35);
+
+  .sp-tooltip-kbd {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .sp-tooltip-arrow {
+    background-color: var(--sp-color-primary, #ffac1c);
+  }
+}
+
+// ================================
+// Region: Arrow Indicator
+// ================================
+.sp-tooltip-arrow {
+  position: absolute;
+  width: $arrow-size * 2;
+  height: $arrow-size * 2;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+}
+
+// Arrow on bottom when tooltip is on top
+.pos-top .sp-tooltip-arrow {
+  bottom: -$arrow-size;
+  left: calc(50% - #{$arrow-size});
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-right-style: solid;
+  border-bottom-style: solid;
+}
+
+// Arrow on top when tooltip is on bottom
+.pos-bottom .sp-tooltip-arrow {
+  top: -$arrow-size;
+  left: calc(50% - #{$arrow-size});
+  border-left-width: 1px;
+  border-top-width: 1px;
+  border-left-style: solid;
+  border-top-style: solid;
+}
+
+// Arrow on right when tooltip is on left
+.pos-left .sp-tooltip-arrow {
+  right: -$arrow-size;
+  top: calc(50% - #{$arrow-size});
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-right-style: solid;
+  border-top-style: solid;
+}
+
+// Arrow on left when tooltip is on right
+.pos-right .sp-tooltip-arrow {
+  left: -$arrow-size;
+  top: calc(50% - #{$arrow-size});
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-left-style: solid;
+  border-bottom-style: solid;
+}

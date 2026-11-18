@@ -1,0 +1,86 @@
+// ================================
+// Region: Design Tokens & Variables
+// ================================
+
+:root {
+  // Brand & Palette
+  --sp-color-primary: #ffac1c;
+  --sp-color-primary-hover: #e69910;
+  --sp-color-primary-active: #cc8405;
+  --sp-color-primary-contrast: #1c1917;
+
+  --sp-color-secondary: #64748b;
+  --sp-color-secondary-hover: #475569;
+  --sp-color-secondary-contrast: #ffffff;
+
+  --sp-color-success: #10b981;
+  --sp-color-success-hover: #059669;
+  --sp-color-success-contrast: #ffffff;
+
+  --sp-color-warning: #f59e0b;
+  --sp-color-warning-hover: #d97706;
+  --sp-color-warning-contrast: #1c1917;
+
+  --sp-color-danger: #ef4444;
+  --sp-color-danger-hover: #dc2626;
+  --sp-color-danger-contrast: #ffffff;
+
+  --sp-color-info: #06b6d4;
+  --sp-color-info-hover: #0891b2;
+  --sp-color-info-contrast: #ffffff;
+
+  // Backgrounds & Surfaces
+  --sp-bg-canvas: #ffffff;
+  --sp-bg-surface: #f8fafc;
+  --sp-bg-surface-hover: #f1f5f9;
+  --sp-bg-surface-inset: #e2e8f0;
+
+  // Borders
+  --sp-border-color: #e2e8f0;
+  --sp-border-color-hover: #cbd5e1;
+  --sp-border-color-focus: #64748b;
+
+  // Text colors
+  --sp-text-primary: #0f172a;
+  --sp-text-secondary: #64748b;
+  --sp-text-muted: #94a3b8;
+  --sp-text-disabled: #cbd5e1;
+
+  // Radii
+  --sp-radius-xs: 3px;
+  --sp-radius-sm: 6px;
+  --sp-radius-md: 8px;
+  --sp-radius-lg: 12px;
+  --sp-radius-full: 9999px;
+
+  // Shadows
+  --sp-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --sp-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --sp-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --sp-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  // Transitions
+  --sp-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --sp-transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Ripple
+  --sp-ripple-color: rgba(0, 0, 0, 0.12);
+}
+
+// Dark Mode Support
+[data-theme='dark'] {
+  --sp-bg-canvas: #090d16;
+  --sp-bg-surface: #131b2e;
+  --sp-bg-surface-hover: #1e293b;
+  --sp-bg-surface-inset: #0f172a;
+
+  --sp-border-color: #1e293b;
+  --sp-border-color-hover: #334155;
+
+  --sp-text-primary: #f8fafc;
+  --sp-text-secondary: #94a3b8;
+  --sp-text-muted: #64748b;
+  --sp-text-disabled: #475569;
+
+  --sp-ripple-color: rgba(255, 255, 255, 0.22);
+}

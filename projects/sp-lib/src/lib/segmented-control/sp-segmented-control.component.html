@@ -1,0 +1,53 @@
+<!-- Region: Segmented Control Container -->
+<div
+  class="sp-segmented-container"
+  [class.sp-segmented--sm]="size() === 'sm'"
+  [class.sp-segmented--md]="size() === 'md'"
+  [class.sp-segmented--lg]="size() === 'lg'"
+  [class.sp-segmented--block]="fullWidth()"
+  [class.sp-segmented--disabled]="isControlDisabled()"
+  role="radiogroup"
+  [attr.aria-disabled]="isControlDisabled()"
+  (keydown)="onKeyDown($event)"
+>
+  <!-- Region: Sliding Physical Background Indicator -->
+  <div
+    class="sp-segmented-indicator"
+    [class.sp-segmented-indicator--visible]="indicatorReady()"
+    [style.transform]="'translate3d(' + indicatorLeft() + 'px, ' + indicatorTop() + 'px, 0)'"
+    [style.width.px]="indicatorWidth()"
+    [style.height.px]="indicatorHeight()"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Region: Options List -->
+  @for (option of options(); track option.value) {
+    <button
+      #optionBtn
+      type="button"
+      class="sp-segmented-option"
+      [class.sp-segmented-option--active]="value() === option.value"
+      [class.sp-segmented-option--disabled]="option.disabled"
+      role="radio"
+      [attr.aria-checked]="value() === option.value"
+      [attr.aria-disabled]="option.disabled || isControlDisabled()"
+      [disabled]="isControlDisabled() || option.disabled"
+      [tabindex]="value() === option.value ? 0 : -1"
+      (click)="selectOption(option)"
+      (blur)="markAsTouched()"
+    >
+      @if (option.icon) {
+        <span class="sp-segmented-option-icon" aria-hidden="true">
+          <!-- Render raw SVG or icon symbol -->
+          <span [innerHTML]="option.icon"></span>
+        </span>
+      }
+
+      <span class="sp-segmented-option-label">{{ option.label }}</span>
+
+      @if (option.badge !== undefined && option.badge !== null) {
+        <span class="sp-segmented-option-badge">{{ option.badge }}</span>
+      }
+    </button>
+  }
+</div>

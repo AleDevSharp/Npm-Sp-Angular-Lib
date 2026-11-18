@@ -1,0 +1,60 @@
+<!-- Region: Chip Root Element -->
+@if (!isRemoved()) {
+  <div
+    class="sp-chip"
+    [class.sp-chip--exiting]="isExiting()"
+    [class.sp-chip--clickable]="clickable()"
+    [class.sp-chip--selected]="selected()"
+    [class.sp-chip--disabled]="disabled()"
+    [class.sp-chip--sm]="size() === 'sm'"
+    [class.sp-chip--md]="size() === 'md'"
+    [class.sp-chip--lg]="size() === 'lg'"
+    [class.sp-chip--solid]="variant() === 'solid'"
+    [class.sp-chip--soft]="variant() === 'soft'"
+    [class.sp-chip--outline]="variant() === 'outline'"
+    [class.sp-chip--default]="color() === 'default'"
+    [class.sp-chip--primary]="color() === 'primary'"
+    [class.sp-chip--secondary]="color() === 'secondary'"
+    [class.sp-chip--success]="color() === 'success'"
+    [class.sp-chip--warning]="color() === 'warning'"
+    [class.sp-chip--danger]="color() === 'danger'"
+    [class.sp-chip--info]="color() === 'info'"
+    [attr.role]="clickable() ? 'button' : null"
+    [attr.tabindex]="(clickable() || removable()) && !disabled() ? 0 : null"
+    [attr.aria-disabled]="disabled()"
+    (click)="onClick()"
+    (keydown)="onKeyDown($event)"
+  >
+    <!-- Region: Leading Icon or Projected Prefix -->
+    @if (icon()) {
+      <span class="sp-chip-icon" [innerHTML]="icon()"></span>
+    }
+    <ng-content select="[prefix]"></ng-content>
+
+    <!-- Region: Primary Label -->
+    <span class="sp-chip-label">
+      {{ label() }}
+      <ng-content></ng-content>
+    </span>
+
+    <!-- Region: Removable Action Button -->
+    @if (removable()) {
+      <button
+        type="button"
+        class="sp-chip-remove"
+        [disabled]="disabled()"
+        aria-label="Rimuovi"
+        (click)="onRemove($event)"
+      >
+        <svg viewBox="0 0 14 14" fill="none">
+          <path
+            d="M3.5 3.5L10.5 10.5M10.5 3.5L3.5 10.5"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    }
+  </div>
+}

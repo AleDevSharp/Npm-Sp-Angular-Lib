@@ -1,0 +1,43 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-tab.component.scss
+// File description: Styles for individual tab panel content and cross-fade motion.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Tab Panel
+// ==============================================================
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sp-tab-panel {
+  display: block;
+  width: 100%;
+  padding-top: 18px;
+  animation: sp-tab-fade-in 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  outline: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--sp-primary);
+    outline-offset: 4px;
+    border-radius: var(--sp-radius-md);
+  }
+}
+
+@keyframes sp-tab-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

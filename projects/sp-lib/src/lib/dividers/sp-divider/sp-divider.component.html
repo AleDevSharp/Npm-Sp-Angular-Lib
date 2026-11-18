@@ -1,37 +1,30 @@
-<!-- Divider with label -->
+<!-- Region: Divider with Label -->
 @if (this.label()) {
   <div
-    class="divider-with-text"
-    [ngStyle]="{ 'margin-top': this.marginTop(), 'margin-bottom': this.marginBottom() }">
-    <span [ngStyle]="{ color: this.labelColor() }">{{ this.label() }}</span>
+    class="sp-divider-with-label"
+    [style.margin-top]="this.marginTop()"
+    [style.margin-bottom]="this.marginBottom()">
+    <span class="sp-divider-line" [style.border-bottom-width]="this.borderWidth()" [style.border-bottom-style]="this.borderStyle()" [style.border-bottom-color]="this.borderColor() || this.color() || null"></span>
+    <span class="sp-divider-label-text" [style.color]="this.labelColor() || null">
+      {{ this.label() }}
+    </span>
+    <span class="sp-divider-line" [style.border-bottom-width]="this.borderWidth()" [style.border-bottom-style]="this.borderStyle()" [style.border-bottom-color]="this.borderColor() || this.color() || null"></span>
   </div>
 }
 
-<!-- Simple divider line -->
+<!-- Region: Divider Line Only -->
 @if (!this.label()) {
   <div
-    class="divider"
-    [ngClass]="this.orientation()"
-    [ngStyle]="
-      this.orientation() === 'horizontal'
-        ? {
-            height: this.height(),
-            width: '100%',
-            'background-color': this.color(),
-            'border-bottom-style': this.borderStyle(),
-            'border-bottom-width': this.borderWidth(),
-            'border-bottom-color': this.borderColor(),
-            'margin-top': this.marginTop(),
-            'margin-bottom': this.marginBottom()
-          }
-        : {
-            width: this.borderWidth(),
-            height: this.height(),
-            'border-left-style': this.borderStyle(),
-            'border-left-width': this.borderWidth(),
-            'border-left-color': this.borderColor(),
-            'margin-left': '0',
-            'margin-right': '0'
-          }
-    "></div>
+    class="sp-divider-line-only"
+    [class.is-vertical]="this.orientation() === 'vertical'"
+    [class.is-horizontal]="this.orientation() === 'horizontal'"
+    [style.margin-top]="this.marginTop()"
+    [style.margin-bottom]="this.marginBottom()"
+    [style.border-bottom-style]="this.orientation() === 'horizontal' ? this.borderStyle() : null"
+    [style.border-bottom-width]="this.orientation() === 'horizontal' ? this.borderWidth() : null"
+    [style.border-bottom-color]="this.orientation() === 'horizontal' ? (this.borderColor() || this.color() || null) : null"
+    [style.border-left-style]="this.orientation() === 'vertical' ? this.borderStyle() : null"
+    [style.border-left-width]="this.orientation() === 'vertical' ? this.borderWidth() : null"
+    [style.border-left-color]="this.orientation() === 'vertical' ? (this.borderColor() || this.color() || null) : null"
+    [style.height]="this.orientation() === 'vertical' ? this.height() : null"></div>
 }

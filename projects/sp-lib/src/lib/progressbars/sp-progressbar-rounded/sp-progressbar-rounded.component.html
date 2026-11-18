@@ -1,12 +1,17 @@
+<!-- Region: Rounded Progress Bar -->
 <div
-  class="progress rounded"
+  class="sp-progressbar-rounded-track"
+  role="progressbar"
+  [attr.aria-valuenow]="this.percentage()"
+  aria-valuemin="0"
+  aria-valuemax="100"
   [style.height]="this.height()">
   <div
-    class="progress-bar"
+    class="sp-progressbar-rounded-fill"
     [style.width.%]="this.percentage()"
     [style.background-color]="this.color()">
     @if (this.showText()) {
-      <span>{{ this.percentage() }}%</span>
+      <span class="sp-progressbar-rounded-text">{{ this.percentage() }}%</span>
     }
   </div>
 </div>

@@ -1,34 +1,32 @@
 // ================================
-// Region: Main content
+// Region: Variables & Layout
 // ================================
-.master {
-  width: var(--spinner-size, 40px);
-  aspect-ratio: 1;
-  --c: radial-gradient(farthest-side, var(--primary-color, #3498db) 92%, #0000);
-  background:
-    var(--c) 50% 0,
-    var(--c) 50% 100%,
-    var(--c) 100% 50%,
-    var(--c) 0 50%;
-  background-size: 10px 10px;
-  background-repeat: no-repeat;
-  animation: s8 var(--animation-speed, 1s) infinite;
-  position: relative;
-}
-
-.master::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  margin: 3px;
-  background: repeating-conic-gradient(#0000 0 35deg, var(--primary-color, #3498db) 0 90deg);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
-  mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
+.sp-spinner {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 3px solid rgba(255, 172, 28, 0.2);
+  border-top-color: var(--sp-spinner-color, #ffac1c);
   border-radius: 50%;
+  animation: spSpin linear infinite;
 }
 
-@keyframes s8 {
+.sp-spinner-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes spSpin {
+  0% {
+    transform: rotate(0deg);
+  }
   100% {
-    transform: rotate(0.5turn);
+    transform: rotate(360deg);
   }
 }

@@ -1,0 +1,43 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-ripple.scss
+// File description: Ripple animation and host styles.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// --------------------------------------------------------------
+
+@use '../styles/tokens' as *;
+
+.sp-ripple-host {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black); // Fixes Safari overflow:hidden border-radius clipping bug
+
+  &.sp-ripple-unbounded {
+    overflow: visible;
+    -webkit-mask-image: none;
+  }
+}
+
+.sp-ripple-ink {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  background-color: var(--sp-ripple-color, rgba(255, 255, 255, 0.35));
+  animation: sp-ripple-wave cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 10;
+  will-change: transform, opacity;
+}
+
+@keyframes sp-ripple-wave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

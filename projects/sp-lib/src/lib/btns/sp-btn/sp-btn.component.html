@@ -1,13 +1,32 @@
+<!-- Region: Button Template -->
 <button
-  [ngStyle]="{
-    'background-color': this.color(),
-    'max-height': this.height(),
-    'min-height': this.height(),
-    cursor: this.cursor(),
-    disabled: this.disabled()
-  }"
-  (click)="this.onClick()"
-  class="custom-button"
-  [disabled]="this.disabled()">
-  {{ this.text() }}
+  [type]="this.type()"
+  class="sp-btn"
+  [class.sp-btn-sm]="this.size() === 'sm'"
+  [class.sp-btn-md]="this.size() === 'md'"
+  [class.sp-btn-lg]="this.size() === 'lg'"
+  [class.sp-btn-solid]="this.variant() === 'solid'"
+  [class.sp-btn-outline]="this.variant() === 'outline'"
+  [class.sp-btn-ghost]="this.variant() === 'ghost'"
+  [class.sp-btn-loading]="this.loading()"
+  [disabled]="this.disabled() || this.loading()"
+  [attr.aria-disabled]="this.disabled() || this.loading()"
+  [attr.aria-busy]="this.loading()"
+  [style.--sp-btn-custom-color]="this.color()"
+  [style.min-height]="this.height() || null"
+  [style.max-height]="this.height() || null"
+  [style.cursor]="this.disabled() ? 'not-allowed' : this.cursor()"
+  (click)="this.onClick($event)">
+  <!-- Region: Loading Spinner -->
+  @if (this.loading()) {
+    <span class="sp-btn-spinner" aria-hidden="true"></span>
+  }
+
+  <!-- Region: Label / Projected Content -->
+  <span class="sp-btn-content" [class.sp-btn-content-hidden]="this.loading()">
+    @if (this.text()) {
+      {{ this.text() }}
+    }
+    <ng-content></ng-content>
+  </span>
 </button>

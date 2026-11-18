@@ -1,0 +1,175 @@
+// ==============================================================
+// Project: SpLib
+// File name: sp-avatar-group.component.scss
+// File description: Styles for overlapping avatar group stack and hover spread animation.
+// Author: Alessio Giacché
+// Date created: 11-11-2026
+// License: MIT
+// ==============================================================
+
+@use '../styles/tokens' as *;
+
+// ==============================================================
+// Region: Host & Base Stack
+// ==============================================================
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.sp-avatar-group {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+
+  .sp-avatar-group-item {
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--sp-card-bg, var(--sp-bg-canvas, #ffffff));
+    transition: transform var(--sp-transition-fast) ease,
+                margin var(--sp-transition-fast) ease,
+                box-shadow var(--sp-transition-fast) ease;
+
+    &:not(:first-child) {
+      margin-left: -10px;
+    }
+
+    &:hover {
+      z-index: 10;
+      transform: translateY(-2px) scale(1.06);
+      box-shadow: 0 0 0 2px var(--sp-card-bg, var(--sp-bg-canvas, #ffffff)), var(--sp-shadow-md);
+    }
+  }
+
+  // Hover Spread Effect (unfurls the stack horizontally)
+  &.sp-avatar-group--spread:hover {
+    .sp-avatar-group-item:not(:first-child) {
+      margin-left: -2px;
+    }
+  }
+}
+
+// ==============================================================
+// Region: Stack Sizing & Overlap Offsets
+// ==============================================================
+.sp-avatar-group--xs {
+  .sp-avatar-group-item {
+    box-shadow: 0 0 0 1.5px var(--sp-card-bg, var(--sp-bg-canvas, #ffffff));
+
+    &:not(:first-child) {
+      margin-left: -6px;
+    }
+  }
+
+  &.sp-avatar-group--spread:hover .sp-avatar-group-item:not(:first-child) {
+    margin-left: -1px;
+  }
+
+  .sp-avatar-excess {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+}
+
+.sp-avatar-group--sm {
+  .sp-avatar-group-item {
+    box-shadow: 0 0 0 1.5px var(--sp-card-bg, var(--sp-bg-canvas, #ffffff));
+
+    &:not(:first-child) {
+      margin-left: -8px;
+    }
+  }
+
+  &.sp-avatar-group--spread:hover .sp-avatar-group-item:not(:first-child) {
+    margin-left: -1px;
+  }
+
+  .sp-avatar-excess {
+    width: 32px;
+    height: 32px;
+    font-size: 11.5px;
+  }
+}
+
+.sp-avatar-group--md {
+  .sp-avatar-group-item:not(:first-child) {
+    margin-left: -10px;
+  }
+
+  &.sp-avatar-group--spread:hover .sp-avatar-group-item:not(:first-child) {
+    margin-left: -2px;
+  }
+
+  .sp-avatar-excess {
+    width: 40px;
+    height: 40px;
+    font-size: 13.5px;
+  }
+}
+
+.sp-avatar-group--lg {
+  .sp-avatar-group-item:not(:first-child) {
+    margin-left: -12px;
+  }
+
+  &.sp-avatar-group--spread:hover .sp-avatar-group-item:not(:first-child) {
+    margin-left: -2px;
+  }
+
+  .sp-avatar-excess {
+    width: 48px;
+    height: 48px;
+    font-size: 15.5px;
+  }
+}
+
+.sp-avatar-group--xl {
+  .sp-avatar-group-item {
+    box-shadow: 0 0 0 3px var(--sp-card-bg, var(--sp-bg-canvas, #ffffff));
+
+    &:not(:first-child) {
+      margin-left: -16px;
+    }
+  }
+
+  &.sp-avatar-group--spread:hover .sp-avatar-group-item:not(:first-child) {
+    margin-left: -3px;
+  }
+
+  .sp-avatar-excess {
+    width: 64px;
+    height: 64px;
+    font-size: 19px;
+  }
+}
+
+// ==============================================================
+// Region: Excess Counter Indicator
+// ==============================================================
+.sp-avatar-excess {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sp-bg-secondary, var(--sp-bg-surface, #f8fafc));
+  border: 1px solid var(--sp-border-subtle);
+  color: var(--sp-text-secondary);
+  font-weight: 600;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+
+  &.sp-avatar-excess--circle {
+    border-radius: 50% !important;
+  }
+
+  &.sp-avatar-excess--rounded {
+    border-radius: var(--sp-radius-lg) !important;
+  }
+
+  &:hover {
+    background-color: var(--sp-bg-elevated);
+    color: var(--sp-text-primary);
+  }
+}

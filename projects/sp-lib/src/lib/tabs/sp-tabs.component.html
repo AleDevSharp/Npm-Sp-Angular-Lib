@@ -1,0 +1,64 @@
+<!-- Region: Tabs Container -->
+<div
+  class="sp-tabs-container"
+  [class.sp-tabs--horizontal]="orientation() === 'horizontal'"
+  [class.sp-tabs--vertical]="orientation() === 'vertical'"
+  [class.sp-tabs--line]="variant() === 'line'"
+  [class.sp-tabs--pill]="variant() === 'pill'"
+  [class.sp-tabs--enclosed]="variant() === 'enclosed'"
+  [class.sp-tabs--sm]="size() === 'sm'"
+  [class.sp-tabs--md]="size() === 'md'"
+  [class.sp-tabs--lg]="size() === 'lg'"
+>
+  <!-- Region: Tablist Navigation Header -->
+  <div
+    class="sp-tablist"
+    role="tablist"
+    [attr.aria-orientation]="orientation()"
+    (keydown)="onKeyDown($event)"
+  >
+    <!-- Sliding Physical Indicator -->
+    <div
+      class="sp-tabs-indicator"
+      [class.sp-tabs-indicator--visible]="indicatorReady()"
+      [style.transform]="'translate3d(' + indicatorLeft() + 'px, ' + indicatorTop() + 'px, 0)'"
+      [style.width.px]="indicatorWidth()"
+      [style.height.px]="indicatorHeight()"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Tab Header Buttons -->
+    @for (tab of tabs(); track tab.headerId; let idx = $index) {
+      <button
+        #tabHeaderBtn
+        type="button"
+        class="sp-tab-header-btn"
+        [id]="tab.headerId"
+        [class.sp-tab-header-btn--active]="selectedIndex() === idx"
+        [class.sp-tab-header-btn--disabled]="tab.disabled()"
+        role="tab"
+        [attr.aria-selected]="selectedIndex() === idx"
+        [attr.aria-controls]="tab.panelId"
+        [attr.aria-disabled]="tab.disabled()"
+        [disabled]="tab.disabled()"
+        [tabindex]="selectedIndex() === idx ? 0 : -1"
+        (click)="selectTab(idx)"
+      >
+        @if (tab.icon()) {
+          <span class="sp-tab-icon" [innerHTML]="tab.icon()" aria-hidden="true"></span>
+        }
+
+        <span class="sp-tab-label">{{ tab.label() }}</span>
+
+        @if (tab.badge() !== undefined && tab.badge() !== null) {
+          <span class="sp-tab-badge">{{ tab.badge() }}</span>
+        }
+      </button>
+    }
+  </div>
+
+  <!-- Region: Tab Panels Content Area -->
+  <div class="sp-tabs-content">
+    <ng-content></ng-content>
+  </div>
+</div>
