@@ -1,86 +1,165 @@
-# SpLib
+<img src="https://raw.githubusercontent.com/AleDevSharp/Npm-Sp-Angular-Lib/master/projects/sp-showcase/public/sp-lib-mark.png" alt="SpLib logo" width="96" height="96" />
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+# @aledevsharp/sp-lib
 
-## Introduction
+Angular UI components by [AleDevSharp](https://github.com/AleDevSharp).
 
-The **sp-lib** is a library developed in Angular using TypeScript, offering a collection of **UI components**, such as buttons and other graphical elements, designed to be straightforward and simple to use.
+SpLib provides standalone Angular UI components and directives for forms, content, layout, overlays and animated feedback.
 
-Unlike more comprehensive and professional libraries such as **Angular Material** or **Bootstrap**, sp-lib takes a minimalist approach. The components are intentionally **simple** and focused on specific tasks, avoiding the complexity and overhead of feature-rich frameworks. This makes them perfect for developers who need lightweight, easy-to-integrate solutions rather than a full-blown UI framework.
+The [GitHub repository](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib) includes both the library source and an interactive Angular showcase with component examples and API documentation in English and Italian.
 
-While the components are intentionally kept minimal and fine-tuned for single purposes, they are customizable within reasonable limits. For instance, you can easily modify properties such as colors (using hexadecimal strings), dimensions, and other visual attributes through straightforward input parameters.
+- [Source code](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/tree/HEAD/projects/sp-lib)
+- [Showcase source and examples](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/tree/HEAD/projects/sp-showcase)
+- [Run the showcase locally](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib#run-the-showcase-from-source)
+- [Report an issue](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues)
 
-At the moment, sp-lib does not include a dedicated **showcase** or documentation site. However, you can explore the available components directly in the package by reviewing their inputs and outputs, experimenting with their properties, and customizing them to suit your needs. This hands-on approach allows you to quickly test and integrate the components into your Angular projects without the need for additional tools or dependencies.
+## Installation and compatibility
 
-The **primary goal** of sp-lib is to provide a library of self-contained, modular components that are not overly complex but offer just enough flexibility to meet common needs. This makes sp-lib ideal for projects that prioritize simplicity, maintainability, and ease of customization over the extensive feature sets offered by more sophisticated UI libraries.
+```bash
+npm install @aledevsharp/sp-lib
+```
 
-Currently, the library is in its **1.0 beta** version, which includes only a limited number of components. However, new components will be added over time with future versions of the library, expanding its capabilities and options.
+Requires Angular **19**: the package declares `@angular/core`, `@angular/common` and `@angular/forms` peer dependencies at **`^19.0.0`**. Keep these dependencies aligned in the consuming application.
 
-<br>
+## Standalone usage
 
-### What is Angular?
+Import only the components and directives used by your template. No SpLib NgModule registration is required.
 
-[Angular](https://angular.io/) is a front-end web application framework developed and maintained by Google. It uses TypeScript to deliver advanced tools for building robust, scalable, and dynamic applications. Learn more on the [official Angular website](https://angular.io/).
+```typescript
+import { Component, signal } from '@angular/core';
+import { SpBtnComponent, SpInputComponent, SpSwitchComponent } from '@aledevsharp/sp-lib';
 
-### What is NPM?
+@Component({
+  selector: 'app-settings-example',
+  standalone: true,
+  imports: [SpBtnComponent, SpInputComponent, SpSwitchComponent],
+  template: `
+    <sp-input label="Display name" [(value)]="name"></sp-input>
+    <sp-switch label="Notifications" [(value)]="notifications"></sp-switch>
+    <sp-btn text="Reset" variant="outline" (buttonClick)="reset()"></sp-btn>
+    <p>{{ name() }} — Notifications: {{ notifications() ? 'on' : 'off' }}</p>
+  `
+})
+export class SettingsExampleComponent {
+  // The editable display name
+  public readonly name = signal('Angular');
 
-[NPM](https://www.npmjs.com/) (Node Package Manager) is the official package manager for Node.js. It allows developers to share libraries and tools as packages, which can be easily installed and used in other projects. Learn more on the [official NPM website](https://www.npmjs.com/).
+  // The notification preference
+  public readonly notifications = signal(true);
 
-<br>
+  /** Restores the initial values. @returns void */
+  public reset(): void {
+    this.name.set('Angular');
+    this.notifications.set(true);
+  }
+}
+```
 
-## How to Use sp-lib
+Both `SpBtnComponent` and `SpBtnTxtComponent` emit `(buttonClick)`. Available presets and color inputs are documented in each component's showcase API table.
 
-1. **Installing the library**
+## Angular Forms
 
-   To use **sp-lib** in your Angular project, install the library via NPM:
+Input, Select, Switch, Segmented Control and Toggle List implement `ControlValueAccessor`. Choose one value-management approach per control:
 
-   ```bash
-   npm install @aledevsharp/sp-lib
+- `[(value)]` for direct two-way binding; no Forms module is needed.
+- `[(ngModel)]` with `FormsModule` imported by the consuming component.
+- `[formControl]` or `formControlName` with `ReactiveFormsModule`.
 
-   ```
+For example, a Reactive Forms input:
 
-   If there are version conflict problems, and your project has a recent and stable version, the "**--force**"
-   command should be enough to correctly install the library within your project
+```typescript
+import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SpInputComponent } from '@aledevsharp/sp-lib';
 
-2. **Importing a component**
+@Component({
+  selector: 'app-email-example',
+  standalone: true,
+  imports: [ReactiveFormsModule, SpInputComponent],
+  template: `
+    <sp-input
+      label="Email"
+      type="email"
+      [formControl]="email"
+      [hasError]="email.touched && email.invalid"
+      errorMessage="Enter a valid email address.">
+    </sp-input>
+  `
+})
+export class EmailExampleComponent {
+  // The email form control and its validators
+  public readonly email = new FormControl('', {
+    nonNullable: true,
+    validators: [Validators.required, Validators.email]
+  });
+}
+```
 
-   Since the components in **sp-lib** are **standalone**, you can import them directly into your Angular components.
-   Here's an example:
+Form validation and the displayed error state are separate: the example explicitly binds `hasError` to the control state. Manage disabled state through the form control when using Reactive Forms.
 
-   ```bash
-   import { SpBtnComponent } from '@aledevsharp/sp-lib';
+## Component catalog
 
-    @Component({
-      selector: 'app-root',
-      standalone: true,
-      imports: [
-        CommonModule,
-        SpBtnComponent
-      ]
-    })
-    export class AppComponent {}
+All components, directives and their exported types are imported from `@aledevsharp/sp-lib`.
 
-   ```
+| Family | Public selectors / directives |
+| --- | --- |
+| Buttons | `sp-btn`, `sp-btn-txt` |
+| Form controls | `sp-input`, `sp-select`, `sp-switch` |
+| Selection controls | `sp-segmented-control`, `sp-toggle-list` |
+| Progress | `sp-progressbar`, `sp-progressbar-rounded`, `sp-progressbar-circular`, `sp-spinner` |
+| Dividers | `sp-divider` |
+| Cards | `sp-card`, `sp-card-header`, `sp-card-content`, `sp-card-media`, `sp-card-actions`, `sp-card-footer` |
+| Avatars | `sp-avatar`, `sp-avatar-group` |
+| Badges and chips | `sp-badge`, `sp-chip` |
+| Tooltips | `[spTooltip]`, `sp-tooltip` |
+| Accordion | `sp-accordion`, `sp-accordion-item` |
+| Tabs | `sp-tabs`, `sp-tab` |
+| Loading placeholders | `sp-skeleton` |
+| Number animation | `sp-counter` |
+| Ripple | `[spRipple]` |
+| Quick actions | `sp-speed-dial` |
+| Scrolling content | `sp-marquee`, `[spMarqueeItem]` |
+| Dialogs and panels | `sp-modal`, `sp-drawer` |
+| Image and content carousel | `sp-carousel`, `sp-carousel-slide` |
 
-3. **Using the components**
+The [public API source](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/blob/HEAD/projects/sp-lib/src/public-api.ts) lists the exported classes and types. Component-specific examples and defaults are documented in the showcase.
 
-   Once imported, you can use sp-lib **components** directly in your HTML templates. <br>For instance, to include
-   the button component:
+## Styling
 
-   ```bash
-     <!--Standard btn example-->
-     <sp-btn
-        [text]="'Click Me!'"
-        [color]="'#4caf50'"
-        [height]="'40px'"
-        [cursor]="'pointer'"
-        [disabled]="false"
-        (buttonClick)="this.handleButtonClick()">
-     </sp-btn>
-   ```
+Components ship compiled styles. Appearance can be customized through their documented inputs and CSS custom properties. For example, place global theme overrides in the consuming application's `styles.scss`:
 
-<br>
+```scss
+:root {
+  --sp-text-primary: #182235;
+  --sp-text-secondary: #526079;
+  --sp-border-color: #cad3e0;
+}
+
+[data-theme='dark'] {
+  --sp-text-primary: #f8fafc;
+  --sp-text-secondary: #cbd5e1;
+  --sp-bg-canvas: #090d16;
+  --sp-bg-surface: #131b2e;
+  --sp-border-color: #334155;
+}
+```
+
+Apply `data-theme="dark"` to an ancestor such as `<html>` when using these dark theme rules. Theme selection is controlled by the application; the library does not automatically synchronize it with system preferences or persist it. Individual components may use additional tokens or explicit color inputs.
+
+No additional global stylesheet import is required for component styles. The package does not expose a global CSS/SCSS entry point; customize the documented CSS properties in your application's own stylesheet. The showcase's page layouts, fonts and application theme are separate from the component styles.
+
+## Showcase and documentation
+
+Explore the [showcase source](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/tree/HEAD/projects/sp-showcase) for interactive examples, HTML and TypeScript snippets, layout styles and component API tables. The showcase supports English and Italian; some image demos use external resources.
+
+To run it locally, follow the setup instructions in the [repository README](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib#run-the-showcase-from-source). The showcase uses the library sources in that repository; no sibling library folder or npm installation of SpLib is required. That README also documents building the library and showcase, running tests and contributing.
+
+The GitHub source may contain changes that are not yet published on npm. When consulting source examples, compare them with your installed package version.
+
+## Issues and contributions
+
+Report bugs and request features through [GitHub Issues](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues). Contributions are welcome; see the [contribution guidelines](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib#contributing).
 
 ## License
 
-The **sp-lib** is licensed under the MIT License.
+[MIT](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/blob/HEAD/LICENSE) © Alessio Giacché.

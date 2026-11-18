@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build:showcase"
+  publish = "dist/sp-showcase/browser"
+
+[build.environment]
+  NODE_VERSION = "22.22.3"
+
+# Serve Angular routes on direct visits without overriding existing static assets.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

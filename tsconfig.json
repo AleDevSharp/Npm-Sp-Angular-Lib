@@ -19,7 +19,8 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "sp-lib": ["./dist/sp-lib"]
+      "sp-lib": ["./dist/sp-lib"],
+      "@aledevsharp/sp-lib": ["./projects/sp-lib/src/public-api"]
     },
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"]

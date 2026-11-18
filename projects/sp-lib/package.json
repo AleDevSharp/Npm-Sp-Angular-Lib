@@ -1,14 +1,27 @@
 {
   "name": "@aledevsharp/sp-lib",
-  "version": "2.0.1",
-  "description": "Official SpLib library",
+  "version": "3.0.0",
+  "description": "Standalone Angular UI components and directives with Signals, CSS custom properties and Angular Forms integration.",
+  "keywords": [
+    "angular",
+    "angular-components",
+    "angular-ui",
+    "component-library",
+    "ui-library",
+    "standalone",
+    "signals",
+    "angular-forms",
+    "typescript",
+    "splib"
+  ],
   "author": {
     "name": "Alessio Giacché",
     "email": "ale.giacc.dev@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AleDevSharp/Npm-Sp-Angular-Lib"
+    "url": "git+https://github.com/AleDevSharp/Npm-Sp-Angular-Lib.git",
+    "directory": "projects/sp-lib"
   },
   "bugs": {
     "url": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues"
