@@ -8,6 +8,7 @@ SpLib provides standalone Angular UI components and directives for forms, conten
 
 The [GitHub repository](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib) includes both the library source and an interactive Angular showcase with component examples and API documentation in English and Italian.
 
+- [Live Showcase & Documentation](https://splib-ui.netlify.app/showcase)
 - [Source code](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/tree/HEAD/projects/sp-lib)
 - [Showcase source and examples](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/tree/HEAD/projects/sp-showcase)
 - [Run the showcase locally](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib#run-the-showcase-from-source)

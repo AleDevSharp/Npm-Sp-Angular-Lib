@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues"
   },
-  "homepage": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib",
+  "homepage": "https://splib-ui.netlify.app/showcase",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0",

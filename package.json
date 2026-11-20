@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues"
   },
-  "homepage": "https://github.com/AleDevSharp/Npm-Sp-Angular-Lib",
+  "homepage": "https://splib-ui.netlify.app/showcase",
   "scripts": {
     "ng": "ng",
     "start": "ng serve sp-showcase",

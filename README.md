@@ -8,8 +8,9 @@ Standalone Angular UI components and directives for forms, layout, overlays, fee
 
 This repository contains both the **SpLib library** (`projects/sp-lib`) and its **interactive Angular showcase** (`projects/sp-showcase`), with examples and API documentation in English and Italian.
 
-Use the [npm package](https://www.npmjs.com/package/@aledevsharp/sp-lib) to add SpLib to an Angular application, or clone this repository to explore the showcase and contribute. Repository changes may be ahead of the published npm release.
+Use the [npm package](https://www.npmjs.com/package/@aledevsharp/sp-lib) to add SpLib to an Angular application, explore the [live interactive showcase](https://splib-ui.netlify.app/showcase), or clone this repository to contribute. Repository changes may be ahead of the published npm release.
 
+- [Live Showcase & Documentation](https://splib-ui.netlify.app/showcase)
 - [npm package](https://www.npmjs.com/package/@aledevsharp/sp-lib)
 - [Package usage and component catalog](projects/sp-lib/README.md)
 - [Showcase source](projects/sp-showcase)
@@ -83,7 +84,7 @@ Connect this GitHub repository as a new Netlify project, using the repository ro
 
 The build uses the library sources directly and does not publish anything to npm. No environment variables or backend are required for the showcase. Deploy it at the site's root, with the existing base href `/`.
 
-After deploying, check a direct component-page URL, refresh it and verify the demo assets. Once a stable public URL is available, add it to both READMEs, the library's `homepage` field and GitHub About, and complete the URL-dependent metadata described in [BRANDING.md](projects/sp-showcase/BRANDING.md).
+The live showcase is deployed at [splib-ui.netlify.app/showcase](https://splib-ui.netlify.app/showcase).
 
 ## Build and test
 
