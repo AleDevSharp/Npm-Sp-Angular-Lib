@@ -5,8 +5,8 @@
     "editor.fontSize": 13,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit",
-      "source.organizeImports": "explicit",
+      "source.fixAll.eslint": "always",
+      "source.organizeImports": "never",
       "source.removeUnusedImports": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",

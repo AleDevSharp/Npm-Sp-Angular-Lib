@@ -31,6 +31,15 @@
             "tsConfig": "projects/sp-lib/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/sp-lib/**/*.ts",
+              "projects/sp-lib/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -122,10 +131,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/sp-lib/src/**/*.ts",
-              "projects/sp-lib/src/**/*.html",
-              "projects/sp-showcase/src/**/*.ts",
-              "projects/sp-showcase/src/**/*.html"
+              "projects/sp-showcase/**/*.ts",
+              "projects/sp-showcase/**/*.html"
             ]
           }
         }

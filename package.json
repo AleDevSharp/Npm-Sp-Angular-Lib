@@ -34,7 +34,8 @@
     "build:showcase": "ng build sp-showcase --configuration production",
     "watch": "ng build sp-lib --watch --configuration development",
     "test": "ng test sp-lib",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix"
   },
   "private": false,
   "dependencies": {
