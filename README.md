@@ -1,135 +1,225 @@
-<img src="projects/sp-showcase/public/sp-lib-mark.png" alt="SpLib logo" width="96" height="96" />
+<div align="center">
+  <img src="projects/sp-showcase/public/sp-lib-mark.png" alt="SpLib Logo" width="110" height="110" />
 
-# SpLib - Angular UI Components
+  # SpLib
 
-Angular UI components by [AleDevSharp](https://github.com/AleDevSharp).
+  <p><strong>Modern standalone Angular UI components and directives with Signals, CSS custom properties, and Angular Forms integration.</strong></p>
 
-Standalone Angular UI components and directives for forms, layout, overlays, feedback and animated content.
+  <p>
+    <a href="https://www.npmjs.com/package/@aledevsharp/sp-lib"><img src="https://img.shields.io/npm/v/@aledevsharp/sp-lib?color=crimson&logo=npm" alt="npm version" /></a>
+    <a href="https://angular.dev"><img src="https://img.shields.io/badge/Angular-^19.0.0-DD0031?logo=angular&logoColor=white" alt="Angular 19" /></a>
+    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-~5.6.2-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5.6" /></a>
+    <a href="https://splib-ui.netlify.app/showcase"><img src="https://img.shields.io/badge/Showcase-Live%20Demo-00C7B7?logo=netlify&logoColor=white" alt="Live Demo" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" /></a>
+  </p>
 
-This repository contains both the **SpLib library** (`projects/sp-lib`) and its **interactive Angular showcase** (`projects/sp-showcase`), with examples and API documentation in English and Italian.
+  <p>
+    <a href="https://splib-ui.netlify.app/showcase"><strong>Explore Live Showcase & Documentation &rarr;</strong></a> &nbsp;|&nbsp;
+    <a href="https://www.npmjs.com/package/@aledevsharp/sp-lib"><strong>npm Package &rarr;</strong></a> &nbsp;|&nbsp;
+    <a href="https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues"><strong>Report Issue &rarr;</strong></a>
+  </p>
+</div>
 
-Use the [npm package](https://www.npmjs.com/package/@aledevsharp/sp-lib) to add SpLib to an Angular application, explore the [live interactive showcase](https://splib-ui.netlify.app/showcase), or clone this repository to contribute. Repository changes may be ahead of the published npm release.
+---
 
-- [Live Showcase & Documentation](https://splib-ui.netlify.app/showcase)
-- [npm package](https://www.npmjs.com/package/@aledevsharp/sp-lib)
-- [Package usage and component catalog](projects/sp-lib/README.md)
-- [Showcase source](projects/sp-showcase)
-- [Run the showcase locally](#run-the-showcase-from-source)
-- [Report an issue](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib/issues)
+## ✨ Features
 
-## Compatibility
+- ⚡ **Standalone First**: 100% standalone components and directives — no cumbersome NgModule declarations needed.
+- 🚦 **Signals & Modern Reactive**: Built from the ground up to work smoothly with Angular Signals and fine-grained reactivity.
+- 📋 **Angular Forms Integration**: Form components natively implement `ControlValueAccessor` for seamless use with Reactive Forms and Template-Driven forms.
+- 🎨 **Adaptive Theming**: Out-of-the-box CSS custom properties with effortless dark theme support.
+- 🌐 **Interactive Showcase**: Fully featured showcase app with live interactive examples and dual-language documentation (English / Italian).
 
-The library currently declares these peer dependencies in [its package manifest](projects/sp-lib/package.json):
+---
 
-| Dependency        | Required range |
-| ----------------- | -------------- |
-| `@angular/core`   | `^19.0.0`      |
-| `@angular/common` | `^19.0.0`      |
-| `@angular/forms`  | `^19.0.0`      |
+## 📦 Compatibility
 
-The workspace uses Angular CLI 19 and TypeScript 5.6. Use Node.js **22.22.3**, pinned in `.nvmrc` and the Netlify configuration. Angular 17/18 support is not declared by this version. Resolve dependency mismatches by aligning versions rather than bypassing peer dependency checks.
+| Environment | Supported version |
+| :--- | :--- |
+| **Angular** (`@angular/core`, `@angular/common`, `@angular/forms`) | `^19.0.0` |
+| **TypeScript** | `~5.6.2` |
+| **Node.js** | `>= 20.x` (Recommended: `22.x`) |
 
-## Install in an Angular application
+---
+
+## 🚀 Installation
+
+Install the package from npm:
 
 ```bash
 npm install @aledevsharp/sp-lib
 ```
 
-For standalone component imports, Angular Forms integration, styling and the component catalog, see the [package README](projects/sp-lib/README.md).
+---
 
-## Repository layout
+## 💡 Quick Start
 
-| Path                                | Contents                                             |
-| ----------------------------------- | ---------------------------------------------------- |
-| `projects/sp-lib`                   | Library source, unit tests and package configuration |
-| `projects/sp-lib/src/public-api.ts` | Public component, directive and type exports         |
-| `projects/sp-showcase`              | Interactive demos, complete examples and API tables  |
-| `dist/sp-lib`                       | Built npm package, generated by `build:lib`          |
-| `dist/sp-showcase/browser`          | Production showcase, generated by `build:showcase`   |
+Import only the components you need into your standalone component:
 
-The showcase covers buttons, inputs, selects, switches, segmented controls, toggle lists, cards, avatars, badges, chips, progress indicators, dividers, tooltips, accordions, tabs, skeletons, counters, ripple, Speed Dial, marquee, modals, drawers and carousels.
+```typescript
+import { Component, signal } from '@angular/core';
+import { SpBtnComponent, SpInputComponent, SpSwitchComponent } from '@aledevsharp/sp-lib';
 
-On phones and tablets up to 900px wide, component navigation is available through the Menu button. Selecting a page closes the menu; Escape closes it and returns focus to the button. Small screens use adapted page spacing and homepage cards. Wide API tables, code examples and spatial demos such as Speed Dial scroll inside their own containers.
+@Component({
+  selector: 'app-quick-start',
+  standalone: true,
+  imports: [SpBtnComponent, SpInputComponent, SpSwitchComponent],
+  template: `
+    <sp-input label="Display name" [(value)]="name"></sp-input>
+    <sp-switch label="Enable notifications" [(value)]="notifications"></sp-switch>
+    <sp-btn text="Reset" variant="outline" (buttonClick)="reset()"></sp-btn>
+    
+    <p>Current user: {{ name() }} (Notifications: {{ notifications() ? 'on' : 'off' }})</p>
+  `
+})
+export class QuickStartComponent {
+  public readonly name = signal('Angular Developer');
+  public readonly notifications = signal(true);
 
-## Run the showcase from source
-
-Clone the repository and enter the workspace root:
-
-```bash
-git clone https://github.com/AleDevSharp/Npm-Sp-Angular-Lib.git
-cd Npm-Sp-Angular-Lib
+  public reset(): void {
+    this.name.set('Angular Developer');
+    this.notifications.set(true);
+  }
+}
 ```
 
-The showcase resolves library imports directly to `projects/sp-lib/src/public-api.ts` through the root TypeScript configuration. No sibling folder or previously published npm package is required. It demonstrates the library sources in this repository, which may be ahead of the npm release.
+---
 
-Run these commands from the repository root:
+## 📝 Angular Forms Integration
 
-```bash
-npm ci
-npm start
+Form controls (`sp-input`, `sp-select`, `sp-switch`, `sp-segmented-control`, `sp-toggle-list`) implement `ControlValueAccessor` and can be used directly with `ReactiveFormsModule`:
+
+```typescript
+import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SpInputComponent } from '@aledevsharp/sp-lib';
+
+@Component({
+  selector: 'app-form-example',
+  standalone: true,
+  imports: [ReactiveFormsModule, SpInputComponent],
+  template: `
+    <sp-input
+      label="Email Address"
+      type="email"
+      [formControl]="emailControl"
+      [hasError]="emailControl.touched && emailControl.invalid"
+      errorMessage="Please provide a valid email address.">
+    </sp-input>
+  `
+})
+export class FormExampleComponent {
+  public readonly emailControl = new FormControl('', {
+    nonNullable: true,
+    validators: [Validators.required, Validators.email]
+  });
+}
 ```
 
-Open the address printed by Angular CLI, normally `http://localhost:4200`. Each component page provides interactive examples, the corresponding HTML/TypeScript, layout styles and API documentation. Use the language selector to switch between English and Italian. See [showcase internationalization](projects/sp-showcase/I18N.md) for translation maintenance. Some demos load images from external URLs and need network access.
+---
 
-The showcase can be run locally from this repository. Production hosting configuration is documented in [showcase branding and metadata](projects/sp-showcase/BRANDING.md).
+## 📚 Component Catalog
 
-## Deploy the showcase to Netlify
+All components and directives can be imported directly from `@aledevsharp/sp-lib`:
 
-Connect this GitHub repository as a new Netlify project, using the repository root as the base directory. The committed `netlify.toml` defines:
+| Category | Components / Directives | Description |
+| :--- | :--- | :--- |
+| **Buttons** | `sp-btn`, `sp-btn-txt` | Standard, variant, icon and text action buttons with ripple effect |
+| **Form Controls** | `sp-input`, `sp-select`, `sp-switch` | Accessible form controls supporting two-way signals and Angular Forms |
+| **Selection Controls** | `sp-segmented-control`, `sp-toggle-list` | Segmented pill selectors and multi/single option selection lists |
+| **Progress & Loaders** | `sp-progressbar`, `sp-progressbar-rounded`, `sp-progressbar-circular`, `sp-spinner` | Linear, rounded, circular progress indicators and loading spinners |
+| **Containers & Layout** | `sp-card`, `sp-card-header`, `sp-card-content`, `sp-card-media`, `sp-card-actions`, `sp-card-footer`, `sp-divider` | Flexible card surfaces and content dividers |
+| **Overlays & Dialogs** | `sp-modal`, `sp-drawer`, `[spTooltip]`, `sp-tooltip`, `sp-speed-dial` | Backdrop modals, sliding drawers, tooltips and floating speed dial actions |
+| **Navigation & Disclosure** | `sp-accordion`, `sp-accordion-item`, `sp-tabs`, `sp-tab` | Collapsible accordions and tabbed navigation panels |
+| **Media & Animation** | `sp-carousel`, `sp-carousel-slide`, `sp-marquee`, `[spMarqueeItem]`, `sp-counter` | Touch/keyboard carousels, infinite marquee tickers and animated number counters |
+| **Visual Indicators** | `sp-avatar`, `sp-avatar-group`, `sp-badge`, `sp-chip`, `sp-skeleton`, `[spRipple]` | User avatars, status badges, removable chips, placeholder skeletons and ripple effect |
 
-- Build command: `npm run build:showcase`.
-- Publish directory: `dist/sp-showcase/browser`.
-- Node.js version: `22.22.3`.
-- SPA fallback to `index.html` for direct visits and refreshes on Angular routes; existing static files are served normally.
+Visit the [Live Showcase](https://splib-ui.netlify.app/showcase) for comprehensive API tables, interactive demos, and copy-paste code snippets.
 
-The build uses the library sources directly and does not publish anything to npm. No environment variables or backend are required for the showcase. Deploy it at the site's root, with the existing base href `/`.
+---
 
-The live showcase is deployed at [splib-ui.netlify.app/showcase](https://splib-ui.netlify.app/showcase).
+## 🎨 Styling & Theming
 
-## Build and test
+Components include their own compiled styles and can be customized via CSS custom properties. You can easily support light and dark modes in your global stylesheet (`styles.scss`):
 
-| Command, from the repository root                     | Purpose                                                     |
-| ----------------------------------------------------- | ----------------------------------------------------------- |
-| `npm run build`                                       | Build the library and showcase for production               |
-| `npm run build:lib`                                   | Build the npm package into `dist/sp-lib`                    |
-| `npm run build:showcase`                              | Build the showcase into `dist/sp-showcase`                  |
-| `npm run watch`                                       | Rebuild the library in development watch mode               |
-| `npm test`                                            | Run the library's Karma/Jasmine tests in watch mode         |
-| `npm test -- --watch=false --browsers=ChromeHeadless` | Run library tests once using Chrome                         |
-| `npm run lint`                                        | Run the configured Angular ESLint target over both projects |
+```scss
+:root {
+  --sp-text-primary: #182235;
+  --sp-text-secondary: #526079;
+  --sp-border-color: #cad3e0;
+}
 
-Chrome tests require Chrome to be installed. If it is not detected, set `CHROME_BIN` to its executable. Example in PowerShell:
-
-```powershell
-$env:CHROME_BIN = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
-npm test -- --watch=false --browsers=ChromeHeadless
+[data-theme='dark'] {
+  --sp-text-primary: #f8fafc;
+  --sp-text-secondary: #cbd5e1;
+  --sp-bg-canvas: #090d16;
+  --sp-bg-surface: #131b2e;
+  --sp-border-color: #334155;
+}
 ```
 
-A focused run can select a component's existing tests:
+---
 
-```bash
-npm test -- --watch=false --browsers=ChromeHeadless --include="projects/sp-lib/src/lib/carousel/*.spec.ts"
-```
+## 📂 Repository Layout
 
-Build the library before preparing a distributable package:
+This monorepo contains both the library itself and the showcase application:
 
-```bash
-npm run build:lib
-npm pack ./dist/sp-lib
-```
+| Path | Purpose |
+| :--- | :--- |
+| `projects/sp-lib` | Source code, unit tests, and packaging configuration for the `@aledevsharp/sp-lib` library |
+| `projects/sp-showcase` | Source code for the interactive documentation and live showcase application |
+| `dist/sp-lib` | Compiled npm distribution package (produced by `npm run build:lib`) |
+| `dist/sp-showcase` | Compiled production showcase bundle (produced by `npm run build:showcase`) |
 
-Use the generated package rather than packing `projects/sp-lib`, which contains source rather than the compiled entry points. Building or packing does not publish a release.
+---
 
-## Styling and documentation
+## 🛠️ Run the showcase from source
+<a id="run-the-showcase-from-source"></a>
 
-Components include their own compiled styles and expose inputs and CSS custom properties for customization. The showcase also has application-specific styles; importing a component does not reproduce the entire showcase page.
+To test components, experiment with changes, or run the documentation locally:
 
-The source contains token and ripple SCSS files, but the package configuration currently exports no global stylesheet entry point. See the [styling guidance](projects/sp-lib/README.md#styling) before adding an import to an application's global styles.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/AleDevSharp/Npm-Sp-Angular-Lib.git
+   cd Npm-Sp-Angular-Lib
+   ```
 
-## Contributing
+2. **Install dependencies:**
+   ```bash
+   npm ci
+   ```
 
-Keep the public exports, corresponding showcase page and usage documentation consistent when changing a component. Add focused regression coverage for behavior changes and run the relevant tests and production build. Report issues or propose changes through the [repository](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib).
+3. **Start the local dev server:**
+   ```bash
+   npm start
+   ```
 
-## License
+4. Open your browser at `http://localhost:4200`. The showcase imports library source files directly with hot reloading enabled.
 
-[MIT](LICENSE) © Alessio Giacché.
+---
+
+## ⚙️ Development & Testing Scripts
+
+| Command | Purpose |
+| :--- | :--- |
+| `npm start` | Serve the showcase locally at `http://localhost:4200` |
+| `npm run build` | Build both the library and showcase for production |
+| `npm run build:lib` | Compile the library into `dist/sp-lib` using `ng-packagr` |
+| `npm run build:showcase` | Compile the showcase into `dist/sp-showcase` |
+| `npm run watch` | Rebuild the library automatically on file changes |
+| `npm test` | Run Karma/Jasmine unit tests for the library |
+| `npm run lint` | Run ESLint checks across both library and showcase |
+| `npm run lint:fix` | Automatically fix ESLint warnings and errors |
+
+---
+
+## 🤝 Contributing
+
+Contributions, bug reports, and suggestions are welcome!
+Feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/AleDevSharp/Npm-Sp-Angular-Lib).
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE) © [Alessio Giacché](https://github.com/AleDevSharp).
