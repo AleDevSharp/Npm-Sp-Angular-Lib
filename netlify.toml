@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "22.22.3"
+  ANGULAR_PROJECT = "sp-showcase"
 
 # Serve Angular routes on direct visits without overriding existing static assets.
 [[redirects]]
