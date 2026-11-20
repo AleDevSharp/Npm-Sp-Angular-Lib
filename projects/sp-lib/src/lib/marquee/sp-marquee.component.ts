@@ -9,19 +9,10 @@
 
 // Import
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  TemplateRef,
-  ViewEncapsulation,
-  computed,
-  contentChild,
-  input,
-  signal
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, contentChild, input, signal, TemplateRef, ViewEncapsulation } from '@angular/core';
 
-import { SpMarqueeItemDirective } from './sp-marquee-item.directive';
 import { SpMarqueeDirection } from './sp-marquee.types';
+import { SpMarqueeItemDirective } from './sp-marquee-item.directive';
 
 /**
  * SpMarqueeComponent
@@ -144,7 +135,7 @@ export class SpMarqueeComponent {
   });
 
   // The CSS custom property style bindings injected into the wrapper
-  public readonly containerStyles = computed<{ [key: string]: string }>(() => {
+  public readonly containerStyles = computed<Record<string, string>>(() => {
     const dur = this.duration() ? this.duration() : `${this.speed()}s`;
     return {
       '--sp-marquee-duration': dur,

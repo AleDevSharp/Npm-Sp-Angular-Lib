@@ -9,6 +9,9 @@
 
 @use '../styles/tokens' as *;
 
+// ================================
+// Region: Ripple Host & Ink
+// ================================
 .sp-ripple-host {
   position: relative;
   overflow: hidden;
@@ -31,6 +34,9 @@
   will-change: transform, opacity;
 }
 
+// ================================
+// Region: Animations
+// ================================
 @keyframes sp-ripple-wave {
   0% {
     transform: scale(0);

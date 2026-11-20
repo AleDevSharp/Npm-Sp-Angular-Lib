@@ -9,16 +9,10 @@
 
 // Import
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  contentChildren,
-  forwardRef,
-  input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, contentChildren, forwardRef, input } from '@angular/core';
 
-import { SpAccordionItemComponent } from './sp-accordion-item.component';
 import { SP_ACCORDION, SpAccordionContainer, SpAccordionSize, SpAccordionVariant } from './sp-accordion.types';
+import { SpAccordionItemComponent } from './sp-accordion-item.component';
 
 /**
  * SpAccordionComponent

@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpToggleListComponent } from './sp-toggle-list.component';
 import { SpToggleListOption } from './sp-toggle-list.types';
 

@@ -1,8 +1,19 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-input.component.scss
+// File description: Text input container, floating labels, hint messages, and validation states.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
 // ================================
 // Region: Variables & Mixins
 // ================================
 $input-border-radius: 6px;
-$input-transition: border-color 0.15s ease, box-shadow 0.15s ease;
+$input-transition:
+  border-color 0.15s ease,
+  box-shadow 0.15s ease;
 
 // ================================
 // Region: Wrapper & Label

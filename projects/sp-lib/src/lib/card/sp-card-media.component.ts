@@ -42,51 +42,53 @@ import { SpCardMediaAspectRatio } from './sp-card.types';
       <ng-content></ng-content>
     </div>
   `,
-  styles: [`
-    :host {
-      display: block;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .sp-card-media-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      background-color: var(--sp-bg-surface, #f8fafc);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &.ratio-16-9 {
-        aspect-ratio: 16 / 9;
+  styles: [
+    `
+      :host {
+        display: block;
+        width: 100%;
+        overflow: hidden;
       }
 
-      &.ratio-4-3 {
-        aspect-ratio: 4 / 3;
+      .sp-card-media-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-color: var(--sp-bg-surface, #f8fafc);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.ratio-16-9 {
+          aspect-ratio: 16 / 9;
+        }
+
+        &.ratio-4-3 {
+          aspect-ratio: 4 / 3;
+        }
+
+        &.ratio-1-1 {
+          aspect-ratio: 1 / 1;
+        }
+
+        &.ratio-auto {
+          aspect-ratio: auto;
+        }
       }
 
-      &.ratio-1-1 {
-        aspect-ratio: 1 / 1;
+      .sp-card-media-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      &.ratio-auto {
-        aspect-ratio: auto;
+      :host-context(.is-interactive:hover) .sp-card-media-img {
+        transform: scale(1.04);
       }
-    }
-
-    .sp-card-media-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    :host-context(.is-interactive:hover) .sp-card-media-img {
-      transform: scale(1.04);
-    }
-  `],
+    `
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpCardMediaComponent {

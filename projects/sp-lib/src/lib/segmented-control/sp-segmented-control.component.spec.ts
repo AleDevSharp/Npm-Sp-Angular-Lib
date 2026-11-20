@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+
 import { SpSegmentedControlComponent } from './sp-segmented-control.component';
 import { SpSegmentedControlOption } from './sp-segmented-control.types';
 

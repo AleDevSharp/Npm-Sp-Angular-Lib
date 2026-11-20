@@ -1,8 +1,19 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-select.component.scss
+// File description: Custom select dropdown, search input, option list, and clear triggers.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
 // ================================
 // Region: Variables & Mixins
 // ================================
 $select-radius: 6px;
-$select-transition: border-color 0.15s ease, box-shadow 0.15s ease;
+$select-transition:
+  border-color 0.15s ease,
+  box-shadow 0.15s ease;
 
 // ================================
 // Region: Wrapper & Label

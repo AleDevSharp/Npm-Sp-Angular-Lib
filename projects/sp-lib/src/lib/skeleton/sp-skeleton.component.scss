@@ -47,12 +47,7 @@
     bottom: 0;
     left: 0;
     transform: translateX(-100%);
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.45) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
     animation: sp-shimmer-wave 1.6s ease-in-out infinite;
     content: '';
     pointer-events: none;
@@ -60,12 +55,7 @@
 }
 
 [data-theme='dark'] .sp-skeleton-item.sp-skeleton--animated::after {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
 }
 
 @keyframes sp-shimmer-wave {

@@ -33,8 +33,12 @@ import { SpCardMediaComponent } from './sp-card-media.component';
       [interactive]="true"
       [clickable]="true"
       (cardClick)="onCardClicked()">
-      <sp-card-media [src]="'https://via.placeholder.com/400x200'" [aspectRatio]="'16:9'"></sp-card-media>
-      <sp-card-header title="Test Card" subtitle="Test Subtitle"></sp-card-header>
+      <sp-card-media
+        [src]="'https://via.placeholder.com/400x200'"
+        [aspectRatio]="'16:9'"></sp-card-media>
+      <sp-card-header
+        title="Test Card"
+        subtitle="Test Subtitle"></sp-card-header>
       <sp-card-content>Test content body</sp-card-content>
       <sp-card-actions align="end">
         <button id="action-btn">Action</button>

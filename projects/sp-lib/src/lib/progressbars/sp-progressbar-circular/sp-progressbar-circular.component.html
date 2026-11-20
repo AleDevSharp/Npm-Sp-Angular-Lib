@@ -7,7 +7,10 @@
   aria-valuemax="100"
   [style.width.px]="this.size()"
   [style.height.px]="this.size()">
-  <svg viewBox="0 0 100 100" class="sp-circular-svg" [class.is-indeterminate]="this.indeterminate()">
+  <svg
+    viewBox="0 0 100 100"
+    class="sp-circular-svg"
+    [class.is-indeterminate]="this.indeterminate()">
     <!-- Background track -->
     <circle
       class="sp-circular-track"
@@ -24,13 +27,11 @@
       [style.stroke]="this.color()"
       [style.stroke-width]="this.stroke()"
       [style.stroke-dasharray]="this.circumference"
-      [style.stroke-dashoffset]="!this.indeterminate() ? this.dashOffset() : (this.circumference * 0.75)"></circle>
+      [style.stroke-dashoffset]="!this.indeterminate() ? this.dashOffset() : this.circumference * 0.75"></circle>
   </svg>
 
   <!-- Region: Center Label -->
   @if (!this.indeterminate()) {
-    <span class="sp-circular-label">
-      {{ this.percentage() }}%
-    </span>
+    <span class="sp-circular-label">{{ this.percentage() }}%</span>
   }
 </div>

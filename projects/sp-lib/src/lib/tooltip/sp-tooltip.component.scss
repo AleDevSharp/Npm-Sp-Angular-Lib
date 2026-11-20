@@ -1,10 +1,20 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-tooltip.component.scss
+// File description: Floating tooltip panel, pointer arrows, and position transitions.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
 // ================================
 // Region: Variables & Mixins
 // ================================
 $tooltip-radius: 6px;
 $arrow-size: 5px;
-$tooltip-transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                     transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+$tooltip-transition:
+  opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+  transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 
 // ================================
 // Region: Panel & Base Layout

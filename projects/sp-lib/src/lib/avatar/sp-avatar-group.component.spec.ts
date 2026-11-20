@@ -8,8 +8,9 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SpAvatarGroupComponent } from './sp-avatar-group.component';
+
 import { SpAvatarItem } from './sp-avatar.types';
+import { SpAvatarGroupComponent } from './sp-avatar-group.component';
 
 describe('SpAvatarGroupComponent', () => {
   let component: SpAvatarGroupComponent;

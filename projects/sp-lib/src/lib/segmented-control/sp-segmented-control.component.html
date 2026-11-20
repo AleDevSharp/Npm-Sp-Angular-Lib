@@ -8,8 +8,7 @@
   [class.sp-segmented--disabled]="isControlDisabled()"
   role="radiogroup"
   [attr.aria-disabled]="isControlDisabled()"
-  (keydown)="onKeyDown($event)"
->
+  (keydown)="onKeyDown($event)">
   <!-- Region: Sliding Physical Background Indicator -->
   <div
     class="sp-segmented-indicator"
@@ -17,8 +16,7 @@
     [style.transform]="'translate3d(' + indicatorLeft() + 'px, ' + indicatorTop() + 'px, 0)'"
     [style.width.px]="indicatorWidth()"
     [style.height.px]="indicatorHeight()"
-    aria-hidden="true"
-  ></div>
+    aria-hidden="true"></div>
 
   <!-- Region: Options List -->
   @for (option of options(); track option.value) {
@@ -34,10 +32,11 @@
       [disabled]="isControlDisabled() || option.disabled"
       [tabindex]="value() === option.value ? 0 : -1"
       (click)="selectOption(option)"
-      (blur)="markAsTouched()"
-    >
+      (blur)="markAsTouched()">
       @if (option.icon) {
-        <span class="sp-segmented-option-icon" aria-hidden="true">
+        <span
+          class="sp-segmented-option-icon"
+          aria-hidden="true">
           <!-- Render raw SVG or icon symbol -->
           <span [innerHTML]="option.icon"></span>
         </span>

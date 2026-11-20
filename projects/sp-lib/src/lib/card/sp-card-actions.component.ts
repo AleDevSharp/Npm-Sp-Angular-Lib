@@ -33,35 +33,37 @@ import { SpCardActionsAlignment } from './sp-card.types';
       <ng-content></ng-content>
     </div>
   `,
-  styles: [`
-    :host {
-      display: block;
-      width: 100%;
-    }
-
-    .sp-card-actions-inner {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-
-      &.align-start {
-        justify-content: flex-start;
+  styles: [
+    `
+      :host {
+        display: block;
+        width: 100%;
       }
 
-      &.align-center {
-        justify-content: center;
-      }
+      .sp-card-actions-inner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
 
-      &.align-end {
-        justify-content: flex-end;
-      }
+        &.align-start {
+          justify-content: flex-start;
+        }
 
-      &.align-between {
-        justify-content: space-between;
+        &.align-center {
+          justify-content: center;
+        }
+
+        &.align-end {
+          justify-content: flex-end;
+        }
+
+        &.align-between {
+          justify-content: space-between;
+        }
       }
-    }
-  `],
+    `
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpCardActionsComponent {

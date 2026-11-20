@@ -9,17 +9,7 @@
 
 // Import
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  ElementRef,
-  input,
-  OnDestroy,
-  output,
-  signal
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, computed, ElementRef, input, OnDestroy, output, signal } from '@angular/core';
 
 import { SpCounterEasing } from './sp-counter.types';
 
@@ -97,9 +87,7 @@ export class SpCounterComponent implements AfterViewInit, OnDestroy {
     // Format thousands grouping
     const formattedInt = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, thouSep);
 
-    const formattedNumber = decPart !== undefined && dec > 0
-      ? `${formattedInt}${decSep}${decPart}`
-      : formattedInt;
+    const formattedNumber = decPart !== undefined && dec > 0 ? `${formattedInt}${decSep}${decPart}` : formattedInt;
 
     return `${this.prefix()}${formattedNumber}${this.suffix()}`;
   });
@@ -127,18 +115,21 @@ export class SpCounterComponent implements AfterViewInit, OnDestroy {
     this.currentValue.set(this.from());
 
     if (this.viewportTrigger() && typeof IntersectionObserver !== 'undefined') {
-      this.intersectionObserver = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            this.start();
-            if (this.intersectionObserver) {
-              this.intersectionObserver.disconnect();
-              this.intersectionObserver = null;
+      this.intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              this.start();
+              if (this.intersectionObserver) {
+                this.intersectionObserver.disconnect();
+                this.intersectionObserver = null;
+              }
+              break;
             }
-            break;
           }
-        }
-      }, { threshold: 0.2 });
+        },
+        { threshold: 0.2 }
+      );
 
       this.intersectionObserver.observe(this.hostElement.nativeElement);
     } else if (this.autoplay()) {

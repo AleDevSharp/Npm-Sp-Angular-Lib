@@ -9,21 +9,29 @@
 
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SpAccordionItemComponent } from './sp-accordion-item.component';
+
 import { SpAccordionComponent } from './sp-accordion.component';
+import { SpAccordionItemComponent } from './sp-accordion-item.component';
 
 @Component({
   standalone: true,
   imports: [SpAccordionComponent, SpAccordionItemComponent],
   template: `
     <sp-accordion [multi]="multi">
-      <sp-accordion-item #item1 title="Panel 1">
+      <sp-accordion-item
+        #item1
+        title="Panel 1">
         Content 1
       </sp-accordion-item>
-      <sp-accordion-item #item2 title="Panel 2">
+      <sp-accordion-item
+        #item2
+        title="Panel 2">
         Content 2
       </sp-accordion-item>
-      <sp-accordion-item #item3 title="Panel 3" [disabled]="true">
+      <sp-accordion-item
+        #item3
+        title="Panel 3"
+        [disabled]="true">
         Content 3
       </sp-accordion-item>
     </sp-accordion>

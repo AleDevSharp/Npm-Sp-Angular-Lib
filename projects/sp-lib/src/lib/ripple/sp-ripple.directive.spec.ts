@@ -8,8 +8,7 @@
 // --------------------------------------------------------------
 
 import { Component, ElementRef, viewChild } from '@angular/core';
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { SpRippleDirective } from './sp-ripple.directive';
 
@@ -25,8 +24,7 @@ import { SpRippleDirective } from './sp-ripple.directive';
       [spRippleCentered]="centered"
       [spRippleUnbounded]="unbounded"
       [spRippleDuration]="duration"
-      style="width: 100px; height: 50px;"
-    >
+      style="width: 100px; height: 50px;">
       Click Me
     </button>
   `

@@ -8,7 +8,7 @@
 // --------------------------------------------------------------
 
 // Import
-import { Directive, TemplateRef, inject } from '@angular/core';
+import { Directive, inject, TemplateRef } from '@angular/core';
 
 /**
  * SpMarqueeItemDirective

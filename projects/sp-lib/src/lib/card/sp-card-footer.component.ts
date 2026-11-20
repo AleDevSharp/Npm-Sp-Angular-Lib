@@ -26,22 +26,24 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <ng-content></ng-content>
     </div>
   `,
-  styles: [`
-    :host {
-      display: block;
-      width: 100%;
-      border-top: 1px solid var(--sp-border-color, #e2e8f0);
-      padding-top: 12px;
-    }
+  styles: [
+    `
+      :host {
+        display: block;
+        width: 100%;
+        border-top: 1px solid var(--sp-border-color, #e2e8f0);
+        padding-top: 12px;
+      }
 
-    .sp-card-footer-inner {
-      font-size: 0.8125rem;
-      color: var(--sp-text-muted, #94a3b8);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  `],
+      .sp-card-footer-inner {
+        font-size: 0.8125rem;
+        color: var(--sp-text-muted, #94a3b8);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    `
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpCardFooterComponent {

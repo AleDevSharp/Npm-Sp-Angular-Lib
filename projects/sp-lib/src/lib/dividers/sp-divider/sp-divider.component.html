@@ -4,11 +4,21 @@
     class="sp-divider-with-label"
     [style.margin-top]="this.marginTop()"
     [style.margin-bottom]="this.marginBottom()">
-    <span class="sp-divider-line" [style.border-bottom-width]="this.borderWidth()" [style.border-bottom-style]="this.borderStyle()" [style.border-bottom-color]="this.borderColor() || this.color() || null"></span>
-    <span class="sp-divider-label-text" [style.color]="this.labelColor() || null">
+    <span
+      class="sp-divider-line"
+      [style.border-bottom-width]="this.borderWidth()"
+      [style.border-bottom-style]="this.borderStyle()"
+      [style.border-bottom-color]="this.borderColor() || this.color() || null"></span>
+    <span
+      class="sp-divider-label-text"
+      [style.color]="this.labelColor() || null">
       {{ this.label() }}
     </span>
-    <span class="sp-divider-line" [style.border-bottom-width]="this.borderWidth()" [style.border-bottom-style]="this.borderStyle()" [style.border-bottom-color]="this.borderColor() || this.color() || null"></span>
+    <span
+      class="sp-divider-line"
+      [style.border-bottom-width]="this.borderWidth()"
+      [style.border-bottom-style]="this.borderStyle()"
+      [style.border-bottom-color]="this.borderColor() || this.color() || null"></span>
   </div>
 }
 
@@ -22,9 +32,9 @@
     [style.margin-bottom]="this.marginBottom()"
     [style.border-bottom-style]="this.orientation() === 'horizontal' ? this.borderStyle() : null"
     [style.border-bottom-width]="this.orientation() === 'horizontal' ? this.borderWidth() : null"
-    [style.border-bottom-color]="this.orientation() === 'horizontal' ? (this.borderColor() || this.color() || null) : null"
+    [style.border-bottom-color]="this.orientation() === 'horizontal' ? this.borderColor() || this.color() || null : null"
     [style.border-left-style]="this.orientation() === 'vertical' ? this.borderStyle() : null"
     [style.border-left-width]="this.orientation() === 'vertical' ? this.borderWidth() : null"
-    [style.border-left-color]="this.orientation() === 'vertical' ? (this.borderColor() || this.color() || null) : null"
+    [style.border-left-color]="this.orientation() === 'vertical' ? this.borderColor() || this.color() || null : null"
     [style.height]="this.orientation() === 'vertical' ? this.height() : null"></div>
 }

@@ -1,4 +1,15 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-marquee.component.scss
+// File description: Smooth continuous marquee scrolling styling and animation.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// ================================
 // Region: Host Sizing
+// ================================
 // Allow a marquee flex/grid item to shrink below its track's intrinsic width.
 sp-marquee {
   display: block;
@@ -77,7 +88,7 @@ sp-marquee {
   }
 
   // Hover and click pause states
-&.sp-marquee-paused .sp-marquee-track {
+  &.sp-marquee-paused .sp-marquee-track {
     animation-play-state: paused !important;
   }
 }

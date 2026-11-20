@@ -29,8 +29,9 @@
   user-select: none;
   flex-shrink: 0;
   line-height: 1;
-  transition: transform var(--sp-transition-fast) ease,
-              box-shadow var(--sp-transition-fast) ease;
+  transition:
+    transform var(--sp-transition-fast) ease,
+    box-shadow var(--sp-transition-fast) ease;
 
   // Shapes
   &.sp-avatar--circle {

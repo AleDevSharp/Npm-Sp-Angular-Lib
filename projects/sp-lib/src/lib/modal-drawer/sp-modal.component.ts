@@ -7,22 +7,22 @@
 // License: MIT
 // --------------------------------------------------------------
 
+import { CommonModule, DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
   ElementRef,
   HostListener,
   Inject,
-  OnDestroy,
-  Renderer2,
-  ViewChild,
-  computed,
-  effect,
   input,
   model,
-  output
+  OnDestroy,
+  output,
+  Renderer2,
+  ViewChild
 } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+
 import { SpModalSize } from './sp-modal-drawer.types';
 
 let modalUniqueId = 0;
@@ -129,9 +129,11 @@ export class SpModalComponent implements OnDestroy {
 
   /**
    * Handles the Escape key press from document.
+   * @param event The keyboard event
+   * @returns void
    */
   @HostListener('document:keydown.escape', ['$event'])
-  public onEscapeKey(event: KeyboardEvent): void {
+  public onEscapeKey(event: Event): void {
     if (this.visible() && this.closeOnEscape()) {
       event.preventDefault();
       this.close();

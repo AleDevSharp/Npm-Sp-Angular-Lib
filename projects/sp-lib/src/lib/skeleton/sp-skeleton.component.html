@@ -4,8 +4,7 @@
   role="status"
   aria-busy="true"
   aria-live="polite"
-  aria-label="Caricamento in corso..."
->
+  aria-label="Caricamento in corso...">
   @if (variant() === 'text' && lines() > 1) {
     <!-- Region: Multi-line Paragraph Placeholder -->
     <div class="sp-skeleton-paragraph">
@@ -15,8 +14,7 @@
           [class.sp-skeleton--animated]="animated()"
           [style.width]="getLineWidth(idx)"
           [style.height]="formattedHeight()"
-          [style.border-radius]="borderRadius()"
-        ></div>
+          [style.border-radius]="borderRadius()"></div>
       }
     </div>
   } @else {
@@ -29,7 +27,6 @@
       [class.sp-skeleton--animated]="animated()"
       [style.width]="formattedWidth()"
       [style.height]="formattedHeight()"
-      [style.border-radius]="borderRadius()"
-    ></div>
+      [style.border-radius]="borderRadius()"></div>
   }
 </div>

@@ -7,32 +7,28 @@
 // License: MIT
 // --------------------------------------------------------------
 
+import { CommonModule } from '@angular/common';
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
   Component,
+  computed,
   ContentChildren,
   DestroyRef,
+  effect,
   ElementRef,
   HostListener,
-  OnDestroy,
-  QueryList,
-  computed,
-  effect,
   inject,
   input,
   model,
+  OnDestroy,
   output,
+  QueryList,
   signal,
   viewChild
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  SpCarouselArrowsPlacement,
-  SpCarouselEffect,
-  SpCarouselIndicatorType,
-  SpCarouselItem
-} from './sp-carousel.types';
+
+import { SpCarouselArrowsPlacement, SpCarouselEffect, SpCarouselIndicatorType, SpCarouselItem } from './sp-carousel.types';
 import { SpCarouselSlideComponent } from './sp-carousel-slide.component';
 
 let carouselUniqueId = 0;

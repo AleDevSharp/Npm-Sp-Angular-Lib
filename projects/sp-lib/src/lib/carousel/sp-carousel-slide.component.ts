@@ -7,8 +7,8 @@
 // License: MIT
 // --------------------------------------------------------------
 
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 
 let slideUniqueId = 0;
 
@@ -31,26 +31,27 @@ let slideUniqueId = 0;
       [class.sp-carousel-slide-active]="isActive()"
       role="group"
       aria-roledescription="slide"
-      [attr.aria-label]="ariaLabel() || ('Diapositiva ' + slideIndex)"
-    >
+      [attr.aria-label]="ariaLabel() || 'Diapositiva ' + slideIndex">
       <ng-content></ng-content>
     </div>
   `,
-  styles: [`
-    :host {
-      display: block;
-      flex: 0 0 100%;
-      width: 100%;
-      min-width: 100%;
-      box-sizing: border-box;
-    }
+  styles: [
+    `
+      :host {
+        display: block;
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        box-sizing: border-box;
+      }
 
-    .sp-carousel-slide-inner {
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-    }
-  `],
+      .sp-carousel-slide-inner {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+    `
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpCarouselSlideComponent {

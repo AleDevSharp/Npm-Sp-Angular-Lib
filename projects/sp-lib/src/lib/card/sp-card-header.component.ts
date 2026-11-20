@@ -46,53 +46,55 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       </div>
     </div>
   `,
-  styles: [`
-    :host {
-      display: block;
-      width: 100%;
-    }
+  styles: [
+    `
+      :host {
+        display: block;
+        width: 100%;
+      }
 
-    .sp-card-header-inner {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
-    }
+      .sp-card-header-inner {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+      }
 
-    .sp-card-header-leading:empty,
-    .sp-card-header-trailing:empty {
-      display: none;
-    }
+      .sp-card-header-leading:empty,
+      .sp-card-header-trailing:empty {
+        display: none;
+      }
 
-    .sp-card-header-text {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
+      .sp-card-header-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
 
-    .sp-card-title {
-      margin: 0;
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--sp-text-primary, #0f172a);
-      line-height: 1.3;
-    }
+      .sp-card-title {
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--sp-text-primary, #0f172a);
+        line-height: 1.3;
+      }
 
-    .sp-card-subtitle {
-      margin: 0;
-      font-size: 0.8125rem;
-      color: var(--sp-text-secondary, #64748b);
-      line-height: 1.4;
-    }
+      .sp-card-subtitle {
+        margin: 0;
+        font-size: 0.8125rem;
+        color: var(--sp-text-secondary, #64748b);
+        line-height: 1.4;
+      }
 
-    .sp-card-header-trailing {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-    }
-  `],
+      .sp-card-header-trailing {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+      }
+    `
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpCardHeaderComponent {

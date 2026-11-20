@@ -26,18 +26,20 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <ng-content></ng-content>
     </div>
   `,
-  styles: [`
-    :host {
-      display: block;
-      width: 100%;
-    }
+  styles: [
+    `
+      :host {
+        display: block;
+        width: 100%;
+      }
 
-    .sp-card-content-inner {
-      font-size: 0.875rem;
-      line-height: 1.55;
-      color: var(--sp-text-secondary, #64748b);
-    }
-  `],
+      .sp-card-content-inner {
+        font-size: 0.875rem;
+        line-height: 1.55;
+        color: var(--sp-text-secondary, #64748b);
+      }
+    `
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpCardContentComponent {

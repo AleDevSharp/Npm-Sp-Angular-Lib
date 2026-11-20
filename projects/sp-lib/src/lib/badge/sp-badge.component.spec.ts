@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpBadgeComponent } from './sp-badge.component';
 
 describe('SpBadgeComponent', () => {

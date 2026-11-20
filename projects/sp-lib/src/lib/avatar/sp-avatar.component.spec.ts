@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpAvatarComponent } from './sp-avatar.component';
 
 describe('SpAvatarComponent', () => {
@@ -90,5 +91,4 @@ describe('SpAvatarComponent', () => {
     expect(avatar.getAttribute('aria-label')).toBe('Alex Morgan');
     expect(avatar.querySelector('.sp-avatar-status')).toBeNull();
   });
-
 });

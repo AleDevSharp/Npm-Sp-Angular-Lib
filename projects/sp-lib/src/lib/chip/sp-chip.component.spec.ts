@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+
 import { SpChipComponent } from './sp-chip.component';
 
 describe('SpChipComponent', () => {

@@ -9,6 +9,7 @@
 
 import { Component } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+
 import { SpTabComponent } from './sp-tab.component';
 import { SpTabsComponent } from './sp-tabs.component';
 
@@ -16,14 +17,21 @@ import { SpTabsComponent } from './sp-tabs.component';
   standalone: true,
   imports: [SpTabsComponent, SpTabComponent],
   template: `
-    <sp-tabs [(selectedIndex)]="currentIndex" [variant]="variant" [orientation]="orientation">
-      <sp-tab label="Overview" badge="3">
+    <sp-tabs
+      [(selectedIndex)]="currentIndex"
+      [variant]="variant"
+      [orientation]="orientation">
+      <sp-tab
+        label="Overview"
+        badge="3">
         <p class="tab-1-content">Overview Content</p>
       </sp-tab>
       <sp-tab label="Analytics">
         <p class="tab-2-content">Analytics Content</p>
       </sp-tab>
-      <sp-tab label="Reports" [disabled]="true">
+      <sp-tab
+        label="Reports"
+        [disabled]="true">
         <p class="tab-3-content">Reports Content</p>
       </sp-tab>
       <sp-tab label="Settings">
@@ -151,5 +159,4 @@ describe('SpTabsComponent', () => {
     expect(tabs.indicatorTop()).toBe(header.offsetTop);
     expect(tabs.indicatorHeight()).toBe(header.offsetHeight);
   }));
-
 });

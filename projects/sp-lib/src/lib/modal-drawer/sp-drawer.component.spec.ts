@@ -7,8 +7,9 @@
 // License: MIT
 // --------------------------------------------------------------
 
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpDrawerComponent } from './sp-drawer.component';
 
 @Component({
@@ -23,8 +24,7 @@ import { SpDrawerComponent } from './sp-drawer.component';
       [closeOnEscape]="closeOnEscape"
       [closeOnBackdrop]="closeOnBackdrop"
       (opened)="onOpened()"
-      (closed)="onClosed()"
-    >
+      (closed)="onClosed()">
       <p class="drawer-content">Pannello di navigazione laterale</p>
       <div spDrawerFooter>
         <button class="drawer-footer-btn">Salva</button>

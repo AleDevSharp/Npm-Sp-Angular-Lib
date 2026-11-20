@@ -9,15 +9,7 @@
 
 // Import
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  forwardRef,
-  input,
-  model,
-  output,
-  signal
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, model, output, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { SpToggleListLayout, SpToggleListMode, SpToggleListOption } from './sp-toggle-list.types';

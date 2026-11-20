@@ -8,15 +8,13 @@
   [class.sp-tabs--enclosed]="variant() === 'enclosed'"
   [class.sp-tabs--sm]="size() === 'sm'"
   [class.sp-tabs--md]="size() === 'md'"
-  [class.sp-tabs--lg]="size() === 'lg'"
->
+  [class.sp-tabs--lg]="size() === 'lg'">
   <!-- Region: Tablist Navigation Header -->
   <div
     class="sp-tablist"
     role="tablist"
     [attr.aria-orientation]="orientation()"
-    (keydown)="onKeyDown($event)"
-  >
+    (keydown)="onKeyDown($event)">
     <!-- Sliding Physical Indicator -->
     <div
       class="sp-tabs-indicator"
@@ -24,8 +22,7 @@
       [style.transform]="'translate3d(' + indicatorLeft() + 'px, ' + indicatorTop() + 'px, 0)'"
       [style.width.px]="indicatorWidth()"
       [style.height.px]="indicatorHeight()"
-      aria-hidden="true"
-    ></div>
+      aria-hidden="true"></div>
 
     <!-- Tab Header Buttons -->
     @for (tab of tabs(); track tab.headerId; let idx = $index) {
@@ -42,10 +39,12 @@
         [attr.aria-disabled]="tab.disabled()"
         [disabled]="tab.disabled()"
         [tabindex]="selectedIndex() === idx ? 0 : -1"
-        (click)="selectTab(idx)"
-      >
+        (click)="selectTab(idx)">
         @if (tab.icon()) {
-          <span class="sp-tab-icon" [innerHTML]="tab.icon()" aria-hidden="true"></span>
+          <span
+            class="sp-tab-icon"
+            [innerHTML]="tab.icon()"
+            aria-hidden="true"></span>
         }
 
         <span class="sp-tab-label">{{ tab.label() }}</span>

@@ -46,8 +46,9 @@
       border-radius: var(--sp-radius-lg);
       box-shadow: var(--sp-shadow-xs);
       overflow: hidden;
-      transition: border-color var(--sp-transition-fast) ease,
-                  box-shadow var(--sp-transition-fast) ease;
+      transition:
+        border-color var(--sp-transition-fast) ease,
+        box-shadow var(--sp-transition-fast) ease;
 
       &.sp-accordion-item--expanded {
         border-color: var(--sp-border-strong);

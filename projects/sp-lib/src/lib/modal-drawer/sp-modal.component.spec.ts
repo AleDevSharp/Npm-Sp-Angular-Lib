@@ -7,8 +7,9 @@
 // License: MIT
 // --------------------------------------------------------------
 
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpModalComponent } from './sp-modal.component';
 
 @Component({
@@ -22,8 +23,7 @@ import { SpModalComponent } from './sp-modal.component';
       [closeOnEscape]="closeOnEscape"
       [closeOnBackdrop]="closeOnBackdrop"
       (opened)="onOpened()"
-      (closed)="onClosed()"
-    >
+      (closed)="onClosed()">
       <p class="test-content">Contenuto modale di prova</p>
       <div spModalFooter>
         <button class="footer-btn">Azione</button>

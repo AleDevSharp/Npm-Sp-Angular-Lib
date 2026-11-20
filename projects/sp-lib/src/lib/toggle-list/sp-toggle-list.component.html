@@ -6,8 +6,7 @@
   [class.sp-toggle-list--disabled]="isControlDisabled()"
   [style.grid-template-columns]="layout() === 'grid' ? 'repeat(' + columns() + ', minmax(0, 1fr))' : null"
   [attr.role]="mode() === 'single' ? 'radiogroup' : 'group'"
-  [attr.aria-disabled]="isControlDisabled()"
->
+  [attr.aria-disabled]="isControlDisabled()">
   <!-- Region: Option Cards -->
   @for (option of options(); track option.value) {
     <div
@@ -17,24 +16,28 @@
       [attr.role]="mode() === 'single' ? 'radio' : 'checkbox'"
       [attr.aria-checked]="isSelected(option)"
       [attr.aria-disabled]="option.disabled || isControlDisabled()"
-      [tabindex]="(option.disabled || isControlDisabled()) ? -1 : 0"
+      [tabindex]="option.disabled || isControlDisabled() ? -1 : 0"
       (click)="toggleOption(option)"
       (keydown)="onKeyDown($event, option)"
-      (blur)="markAsTouched()"
-    >
+      (blur)="markAsTouched()">
       <!-- Region: Selection Indicator (Radio / Checkbox) -->
-      <div class="sp-toggle-indicator" [class.sp-toggle-indicator--checkbox]="mode() === 'multiple'" aria-hidden="true">
+      <div
+        class="sp-toggle-indicator"
+        [class.sp-toggle-indicator--checkbox]="mode() === 'multiple'"
+        aria-hidden="true">
         @if (mode() === 'single') {
           <div class="sp-toggle-radio-dot"></div>
         } @else {
-          <svg class="sp-toggle-check-icon" viewBox="0 0 16 16" fill="none">
+          <svg
+            class="sp-toggle-check-icon"
+            viewBox="0 0 16 16"
+            fill="none">
             <path
               d="M3.5 8.5L6.5 11.5L12.5 4.5"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round" />
           </svg>
         }
       </div>
@@ -43,7 +46,9 @@
       <div class="sp-toggle-body">
         <div class="sp-toggle-header">
           @if (option.icon) {
-            <span class="sp-toggle-icon" [innerHTML]="option.icon"></span>
+            <span
+              class="sp-toggle-icon"
+              [innerHTML]="option.icon"></span>
           }
 
           <span class="sp-toggle-label">{{ option.label }}</span>

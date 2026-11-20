@@ -42,7 +42,9 @@
 
   <!-- Region: Error Message -->
   @if (this.hasError() && this.errorMessage()) {
-    <p class="sp-switch-error" role="alert">
+    <p
+      class="sp-switch-error"
+      role="alert">
       {{ this.errorMessage() }}
     </p>
   }

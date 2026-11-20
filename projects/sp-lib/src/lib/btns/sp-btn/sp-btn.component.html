@@ -19,11 +19,15 @@
   (click)="this.onClick($event)">
   <!-- Region: Loading Spinner -->
   @if (this.loading()) {
-    <span class="sp-btn-spinner" aria-hidden="true"></span>
+    <span
+      class="sp-btn-spinner"
+      aria-hidden="true"></span>
   }
 
   <!-- Region: Label / Projected Content -->
-  <span class="sp-btn-content" [class.sp-btn-content-hidden]="this.loading()">
+  <span
+    class="sp-btn-content"
+    [class.sp-btn-content-hidden]="this.loading()">
     @if (this.text()) {
       {{ this.text() }}
     }

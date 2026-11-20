@@ -23,11 +23,12 @@
     [attr.tabindex]="(clickable() || removable()) && !disabled() ? 0 : null"
     [attr.aria-disabled]="disabled()"
     (click)="onClick()"
-    (keydown)="onKeyDown($event)"
-  >
+    (keydown)="onKeyDown($event)">
     <!-- Region: Leading Icon or Projected Prefix -->
     @if (icon()) {
-      <span class="sp-chip-icon" [innerHTML]="icon()"></span>
+      <span
+        class="sp-chip-icon"
+        [innerHTML]="icon()"></span>
     }
     <ng-content select="[prefix]"></ng-content>
 
@@ -44,15 +45,15 @@
         class="sp-chip-remove"
         [disabled]="disabled()"
         aria-label="Rimuovi"
-        (click)="onRemove($event)"
-      >
-        <svg viewBox="0 0 14 14" fill="none">
+        (click)="onRemove($event)">
+        <svg
+          viewBox="0 0 14 14"
+          fill="none">
           <path
             d="M3.5 3.5L10.5 10.5M10.5 3.5L3.5 10.5"
             stroke="currentColor"
             stroke-width="1.75"
-            stroke-linecap="round"
-          />
+            stroke-linecap="round" />
         </svg>
       </button>
     }

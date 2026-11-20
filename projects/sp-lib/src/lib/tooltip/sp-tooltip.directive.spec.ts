@@ -79,29 +79,29 @@ describe('SpTooltipDirective', () => {
     expect(document.querySelector('.sp-tooltip-panel')).toBeFalsy();
   }));
   for (const position of ['top', 'bottom', 'left', 'right'] as const) {
-    it('should anchor the rendered panel correctly on the ' + position + ' side', fakeAsync(() => {
-      fixture.componentInstance.position = position;
-      fixture.detectChanges();
-      const button = fixture.nativeElement.querySelector('#test-btn') as HTMLButtonElement;
-      spyOn(button, 'getBoundingClientRect').and.returnValue(new DOMRect(300, 200, 120, 36));
+    it(
+      'should anchor the rendered panel correctly on the ' + position + ' side',
+      fakeAsync(() => {
+        fixture.componentInstance.position = position;
+        fixture.detectChanges();
+        const button = fixture.nativeElement.querySelector('#test-btn') as HTMLButtonElement;
+        spyOn(button, 'getBoundingClientRect').and.returnValue(new DOMRect(300, 200, 120, 36));
 
-      button.dispatchEvent(new MouseEvent('mouseenter'));
-      tick(60);
+        button.dispatchEvent(new MouseEvent('mouseenter'));
+        tick(60);
 
-      const panel = document.querySelector('.sp-tooltip-panel') as HTMLElement;
-      expect(panel.textContent).toContain('Informazione di test');
-      const width = panel.offsetWidth;
-      const height = panel.offsetHeight;
-      const expectedLeft = position === 'left' ? 300 - width - 8
-        : position === 'right' ? 428 : 360 - width / 2;
-      const expectedTop = position === 'top' ? 200 - height - 8
-        : position === 'bottom' ? 244 : 218 - height / 2;
-      expect(parseFloat(panel.style.left)).toBe(Math.round(expectedLeft));
-      expect(parseFloat(panel.style.top)).toBe(Math.round(expectedTop));
-      expect(panel.classList.contains('pos-' + position)).toBeTrue();
+        const panel = document.querySelector('.sp-tooltip-panel') as HTMLElement;
+        expect(panel.textContent).toContain('Informazione di test');
+        const width = panel.offsetWidth;
+        const height = panel.offsetHeight;
+        const expectedLeft = position === 'left' ? 300 - width - 8 : position === 'right' ? 428 : 360 - width / 2;
+        const expectedTop = position === 'top' ? 200 - height - 8 : position === 'bottom' ? 244 : 218 - height / 2;
+        expect(parseFloat(panel.style.left)).toBe(Math.round(expectedLeft));
+        expect(parseFloat(panel.style.top)).toBe(Math.round(expectedTop));
+        expect(panel.classList.contains('pos-' + position)).toBeTrue();
 
-      button.dispatchEvent(new MouseEvent('mouseleave'));
-    }));
+        button.dispatchEvent(new MouseEvent('mouseleave'));
+      })
+    );
   }
-
 });

@@ -29,11 +29,12 @@
   user-select: none;
   box-sizing: border-box;
   overflow: hidden;
-  transition: background-color var(--sp-transition-fast) ease,
-              border-color var(--sp-transition-fast) ease,
-              color var(--sp-transition-fast) ease,
-              box-shadow var(--sp-transition-fast) ease,
-              transform var(--sp-transition-fast) ease;
+  transition:
+    background-color var(--sp-transition-fast) ease,
+    border-color var(--sp-transition-fast) ease,
+    color var(--sp-transition-fast) ease,
+    box-shadow var(--sp-transition-fast) ease,
+    transform var(--sp-transition-fast) ease;
 
   &.sp-chip--clickable {
     cursor: pointer;
@@ -177,8 +178,9 @@
   color: inherit;
   opacity: 0.65;
   cursor: pointer;
-  transition: opacity var(--sp-transition-fast) ease,
-              background-color var(--sp-transition-fast) ease;
+  transition:
+    opacity var(--sp-transition-fast) ease,
+    background-color var(--sp-transition-fast) ease;
 
   &:hover {
     opacity: 1;

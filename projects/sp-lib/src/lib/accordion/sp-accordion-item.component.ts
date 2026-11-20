@@ -9,14 +9,7 @@
 
 // Import
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  input,
-  model,
-  Optional
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, input, model, Optional } from '@angular/core';
 
 import { SP_ACCORDION, SpAccordionContainer } from './sp-accordion.types';
 

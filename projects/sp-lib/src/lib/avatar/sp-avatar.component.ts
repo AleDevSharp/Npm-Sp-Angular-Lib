@@ -9,14 +9,7 @@
 
 // Import
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  effect,
-  input,
-  signal
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, input, signal } from '@angular/core';
 
 import { SpAvatarShape, SpAvatarSize, SpAvatarStatus } from './sp-avatar.types';
 
@@ -31,7 +24,7 @@ const GRADIENT_PALETTES: [string, string][] = [
   ['#f59e0b', '#d97706'], // Amber to Orange
   ['#8b5cf6', '#d946ef'], // Purple to Fuchsia
   ['#3b82f6', '#1d4ed8'], // Blue to Dark Blue
-  ['#14b8a6', '#0ea5e9']  // Teal to Sky
+  ['#14b8a6', '#0ea5e9'] // Teal to Sky
 ];
 
 /**

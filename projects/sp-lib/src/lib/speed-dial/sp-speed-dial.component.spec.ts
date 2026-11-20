@@ -7,7 +7,8 @@
 // License: MIT
 // --------------------------------------------------------------
 
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+
 import { SpSpeedDialComponent } from './sp-speed-dial.component';
 import { SpSpeedDialItem } from './sp-speed-dial.types';
 
@@ -183,7 +184,8 @@ describe('SpSpeedDialComponent', () => {
     expect(root.classList.contains('sp-speed-dial-right')).toBeTrue();
     const buttons = fixture.nativeElement.querySelectorAll('.sp-speed-dial-action-btn');
     expect(Array.from(buttons).every((button: any) => button.tabIndex === -1)).toBeTrue();
-    component.open(); fixture.detectChanges();
+    component.open();
+    fixture.detectChanges();
     expect(buttons[0].tabIndex).toBe(0);
     expect(buttons[2].tabIndex).toBe(-1);
   });

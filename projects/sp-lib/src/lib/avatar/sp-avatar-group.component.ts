@@ -9,12 +9,7 @@
 
 // Import
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 import { SpAvatarComponent } from './sp-avatar.component';
 import { SpAvatarItem, SpAvatarShape, SpAvatarSize } from './sp-avatar.types';

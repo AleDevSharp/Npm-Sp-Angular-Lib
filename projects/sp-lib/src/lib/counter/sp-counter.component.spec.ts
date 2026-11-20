@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+
 import { SpCounterComponent } from './sp-counter.component';
 
 describe('SpCounterComponent', () => {

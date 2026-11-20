@@ -7,11 +7,12 @@
 // License: MIT
 // --------------------------------------------------------------
 
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Component } from '@angular/core';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+
 import { SpCarouselComponent } from './sp-carousel.component';
-import { SpCarouselSlideComponent } from './sp-carousel-slide.component';
 import { SpCarouselItem } from './sp-carousel.types';
+import { SpCarouselSlideComponent } from './sp-carousel-slide.component';
 
 @Component({
   standalone: true,
@@ -24,8 +25,7 @@ import { SpCarouselItem } from './sp-carousel.types';
       [autoplay]="isAutoplay"
       [interval]="1000"
       [indicatorType]="indicatorType"
-      (slideChange)="onSlideChange($event)"
-    >
+      (slideChange)="onSlideChange($event)">
       @if (useCustomSlides) {
         <sp-carousel-slide ariaLabel="Custom Slide 1">
           <div class="custom-card">Custom Slide 1</div>

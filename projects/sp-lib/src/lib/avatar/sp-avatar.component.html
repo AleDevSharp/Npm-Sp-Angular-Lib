@@ -10,19 +10,19 @@
   [class.sp-avatar--xl]="size() === 'xl'"
   [style.background]="shouldShowImage() ? null : avatarGradient()"
   [attr.aria-label]="(name() || alt() || 'Avatar') + (status() ? ' — ' + status() : '')"
-  role="img"
->
+  role="img">
   <!-- Region: User Photo Image -->
   @if (shouldShowImage()) {
     <img
       class="sp-avatar-img"
       [src]="src()"
       [alt]="alt() || name() || 'Avatar'"
-      (error)="onImageError()"
-    />
+      (error)="onImageError()" />
   } @else {
     <!-- Region: Initials Fallback -->
-    <span class="sp-avatar-initials" aria-hidden="true">
+    <span
+      class="sp-avatar-initials"
+      aria-hidden="true">
       {{ initials() }}
     </span>
   }
@@ -36,7 +36,6 @@
       [class.sp-avatar-status--busy]="status() === 'busy'"
       [class.sp-avatar-status--away]="status() === 'away'"
       [attr.title]="status()"
-      aria-hidden="true"
-    ></span>
+      aria-hidden="true"></span>
   }
 </div>

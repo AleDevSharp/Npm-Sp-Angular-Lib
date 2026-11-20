@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpMarqueeComponent } from './sp-marquee.component';
 
 describe('SpMarqueeComponent', () => {
@@ -107,7 +108,8 @@ describe('SpMarqueeComponent', () => {
     wrapper.dispatchEvent(new MouseEvent('mouseleave'));
     fixture.detectChanges();
     expect(component.isEffectivelyPaused()).toBeTrue();
-    component.play(); fixture.detectChanges();
+    component.play();
+    fixture.detectChanges();
     expect(component.isEffectivelyPaused()).toBeFalse();
     expect(wrapper.classList.contains('sp-marquee-paused')).toBeFalse();
   });

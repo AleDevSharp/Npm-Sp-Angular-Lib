@@ -8,6 +8,7 @@
 // --------------------------------------------------------------
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpSkeletonComponent } from './sp-skeleton.component';
 
 describe('SpSkeletonComponent', () => {

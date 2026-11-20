@@ -169,7 +169,7 @@ export class SpSegmentedControlComponent<T = any> implements ControlValueAccesso
       return;
     }
 
-    const currentIndex = availableOptions.findIndex(opt => opt.value === this.value());
+    const currentIndex = availableOptions.findIndex((opt) => opt.value === this.value());
 
     let nextIndex = -1;
 
@@ -233,7 +233,7 @@ export class SpSegmentedControlComponent<T = any> implements ControlValueAccesso
         return;
       }
 
-      const activeIndex = options.findIndex(opt => opt.value === currentValue);
+      const activeIndex = options.findIndex((opt) => opt.value === currentValue);
 
       if (activeIndex === -1 || !buttons[activeIndex]) {
         this.indicatorReady.set(false);

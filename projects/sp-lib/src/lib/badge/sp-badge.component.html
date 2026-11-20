@@ -23,10 +23,11 @@
     [class.sp-badge--success]="color() === 'success'"
     [class.sp-badge--warning]="color() === 'warning'"
     [class.sp-badge--danger]="color() === 'danger'"
-    [class.sp-badge--info]="color() === 'info'"
-  >
+    [class.sp-badge--info]="color() === 'info'">
     @if (pulse()) {
-      <span class="sp-badge-ping" aria-hidden="true"></span>
+      <span
+        class="sp-badge-ping"
+        aria-hidden="true"></span>
     }
 
     @if (!isDotMode()) {

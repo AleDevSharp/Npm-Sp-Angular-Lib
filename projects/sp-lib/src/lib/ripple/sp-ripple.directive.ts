@@ -8,17 +8,7 @@
 // --------------------------------------------------------------
 
 // Import
-import {
-  Directive,
-  ElementRef,
-  HostBinding,
-  HostListener,
-  NgZone,
-  Renderer2,
-  computed,
-  inject,
-  input
-} from '@angular/core';
+import { computed, Directive, ElementRef, HostBinding, HostListener, inject, input, NgZone, Renderer2 } from '@angular/core';
 
 import { SP_RIPPLE_DEFAULT_DURATION, SpRippleConfig } from './sp-ripple.types';
 
@@ -84,9 +74,7 @@ export class SpRippleDirective {
 
   // Base host class shared by bounded and unbounded ripple modes
   @HostBinding('class.sp-ripple-host')
-  public get hasRippleHost(): boolean {
-    return true;
-  }
+  public readonly hasRippleHost = true;
 
   // Host class binding for unbounded ripple
   @HostBinding('class.sp-ripple-unbounded')
@@ -129,12 +117,11 @@ export class SpRippleDirective {
 
   /**
    * Handles keyboard activation (Enter or Space) on interactive elements.
-   * @param event The keyboard event
    * @returns void
    */
-  @HostListener('keydown.enter', ['$event'])
-  @HostListener('keydown.space', ['$event'])
-  public onKeydown(event: KeyboardEvent): void {
+  @HostListener('keydown.enter')
+  @HostListener('keydown.space')
+  public onKeydown(): void {
     if (this.isDisabled()) {
       return;
     }
@@ -180,12 +167,7 @@ export class SpRippleDirective {
    * @param config Optional runtime config overrides
    * @returns void
    */
-  private createRipple(
-    clientX: number,
-    clientY: number,
-    rect: DOMRect,
-    config?: SpRippleConfig
-  ): void {
+  private createRipple(clientX: number, clientY: number, rect: DOMRect, config?: SpRippleConfig): void {
     const host = this.elementRef.nativeElement;
     const duration = config?.duration ?? this.spRippleDuration();
     const color = config?.color ?? this.activeColor();
@@ -206,10 +188,7 @@ export class SpRippleDirective {
     // Radius calculation to cover the farthest corner
     const radius = unbounded
       ? Math.max(rect.width, rect.height) / 2
-      : Math.hypot(
-          Math.max(relativeX, rect.width - relativeX),
-          Math.max(relativeY, rect.height - relativeY)
-        );
+      : Math.hypot(Math.max(relativeX, rect.width - relativeX), Math.max(relativeY, rect.height - relativeY));
 
     const diameter = radius * 2;
     const ink = this.renderer.createElement('span') as HTMLElement;

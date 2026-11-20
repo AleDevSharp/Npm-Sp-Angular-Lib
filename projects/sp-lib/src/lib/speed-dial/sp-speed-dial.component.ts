@@ -11,15 +11,15 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
   HostListener,
-  OnDestroy,
-  ViewEncapsulation,
-  computed,
   inject,
   input,
   model,
-  output
+  OnDestroy,
+  output,
+  ViewEncapsulation
 } from '@angular/core';
 
 import { SpRippleDirective } from '../ripple/sp-ripple.directive';
@@ -124,9 +124,11 @@ export class SpSpeedDialComponent implements OnDestroy {
   public readonly itemClick = output<SpSpeedDialItem>();
 
   // The event emitted whenever the speed dial opens
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   public readonly onOpen = output<void>();
 
   // The event emitted whenever the speed dial closes
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   public readonly onClose = output<void>();
 
   // ================================
@@ -146,7 +148,7 @@ export class SpSpeedDialComponent implements OnDestroy {
    * @returns void
    */
   @HostListener('document:keydown.escape', ['$event'])
-  public handleEscape(event: KeyboardEvent): void {
+  public handleEscape(event: Event): void {
     if (this.opened() && !this.disabled()) {
       event.preventDefault();
       this.close();
@@ -295,7 +297,7 @@ export class SpSpeedDialComponent implements OnDestroy {
    * @param total The total count of action items
    * @returns An object containing CSS custom properties
    */
-  public getItemStyle(index: number, total: number): { [key: string]: string | number } {
+  public getItemStyle(index: number, total: number): Record<string, string | number> {
     const layout = this.type();
     const isOpened = this.opened();
 
@@ -314,7 +316,7 @@ export class SpSpeedDialComponent implements OnDestroy {
     const rad = Math.max(0, this.radius());
     const span = layout === 'semi-circle' ? 180 : 90;
     const baseAngle = this.getBaseAngleForDirection(this.direction());
-    const angle = total > 1 ? baseAngle - span / 2 + index * span / (total - 1) : baseAngle;
+    const angle = total > 1 ? baseAngle - span / 2 + (index * span) / (total - 1) : baseAngle;
 
     const radAngle = (angle * Math.PI) / 180;
     const tx = Math.round(rad * Math.cos(radAngle));

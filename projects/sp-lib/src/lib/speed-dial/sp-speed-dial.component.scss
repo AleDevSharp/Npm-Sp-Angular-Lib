@@ -1,4 +1,19 @@
-sp-speed-dial { display: inline-flex; vertical-align: middle; }
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: sp-speed-dial.component.scss
+// File description: Floating action button speed dial, radial/linear item expansion.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// ================================
+// Region: Host Sizing
+// ================================
+sp-speed-dial {
+  display: inline-flex;
+  vertical-align: middle;
+}
 
 // ================================
 // Region: Variables & Mixins
@@ -35,7 +50,9 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
   z-index: 1;
   user-select: none;
 
-  &.sp-speed-dial-opened { z-index: 1000; }
+  &.sp-speed-dial-opened {
+    z-index: 1000;
+  }
 
   &.sp-speed-dial-disabled {
     opacity: 0.55;
@@ -57,7 +74,9 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
   cursor: pointer;
   outline: none;
   overflow: hidden;
-  box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.22), 0 4px 10px -2px rgb(0 0 0 / 0.12);
+  box-shadow:
+    0 8px 24px -4px rgb(0 0 0 / 0.22),
+    0 4px 10px -2px rgb(0 0 0 / 0.12);
   transition:
     transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.25s ease,
@@ -65,7 +84,9 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
 
   &:hover:not(:disabled) {
     transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 12px 28px -4px rgb(0 0 0 / 0.28), 0 6px 14px -2px rgb(0 0 0 / 0.16);
+    box-shadow:
+      0 12px 28px -4px rgb(0 0 0 / 0.28),
+      0 6px 14px -2px rgb(0 0 0 / 0.16);
   }
 
   &:active:not(:disabled) {
@@ -249,7 +270,9 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0.3);
-  transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition:
+    opacity 0.22s ease,
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition-delay: var(--item-delay, 0ms);
 }
 
@@ -265,7 +288,9 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
 }
 
 .sp-speed-dial-item:hover,
-.sp-speed-dial-item:focus-within { z-index: 2; }
+.sp-speed-dial-item:focus-within {
+  z-index: 2;
+}
 
 // ================================
 // Region: Action Buttons
@@ -351,7 +376,9 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
   background-color: var(--sp-bg-canvas, #ffffff);
   color: var(--sp-text-primary, #0f172a);
   font-weight: 500;
-  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.14), 0 1px 3px rgb(0 0 0 / 0.08);
+  box-shadow:
+    0 4px 12px -2px rgb(0 0 0 / 0.14),
+    0 1px 3px rgb(0 0 0 / 0.08);
   border: 1px solid var(--sp-border-color, #e2e8f0);
   cursor: pointer;
   transition:
@@ -389,7 +416,9 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
   white-space: nowrap;
 }
 
-.sp-speed-dial-label:hover { transform: translateY(-50%); }
+.sp-speed-dial-label:hover {
+  transform: translateY(-50%);
+}
 
 .sp-speed-dial-left .sp-speed-dial-label,
 .sp-speed-dial-right .sp-speed-dial-label,
@@ -404,4 +433,7 @@ sp-speed-dial { display: inline-flex; vertical-align: middle; }
 }
 
 .sp-speed-dial-item:hover .sp-speed-dial-label,
-.sp-speed-dial-item:focus-within .sp-speed-dial-label { opacity: 1; pointer-events: auto; }
+.sp-speed-dial-item:focus-within .sp-speed-dial-label {
+  opacity: 1;
+  pointer-events: auto;
+}
