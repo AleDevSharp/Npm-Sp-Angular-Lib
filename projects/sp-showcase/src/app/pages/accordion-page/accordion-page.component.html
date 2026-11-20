@@ -1,65 +1,87 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'accordion.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'accordion.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'accordion.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'accordion.003' | translate }}</h3>
-    <p class="section-desc">{{ 'accordion.004' | translate }} <code>multi</code>{{ 'accordion.005' | translate }}</p>
+    <p class="section-desc">
+      {{ 'accordion.004' | translate }}
+      <code>multi</code>
+      {{ 'accordion.005' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="accordion-demo-column">
           <div class="controls-row">
-            <span>{{ 'accordion.006' | translate }} <strong>{{ (isMulti() ? 'Multipla (pannelli indipendenti)' : 'Esclusiva (uno alla volta)') | translate }}</strong></span>
+            <span>
+              {{ 'accordion.006' | translate }}
+              <strong>{{ (isMulti() ? 'Multipla (pannelli indipendenti)' : 'Esclusiva (uno alla volta)') | translate }}</strong>
+            </span>
             <sp-btn
               [text]="(isMulti() ? 'Imposta Esclusiva' : 'Imposta Multipla') | translate"
               size="sm"
               variant="outline"
-              (buttonClick)="toggleMulti()"
-            ></sp-btn>
+              (buttonClick)="toggleMulti()"></sp-btn>
           </div>
 
-          <sp-accordion [multi]="isMulti()" variant="contained">
+          <sp-accordion
+            [multi]="isMulti()"
+            variant="contained">
             <sp-accordion-item
               [title]="'accordion.011' | translate"
               [subtitle]="'accordion.012' | translate"
               [expanded]="true"
-              icon="↓"
-            >
-              {{ 'accordion.013' | translate }} <code>npm install &#64;aledevsharp/sp-lib</code>{{ 'accordion.014' | translate }} <code>imports</code> {{ 'accordion.015' | translate }}
+              icon="↓">
+              {{ 'accordion.013' | translate }}
+              <code>npm install &#64;aledevsharp/sp-lib</code>
+              {{ 'accordion.014' | translate }}
+              <code>imports</code>
+              {{ 'accordion.015' | translate }}
             </sp-accordion-item>
 
             <sp-accordion-item
               [title]="'accordion.016' | translate"
               [subtitle]="'accordion.017' | translate"
-              icon="◐"
-            >
-              {{ 'accordion.018' | translate }} <code>data-theme</code>{{ 'accordion.019' | translate }}
+              icon="◐">
+              {{ 'accordion.018' | translate }}
+              <code>data-theme</code>
+              {{ 'accordion.019' | translate }}
             </sp-accordion-item>
 
             <sp-accordion-item
               [title]="'accordion.020' | translate"
               [subtitle]="'accordion.021' | translate"
-              icon="ϟ"
-            >
-              {{ 'accordion.022' | translate }} <code>grid-template-rows: 0fr</code> {{ 'accordion.023' | translate }} <code>1fr</code>{{ 'accordion.024' | translate }}
+              icon="ϟ">
+              {{ 'accordion.022' | translate }}
+              <code>grid-template-rows: 0fr</code>
+              {{ 'accordion.023' | translate }}
+              <code>1fr</code>
+              {{ 'accordion.024' | translate }}
             </sp-accordion-item>
 
             <sp-accordion-item
               [title]="'accordion.025' | translate"
               [subtitle]="'accordion.026' | translate"
-              [disabled]="true"
-            >
+              [disabled]="true">
               {{ 'accordion.027' | translate }}
             </sp-accordion-item>
           </sp-accordion>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="accordion-demo-column"&gt;
   &lt;div class="controls-row"&gt;
     &lt;span&gt;Modalità corrente: &lt;strong&gt;&#123;&#123; isMulti() ? 'Multipla (pannelli indipendenti)' : 'Esclusiva (uno alla volta)' &#125;&#125;&lt;/strong&gt;&lt;/span&gt;
@@ -108,8 +130,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.032' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.033' | translate"><code>// The multiple-panel expansion mode
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.032' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.033' | translate"><code>// The multiple-panel expansion mode
 public readonly isMulti = signal&lt;boolean&gt;(false);
 
 /**
@@ -125,30 +153,40 @@ public toggleMulti(): void &#123;
 
   <div class="doc-section">
     <h3>{{ 'accordion.034' | translate }}</h3>
-    <p class="section-desc">{{ 'accordion.035' | translate }} <code>[multi]="true"</code>{{ 'accordion.036' | translate }}</p>
+    <p class="section-desc">
+      {{ 'accordion.035' | translate }}
+      <code>[multi]="true"</code>
+      {{ 'accordion.036' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="accordion-demo-column">
-          <sp-accordion [multi]="true" variant="separated">
+          <sp-accordion
+            [multi]="true"
+            variant="separated">
             <sp-accordion-item
               [title]="'accordion.037' | translate"
-              [subtitle]="'accordion.038' | translate"
-            >
+              [subtitle]="'accordion.038' | translate">
               {{ 'accordion.039' | translate }}
             </sp-accordion-item>
 
             <sp-accordion-item
               [title]="'accordion.040' | translate"
-              [subtitle]="'accordion.041' | translate"
-            >
+              [subtitle]="'accordion.041' | translate">
               {{ 'accordion.042' | translate }}
             </sp-accordion-item>
           </sp-accordion>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="accordion-demo-column"&gt;
   &lt;sp-accordion [multi]="true" variant="separated"&gt;
     &lt;sp-accordion-item
@@ -175,8 +213,14 @@ public toggleMulti(): void &#123;
     <p class="section-desc">{{ 'accordion.044' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; SpAccordionComponent, SpAccordionItemComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -191,8 +235,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>.accordion-demo-column &#123; width: 100%; min-width: 0; &#125;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>.accordion-demo-column &#123; width: 100%; min-width: 0; &#125;
 
 .controls-row &#123;
   display: flex;
@@ -219,11 +269,33 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'accordion.049' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>multi</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'accordion.054' | translate }}</td></tr>
-          <tr><td><code>variant</code></td><td><code>'contained' | 'separated' | 'ghost'</code></td><td><code>'contained'</code></td><td>{{ 'accordion.055' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'accordion.056' | translate }}</td></tr>
+          <tr>
+            <td><code>multi</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'accordion.054' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>variant</code></td>
+            <td><code>'contained' | 'separated' | 'ghost'</code></td>
+            <td><code>'contained'</code></td>
+            <td>{{ 'accordion.055' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'accordion.056' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -233,13 +305,45 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'accordion.057' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>title</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'accordion.058' | translate }}</td></tr>
-          <tr><td><code>subtitle</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'accordion.059' | translate }}</td></tr>
-          <tr><td><code>icon</code></td><td><code>string | undefined</code></td><td><code>undefined</code></td><td>{{ 'accordion.060' | translate }}</td></tr>
-          <tr><td><code>expanded</code></td><td><code>ModelSignal&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'accordion.061' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'accordion.062' | translate }}</td></tr>
+          <tr>
+            <td><code>title</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'accordion.058' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>subtitle</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'accordion.059' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>icon</code></td>
+            <td><code>string | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'accordion.060' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>expanded</code></td>
+            <td><code>ModelSignal&lt;boolean&gt;</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'accordion.061' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'accordion.062' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

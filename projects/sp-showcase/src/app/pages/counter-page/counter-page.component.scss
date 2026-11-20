@@ -7,6 +7,9 @@
 // License: MIT
 // --------------------------------------------------------------
 
+// ================================
+// Region: KPI Stats Grid
+// ================================
 .kpi-stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
@@ -21,7 +24,9 @@
   background: var(--sp-bg-secondary, rgba(255, 255, 255, 0.03));
   border: 1px solid var(--sp-border-subtle);
   border-radius: var(--sp-radius-md);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -74,6 +79,9 @@
   }
 }
 
+// ================================
+// Region: Actions Footer & Layout
+// ================================
 .actions-footer {
   display: flex;
   align-items: center;
@@ -83,4 +91,7 @@
   border-top: 1px solid var(--sp-border-subtle);
 }
 
-.counter-demo-column { width: 100%; min-width: 0; }
+.counter-demo-column {
+  width: 100%;
+  min-width: 0;
+}

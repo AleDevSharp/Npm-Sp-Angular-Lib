@@ -7,7 +7,6 @@
 // License: MIT
 // --------------------------------------------------------------
 
-
 // ================================
 // Region: Playground Layout
 // ================================
@@ -74,7 +73,7 @@
 
   &:hover {
     color: var(--sp-text-primary);
-    border-color: var(--sp-color-purple, #8636F8);
+    border-color: var(--sp-color-purple, #8636f8);
   }
 
   &.active {
@@ -221,11 +220,42 @@
 }
 
 /* Reserve space for all four linear actions and every radial direction. */
-.playground-layout { display: flex; flex-direction: column; width: 100%; min-width: 0; }
-.playground-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border-right: 0; border-bottom: 1px solid var(--sp-border-color); }
-.stage-container { overflow-x: auto; width: 100%; }
-.stage-surface { min-width: 640px; min-height: 680px; box-sizing: border-box; }
-.stage-footer { min-width: 600px; }
-.radial-showcase-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); width: 100%; }
-.radial-stage-box { min-height: 380px; min-width: 300px; align-items: center; justify-content: center; padding: 12px; }
-.choice-btn:focus-visible { outline: 3px solid var(--sp-color-primary); outline-offset: 3px; }
+.playground-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+.playground-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  border-right: 0;
+  border-bottom: 1px solid var(--sp-border-color);
+}
+.stage-container {
+  overflow-x: auto;
+  width: 100%;
+}
+.stage-surface {
+  min-width: 640px;
+  min-height: 680px;
+  box-sizing: border-box;
+}
+.stage-footer {
+  min-width: 600px;
+}
+.radial-showcase-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  width: 100%;
+}
+.radial-stage-box {
+  min-height: 380px;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+.choice-btn:focus-visible {
+  outline: 3px solid var(--sp-color-primary);
+  outline-offset: 3px;
+}

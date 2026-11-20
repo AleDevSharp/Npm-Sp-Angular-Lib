@@ -1,4 +1,19 @@
-.chip-demo-column { width: 100%; min-width: 0; }
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: chip-page.component.scss
+// File description: Styles for ChipPageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// ================================
+// Region: Demo Layout & Flex Wrap
+// ================================
+.chip-demo-column {
+  width: 100%;
+  min-width: 0;
+}
 
 .chips-flex-wrap {
   display: flex;
@@ -29,6 +44,9 @@
   }
 }
 
+// ================================
+// Region: Feedback & Sizes
+// ================================
 .feedback-text {
   margin-top: 16px;
   font-size: 13.5px;

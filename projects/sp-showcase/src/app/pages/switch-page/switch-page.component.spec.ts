@@ -9,8 +9,7 @@ describe('SwitchPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SwitchPageComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SwitchPageComponent);
     component = fixture.componentInstance;

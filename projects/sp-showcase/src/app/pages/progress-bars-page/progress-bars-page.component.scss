@@ -1,3 +1,12 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: progress-bars-page.component.scss
+// File description: Styles for ProgressBarsPageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
 // ================================
 // Region: Variables & Layout
 // ================================
@@ -18,6 +27,9 @@
   text-align: center;
 }
 
+// ================================
+// Region: Display Grid & Circular Items
+// ================================
 .progress-display-grid {
   width: 100%;
   display: flex;

@@ -12,11 +12,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import {
-  SpSegmentedControlComponent,
-  SpSegmentedControlOption,
-  SpSegmentedControlSize
-} from '../../../../../sp-lib/src/public-api';
+import { SpSegmentedControlComponent, SpSegmentedControlOption, SpSegmentedControlSize } from '../../../../../sp-lib/src/public-api';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
 /**

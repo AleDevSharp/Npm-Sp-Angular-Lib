@@ -11,7 +11,10 @@
 // Region: Variables
 // ================================
 $card-radius: var(--sp-radius-card, 16px);
-$card-transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+$card-transition:
+  transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+  box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+  border-color 0.2s ease;
 
 // ================================
 // Region: Container & Hero
@@ -58,6 +61,7 @@ $card-transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s 
     .gradient-text {
       background: var(--sp-gradient-brand);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }
@@ -84,7 +88,9 @@ $card-transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s 
   border-radius: var(--sp-radius-full);
   padding: 8px 10px 8px 22px;
   box-shadow: var(--sp-shadow-card);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     border-color: var(--sp-color-purple);
@@ -114,7 +120,9 @@ $card-transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s 
     letter-spacing: 0.3px;
     cursor: pointer;
     box-shadow: var(--sp-shadow-brand-glow);
-    transition: transform 0.15s ease, filter 0.15s ease;
+    transition:
+      transform 0.15s ease,
+      filter 0.15s ease;
 
     &:hover {
       filter: brightness(1.08);

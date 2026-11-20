@@ -1,33 +1,49 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'avatar.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'avatar.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'avatar.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'avatar.003' | translate }}</h3>
-    <p class="section-desc">{{ 'avatar.004' | translate }} <code>+4</code> {{ 'avatar.005' | translate }}</p>
+    <p class="section-desc">
+      {{ 'avatar.004' | translate }}
+      <code>+4</code>
+      {{ 'avatar.005' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="avatar-demo-column">
           <div class="stack-centered-box">
             <sp-avatar-group
-              [items]="(teamMembers) | translate"
+              [items]="teamMembers | translate"
               [max]="4"
               size="lg"
-              [hoverSpread]="true"
-            ></sp-avatar-group>
+              [hoverSpread]="true"></sp-avatar-group>
           </div>
 
           <div class="demo-caption">
-            {{ 'avatar.006' | translate }} <code>8</code> {{ 'avatar.007' | translate }} <code>4</code> {{ 'avatar.008' | translate }} <code>+4</code>
+            {{ 'avatar.006' | translate }}
+            <code>8</code>
+            {{ 'avatar.007' | translate }}
+            <code>4</code>
+            {{ 'avatar.008' | translate }}
+            <code>+4</code>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="avatar-demo-column"&gt;
   &lt;div class="stack-centered-box"&gt;
     &lt;sp-avatar-group
@@ -44,8 +60,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'avatar.009' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'avatar.010' | translate"><code>public readonly teamMembers: SpAvatarItem[] = [
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'avatar.009' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'avatar.010' | translate"><code>public readonly teamMembers: SpAvatarItem[] = [
   &#123; name: 'Alex Morgan', status: 'online' &#125;,
   &#123; name: 'Emma Wilson', status: 'busy' &#125;,
   &#123; name: 'James Taylor', status: 'away' &#125;,
@@ -67,7 +89,10 @@
         <div class="avatar-demo-column">
           <div class="avatars-gallery">
             <div class="avatar-user-card">
-              <sp-avatar name="Alex Morgan" status="online" size="lg"></sp-avatar>
+              <sp-avatar
+                name="Alex Morgan"
+                status="online"
+                size="lg"></sp-avatar>
               <div class="user-meta">
                 <strong>{{ 'avatar.013' | translate }}</strong>
                 <span>{{ 'avatar.014' | translate }}</span>
@@ -75,7 +100,10 @@
             </div>
 
             <div class="avatar-user-card">
-              <sp-avatar name="Emma Wilson" status="busy" size="lg"></sp-avatar>
+              <sp-avatar
+                name="Emma Wilson"
+                status="busy"
+                size="lg"></sp-avatar>
               <div class="user-meta">
                 <strong>{{ 'avatar.015' | translate }}</strong>
                 <span>{{ 'avatar.016' | translate }}</span>
@@ -83,7 +111,10 @@
             </div>
 
             <div class="avatar-user-card">
-              <sp-avatar name="James Taylor" status="away" size="lg"></sp-avatar>
+              <sp-avatar
+                name="James Taylor"
+                status="away"
+                size="lg"></sp-avatar>
               <div class="user-meta">
                 <strong>{{ 'avatar.017' | translate }}</strong>
                 <span>{{ 'avatar.018' | translate }}</span>
@@ -91,7 +122,10 @@
             </div>
 
             <div class="avatar-user-card">
-              <sp-avatar name="Olivia Brown" status="offline" size="lg"></sp-avatar>
+              <sp-avatar
+                name="Olivia Brown"
+                status="offline"
+                size="lg"></sp-avatar>
               <div class="user-meta">
                 <strong>{{ 'avatar.019' | translate }}</strong>
                 <span>{{ 'avatar.020' | translate }}</span>
@@ -101,8 +135,14 @@
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="avatar-demo-column"&gt;
   &lt;div class="avatars-gallery"&gt;
     &lt;div class="avatar-user-card"&gt;
@@ -144,7 +184,13 @@
 
   <div class="doc-section">
     <h3>{{ 'avatar.021' | translate }}</h3>
-    <p class="section-desc">{{ 'avatar.022' | translate }} <code>circle</code> {{ 'avatar.023' | translate }} <code>rounded</code> {{ 'avatar.024' | translate }}</p>
+    <p class="section-desc">
+      {{ 'avatar.022' | translate }}
+      <code>circle</code>
+      {{ 'avatar.023' | translate }}
+      <code>rounded</code>
+      {{ 'avatar.024' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="avatar-demo-column">
@@ -152,30 +198,72 @@
             <div class="size-col">
               <span class="shape-title">{{ 'avatar.025' | translate }}</span>
               <div class="avatars-inline-row">
-                <sp-avatar name="Ethan Clark" size="xs" shape="circle"></sp-avatar>
-                <sp-avatar name="Emily Parker" size="sm" shape="circle"></sp-avatar>
-                <sp-avatar name="Oliver Harris" size="md" shape="circle" status="online"></sp-avatar>
-                <sp-avatar name="Amelia Reed" size="lg" shape="circle" status="busy"></sp-avatar>
-                <sp-avatar name="Henry Lewis" size="xl" shape="circle" status="online"></sp-avatar>
+                <sp-avatar
+                  name="Ethan Clark"
+                  size="xs"
+                  shape="circle"></sp-avatar>
+                <sp-avatar
+                  name="Emily Parker"
+                  size="sm"
+                  shape="circle"></sp-avatar>
+                <sp-avatar
+                  name="Oliver Harris"
+                  size="md"
+                  shape="circle"
+                  status="online"></sp-avatar>
+                <sp-avatar
+                  name="Amelia Reed"
+                  size="lg"
+                  shape="circle"
+                  status="busy"></sp-avatar>
+                <sp-avatar
+                  name="Henry Lewis"
+                  size="xl"
+                  shape="circle"
+                  status="online"></sp-avatar>
               </div>
             </div>
 
             <div class="size-col">
               <span class="shape-title">{{ 'avatar.026' | translate }}</span>
               <div class="avatars-inline-row">
-                <sp-avatar name="Ethan Clark" size="xs" shape="rounded"></sp-avatar>
-                <sp-avatar name="Emily Parker" size="sm" shape="rounded"></sp-avatar>
-                <sp-avatar name="Oliver Harris" size="md" shape="rounded" status="online"></sp-avatar>
-                <sp-avatar name="Amelia Reed" size="lg" shape="rounded" status="busy"></sp-avatar>
-                <sp-avatar name="Henry Lewis" size="xl" shape="rounded" status="online"></sp-avatar>
+                <sp-avatar
+                  name="Ethan Clark"
+                  size="xs"
+                  shape="rounded"></sp-avatar>
+                <sp-avatar
+                  name="Emily Parker"
+                  size="sm"
+                  shape="rounded"></sp-avatar>
+                <sp-avatar
+                  name="Oliver Harris"
+                  size="md"
+                  shape="rounded"
+                  status="online"></sp-avatar>
+                <sp-avatar
+                  name="Amelia Reed"
+                  size="lg"
+                  shape="rounded"
+                  status="busy"></sp-avatar>
+                <sp-avatar
+                  name="Henry Lewis"
+                  size="xl"
+                  shape="rounded"
+                  status="online"></sp-avatar>
               </div>
             </div>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="avatar-demo-column"&gt;
   &lt;div class="sizes-comparison-group"&gt;
     &lt;div class="size-col"&gt;
@@ -210,8 +298,14 @@
     <p class="section-desc">{{ 'avatar.027' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
 import &#123; SpAvatarComponent, SpAvatarGroupComponent, SpAvatarItem &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -226,8 +320,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>.avatar-demo-column &#123; width: 100%; min-width: 0; &#125;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>.avatar-demo-column &#123; width: 100%; min-width: 0; &#125;
 
 .stack-centered-box &#123;
   display: flex;
@@ -318,14 +418,51 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'avatar.028' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>src</code></td><td><code>string | undefined</code></td><td><code>undefined</code></td><td>{{ 'avatar.029' | translate }}</td></tr>
-          <tr><td><code>name</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'avatar.030' | translate }}</td></tr>
-          <tr><td><code>alt</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'avatar.031' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></td><td><code>'md'</code></td><td>{{ 'avatar.032' | translate }}</td></tr>
-          <tr><td><code>shape</code></td><td><code>'circle' | 'rounded'</code></td><td><code>'circle'</code></td><td>{{ 'avatar.033' | translate }}</td></tr>
-          <tr><td><code>status</code></td><td><code>'online' | 'offline' | 'busy' | 'away' | undefined</code></td><td><code>undefined</code></td><td>{{ 'avatar.034' | translate }}</td></tr>
+          <tr>
+            <td><code>src</code></td>
+            <td><code>string | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'avatar.029' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>name</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'avatar.030' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>alt</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'avatar.031' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'avatar.032' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>shape</code></td>
+            <td><code>'circle' | 'rounded'</code></td>
+            <td><code>'circle'</code></td>
+            <td>{{ 'avatar.033' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>status</code></td>
+            <td><code>'online' | 'offline' | 'busy' | 'away' | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'avatar.034' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -335,13 +472,45 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'avatar.035' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>items</code></td><td><code>SpAvatarItem[]</code></td><td><code>[]</code></td><td>{{ 'avatar.036' | translate }}</td></tr>
-          <tr><td><code>max</code></td><td><code>number</code></td><td><code>4</code></td><td>{{ 'avatar.037' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></td><td><code>'md'</code></td><td>{{ 'avatar.038' | translate }}</td></tr>
-          <tr><td><code>shape</code></td><td><code>'circle' | 'rounded'</code></td><td><code>'circle'</code></td><td>{{ 'avatar.039' | translate }}</td></tr>
-          <tr><td><code>hoverSpread</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'avatar.040' | translate }}</td></tr>
+          <tr>
+            <td><code>items</code></td>
+            <td><code>SpAvatarItem[]</code></td>
+            <td><code>[]</code></td>
+            <td>{{ 'avatar.036' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>max</code></td>
+            <td><code>number</code></td>
+            <td><code>4</code></td>
+            <td>{{ 'avatar.037' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'avatar.038' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>shape</code></td>
+            <td><code>'circle' | 'rounded'</code></td>
+            <td><code>'circle'</code></td>
+            <td>{{ 'avatar.039' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>hoverSpread</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'avatar.040' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

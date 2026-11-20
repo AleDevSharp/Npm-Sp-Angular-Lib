@@ -1,13 +1,25 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'card.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'card.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'card.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'card.003' | translate }}</h3>
-    <p class="section-desc">{{ 'card.004' | translate }} <code>elevated</code>, <code>outlined</code> {{ 'accordion.023' | translate }} <code>glass</code>{{ 'card.005' | translate }} <code>flat</code>{{ 'card.006' | translate }}</p>
+    <p class="section-desc">
+      {{ 'card.004' | translate }}
+      <code>elevated</code>
+      ,
+      <code>outlined</code>
+      {{ 'accordion.023' | translate }}
+      <code>glass</code>
+      {{ 'card.005' | translate }}
+      <code>flat</code>
+      {{ 'card.006' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="cards-preview-grid">
@@ -20,8 +32,13 @@
               {{ 'card.009' | translate }}
             </sp-card-content>
             <sp-card-actions align="end">
-              <sp-btn [text]="'card.010' | translate" size="sm" variant="outline"></sp-btn>
-              <sp-btn [text]="'card.011' | translate" size="sm"></sp-btn>
+              <sp-btn
+                [text]="'card.010' | translate"
+                size="sm"
+                variant="outline"></sp-btn>
+              <sp-btn
+                [text]="'card.011' | translate"
+                size="sm"></sp-btn>
             </sp-card-actions>
           </sp-card>
 
@@ -34,8 +51,14 @@
               {{ 'card.014' | translate }}
             </sp-card-content>
             <sp-card-actions align="end">
-              <sp-btn [text]="'card.015' | translate" size="sm" variant="ghost"></sp-btn>
-              <sp-btn [text]="'card.016' | translate" size="sm" variant="outline"></sp-btn>
+              <sp-btn
+                [text]="'card.015' | translate"
+                size="sm"
+                variant="ghost"></sp-btn>
+              <sp-btn
+                [text]="'card.016' | translate"
+                size="sm"
+                variant="outline"></sp-btn>
             </sp-card-actions>
           </sp-card>
 
@@ -45,17 +68,28 @@
               [title]="'card.017' | translate"
               [subtitle]="'card.018' | translate"></sp-card-header>
             <sp-card-content>
-              {{ 'card.019' | translate }} <code>backdrop-filter</code> {{ 'card.020' | translate }}
+              {{ 'card.019' | translate }}
+              <code>backdrop-filter</code>
+              {{ 'card.020' | translate }}
             </sp-card-content>
             <sp-card-actions align="end">
-              <sp-btn [text]="'card.021' | translate" size="sm" color="#ffac1c"></sp-btn>
+              <sp-btn
+                [text]="'card.021' | translate"
+                size="sm"
+                color="#ffac1c"></sp-btn>
             </sp-card-actions>
           </sp-card>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="cards-preview-grid"&gt;
   &lt;!-- Elevated Card --&gt;
   &lt;sp-card variant="elevated"&gt;
@@ -104,11 +138,23 @@
 
   <div class="doc-section">
     <h3>{{ 'card.022' | translate }}</h3>
-    <p class="section-desc">{{ 'card.023' | translate }} <code>aspectRatio="16:9"</code>{{ 'card.024' | translate }} <code>4:3</code>, <code>1:1</code> {{ 'accordion.023' | translate }} <code>auto</code>{{ 'card.025' | translate }}</p>
+    <p class="section-desc">
+      {{ 'card.023' | translate }}
+      <code>aspectRatio="16:9"</code>
+      {{ 'card.024' | translate }}
+      <code>4:3</code>
+      ,
+      <code>1:1</code>
+      {{ 'accordion.023' | translate }}
+      <code>auto</code>
+      {{ 'card.025' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="card-demo-constrained">
-          <sp-card variant="elevated" [interactive]="true">
+          <sp-card
+            variant="elevated"
+            [interactive]="true">
             <sp-card-media
               src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&auto=format&fit=crop&q=80"
               [alt]="'card.026' | translate"
@@ -121,14 +167,23 @@
             </sp-card-content>
             <sp-card-actions align="between">
               <span class="meta-tag">{{ 'card.030' | translate }}</span>
-              <sp-btn [text]="'card.031' | translate" size="sm" variant="solid"></sp-btn>
+              <sp-btn
+                [text]="'card.031' | translate"
+                size="sm"
+                variant="solid"></sp-btn>
             </sp-card-actions>
           </sp-card>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="card-demo-constrained"&gt;
   &lt;sp-card variant="elevated" [interactive]="true"&gt;
     &lt;sp-card-media
@@ -153,12 +208,18 @@
 
   <div class="doc-section">
     <h3>{{ 'card.032' | translate }}</h3>
-    <p class="section-desc">{{ 'card.033' | translate }} <code>interactive</code> {{ 'card.034' | translate }}</p>
+    <p class="section-desc">
+      {{ 'card.033' | translate }}
+      <code>interactive</code>
+      {{ 'card.034' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="kpi-grid">
           <!-- KPI 1 -->
-          <sp-card variant="elevated" [interactive]="true">
+          <sp-card
+            variant="elevated"
+            [interactive]="true">
             <div class="kpi-content">
               <div class="kpi-top">
                 <span class="kpi-label">{{ 'card.035' | translate }}</span>
@@ -166,13 +227,16 @@
               </div>
               <div class="kpi-value">€ 48.250</div>
               <div class="kpi-trend trend-positive">
-                <span>↑ +18.4%</span> {{ 'card.036' | translate }}
+                <span>↑ +18.4%</span>
+                {{ 'card.036' | translate }}
               </div>
             </div>
           </sp-card>
 
           <!-- KPI 2 -->
-          <sp-card variant="elevated" [interactive]="true">
+          <sp-card
+            variant="elevated"
+            [interactive]="true">
             <div class="kpi-content">
               <div class="kpi-top">
                 <span class="kpi-label">{{ 'card.037' | translate }}</span>
@@ -180,13 +244,16 @@
               </div>
               <div class="kpi-value">1.420</div>
               <div class="kpi-trend trend-positive">
-                <span>↑ +12.1%</span> {{ 'card.038' | translate }}
+                <span>↑ +12.1%</span>
+                {{ 'card.038' | translate }}
               </div>
             </div>
           </sp-card>
 
           <!-- KPI 3 -->
-          <sp-card variant="elevated" [interactive]="true">
+          <sp-card
+            variant="elevated"
+            [interactive]="true">
             <div class="kpi-content">
               <div class="kpi-top">
                 <span class="kpi-label">{{ 'card.039' | translate }}</span>
@@ -194,15 +261,22 @@
               </div>
               <div class="kpi-value">4.85%</div>
               <div class="kpi-trend trend-neutral">
-                <span>{{ 'card.040' | translate }}</span> {{ 'card.041' | translate }}
+                <span>{{ 'card.040' | translate }}</span>
+                {{ 'card.041' | translate }}
               </div>
             </div>
           </sp-card>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="kpi-grid"&gt;
   &lt;!-- KPI 1 --&gt;
   &lt;sp-card variant="elevated" [interactive]="true"&gt;
@@ -252,7 +326,14 @@
 
   <div class="doc-section">
     <h3>{{ 'card.042' | translate }}</h3>
-    <p class="section-desc"><code>[clickable]="true"</code> {{ 'card.043' | translate }} <code>cardClick</code> {{ 'card.044' | translate }} <code>interactive</code> {{ 'card.045' | translate }}</p>
+    <p class="section-desc">
+      <code>[clickable]="true"</code>
+      {{ 'card.043' | translate }}
+      <code>cardClick</code>
+      {{ 'card.044' | translate }}
+      <code>interactive</code>
+      {{ 'card.045' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="card-demo-constrained">
@@ -274,13 +355,23 @@
           </sp-card>
 
           @if (this.cardFeedback()) {
-            <div class="card-feedback-box" role="status">{{ (this.cardFeedback()) | translate }}</div>
+            <div
+              class="card-feedback-box"
+              role="status">
+              {{ this.cardFeedback() | translate }}
+            </div>
           }
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="card-demo-constrained"&gt;
   &lt;sp-card
     variant="glass"
@@ -305,8 +396,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.032' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.033' | translate"><code>// The temporary click feedback
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.032' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.033' | translate"><code>// The temporary click feedback
 public readonly cardFeedback = signal&lt;string&gt;('');
 
 /**
@@ -327,8 +424,14 @@ public handleCardClick(name: string): void &#123;
     <p class="section-desc">{{ 'card.052' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; SpCardComponent, SpCardHeaderComponent, SpCardMediaComponent, SpCardContentComponent, SpCardActionsComponent, SpCardFooterComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -343,8 +446,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// ================================
 // Region: Variables &amp; Layout
 // ================================
 .cards-preview-grid &#123;
@@ -469,13 +578,45 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'card.053' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>variant</code></td><td><code>'elevated' | 'outlined' | 'glass' | 'flat'</code></td><td><code>'elevated'</code></td><td>{{ 'card.054' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'card.055' | translate }}</td></tr>
-          <tr><td><code>interactive</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'card.056' | translate }}</td></tr>
-          <tr><td><code>clickable</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'card.057' | translate }}</td></tr>
-          <tr><td><code>cardClick</code></td><td><code>OutputEmitterRef&lt;void&gt;</code></td><td><code>—</code></td><td>{{ 'card.058' | translate }}</td></tr>
+          <tr>
+            <td><code>variant</code></td>
+            <td><code>'elevated' | 'outlined' | 'glass' | 'flat'</code></td>
+            <td><code>'elevated'</code></td>
+            <td>{{ 'card.054' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'card.055' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>interactive</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'card.056' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>clickable</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'card.057' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>cardClick</code></td>
+            <td><code>OutputEmitterRef&lt;void&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'card.058' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -485,10 +626,27 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'card.059' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>title</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'accordion.058' | translate }}</td></tr>
-          <tr><td><code>subtitle</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'card.060' | translate }}</td></tr>
+          <tr>
+            <td><code>title</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'accordion.058' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>subtitle</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'card.060' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -498,12 +656,39 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'card.061' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>src</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'card.062' | translate }}</td></tr>
-          <tr><td><code>alt</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'card.063' | translate }}</td></tr>
-          <tr><td><code>aspectRatio</code></td><td><code>'16:9' | '4:3' | '1:1' | 'auto'</code></td><td><code>'16:9'</code></td><td>{{ 'card.064' | translate }}</td></tr>
-          <tr><td><code>height</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'card.065' | translate }}</td></tr>
+          <tr>
+            <td><code>src</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'card.062' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>alt</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'card.063' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>aspectRatio</code></td>
+            <td><code>'16:9' | '4:3' | '1:1' | 'auto'</code></td>
+            <td><code>'16:9'</code></td>
+            <td>{{ 'card.064' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>height</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'card.065' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -513,13 +698,45 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'card.066' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>align</code></td><td><code>'start' | 'center' | 'end' | 'between'</code></td><td><code>'end'</code></td><td>{{ 'card.067' | translate }}</td></tr>
+          <tr>
+            <td><code>align</code></td>
+            <td><code>'start' | 'center' | 'end' | 'between'</code></td>
+            <td><code>'end'</code></td>
+            <td>{{ 'card.067' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-<div class="doc-section"><h3>{{ 'card.068' | translate }}</h3><p class="section-desc"><code>sp-card-content</code> {{ 'accordion.023' | translate }} <code>sp-card-footer</code> {{ 'card.069' | translate }} <code>[avatar]</code>/<code>[leading]</code>, <code>[title]</code>/<code>[subtitle]</code> {{ 'accordion.023' | translate }} <code>[trailing]</code>/<code>[action]</code>.</p></div>
+  <div class="doc-section">
+    <h3>{{ 'card.068' | translate }}</h3>
+    <p class="section-desc">
+      <code>sp-card-content</code>
+      {{ 'accordion.023' | translate }}
+      <code>sp-card-footer</code>
+      {{ 'card.069' | translate }}
+      <code>[avatar]</code>
+      /
+      <code>[leading]</code>
+      ,
+      <code>[title]</code>
+      /
+      <code>[subtitle]</code>
+      {{ 'accordion.023' | translate }}
+      <code>[trailing]</code>
+      /
+      <code>[action]</code>
+      .
+    </p>
+  </div>
 </div>

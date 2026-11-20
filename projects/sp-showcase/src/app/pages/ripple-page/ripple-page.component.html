@@ -1,13 +1,19 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'ripple.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'ripple.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'ripple.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'ripple.003' | translate }}</h3>
-    <p class="section-desc">{{ 'ripple.004' | translate }} <code>--sp-ripple-color</code>{{ 'ripple.005' | translate }}</p>
+    <p class="section-desc">
+      {{ 'ripple.004' | translate }}
+      <code>--sp-ripple-color</code>
+      {{ 'ripple.005' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="ripple-demo-column">
@@ -15,7 +21,9 @@
             <!-- Variant 1: Standard Button -->
             <div class="ripple-demo-item">
               <span class="item-label">{{ 'ripple.006' | translate }}</span>
-              <button class="custom-ripple-btn primary-btn" spRipple>
+              <button
+                class="custom-ripple-btn primary-btn"
+                spRipple>
                 {{ 'ripple.007' | translate }}
               </button>
               <span class="item-hint">{{ 'ripple.008' | translate }}</span>
@@ -24,7 +32,10 @@
             <!-- Variant 2: Centered Origin -->
             <div class="ripple-demo-item">
               <span class="item-label">{{ 'ripple.009' | translate }}</span>
-              <button class="custom-ripple-btn secondary-btn" spRipple [spRippleCentered]="true">
+              <button
+                class="custom-ripple-btn secondary-btn"
+                spRipple
+                [spRippleCentered]="true">
                 {{ 'ripple.010' | translate }}
               </button>
               <span class="item-hint">{{ 'ripple.011' | translate }}</span>
@@ -36,8 +47,7 @@
               <button
                 class="custom-ripple-btn emerald-btn"
                 spRipple
-                [spRippleColor]="'rgba(16, 185, 129, 0.45)'"
-              >
+                [spRippleColor]="'rgba(16, 185, 129, 0.45)'">
                 {{ 'ripple.013' | translate }}
               </button>
               <span class="item-hint">{{ 'ripple.014' | translate }}</span>
@@ -50,8 +60,7 @@
                 class="custom-ripple-btn purple-btn"
                 spRipple
                 [spRippleDuration]="1200"
-                [spRippleColor]="'rgba(168, 85, 247, 0.4)'"
-              >
+                [spRippleColor]="'rgba(168, 85, 247, 0.4)'">
                 {{ 'ripple.016' | translate }}
               </button>
               <span class="item-hint">{{ 'ripple.017' | translate }}</span>
@@ -61,13 +70,25 @@
             <div class="ripple-demo-item">
               <span class="item-label">{{ 'ripple.018' | translate }}</span>
               <div class="icon-buttons-row">
-                <button class="round-icon-btn" spRipple [spRippleUnbounded]="true" [title]="'ripple.019' | translate">
+                <button
+                  class="round-icon-btn"
+                  spRipple
+                  [spRippleUnbounded]="true"
+                  [title]="'ripple.019' | translate">
                   ❤️
                 </button>
-                <button class="round-icon-btn" spRipple [spRippleUnbounded]="true" [title]="'ripple.020' | translate">
+                <button
+                  class="round-icon-btn"
+                  spRipple
+                  [spRippleUnbounded]="true"
+                  [title]="'ripple.020' | translate">
                   🔗
                 </button>
-                <button class="round-icon-btn" spRipple [spRippleUnbounded]="true" [title]="'ripple.021' | translate">
+                <button
+                  class="round-icon-btn"
+                  spRipple
+                  [spRippleUnbounded]="true"
+                  [title]="'ripple.021' | translate">
                   ⭐
                 </button>
               </div>
@@ -81,19 +102,31 @@
                 #progRipple="spRipple"
                 class="target-box"
                 spRipple
-                [spRippleColor]="'rgba(255, 172, 28, 0.45)'"
-              >
+                [spRippleColor]="'rgba(255, 172, 28, 0.45)'">
                 {{ 'ripple.024' | translate }}
               </div>
-              <sp-btn [text]="'ripple.025' | translate" size="sm" variant="outline" (buttonClick)="launchProgrammatic()"></sp-btn>
-              <span class="item-hint">{{ 'ripple.026' | translate }} <code>launch()</code></span>
+              <sp-btn
+                [text]="'ripple.025' | translate"
+                size="sm"
+                variant="outline"
+                (buttonClick)="launchProgrammatic()"></sp-btn>
+              <span class="item-hint">
+                {{ 'ripple.026' | translate }}
+                <code>launch()</code>
+              </span>
             </div>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="ripple-demo-column"&gt;
   &lt;div class="ripple-showcase-grid"&gt;
     &lt;!-- Variant 1: Standard Button --&gt;
@@ -176,8 +209,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'ripple.027' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'ripple.028' | translate"><code>// The directive exported by the programmatic target
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'ripple.027' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'ripple.028' | translate"><code>// The directive exported by the programmatic target
 public readonly progRipple = viewChild&lt;SpRippleDirective&gt;('progRipple');
 
 /**
@@ -201,13 +240,18 @@ public launchProgrammatic(): void &#123;
       <div class="demo-stage">
         <div class="ripple-demo-column">
           <div class="cards-grid">
-            <div class="interactive-card" spRipple>
+            <div
+              class="interactive-card"
+              spRipple>
               <div class="card-icon">🚀</div>
               <h4>{{ 'ripple.031' | translate }}</h4>
               <p>{{ 'ripple.032' | translate }}</p>
             </div>
 
-            <div class="interactive-card" spRipple [spRippleColor]="'rgba(59, 130, 246, 0.2)'">
+            <div
+              class="interactive-card"
+              spRipple
+              [spRippleColor]="'rgba(59, 130, 246, 0.2)'">
               <div class="card-icon">💎</div>
               <h4>{{ 'ripple.033' | translate }}</h4>
               <p>{{ 'ripple.034' | translate }}</p>
@@ -216,8 +260,14 @@ public launchProgrammatic(): void &#123;
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="ripple-demo-column"&gt;
   &lt;div class="cards-grid"&gt;
     &lt;div class="interactive-card" spRipple&gt;
@@ -239,11 +289,21 @@ public launchProgrammatic(): void &#123;
 
   <div class="doc-section">
     <h3>{{ 'accordion.043' | translate }}</h3>
-    <p class="section-desc">{{ 'ripple.035' | translate }} <code>#progRipple="spRipple"</code> {{ 'ripple.036' | translate }}</p>
+    <p class="section-desc">
+      {{ 'ripple.035' | translate }}
+      <code>#progRipple="spRipple"</code>
+      {{ 'ripple.036' | translate }}
+    </p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChild &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChild &#125; from '&#64;angular/core';
 import &#123; SpRippleDirective, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -258,8 +318,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
 // Project: SpLib
 // File name: ripple-page.component.scss
 // File description: Styles for RipplePageComponent showcase demo.
@@ -436,15 +502,57 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'ripple.037' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>spRipple</code></td><td><code>boolean | string | undefined</code></td><td><code>undefined</code></td><td>{{ 'ripple.038' | translate }}</td></tr>
-          <tr><td><code>spRippleColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'ripple.039' | translate }}</td></tr>
-          <tr><td><code>spRippleDuration</code></td><td><code>number</code></td><td><code>600</code></td><td>{{ 'ripple.040' | translate }}</td></tr>
-          <tr><td><code>spRippleCentered</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'ripple.041' | translate }}</td></tr>
-          <tr><td><code>spRippleUnbounded</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'ripple.042' | translate }}</td></tr>
-          <tr><td><code>spRippleDisabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'ripple.043' | translate }}</td></tr>
-          <tr><td><code>launch(x?, y?, config?)</code></td><td><code>(number?, number?, SpRippleConfig?) =&gt; void</code></td><td><code>—</code></td><td>{{ 'ripple.044' | translate }}</td></tr>
+          <tr>
+            <td><code>spRipple</code></td>
+            <td><code>boolean | string | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'ripple.038' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spRippleColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'ripple.039' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spRippleDuration</code></td>
+            <td><code>number</code></td>
+            <td><code>600</code></td>
+            <td>{{ 'ripple.040' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spRippleCentered</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'ripple.041' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spRippleUnbounded</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'ripple.042' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spRippleDisabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'ripple.043' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>launch(x?, y?, config?)</code></td>
+            <td><code>(number?, number?, SpRippleConfig?) =&gt; void</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'ripple.044' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -454,13 +562,45 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'ripple.045' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>color</code></td><td><code>string</code></td><td><code>opzionale</code></td><td>{{ 'ripple.046' | translate }}</td></tr>
-          <tr><td><code>centered</code></td><td><code>boolean</code></td><td><code>opzionale</code></td><td>{{ 'ripple.047' | translate }}</td></tr>
-          <tr><td><code>duration</code></td><td><code>number</code></td><td><code>opzionale</code></td><td>{{ 'ripple.048' | translate }}</td></tr>
-          <tr><td><code>unbounded</code></td><td><code>boolean</code></td><td><code>opzionale</code></td><td>{{ 'ripple.049' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>opzionale</code></td><td>{{ 'ripple.050' | translate }}</td></tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>string</code></td>
+            <td><code>opzionale</code></td>
+            <td>{{ 'ripple.046' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>centered</code></td>
+            <td><code>boolean</code></td>
+            <td><code>opzionale</code></td>
+            <td>{{ 'ripple.047' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>duration</code></td>
+            <td><code>number</code></td>
+            <td><code>opzionale</code></td>
+            <td>{{ 'ripple.048' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>unbounded</code></td>
+            <td><code>boolean</code></td>
+            <td><code>opzionale</code></td>
+            <td>{{ 'ripple.049' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>opzionale</code></td>
+            <td>{{ 'ripple.050' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

@@ -8,16 +8,17 @@
 // --------------------------------------------------------------
 
 import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
+
 import {
+  SpAvatarComponent,
+  SpBtnComponent,
   SpCarouselComponent,
-  SpCarouselSlideComponent,
   SpCarouselEffect,
   SpCarouselIndicatorType,
   SpCarouselItem,
-  SpBtnComponent,
-  SpSwitchComponent,
+  SpCarouselSlideComponent,
   SpSegmentedControlComponent,
-  SpAvatarComponent
+  SpSwitchComponent
 } from '../../../../../sp-lib/src/public-api';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
@@ -32,7 +33,8 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 @Component({
   selector: 'app-carousel-page',
   standalone: true,
-  imports: [TranslatePipe, 
+  imports: [
+    TranslatePipe,
     SpCarouselComponent,
     SpCarouselSlideComponent,
     SpBtnComponent,

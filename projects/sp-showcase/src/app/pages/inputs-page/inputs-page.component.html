@@ -1,13 +1,19 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'inputs.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'inputs.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'inputs.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'inputs.003' | translate }}</h3>
-    <p class="section-desc">{{ 'inputs.004' | translate }} <code>[(value)]</code> {{ 'inputs.005' | translate }}</p>
+    <p class="section-desc">
+      {{ 'inputs.004' | translate }}
+      <code>[(value)]</code>
+      {{ 'inputs.005' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="inputs-demo-column">
@@ -19,13 +25,20 @@
             [clearable]="true"></sp-input>
 
           <div class="bound-value-box">
-            {{ 'inputs.008' | translate }} <strong>{{ this.usernameValue() }}</strong>
+            {{ 'inputs.008' | translate }}
+            <strong>{{ this.usernameValue() }}</strong>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="inputs-demo-column"&gt;
   &lt;sp-input
     id="user-input"
@@ -40,8 +53,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.009' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'inputs.010' | translate"><code>// The writable username signal used by the two-way binding
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'inputs.009' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'inputs.010' | translate"><code>// The writable username signal used by the two-way binding
 public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre>
       </details>
     </div>
@@ -49,7 +68,17 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
 
   <div class="doc-section">
     <h3>{{ 'inputs.011' | translate }}</h3>
-    <p class="section-desc">{{ 'dividers.018' | translate }} <code>prefix</code> {{ 'accordion.023' | translate }} <code>suffix</code> {{ 'inputs.012' | translate }} <code>[prefix]</code> {{ 'accordion.023' | translate }} <code>[suffix]</code>.</p>
+    <p class="section-desc">
+      {{ 'dividers.018' | translate }}
+      <code>prefix</code>
+      {{ 'accordion.023' | translate }}
+      <code>suffix</code>
+      {{ 'inputs.012' | translate }}
+      <code>[prefix]</code>
+      {{ 'accordion.023' | translate }}
+      <code>[suffix]</code>
+      .
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="inputs-demo-column">
@@ -68,8 +97,14 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="inputs-demo-column"&gt;
   &lt;sp-input
     id="url-input"
@@ -90,18 +125,44 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
 
   <div class="doc-section">
     <h3>{{ 'buttons.020' | translate }}</h3>
-    <p class="section-desc">{{ 'inputs.016' | translate }} <code>sm</code> {{ 'inputs.017' | translate }} <code>md</code> {{ 'inputs.018' | translate }} <code>lg</code> {{ 'inputs.019' | translate }}</p>
+    <p class="section-desc">
+      {{ 'inputs.016' | translate }}
+      <code>sm</code>
+      {{ 'inputs.017' | translate }}
+      <code>md</code>
+      {{ 'inputs.018' | translate }}
+      <code>lg</code>
+      {{ 'inputs.019' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="inputs-demo-column">
-          <sp-input id="size-sm" [label]="'inputs.020' | translate" size="sm" [placeholder]="'inputs.021' | translate"></sp-input>
-          <sp-input id="size-md" [label]="'inputs.022' | translate" size="md" [placeholder]="'inputs.023' | translate"></sp-input>
-          <sp-input id="size-lg" [label]="'inputs.024' | translate" size="lg" [placeholder]="'inputs.025' | translate"></sp-input>
+          <sp-input
+            id="size-sm"
+            [label]="'inputs.020' | translate"
+            size="sm"
+            [placeholder]="'inputs.021' | translate"></sp-input>
+          <sp-input
+            id="size-md"
+            [label]="'inputs.022' | translate"
+            size="md"
+            [placeholder]="'inputs.023' | translate"></sp-input>
+          <sp-input
+            id="size-lg"
+            [label]="'inputs.024' | translate"
+            size="lg"
+            [placeholder]="'inputs.025' | translate"></sp-input>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="inputs-demo-column"&gt;
   &lt;sp-input id="size-sm" label="Small (sm)" size="sm" placeholder="Compatto"&gt;&lt;/sp-input&gt;
   &lt;sp-input id="size-md" label="Medium (md)" size="md" placeholder="Standard"&gt;&lt;/sp-input&gt;
@@ -113,11 +174,24 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
 
   <div class="doc-section">
     <h3>{{ 'inputs.026' | translate }}</h3>
-    <p class="section-desc">{{ 'inputs.027' | translate }}<code>#64748b</code>); <code>focusColor</code> {{ 'inputs.028' | translate }} <code>--sp-border-color-focus</code> {{ 'inputs.029' | translate }} <code>borderColor</code> {{ 'inputs.030' | translate }}</p>
+    <p class="section-desc">
+      {{ 'inputs.027' | translate }}
+      <code>#64748b</code>
+      );
+      <code>focusColor</code>
+      {{ 'inputs.028' | translate }}
+      <code>--sp-border-color-focus</code>
+      {{ 'inputs.029' | translate }}
+      <code>borderColor</code>
+      {{ 'inputs.030' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="inputs-demo-column">
-          <sp-input id="input-focus-default" [label]="'inputs.031' | translate" [placeholder]="'inputs.032' | translate"></sp-input>
+          <sp-input
+            id="input-focus-default"
+            [label]="'inputs.031' | translate"
+            [placeholder]="'inputs.032' | translate"></sp-input>
           <sp-input
             id="input-focus-custom"
             [label]="'inputs.033' | translate"
@@ -127,8 +201,14 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="inputs-demo-column"&gt;
   &lt;sp-input id="input-focus-default" label="Focus predefinito" placeholder="Focus neutro"&gt;&lt;/sp-input&gt;
   &lt;sp-input
@@ -140,8 +220,14 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.035' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'inputs.036' | translate"><code>/* Optional application-wide focus color in the global stylesheet */
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'inputs.035' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'inputs.036' | translate"><code>/* Optional application-wide focus color in the global stylesheet */
 :root &#123;
   --sp-border-color-focus: #0f766e;
 &#125;</code></pre>
@@ -151,7 +237,15 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
 
   <div class="doc-section">
     <h3>{{ 'inputs.037' | translate }}</h3>
-    <p class="section-desc">{{ 'inputs.004' | translate }} <code>hasError</code> {{ 'inputs.038' | translate }} <code>errorMessage</code> {{ 'inputs.039' | translate }} <code>aria-invalid</code> {{ 'inputs.040' | translate }}</p>
+    <p class="section-desc">
+      {{ 'inputs.004' | translate }}
+      <code>hasError</code>
+      {{ 'inputs.038' | translate }}
+      <code>errorMessage</code>
+      {{ 'inputs.039' | translate }}
+      <code>aria-invalid</code>
+      {{ 'inputs.040' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="inputs-demo-column">
@@ -172,8 +266,14 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="inputs-demo-column"&gt;
   &lt;sp-input
     id="error-input"
@@ -192,8 +292,14 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'inputs.046' | translate"><code>import &#123; FormControl, Validators &#125; from '&#64;angular/forms';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'inputs.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'inputs.046' | translate"><code>import &#123; FormControl, Validators &#125; from '&#64;angular/forms';
 
 // The email control validating both empty and malformed addresses
   public readonly emailControl = new FormControl('email_non_valida', &#123;
@@ -206,11 +312,33 @@ public readonly usernameValue = signal&lt;string&gt;('alessio_dev');</code></pre
 
   <div class="doc-section">
     <h3>{{ 'accordion.043' | translate }}</h3>
-    <p class="section-desc">{{ 'inputs.047' | translate }} <code>&#64;aledevsharp/sp-lib</code>{{ 'inputs.048' | translate }} <code>[(value)]</code> {{ 'inputs.049' | translate }} <code>[(ngModel)]</code> {{ 'inputs.050' | translate }} <code>FormsModule</code>; <code>[formControl]</code> {{ 'accordion.023' | translate }} <code>formControlName</code> {{ 'inputs.051' | translate }} <code>ReactiveFormsModule</code>{{ 'inputs.052' | translate }}</p>
+    <p class="section-desc">
+      {{ 'inputs.047' | translate }}
+      <code>&#64;aledevsharp/sp-lib</code>
+      {{ 'inputs.048' | translate }}
+      <code>[(value)]</code>
+      {{ 'inputs.049' | translate }}
+      <code>[(ngModel)]</code>
+      {{ 'inputs.050' | translate }}
+      <code>FormsModule</code>
+      ;
+      <code>[formControl]</code>
+      {{ 'accordion.023' | translate }}
+      <code>formControlName</code>
+      {{ 'inputs.051' | translate }}
+      <code>ReactiveFormsModule</code>
+      {{ 'inputs.052' | translate }}
+    </p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; ReactiveFormsModule &#125; from '&#64;angular/forms';
 import &#123; SpInputComponent &#125; from '&#64;aledevsharp/sp-lib';
 
@@ -226,8 +354,14 @@ export class FieldExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// ================================
 // Region: Variables &amp; Layout
 // ================================
 .inputs-demo-column &#123;
@@ -258,34 +392,171 @@ export class FieldExampleComponent &#123;
     <h3>{{ 'inputs.053' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>id</code></td><td><code>string</code></td><td><code>generato</code></td><td>{{ 'inputs.054' | translate }}</td></tr>
-          <tr><td><code>label</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.055' | translate }}</td></tr>
-          <tr><td><code>value</code></td><td><code>ModelSignal&lt;string&gt;</code></td><td><code>''</code></td><td>{{ 'inputs.056' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.057' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'inputs.058' | translate }}</td></tr>
-          <tr><td><code>hasError</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.059' | translate }}</td></tr>
-          <tr><td><code>errorMessage</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.060' | translate }}</td></tr>
-          <tr><td><code>hint</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.061' | translate }}</td></tr>
-          <tr><td><code>focusColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.062' | translate }}</td></tr>
-          <tr><td><code>labelColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.063' | translate }}</td></tr>
-          <tr><td><code>changeInput</code></td><td><code>OutputEmitterRef&lt;string&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.064' | translate }}</td></tr>
-          <tr><td><code>type</code></td><td><code>string</code></td><td><code>'text'</code></td><td>{{ 'inputs.065' | translate }}</td></tr>
-          <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.066' | translate }}</td></tr>
-          <tr><td><code>readonly</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.067' | translate }}</td></tr>
-          <tr><td><code>prefix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.068' | translate }}</td></tr>
-          <tr><td><code>suffix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.068' | translate }}</td></tr>
-          <tr><td><code>clearable</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'inputs.069' | translate }}</td></tr>
-          <tr><td><code>borderColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.070' | translate }}</td></tr>
-          <tr><td><code>backgroundColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.071' | translate }}</td></tr>
-          <tr><td><code>textColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.072' | translate }}</td></tr>
-          <tr><td><code>borderRadius</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.073' | translate }}</td></tr>
-          <tr><td><code>padding</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.074' | translate }}</td></tr>
-          <tr><td><code>inputFocus</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.075' | translate }}</td></tr>
-          <tr><td><code>inputBlur</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.076' | translate }}</td></tr>
-          <tr><td><code>inputFocus</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.075' | translate }}</td></tr>
-          <tr><td><code>inputBlur</code></td><td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td><td><code>—</code></td><td>{{ 'inputs.077' | translate }}</td></tr>
+          <tr>
+            <td><code>id</code></td>
+            <td><code>string</code></td>
+            <td><code>generato</code></td>
+            <td>{{ 'inputs.054' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>label</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.055' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>value</code></td>
+            <td><code>ModelSignal&lt;string&gt;</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.056' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'inputs.057' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'inputs.058' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>hasError</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'inputs.059' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>errorMessage</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.060' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>hint</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.061' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>focusColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.062' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>labelColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.063' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>changeInput</code></td>
+            <td><code>OutputEmitterRef&lt;string&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'inputs.064' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>type</code></td>
+            <td><code>string</code></td>
+            <td><code>'text'</code></td>
+            <td>{{ 'inputs.065' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>placeholder</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.066' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>readonly</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'inputs.067' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>prefix</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.068' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>suffix</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.068' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>clearable</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'inputs.069' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>borderColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.070' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>backgroundColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.071' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>textColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.072' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>borderRadius</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.073' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>padding</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.074' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>inputFocus</code></td>
+            <td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'inputs.075' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>inputBlur</code></td>
+            <td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'inputs.076' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>inputFocus</code></td>
+            <td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'inputs.075' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>inputBlur</code></td>
+            <td><code>OutputEmitterRef&lt;FocusEvent&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'inputs.077' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

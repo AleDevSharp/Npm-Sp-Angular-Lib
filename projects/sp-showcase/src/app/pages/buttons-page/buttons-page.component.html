@@ -5,24 +5,52 @@
       <h1>{{ 'buttons.001' | translate }}</h1>
     </div>
     <p class="doc-subtitle">
-      {{ 'buttons.002' | translate }} <code>sp-btn</code> {{ 'buttons.003' | translate }} <code>sp-btn-txt</code> {{ 'buttons.004' | translate }}
+      {{ 'buttons.002' | translate }}
+      <code>sp-btn</code>
+      {{ 'buttons.003' | translate }}
+      <code>sp-btn-txt</code>
+      {{ 'buttons.004' | translate }}
     </p>
   </div>
 
   <!-- Region: Variants Section -->
   <div class="doc-section">
     <h3>{{ 'buttons.005' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.006' | translate }} <code>variant</code> {{ 'buttons.007' | translate }} <code>sp-btn</code> {{ 'buttons.008' | translate }} <code>solid</code> {{ 'buttons.009' | translate }} <code>outline</code> {{ 'accordion.023' | translate }} <code>ghost</code>.</p>
+    <p class="section-desc">
+      {{ 'buttons.006' | translate }}
+      <code>variant</code>
+      {{ 'buttons.007' | translate }}
+      <code>sp-btn</code>
+      {{ 'buttons.008' | translate }}
+      <code>solid</code>
+      {{ 'buttons.009' | translate }}
+      <code>outline</code>
+      {{ 'accordion.023' | translate }}
+      <code>ghost</code>
+      .
+    </p>
 
     <div class="demo-card">
       <div class="demo-stage">
-        <sp-btn [text]="'buttons.010' | translate" variant="solid"></sp-btn>
-        <sp-btn [text]="'buttons.011' | translate" variant="outline"></sp-btn>
-        <sp-btn [text]="'buttons.012' | translate" variant="ghost"></sp-btn>
+        <sp-btn
+          [text]="'buttons.010' | translate"
+          variant="solid"></sp-btn>
+        <sp-btn
+          [text]="'buttons.011' | translate"
+          variant="outline"></sp-btn>
+        <sp-btn
+          [text]="'buttons.012' | translate"
+          variant="ghost"></sp-btn>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;sp-btn text="Solid (Default)" variant="solid"&gt;&lt;/sp-btn&gt;
 &lt;sp-btn text="Outline" variant="outline"&gt;&lt;/sp-btn&gt;
 &lt;sp-btn text="Ghost" variant="ghost"&gt;&lt;/sp-btn&gt;</code></pre>
@@ -33,19 +61,45 @@
   <!-- Region: Palette Colors -->
   <div class="doc-section">
     <h3>{{ 'buttons.013' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.014' | translate }} <code>color</code> {{ 'buttons.015' | translate }} <code>solid</code>{{ 'buttons.016' | translate }} <code>outline</code>{{ 'buttons.017' | translate }} <code>ghost</code>{{ 'buttons.018' | translate }}</p>
+    <p class="section-desc">
+      {{ 'buttons.014' | translate }}
+      <code>color</code>
+      {{ 'buttons.015' | translate }}
+      <code>solid</code>
+      {{ 'buttons.016' | translate }}
+      <code>outline</code>
+      {{ 'buttons.017' | translate }}
+      <code>ghost</code>
+      {{ 'buttons.018' | translate }}
+    </p>
 
     <div class="demo-card">
       <div class="demo-stage">
-        <sp-btn [text]="'badge.029' | translate" color="#ffac1c"></sp-btn>
-        <sp-btn [text]="'badge.030' | translate" color="#10b981"></sp-btn>
-        <sp-btn [text]="'badge.032' | translate" color="#ef4444"></sp-btn>
-        <sp-btn [text]="'badge.033' | translate" color="#06b6d4"></sp-btn>
-        <sp-btn [text]="'buttons.019' | translate" color="#0f172a"></sp-btn>
+        <sp-btn
+          [text]="'badge.029' | translate"
+          color="#ffac1c"></sp-btn>
+        <sp-btn
+          [text]="'badge.030' | translate"
+          color="#10b981"></sp-btn>
+        <sp-btn
+          [text]="'badge.032' | translate"
+          color="#ef4444"></sp-btn>
+        <sp-btn
+          [text]="'badge.033' | translate"
+          color="#06b6d4"></sp-btn>
+        <sp-btn
+          [text]="'buttons.019' | translate"
+          color="#0f172a"></sp-btn>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;sp-btn text="Primary" color="#ffac1c"&gt;&lt;/sp-btn&gt;
 &lt;sp-btn text="Success" color="#10b981"&gt;&lt;/sp-btn&gt;
 &lt;sp-btn text="Danger" color="#ef4444"&gt;&lt;/sp-btn&gt;
@@ -58,17 +112,41 @@
   <!-- Region: Sizes -->
   <div class="doc-section">
     <h3>{{ 'buttons.020' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.021' | translate }} <code>size</code> {{ 'buttons.007' | translate }} <code>sp-btn</code> {{ 'buttons.022' | translate }} <code>sm</code> {{ 'buttons.023' | translate }} <code>md</code> {{ 'buttons.024' | translate }} <code>lg</code> {{ 'buttons.025' | translate }}</p>
+    <p class="section-desc">
+      {{ 'buttons.021' | translate }}
+      <code>size</code>
+      {{ 'buttons.007' | translate }}
+      <code>sp-btn</code>
+      {{ 'buttons.022' | translate }}
+      <code>sm</code>
+      {{ 'buttons.023' | translate }}
+      <code>md</code>
+      {{ 'buttons.024' | translate }}
+      <code>lg</code>
+      {{ 'buttons.025' | translate }}
+    </p>
 
     <div class="demo-card">
       <div class="demo-stage">
-        <sp-btn [text]="'buttons.026' | translate" size="sm"></sp-btn>
-        <sp-btn [text]="'buttons.027' | translate" size="md"></sp-btn>
-        <sp-btn [text]="'buttons.028' | translate" size="lg"></sp-btn>
+        <sp-btn
+          [text]="'buttons.026' | translate"
+          size="sm"></sp-btn>
+        <sp-btn
+          [text]="'buttons.027' | translate"
+          size="md"></sp-btn>
+        <sp-btn
+          [text]="'buttons.028' | translate"
+          size="lg"></sp-btn>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;sp-btn text="Small" size="sm"&gt;&lt;/sp-btn&gt;
 &lt;sp-btn text="Medium (Default)" size="md"&gt;&lt;/sp-btn&gt;
 &lt;sp-btn text="Large" size="lg"&gt;&lt;/sp-btn&gt;</code></pre>
@@ -79,7 +157,11 @@
   <!-- Region: Loading & Disabled States -->
   <div class="doc-section">
     <h3>{{ 'buttons.029' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.030' | translate }} <code>disabled</code>.</p>
+    <p class="section-desc">
+      {{ 'buttons.030' | translate }}
+      <code>disabled</code>
+      .
+    </p>
 
     <div class="demo-card">
       <div class="demo-stage">
@@ -93,12 +175,23 @@
           [disabled]="!this.isLoading()"
           (buttonClick)="this.toggleLoading()"></sp-btn-txt>
 
-        <sp-btn [text]="'buttons.034' | translate" [disabled]="true"></sp-btn>
-        <sp-btn [text]="'buttons.035' | translate" variant="outline" [disabled]="true"></sp-btn>
+        <sp-btn
+          [text]="'buttons.034' | translate"
+          [disabled]="true"></sp-btn>
+        <sp-btn
+          [text]="'buttons.035' | translate"
+          variant="outline"
+          [disabled]="true"></sp-btn>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;sp-btn
   [text]="this.isLoading() ? 'Caricamento...' : 'Clicca per caricare'"
   [loading]="this.isLoading()"
@@ -113,8 +206,14 @@
 &lt;sp-btn text="Outline Disabilitato" variant="outline" [disabled]="true"&gt;&lt;/sp-btn&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.032' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.033' | translate"><code>// Import signal alongside Component from &#64;angular/core.
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.032' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.033' | translate"><code>// Import signal alongside Component from &#64;angular/core.
 
 // The simulated loading state
 public readonly isLoading = signal&lt;boolean&gt;(false);
@@ -133,17 +232,50 @@ public toggleLoading(): void &#123;
   <!-- Region: Text Button -->
   <div class="doc-section">
     <h3>{{ 'buttons.036' | translate }}</h3>
-    <p class="section-desc"><code>sp-btn-txt</code> {{ 'buttons.037' | translate }} <code>text</code>, <code>color</code>, <code>disabled</code>, <code>cursor</code> {{ 'buttons.038' | translate }} <code>buttonClick</code>{{ 'buttons.039' | translate }} <code>variant</code>, <code>size</code> {{ 'buttons.040' | translate }} <code>loading</code> {{ 'buttons.007' | translate }} <code>sp-btn</code>.</p>
+    <p class="section-desc">
+      <code>sp-btn-txt</code>
+      {{ 'buttons.037' | translate }}
+      <code>text</code>
+      ,
+      <code>color</code>
+      ,
+      <code>disabled</code>
+      ,
+      <code>cursor</code>
+      {{ 'buttons.038' | translate }}
+      <code>buttonClick</code>
+      {{ 'buttons.039' | translate }}
+      <code>variant</code>
+      ,
+      <code>size</code>
+      {{ 'buttons.040' | translate }}
+      <code>loading</code>
+      {{ 'buttons.007' | translate }}
+      <code>sp-btn</code>
+      .
+    </p>
 
     <div class="demo-card">
       <div class="demo-stage">
-        <sp-btn-txt [text]="'buttons.041' | translate" color="#ffac1c"></sp-btn-txt>
-        <sp-btn-txt [text]="'buttons.042' | translate" color="#0f172a"></sp-btn-txt>
-        <sp-btn-txt [text]="'buttons.043' | translate" [disabled]="true"></sp-btn-txt>
+        <sp-btn-txt
+          [text]="'buttons.041' | translate"
+          color="#ffac1c"></sp-btn-txt>
+        <sp-btn-txt
+          [text]="'buttons.042' | translate"
+          color="#0f172a"></sp-btn-txt>
+        <sp-btn-txt
+          [text]="'buttons.043' | translate"
+          [disabled]="true"></sp-btn-txt>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;sp-btn-txt text="Visualizza dettagli" color="#ffac1c"&gt;&lt;/sp-btn-txt&gt;
 &lt;sp-btn-txt text="Modifica" color="#0f172a"&gt;&lt;/sp-btn-txt&gt;
 &lt;sp-btn-txt text="Disabilitato" [disabled]="true"&gt;&lt;/sp-btn-txt&gt;</code></pre>
@@ -154,20 +286,42 @@ public toggleLoading(): void &#123;
   <!-- Region: Interactive Click Event Feedback -->
   <div class="doc-section">
     <h3>{{ 'buttons.044' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.045' | translate }} <code>buttonClick</code> {{ 'buttons.046' | translate }} <code>sp-btn</code> {{ 'buttons.047' | translate }}</p>
+    <p class="section-desc">
+      {{ 'buttons.045' | translate }}
+      <code>buttonClick</code>
+      {{ 'buttons.046' | translate }}
+      <code>sp-btn</code>
+      {{ 'buttons.047' | translate }}
+    </p>
 
     <div class="demo-card">
       <div class="demo-stage">
-        <sp-btn [text]="'buttons.048' | translate" color="#ffac1c" (buttonClick)="this.handleButtonClick('Pulsante 1 premuto!')"></sp-btn>
-        <sp-btn [text]="'buttons.050' | translate" color="#10b981" (buttonClick)="this.handleButtonClick('Pulsante 2 premuto!')"></sp-btn>
+        <sp-btn
+          [text]="'buttons.048' | translate"
+          color="#ffac1c"
+          (buttonClick)="this.handleButtonClick('Pulsante 1 premuto!')"></sp-btn>
+        <sp-btn
+          [text]="'buttons.050' | translate"
+          color="#10b981"
+          (buttonClick)="this.handleButtonClick('Pulsante 2 premuto!')"></sp-btn>
 
         @if (this.clickFeedback()) {
-          <span class="click-feedback-badge" role="status">{{ (this.clickFeedback()) | translate }}</span>
+          <span
+            class="click-feedback-badge"
+            role="status">
+            {{ this.clickFeedback() | translate }}
+          </span>
         }
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;sp-btn text="Azione 1" color="#ffac1c" (buttonClick)="this.handleButtonClick('Pulsante 1 premuto!')"&gt;&lt;/sp-btn&gt;
 &lt;sp-btn text="Azione 2" color="#10b981" (buttonClick)="this.handleButtonClick('Pulsante 2 premuto!')"&gt;&lt;/sp-btn&gt;
 
@@ -176,8 +330,14 @@ public toggleLoading(): void &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.032' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.033' | translate"><code>// Import signal alongside Component from &#64;angular/core.
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.032' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.033' | translate"><code>// Import signal alongside Component from &#64;angular/core.
 
 // The feedback message displayed after a button click
 public readonly clickFeedback = signal&lt;string&gt;('');
@@ -193,8 +353,14 @@ public handleButtonClick(message: string): void &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'buttons.052' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'buttons.053' | translate"><code>// ================================
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'buttons.052' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'buttons.053' | translate"><code>// ================================
 // Region: Variables &amp; Feedback
 // ================================
 .click-feedback-badge &#123;
@@ -226,11 +392,27 @@ public handleButtonClick(message: string): void &#123;
   <!-- Region: Standalone Configuration -->
   <div class="doc-section">
     <h3>{{ 'accordion.043' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.054' | translate }} <code>&#64;aledevsharp/sp-lib</code> {{ 'buttons.055' | translate }} <code>imports</code> {{ 'buttons.056' | translate }} <code>signal</code> {{ 'buttons.057' | translate }} <code>&#64;angular/core</code>{{ 'buttons.058' | translate }}</p>
+    <p class="section-desc">
+      {{ 'buttons.054' | translate }}
+      <code>&#64;aledevsharp/sp-lib</code>
+      {{ 'buttons.055' | translate }}
+      <code>imports</code>
+      {{ 'buttons.056' | translate }}
+      <code>signal</code>
+      {{ 'buttons.057' | translate }}
+      <code>&#64;angular/core</code>
+      {{ 'buttons.058' | translate }}
+    </p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'buttons.059' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'buttons.060' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'buttons.059' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'buttons.060' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
 import &#123; SpBtnComponent, SpBtnTxtComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -251,128 +433,136 @@ export class ButtonsExampleComponent &#123;
   <div class="doc-section">
     <h3>{{ 'buttons.061' | translate }}</h3>
     <div class="mobile-api-table">
-    <table class="api-table">
-      <thead>
-        <tr>
-          <th>{{ 'buttons.062' | translate }}</th>
-          <th>{{ 'accordion.051' | translate }}</th>
-          <th>{{ 'accordion.052' | translate }}</th>
-          <th>{{ 'accordion.053' | translate }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>text</code></td>
-          <td><code>string</code></td>
-          <td><code>''</code></td>
-          <td>{{ 'buttons.063' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>variant</code></td>
-          <td><code>'solid' | 'outline' | 'ghost'</code></td>
-          <td><code>'solid'</code></td>
-          <td>{{ 'buttons.064' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>size</code></td>
-          <td><code>'sm' | 'md' | 'lg'</code></td>
-          <td><code>'md'</code></td>
-          <td>{{ 'buttons.065' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>color</code></td>
-          <td><code>string</code></td>
-          <td><code>'#ffac1c'</code></td>
-          <td>{{ 'buttons.066' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>height</code></td>
-          <td><code>string</code></td>
-          <td><code>''</code></td>
-          <td>{{ 'buttons.067' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>cursor</code></td>
-          <td><code>string</code></td>
-          <td><code>'pointer'</code></td>
-          <td>{{ 'buttons.068' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>type</code></td>
-          <td><code>'button' | 'submit' | 'reset'</code></td>
-          <td><code>'button'</code></td>
-          <td>{{ 'buttons.069' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>loading</code></td>
-          <td><code>boolean</code></td>
-          <td><code>false</code></td>
-          <td>{{ 'buttons.070' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>disabled</code></td>
-          <td><code>boolean</code></td>
-          <td><code>false</code></td>
-          <td>{{ 'buttons.071' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>buttonClick</code></td>
-          <td><code>OutputEmitterRef&lt;void&gt;</code></td>
-          <td>-</td>
-          <td>{{ 'buttons.072' | translate }}</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>{{ 'buttons.062' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>text</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'buttons.063' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>variant</code></td>
+            <td><code>'solid' | 'outline' | 'ghost'</code></td>
+            <td><code>'solid'</code></td>
+            <td>{{ 'buttons.064' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'buttons.065' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>string</code></td>
+            <td><code>'#ffac1c'</code></td>
+            <td>{{ 'buttons.066' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>height</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'buttons.067' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>cursor</code></td>
+            <td><code>string</code></td>
+            <td><code>'pointer'</code></td>
+            <td>{{ 'buttons.068' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>type</code></td>
+            <td><code>'button' | 'submit' | 'reset'</code></td>
+            <td><code>'button'</code></td>
+            <td>{{ 'buttons.069' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>loading</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'buttons.070' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'buttons.071' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>buttonClick</code></td>
+            <td><code>OutputEmitterRef&lt;void&gt;</code></td>
+            <td>-</td>
+            <td>{{ 'buttons.072' | translate }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <!-- Region: Text Button API Reference -->
   <div class="doc-section">
     <h3>{{ 'buttons.073' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.074' | translate }} <code>type="button"</code>{{ 'buttons.075' | translate }} <code>sp-btn</code>{{ 'buttons.076' | translate }} <code>text</code>.</p>
+    <p class="section-desc">
+      {{ 'buttons.074' | translate }}
+      <code>type="button"</code>
+      {{ 'buttons.075' | translate }}
+      <code>sp-btn</code>
+      {{ 'buttons.076' | translate }}
+      <code>text</code>
+      .
+    </p>
     <div class="mobile-api-table">
-    <table class="api-table">
-      <thead>
-        <tr>
-          <th>{{ 'buttons.062' | translate }}</th>
-          <th>{{ 'accordion.051' | translate }}</th>
-          <th>{{ 'accordion.052' | translate }}</th>
-          <th>{{ 'accordion.053' | translate }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>text</code></td>
-          <td><code>string</code></td>
-          <td><code>''</code></td>
-          <td>{{ 'buttons.077' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>color</code></td>
-          <td><code>string</code></td>
-          <td><code>'#ffac1c'</code></td>
-          <td>{{ 'buttons.078' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>disabled</code></td>
-          <td><code>boolean</code></td>
-          <td><code>false</code></td>
-          <td>{{ 'buttons.079' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>cursor</code></td>
-          <td><code>string</code></td>
-          <td><code>'pointer'</code></td>
-          <td>{{ 'buttons.068' | translate }}</td>
-        </tr>
-        <tr>
-          <td><code>buttonClick</code></td>
-          <td><code>OutputEmitterRef&lt;void&gt;</code></td>
-          <td><code>-</code></td>
-          <td>{{ 'buttons.080' | translate }}</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>{{ 'buttons.062' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>text</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'buttons.077' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>string</code></td>
+            <td><code>'#ffac1c'</code></td>
+            <td>{{ 'buttons.078' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'buttons.079' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>cursor</code></td>
+            <td><code>string</code></td>
+            <td><code>'pointer'</code></td>
+            <td>{{ 'buttons.068' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>buttonClick</code></td>
+            <td><code>OutputEmitterRef&lt;void&gt;</code></td>
+            <td><code>-</code></td>
+            <td>{{ 'buttons.080' | translate }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -38,7 +38,7 @@ export class CounterPageComponent {
    * @returns void
    */
   public restartCounter(): void {
-    this.counters().forEach(counter => counter.start());
+    this.counters().forEach((counter) => counter.start());
   }
 
   /**
@@ -46,6 +46,6 @@ export class CounterPageComponent {
    * @returns void
    */
   public resetCounter(): void {
-    this.counters().forEach(counter => counter.reset());
+    this.counters().forEach((counter) => counter.reset());
   }
 }

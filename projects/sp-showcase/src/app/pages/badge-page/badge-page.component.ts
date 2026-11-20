@@ -43,7 +43,7 @@ export class BadgePageComponent {
    * @returns void
    */
   public incrementCount(): void {
-    this.notificationCount.update(c => c + 15);
+    this.notificationCount.update((c) => c + 15);
   }
 
   /**

@@ -33,7 +33,8 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 @Component({
   selector: 'app-marquee-page',
   standalone: true,
-  imports: [TranslatePipe, 
+  imports: [
+    TranslatePipe,
     CommonModule,
     SpMarqueeComponent,
     SpMarqueeItemDirective,
@@ -119,7 +120,6 @@ export class MarqueePageComponent {
     { time: '11:15', tag: 'PERF', text: 'Esempio di notifica sullo stato delle verifiche.' },
     { time: '10:30', tag: 'FEATURE', text: 'Esempio di annuncio relativo al tema dell’interfaccia.' }
   ];
-
 
   /**
    * Sets the scrolling direction for the playground.

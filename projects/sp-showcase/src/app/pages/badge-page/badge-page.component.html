@@ -1,45 +1,73 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'badge.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'badge.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'badge.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'badge.003' | translate }}</h3>
-    <p class="section-desc"><code>[dot]="true"</code> {{ 'badge.004' | translate }} <code>[pulse]="true"</code> {{ 'badge.005' | translate }}</p>
+    <p class="section-desc">
+      <code>[dot]="true"</code>
+      {{ 'badge.004' | translate }}
+      <code>[pulse]="true"</code>
+      {{ 'badge.005' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="dots-row">
           <div class="status-item">
-            <sp-badge color="success" [dot]="true" [pulse]="true"></sp-badge>
+            <sp-badge
+              color="success"
+              [dot]="true"
+              [pulse]="true"></sp-badge>
             <span class="status-name">{{ 'badge.006' | translate }}</span>
           </div>
 
           <div class="status-item">
-            <sp-badge color="primary" [dot]="true" [pulse]="true"></sp-badge>
+            <sp-badge
+              color="primary"
+              [dot]="true"
+              [pulse]="true"></sp-badge>
             <span class="status-name">{{ 'badge.007' | translate }}</span>
           </div>
 
           <div class="status-item">
-            <sp-badge color="warning" [dot]="true" [pulse]="true"></sp-badge>
+            <sp-badge
+              color="warning"
+              [dot]="true"
+              [pulse]="true"></sp-badge>
             <span class="status-name">{{ 'badge.008' | translate }}</span>
           </div>
 
           <div class="status-item">
-            <sp-badge color="danger" [dot]="true" [pulse]="true"></sp-badge>
+            <sp-badge
+              color="danger"
+              [dot]="true"
+              [pulse]="true"></sp-badge>
             <span class="status-name">{{ 'badge.009' | translate }}</span>
           </div>
 
           <div class="status-item">
-            <sp-badge color="secondary" [dot]="true" [pulse]="false"></sp-badge>
+            <sp-badge
+              color="secondary"
+              [dot]="true"
+              [pulse]="false"></sp-badge>
             <span class="status-name">{{ 'badge.010' | translate }}</span>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="dots-row"&gt;
   &lt;div class="status-item"&gt;
     &lt;sp-badge color="success" [dot]="true" [pulse]="true"&gt;&lt;/sp-badge&gt;
@@ -72,42 +100,85 @@
 
   <div class="doc-section">
     <h3>{{ 'badge.011' | translate }}</h3>
-    <p class="section-desc"><code>[max]="99"</code> {{ 'badge.012' | translate }} <code>99+</code> {{ 'badge.013' | translate }} <code>placement</code> {{ 'badge.014' | translate }}</p>
+    <p class="section-desc">
+      <code>[max]="99"</code>
+      {{ 'badge.012' | translate }}
+      <code>99+</code>
+      {{ 'badge.013' | translate }}
+      <code>placement</code>
+      {{ 'badge.014' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="badge-demo-column">
           <div class="overlays-row">
             <!-- Interactive Bell -->
-            <sp-badge [content]="(notificationCount()) | translate" color="danger" placement="top-right" [max]="99">
-              <button type="button" class="icon-trigger-btn" [attr.aria-label]="'badge.015' | translate">
+            <sp-badge
+              [content]="notificationCount() | translate"
+              color="danger"
+              placement="top-right"
+              [max]="99">
+              <button
+                type="button"
+                class="icon-trigger-btn"
+                [attr.aria-label]="'badge.015' | translate">
                 🔔
               </button>
             </sp-badge>
-          
+
             <!-- Message Counter -->
-            <sp-badge [content]="'badge.016' | translate" color="primary" placement="top-right">
-              <button type="button" class="icon-trigger-btn" [attr.aria-label]="'badge.017' | translate">
+            <sp-badge
+              [content]="'badge.016' | translate"
+              color="primary"
+              placement="top-right">
+              <button
+                type="button"
+                class="icon-trigger-btn"
+                [attr.aria-label]="'badge.017' | translate">
                 ✉️
               </button>
             </sp-badge>
-          
+
             <!-- Profile Online Dot -->
-            <sp-badge color="success" [dot]="true" placement="bottom-right" [pulse]="true">
+            <sp-badge
+              color="success"
+              [dot]="true"
+              placement="bottom-right"
+              [pulse]="true">
               <div class="avatar-box">{{ 'badge.018' | translate }}</div>
             </sp-badge>
           </div>
           <div class="counter-actions">
-            <span>{{ 'badge.019' | translate }} <code>{{ notificationCount() }}</code> {{ 'badge.020' | translate }} <code>{{ notificationCount() > 99 ? '99+' : notificationCount() }}</code>)</span>
+            <span>
+              {{ 'badge.019' | translate }}
+              <code>{{ notificationCount() }}</code>
+              {{ 'badge.020' | translate }}
+              <code>{{ notificationCount() > 99 ? '99+' : notificationCount() }}</code>
+              )
+            </span>
             <div class="actions-group">
-              <sp-btn [text]="'badge.021' | translate" size="sm" (buttonClick)="incrementCount()"></sp-btn>
-              <sp-btn [text]="'badge.022' | translate" size="sm" variant="outline" (buttonClick)="resetCount()"></sp-btn>
+              <sp-btn
+                [text]="'badge.021' | translate"
+                size="sm"
+                (buttonClick)="incrementCount()"></sp-btn>
+              <sp-btn
+                [text]="'badge.022' | translate"
+                size="sm"
+                variant="outline"
+                (buttonClick)="resetCount()"></sp-btn>
             </div>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="badge-demo-column"&gt;
   &lt;div class="overlays-row"&gt;
     &lt;!-- Interactive Bell --&gt;
@@ -139,8 +210,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'badge.023' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'badge.024' | translate"><code>// The notification count
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'badge.023' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'badge.024' | translate"><code>// The notification count
 public readonly notificationCount = signal&lt;number&gt;(5);
 
 /**
@@ -164,47 +241,106 @@ public resetCount(): void &#123;
 
   <div class="doc-section">
     <h3>{{ 'badge.025' | translate }}</h3>
-    <p class="section-desc">{{ 'badge.026' | translate }} <code>secondary</code>; <code>variant="dot"</code> {{ 'badge.027' | translate }} <code>[dot]="true"</code>.</p>
+    <p class="section-desc">
+      {{ 'badge.026' | translate }}
+      <code>secondary</code>
+      ;
+      <code>variant="dot"</code>
+      {{ 'badge.027' | translate }}
+      <code>[dot]="true"</code>
+      .
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="variants-stack">
           <div class="variant-row">
             <span class="v-label">{{ 'badge.028' | translate }}</span>
             <div class="badges-inline-group">
-              <sp-badge [content]="'badge.029' | translate" color="primary" variant="solid"></sp-badge>
-              <sp-badge [content]="'badge.030' | translate" color="success" variant="solid"></sp-badge>
-              <sp-badge [content]="'badge.031' | translate" color="warning" variant="solid"></sp-badge>
-              <sp-badge [content]="'badge.032' | translate" color="danger" variant="solid"></sp-badge>
-              <sp-badge [content]="'badge.033' | translate" color="info" variant="solid"></sp-badge>
+              <sp-badge
+                [content]="'badge.029' | translate"
+                color="primary"
+                variant="solid"></sp-badge>
+              <sp-badge
+                [content]="'badge.030' | translate"
+                color="success"
+                variant="solid"></sp-badge>
+              <sp-badge
+                [content]="'badge.031' | translate"
+                color="warning"
+                variant="solid"></sp-badge>
+              <sp-badge
+                [content]="'badge.032' | translate"
+                color="danger"
+                variant="solid"></sp-badge>
+              <sp-badge
+                [content]="'badge.033' | translate"
+                color="info"
+                variant="solid"></sp-badge>
             </div>
           </div>
 
           <div class="variant-row">
             <span class="v-label">{{ 'badge.034' | translate }}</span>
             <div class="badges-inline-group">
-              <sp-badge [content]="'badge.029' | translate" color="primary" variant="soft"></sp-badge>
-              <sp-badge [content]="'badge.030' | translate" color="success" variant="soft"></sp-badge>
-              <sp-badge [content]="'badge.031' | translate" color="warning" variant="soft"></sp-badge>
-              <sp-badge [content]="'badge.032' | translate" color="danger" variant="soft"></sp-badge>
-              <sp-badge [content]="'badge.033' | translate" color="info" variant="soft"></sp-badge>
+              <sp-badge
+                [content]="'badge.029' | translate"
+                color="primary"
+                variant="soft"></sp-badge>
+              <sp-badge
+                [content]="'badge.030' | translate"
+                color="success"
+                variant="soft"></sp-badge>
+              <sp-badge
+                [content]="'badge.031' | translate"
+                color="warning"
+                variant="soft"></sp-badge>
+              <sp-badge
+                [content]="'badge.032' | translate"
+                color="danger"
+                variant="soft"></sp-badge>
+              <sp-badge
+                [content]="'badge.033' | translate"
+                color="info"
+                variant="soft"></sp-badge>
             </div>
           </div>
 
           <div class="variant-row">
             <span class="v-label">{{ 'badge.035' | translate }}</span>
             <div class="badges-inline-group">
-              <sp-badge [content]="'badge.029' | translate" color="primary" variant="outline"></sp-badge>
-              <sp-badge [content]="'badge.030' | translate" color="success" variant="outline"></sp-badge>
-              <sp-badge [content]="'badge.031' | translate" color="warning" variant="outline"></sp-badge>
-              <sp-badge [content]="'badge.032' | translate" color="danger" variant="outline"></sp-badge>
-              <sp-badge [content]="'badge.033' | translate" color="info" variant="outline"></sp-badge>
+              <sp-badge
+                [content]="'badge.029' | translate"
+                color="primary"
+                variant="outline"></sp-badge>
+              <sp-badge
+                [content]="'badge.030' | translate"
+                color="success"
+                variant="outline"></sp-badge>
+              <sp-badge
+                [content]="'badge.031' | translate"
+                color="warning"
+                variant="outline"></sp-badge>
+              <sp-badge
+                [content]="'badge.032' | translate"
+                color="danger"
+                variant="outline"></sp-badge>
+              <sp-badge
+                [content]="'badge.033' | translate"
+                color="info"
+                variant="outline"></sp-badge>
             </div>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="variants-stack"&gt;
   &lt;div class="variant-row"&gt;
     &lt;span class="v-label"&gt;Solid:&lt;/span&gt;
@@ -248,8 +384,14 @@ public resetCount(): void &#123;
     <p class="section-desc">{{ 'badge.036' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; SpBadgeComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -264,8 +406,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>.badge-demo-column,
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>.badge-demo-column,
 .variants-stack &#123; width: 100%; min-width: 0; &#125;
 
 .dots-row &#123;
@@ -391,17 +539,69 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'badge.037' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>content</code></td><td><code>string | number | null | undefined</code></td><td><code>null</code></td><td>{{ 'badge.038' | translate }}</td></tr>
-          <tr><td><code>color</code></td><td><code>'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info'</code></td><td><code>'primary'</code></td><td>{{ 'badge.039' | translate }}</td></tr>
-          <tr><td><code>variant</code></td><td><code>'solid' | 'soft' | 'outline' | 'dot'</code></td><td><code>'solid'</code></td><td>{{ 'badge.040' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'badge.041' | translate }}</td></tr>
-          <tr><td><code>placement</code></td><td><code>'inline' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'</code></td><td><code>'inline'</code></td><td>{{ 'badge.042' | translate }}</td></tr>
-          <tr><td><code>dot</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'badge.043' | translate }}</td></tr>
-          <tr><td><code>pulse</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'badge.044' | translate }}</td></tr>
-          <tr><td><code>max</code></td><td><code>number</code></td><td><code>99</code></td><td>{{ 'badge.045' | translate }}</td></tr>
-          <tr><td><code>hidden</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'badge.046' | translate }}</td></tr>
+          <tr>
+            <td><code>content</code></td>
+            <td><code>string | number | null | undefined</code></td>
+            <td><code>null</code></td>
+            <td>{{ 'badge.038' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info'</code></td>
+            <td><code>'primary'</code></td>
+            <td>{{ 'badge.039' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>variant</code></td>
+            <td><code>'solid' | 'soft' | 'outline' | 'dot'</code></td>
+            <td><code>'solid'</code></td>
+            <td>{{ 'badge.040' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'badge.041' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>placement</code></td>
+            <td><code>'inline' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'</code></td>
+            <td><code>'inline'</code></td>
+            <td>{{ 'badge.042' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>dot</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'badge.043' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>pulse</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'badge.044' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>max</code></td>
+            <td><code>number</code></td>
+            <td><code>99</code></td>
+            <td>{{ 'badge.045' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>hidden</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'badge.046' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

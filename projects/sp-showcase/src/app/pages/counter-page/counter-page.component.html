@@ -1,7 +1,9 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'counter.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'counter.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'counter.002' | translate }}</p>
   </div>
 
@@ -21,8 +23,7 @@
                   [to]="1450000"
                   prefix="€ "
                   thousandSeparator="."
-                  [duration]="2200"
-                ></sp-counter>
+                  [duration]="2200"></sp-counter>
               </div>
               <span class="kpi-trend positive">{{ 'counter.006' | translate }}</span>
             </div>
@@ -36,8 +37,7 @@
                   [to]="84200"
                   thousandSeparator="."
                   suffix=" +"
-                  [duration]="2000"
-                ></sp-counter>
+                  [duration]="2000"></sp-counter>
               </div>
               <span class="kpi-trend positive">{{ 'counter.008' | translate }}</span>
             </div>
@@ -52,8 +52,7 @@
                   [decimals]="1"
                   decimalSeparator=","
                   suffix="%"
-                  [duration]="1800"
-                ></sp-counter>
+                  [duration]="1800"></sp-counter>
               </div>
               <span class="kpi-trend positive">{{ 'counter.010' | translate }}</span>
             </div>
@@ -68,22 +67,34 @@
                   [decimals]="2"
                   decimalSeparator="."
                   suffix="%"
-                  [duration]="2500"
-                ></sp-counter>
+                  [duration]="2500"></sp-counter>
               </div>
               <span class="kpi-trend positive">{{ 'counter.012' | translate }}</span>
             </div>
           </div>
 
           <div class="actions-footer">
-            <sp-btn [text]="'counter.013' | translate" size="sm" (buttonClick)="restartCounter()"></sp-btn>
-            <sp-btn [text]="'counter.014' | translate" size="sm" variant="outline" (buttonClick)="resetCounter()"></sp-btn>
+            <sp-btn
+              [text]="'counter.013' | translate"
+              size="sm"
+              (buttonClick)="restartCounter()"></sp-btn>
+            <sp-btn
+              [text]="'counter.014' | translate"
+              size="sm"
+              variant="outline"
+              (buttonClick)="resetCounter()"></sp-btn>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="counter-demo-column"&gt;
   &lt;div class="kpi-stats-grid"&gt;
     &lt;!-- Stat 1: Revenue --&gt;
@@ -156,8 +167,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'counter.015' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'counter.016' | translate"><code>// The four KPI counter instances controlled by the demo actions
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'counter.015' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'counter.016' | translate"><code>// The four KPI counter instances controlled by the demo actions
 private readonly counters = viewChildren(SpCounterComponent);
 
 /**
@@ -181,11 +198,21 @@ public resetCounter(): void &#123;
 
   <div class="doc-section">
     <h3>{{ 'accordion.043' | translate }}</h3>
-    <p class="section-desc">{{ 'counter.017' | translate }} <code>viewChildren(SpCounterComponent)</code> {{ 'counter.018' | translate }}</p>
+    <p class="section-desc">
+      {{ 'counter.017' | translate }}
+      <code>viewChildren(SpCounterComponent)</code>
+      {{ 'counter.018' | translate }}
+    </p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChildren &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChildren &#125; from '&#64;angular/core';
 import &#123; SpCounterComponent, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -200,8 +227,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
 // Project: SpLib
 // File name: counter-page.component.scss
 // File description: Styles for CounterPageComponent showcase demo.
@@ -296,20 +329,87 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'counter.019' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>from</code></td><td><code>number</code></td><td><code>0</code></td><td>{{ 'counter.020' | translate }}</td></tr>
-          <tr><td><code>to</code></td><td><code>number</code></td><td><code>0</code></td><td>{{ 'counter.021' | translate }}</td></tr>
-          <tr><td><code>duration</code></td><td><code>number</code></td><td><code>2000</code></td><td>{{ 'counter.022' | translate }}</td></tr>
-          <tr><td><code>decimals</code></td><td><code>number</code></td><td><code>0</code></td><td>{{ 'counter.023' | translate }}</td></tr>
-          <tr><td><code>decimalSeparator</code></td><td><code>string</code></td><td><code>','</code></td><td>{{ 'counter.024' | translate }}</td></tr>
-          <tr><td><code>thousandSeparator</code></td><td><code>string</code></td><td><code>'.'</code></td><td>{{ 'counter.025' | translate }}</td></tr>
-          <tr><td><code>prefix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'counter.026' | translate }}</td></tr>
-          <tr><td><code>suffix</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'counter.027' | translate }}</td></tr>
-          <tr><td><code>autoplay</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'counter.028' | translate }}</td></tr>
-          <tr><td><code>viewportTrigger</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'counter.029' | translate }}</td></tr>
-          <tr><td><code>easing</code></td><td><code>'easeOutExpo' | 'easeOutQuad' | 'linear'</code></td><td><code>'easeOutExpo'</code></td><td>{{ 'counter.030' | translate }}</td></tr>
-          <tr><td><code>counterEnd</code></td><td><code>OutputEmitterRef&lt;number&gt;</code></td><td><code>—</code></td><td>{{ 'counter.031' | translate }}</td></tr>
+          <tr>
+            <td><code>from</code></td>
+            <td><code>number</code></td>
+            <td><code>0</code></td>
+            <td>{{ 'counter.020' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>to</code></td>
+            <td><code>number</code></td>
+            <td><code>0</code></td>
+            <td>{{ 'counter.021' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>duration</code></td>
+            <td><code>number</code></td>
+            <td><code>2000</code></td>
+            <td>{{ 'counter.022' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>decimals</code></td>
+            <td><code>number</code></td>
+            <td><code>0</code></td>
+            <td>{{ 'counter.023' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>decimalSeparator</code></td>
+            <td><code>string</code></td>
+            <td><code>','</code></td>
+            <td>{{ 'counter.024' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>thousandSeparator</code></td>
+            <td><code>string</code></td>
+            <td><code>'.'</code></td>
+            <td>{{ 'counter.025' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>prefix</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'counter.026' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>suffix</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'counter.027' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>autoplay</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'counter.028' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>viewportTrigger</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'counter.029' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>easing</code></td>
+            <td><code>'easeOutExpo' | 'easeOutQuad' | 'linear'</code></td>
+            <td><code>'easeOutExpo'</code></td>
+            <td>{{ 'counter.030' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>counterEnd</code></td>
+            <td><code>OutputEmitterRef&lt;number&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'counter.031' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -319,10 +419,27 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'counter.032' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>start()</code></td><td><code>() =&gt; void</code></td><td><code>—</code></td><td>{{ 'counter.033' | translate }}</td></tr>
-          <tr><td><code>reset()</code></td><td><code>() =&gt; void</code></td><td><code>—</code></td><td>{{ 'counter.034' | translate }}</td></tr>
+          <tr>
+            <td><code>start()</code></td>
+            <td><code>() =&gt; void</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'counter.033' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>reset()</code></td>
+            <td><code>() =&gt; void</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'counter.034' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

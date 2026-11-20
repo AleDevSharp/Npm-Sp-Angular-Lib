@@ -1,5 +1,20 @@
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: badge-page.component.scss
+// File description: Styles for BadgePageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// ================================
+// Region: Status & Overlays
+// ================================
 .badge-demo-column,
-.variants-stack { width: 100%; min-width: 0; }
+.variants-stack {
+  width: 100%;
+  min-width: 0;
+}
 
 .dots-row {
   display: flex;
@@ -59,6 +74,9 @@
   justify-content: center;
 }
 
+// ================================
+// Region: Counter Actions
+// ================================
 .counter-actions {
   margin-top: 20px;
   padding-top: 16px;
@@ -86,6 +104,9 @@
   }
 }
 
+// ================================
+// Region: Variants Stack
+// ================================
 .variants-stack {
   display: flex;
   flex-direction: column;

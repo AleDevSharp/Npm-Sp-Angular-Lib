@@ -1,13 +1,19 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'tabs.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'tabs.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'tabs.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'tabs.003' | translate }}</h3>
-    <p class="section-desc">{{ 'tabs.004' | translate }} <code>variant</code> {{ 'tabs.005' | translate }}</p>
+    <p class="section-desc">
+      {{ 'tabs.004' | translate }}
+      <code>variant</code>
+      {{ 'tabs.005' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="tabs-demo-column">
@@ -18,29 +24,27 @@
                 [text]="'tabs.007' | translate"
                 size="sm"
                 [variant]="activeVariant() === 'line' ? 'solid' : 'outline'"
-                (buttonClick)="setVariant('line')"
-              ></sp-btn>
+                (buttonClick)="setVariant('line')"></sp-btn>
               <sp-btn
                 [text]="'tabs.009' | translate"
                 size="sm"
                 [variant]="activeVariant() === 'pill' ? 'solid' : 'outline'"
-                (buttonClick)="setVariant('pill')"
-              ></sp-btn>
+                (buttonClick)="setVariant('pill')"></sp-btn>
               <sp-btn
                 [text]="'tabs.011' | translate"
                 size="sm"
                 [variant]="activeVariant() === 'enclosed' ? 'solid' : 'outline'"
-                (buttonClick)="setVariant('enclosed')"
-              ></sp-btn>
+                (buttonClick)="setVariant('enclosed')"></sp-btn>
             </div>
           </div>
 
-          <sp-tabs [variant]="activeVariant()" [(selectedIndex)]="activeTab">
+          <sp-tabs
+            [variant]="activeVariant()"
+            [(selectedIndex)]="activeTab">
             <sp-tab
               [label]="'tabs.013' | translate"
               badge="Novità"
-              icon="⌂"
-            >
+              icon="⌂">
               <div class="tab-demo-box">
                 <h4>{{ 'tabs.014' | translate }}</h4>
                 <p>{{ 'tabs.015' | translate }}</p>
@@ -49,8 +53,7 @@
 
             <sp-tab
               [label]="'tabs.016' | translate"
-              icon="◷"
-            >
+              icon="◷">
               <div class="tab-demo-box">
                 <h4>{{ 'tabs.017' | translate }}</h4>
                 <p>{{ 'tabs.018' | translate }}</p>
@@ -60,23 +63,34 @@
             <sp-tab
               [label]="'tabs.019' | translate"
               badge="12"
-              icon="☷"
-            >
+              icon="☷">
               <div class="tab-demo-box">
                 <h4>{{ 'tabs.020' | translate }}</h4>
-                <p>{{ 'tabs.021' | translate }} <code>npm install &#64;aledevsharp/sp-lib</code>.</p>
+                <p>
+                  {{ 'tabs.021' | translate }}
+                  <code>npm install &#64;aledevsharp/sp-lib</code>
+                  .
+                </p>
               </div>
             </sp-tab>
 
-            <sp-tab [label]="'tabs.022' | translate" [disabled]="true">
+            <sp-tab
+              [label]="'tabs.022' | translate"
+              [disabled]="true">
               <p>{{ 'tabs.023' | translate }}</p>
             </sp-tab>
           </sp-tabs>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="tabs-demo-column"&gt;
   &lt;div class="variant-switcher-row"&gt;
     &lt;span&gt;Variante:&lt;/span&gt;
@@ -142,8 +156,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.032' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.033' | translate"><code>// The selected tab index
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.032' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.033' | translate"><code>// The selected tab index
 public readonly activeTab = signal&lt;number&gt;(0);
 
 // The active indicator variant
@@ -163,11 +183,18 @@ public setVariant(variant: SpTabsVariant): void &#123;
 
   <div class="doc-section">
     <h3>{{ 'tabs.024' | translate }}</h3>
-    <p class="section-desc">{{ 'tabs.025' | translate }} <code>orientation="vertical"</code> {{ 'tabs.026' | translate }}</p>
+    <p class="section-desc">
+      {{ 'tabs.025' | translate }}
+      <code>orientation="vertical"</code>
+      {{ 'tabs.026' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="tabs-demo-column">
-          <sp-tabs orientation="vertical" variant="line" [(selectedIndex)]="verticalTab">
+          <sp-tabs
+            orientation="vertical"
+            variant="line"
+            [(selectedIndex)]="verticalTab">
             <sp-tab [label]="'tabs.027' | translate">
               <div class="vertical-tab-content">
                 <h4>{{ 'tabs.028' | translate }}</h4>
@@ -192,8 +219,14 @@ public setVariant(variant: SpTabsVariant): void &#123;
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="tabs-demo-column"&gt;
   &lt;sp-tabs orientation="vertical" variant="line" [(selectedIndex)]="verticalTab"&gt;
     &lt;sp-tab label="Profilo Utente"&gt;
@@ -220,8 +253,14 @@ public setVariant(variant: SpTabsVariant): void &#123;
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.009' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'inputs.010' | translate"><code>// The independently selected vertical tab
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'inputs.009' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'inputs.010' | translate"><code>// The independently selected vertical tab
 public readonly verticalTab = signal&lt;number&gt;(0);</code></pre>
       </details>
     </div>
@@ -232,8 +271,14 @@ public readonly verticalTab = signal&lt;number&gt;(0);</code></pre>
     <p class="section-desc">{{ 'tabs.036' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; SpTabsComponent, SpTabComponent, SpTabsVariant, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -248,8 +293,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>.tabs-demo-column &#123; width: 100%; min-width: 0; &#125;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>.tabs-demo-column &#123; width: 100%; min-width: 0; &#125;
 
 .variant-switcher-row &#123;
   display: flex;
@@ -317,13 +368,45 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'tabs.037' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>selectedIndex</code></td><td><code>ModelSignal&lt;number&gt;</code></td><td><code>0</code></td><td>{{ 'tabs.038' | translate }}</td></tr>
-          <tr><td><code>variant</code></td><td><code>'line' | 'pill' | 'enclosed'</code></td><td><code>'line'</code></td><td>{{ 'tabs.039' | translate }}</td></tr>
-          <tr><td><code>orientation</code></td><td><code>'horizontal' | 'vertical'</code></td><td><code>'horizontal'</code></td><td>{{ 'tabs.040' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'tabs.041' | translate }}</td></tr>
-          <tr><td><code>tabChange</code></td><td><code>OutputEmitterRef&lt;number&gt;</code></td><td><code>—</code></td><td>{{ 'tabs.042' | translate }}</td></tr>
+          <tr>
+            <td><code>selectedIndex</code></td>
+            <td><code>ModelSignal&lt;number&gt;</code></td>
+            <td><code>0</code></td>
+            <td>{{ 'tabs.038' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>variant</code></td>
+            <td><code>'line' | 'pill' | 'enclosed'</code></td>
+            <td><code>'line'</code></td>
+            <td>{{ 'tabs.039' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>orientation</code></td>
+            <td><code>'horizontal' | 'vertical'</code></td>
+            <td><code>'horizontal'</code></td>
+            <td>{{ 'tabs.040' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'tabs.041' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>tabChange</code></td>
+            <td><code>OutputEmitterRef&lt;number&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'tabs.042' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -333,12 +416,39 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'tabs.043' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>label</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'tabs.044' | translate }}</td></tr>
-          <tr><td><code>icon</code></td><td><code>string | undefined</code></td><td><code>undefined</code></td><td>{{ 'tabs.045' | translate }}</td></tr>
-          <tr><td><code>badge</code></td><td><code>string | number | undefined</code></td><td><code>undefined</code></td><td>{{ 'tabs.046' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'tabs.047' | translate }}</td></tr>
+          <tr>
+            <td><code>label</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'tabs.044' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>icon</code></td>
+            <td><code>string | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'tabs.045' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>badge</code></td>
+            <td><code>string | number | undefined</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'tabs.046' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'tabs.047' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

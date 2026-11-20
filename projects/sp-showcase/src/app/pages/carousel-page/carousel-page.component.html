@@ -1,7 +1,9 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'carousel.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'carousel.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'carousel.002' | translate }}</p>
   </div>
 
@@ -11,70 +13,90 @@
     <div class="demo-card">
       <div class="demo-stage">
         <div class="demo-stage-toolbar">
-                <div class="toolbar-group">
-                  <span class="toolbar-label">{{ 'carousel.005' | translate }}</span>
-                  <sp-segmented-control
-                    [options]="(effectOptions) | translate"
-                    [(value)]="effect"
-                    size="sm"
-                  ></sp-segmented-control>
-                </div>
+          <div class="toolbar-group">
+            <span class="toolbar-label">{{ 'carousel.005' | translate }}</span>
+            <sp-segmented-control
+              [options]="effectOptions | translate"
+              [(value)]="effect"
+              size="sm"></sp-segmented-control>
+          </div>
 
-                <div class="toolbar-group">
-                  <span class="toolbar-label">{{ 'carousel.006' | translate }}</span>
-                  <sp-segmented-control
-                    [options]="(indicatorOptions) | translate"
-                    [(value)]="indicatorType"
-                    size="sm"
-                  ></sp-segmented-control>
-                </div>
+          <div class="toolbar-group">
+            <span class="toolbar-label">{{ 'carousel.006' | translate }}</span>
+            <sp-segmented-control
+              [options]="indicatorOptions | translate"
+              [(value)]="indicatorType"
+              size="sm"></sp-segmented-control>
+          </div>
 
-                <label class="toolbar-toggle">
-                  <span>{{ 'carousel.007' | translate }}</span>
-                  <sp-switch [(value)]="autoplay"></sp-switch>
-                </label>
+          <label class="toolbar-toggle">
+            <span>{{ 'carousel.007' | translate }}</span>
+            <sp-switch [(value)]="autoplay"></sp-switch>
+          </label>
 
-                <label class="toolbar-toggle">
-                  <span>{{ 'carousel.008' | translate }}</span>
-                  <sp-switch [(value)]="loop"></sp-switch>
-                </label>
+          <label class="toolbar-toggle">
+            <span>{{ 'carousel.008' | translate }}</span>
+            <sp-switch [(value)]="loop"></sp-switch>
+          </label>
         </div>
         <div class="carousel-stage-wrapper">
-                <div class="carousel-preview-box">
-                  <sp-carousel
-                    #primaryCarousel
-                    [(activeIndex)]="activeIndex"
-                    [items]="(galleryItems) | translate"
-                    [pauseOnHover]="false"
-                    [ariaLabel]="'carousel.galleryAria' | translate"
-                    [autoplay]="autoplay"
-                    [interval]="interval"
-                    [loop]="loop"
-                    [showArrows]="showArrows"
-                    [showIndicators]="showIndicators"
-                    [indicatorType]="indicatorType"
-                    [effect]="effect"
-                    aspectRatio="16/9"
-                  ></sp-carousel>
-                </div>
+          <div class="carousel-preview-box">
+            <sp-carousel
+              #primaryCarousel
+              [(activeIndex)]="activeIndex"
+              [items]="galleryItems | translate"
+              [pauseOnHover]="false"
+              [ariaLabel]="'carousel.galleryAria' | translate"
+              [autoplay]="autoplay"
+              [interval]="interval"
+              [loop]="loop"
+              [showArrows]="showArrows"
+              [showIndicators]="showIndicators"
+              [indicatorType]="indicatorType"
+              [effect]="effect"
+              aspectRatio="16/9"></sp-carousel>
+          </div>
 
-                <!-- External Programmatic Controls -->
-                <div class="carousel-controls-bar">
-                  <div class="controls-left">
-                    <sp-btn [text]="'carousel.009' | translate" variant="outline" size="sm" (buttonClick)="onPrev()"></sp-btn>
-                    <sp-btn [text]="'carousel.010' | translate" variant="outline" size="sm" (buttonClick)="onNext()"></sp-btn>
-                    <sp-btn [text]="'carousel.011' | translate" variant="ghost" size="sm" (buttonClick)="onPause()"></sp-btn>
-                    <sp-btn [text]="'carousel.012' | translate" variant="ghost" size="sm" (buttonClick)="onPlay()"></sp-btn>
-                  </div>
-                  <div class="controls-status">
-                    {{ 'carousel.013' | translate }} <strong>{{ (activeIndex + 1) | translate }} / {{ (galleryItems.length) | translate }}</strong>
-                  </div>
-                </div>
+          <!-- External Programmatic Controls -->
+          <div class="carousel-controls-bar">
+            <div class="controls-left">
+              <sp-btn
+                [text]="'carousel.009' | translate"
+                variant="outline"
+                size="sm"
+                (buttonClick)="onPrev()"></sp-btn>
+              <sp-btn
+                [text]="'carousel.010' | translate"
+                variant="outline"
+                size="sm"
+                (buttonClick)="onNext()"></sp-btn>
+              <sp-btn
+                [text]="'carousel.011' | translate"
+                variant="ghost"
+                size="sm"
+                (buttonClick)="onPause()"></sp-btn>
+              <sp-btn
+                [text]="'carousel.012' | translate"
+                variant="ghost"
+                size="sm"
+                (buttonClick)="onPlay()"></sp-btn>
+            </div>
+            <div class="controls-status">
+              {{ 'carousel.013' | translate }}
+              <strong>{{ activeIndex + 1 | translate }} / {{ galleryItems.length | translate }}</strong>
+            </div>
+          </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="demo-stage-toolbar"&gt;
         &lt;div class="toolbar-group"&gt;
           &lt;span class="toolbar-label"&gt;Transizione:&lt;/span&gt;
@@ -138,8 +160,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'carousel.014' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'carousel.015' | translate"><code>// Primary carousel component reference
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'carousel.014' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'carousel.015' | translate"><code>// Primary carousel component reference
   public readonly primaryCarousel = viewChild&lt;SpCarouselComponent&gt;('primaryCarousel');
 
   // Carousel interactive settings
@@ -228,70 +256,81 @@
     <div class="demo-card">
       <div class="demo-stage">
         <div class="carousel-custom-container">
-                  <sp-carousel
-                    [autoplay]="true"
-                    effect="slide"
-                    [ariaLabel]="'carousel.reviewsAria' | translate"
-                    [interval]="5000"
-                    [indicatorType]="'dots'"
-                    [loop]="true"
-                  >
-                    <!-- Custom Slide 1 -->
-                    <sp-carousel-slide [ariaLabel]="'carousel.marcoAria' | translate">
-                      <div class="testimonial-slide-card">
-                        <div class="testimonial-header">
-                          <sp-avatar name="Marco Rossi" size="lg"></sp-avatar>
-                          <div class="user-info">
-                            <h4>{{ 'carousel.018' | translate }}</h4>
-                            <span>{{ 'carousel.019' | translate }}</span>
-                          </div>
-                        </div>
-                        <p class="quote">
-                          {{ 'carousel.020' | translate }}
-                        </p>
-                        <div class="rating-stars">★★★★★</div>
-                      </div>
-                    </sp-carousel-slide>
+          <sp-carousel
+            [autoplay]="true"
+            effect="slide"
+            [ariaLabel]="'carousel.reviewsAria' | translate"
+            [interval]="5000"
+            [indicatorType]="'dots'"
+            [loop]="true">
+            <!-- Custom Slide 1 -->
+            <sp-carousel-slide [ariaLabel]="'carousel.marcoAria' | translate">
+              <div class="testimonial-slide-card">
+                <div class="testimonial-header">
+                  <sp-avatar
+                    name="Marco Rossi"
+                    size="lg"></sp-avatar>
+                  <div class="user-info">
+                    <h4>{{ 'carousel.018' | translate }}</h4>
+                    <span>{{ 'carousel.019' | translate }}</span>
+                  </div>
+                </div>
+                <p class="quote">
+                  {{ 'carousel.020' | translate }}
+                </p>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </sp-carousel-slide>
 
-                    <!-- Custom Slide 2 -->
-                    <sp-carousel-slide [ariaLabel]="'carousel.elenaAria' | translate">
-                      <div class="testimonial-slide-card">
-                        <div class="testimonial-header">
-                          <sp-avatar name="Elena Bianchi" size="lg"></sp-avatar>
-                          <div class="user-info">
-                            <h4>{{ 'carousel.021' | translate }}</h4>
-                            <span>{{ 'carousel.022' | translate }}</span>
-                          </div>
-                        </div>
-                        <p class="quote">
-                          {{ 'carousel.023' | translate }}
-                        </p>
-                        <div class="rating-stars">★★★★★</div>
-                      </div>
-                    </sp-carousel-slide>
+            <!-- Custom Slide 2 -->
+            <sp-carousel-slide [ariaLabel]="'carousel.elenaAria' | translate">
+              <div class="testimonial-slide-card">
+                <div class="testimonial-header">
+                  <sp-avatar
+                    name="Elena Bianchi"
+                    size="lg"></sp-avatar>
+                  <div class="user-info">
+                    <h4>{{ 'carousel.021' | translate }}</h4>
+                    <span>{{ 'carousel.022' | translate }}</span>
+                  </div>
+                </div>
+                <p class="quote">
+                  {{ 'carousel.023' | translate }}
+                </p>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </sp-carousel-slide>
 
-                    <!-- Custom Slide 3 -->
-                    <sp-carousel-slide [ariaLabel]="'carousel.sofiaAria' | translate">
-                      <div class="testimonial-slide-card">
-                        <div class="testimonial-header">
-                          <sp-avatar name="Sofia Romano" size="lg"></sp-avatar>
-                          <div class="user-info">
-                            <h4>{{ 'carousel.024' | translate }}</h4>
-                            <span>{{ 'carousel.025' | translate }}</span>
-                          </div>
-                        </div>
-                        <p class="quote">
-                          {{ 'carousel.026' | translate }}
-                        </p>
-                        <div class="rating-stars">★★★★★</div>
-                      </div>
-                    </sp-carousel-slide>
-                  </sp-carousel>
+            <!-- Custom Slide 3 -->
+            <sp-carousel-slide [ariaLabel]="'carousel.sofiaAria' | translate">
+              <div class="testimonial-slide-card">
+                <div class="testimonial-header">
+                  <sp-avatar
+                    name="Sofia Romano"
+                    size="lg"></sp-avatar>
+                  <div class="user-info">
+                    <h4>{{ 'carousel.024' | translate }}</h4>
+                    <span>{{ 'carousel.025' | translate }}</span>
+                  </div>
+                </div>
+                <p class="quote">
+                  {{ 'carousel.026' | translate }}
+                </p>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </sp-carousel-slide>
+          </sp-carousel>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="carousel-custom-container"&gt;
           &lt;sp-carousel
             [autoplay]="true"
@@ -362,8 +401,14 @@
     <p class="section-desc">{{ 'carousel.027' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChild &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, viewChild &#125; from '&#64;angular/core';
 import &#123; SpCarouselComponent, SpCarouselSlideComponent, SpCarouselItem, SpCarouselEffect, SpCarouselIndicatorType, SpBtnComponent, SpSwitchComponent, SpSegmentedControlComponent, SpAvatarComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -378,8 +423,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
 // Project: SpLib Showcase
 // File name: carousel-page.component.scss
 // File description: Styles for the SpCarousel showcase page.
@@ -536,25 +587,117 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'carousel.028' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>activeIndex</code></td><td><code>model&lt;number&gt;</code></td><td><code>0</code></td><td>{{ 'carousel.029' | translate }}</td></tr>
-          <tr><td><code>items</code></td><td><code>SpCarouselItem[]</code></td><td><code>[]</code></td><td>{{ 'carousel.030' | translate }}</td></tr>
-          <tr><td><code>autoplay</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'carousel.031' | translate }}</td></tr>
-          <tr><td><code>interval</code></td><td><code>number</code></td><td><code>5000</code></td><td>{{ 'carousel.032' | translate }}</td></tr>
-          <tr><td><code>pauseOnHover</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'carousel.033' | translate }}</td></tr>
-          <tr><td><code>loop</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'carousel.034' | translate }}</td></tr>
-          <tr><td><code>showArrows / showIndicators</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'carousel.035' | translate }}</td></tr>
-          <tr><td><code>indicatorType</code></td><td><code>'bars' | 'dots' | 'numbers'</code></td><td><code>'bars'</code></td><td>{{ 'carousel.036' | translate }}</td></tr>
-          <tr><td><code>arrowsPlacement</code></td><td><code>'inside' | 'outside' | 'bottom'</code></td><td><code>'inside'</code></td><td>{{ 'carousel.037' | translate }}</td></tr>
-          <tr><td><code>effect</code></td><td><code>'slide' | 'fade'</code></td><td><code>'slide'</code></td><td>{{ 'carousel.038' | translate }}</td></tr>
-          <tr><td><code>height</code></td><td><code>string</code></td><td><code>'auto'</code></td><td>{{ 'carousel.039' | translate }}</td></tr>
-          <tr><td><code>aspectRatio</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'carousel.040' | translate }}</td></tr>
-          <tr><td><code>ariaLabel</code></td><td><code>string</code></td><td><code>'Galleria carosello'</code></td><td>{{ 'carousel.041' | translate }}</td></tr>
-          <tr><td><code>slideChange</code></td><td><code>output&lt;number&gt;</code></td><td><code>—</code></td><td>{{ 'carousel.042' | translate }}</td></tr>
-          <tr><td><code>next() / prev() / goTo(index)</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'carousel.043' | translate }}</td></tr>
-          <tr><td><code>pause() / play()</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'carousel.044' | translate }}</td></tr>
-          <tr><td><code>isPaused / progressPercent</code></td><td><code>signal&lt;boolean&gt; / signal&lt;number&gt;</code></td><td><code>false / 0</code></td><td>{{ 'carousel.045' | translate }}</td></tr>
+          <tr>
+            <td><code>activeIndex</code></td>
+            <td><code>model&lt;number&gt;</code></td>
+            <td><code>0</code></td>
+            <td>{{ 'carousel.029' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>items</code></td>
+            <td><code>SpCarouselItem[]</code></td>
+            <td><code>[]</code></td>
+            <td>{{ 'carousel.030' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>autoplay</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'carousel.031' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>interval</code></td>
+            <td><code>number</code></td>
+            <td><code>5000</code></td>
+            <td>{{ 'carousel.032' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>pauseOnHover</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'carousel.033' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>loop</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'carousel.034' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>showArrows / showIndicators</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'carousel.035' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>indicatorType</code></td>
+            <td><code>'bars' | 'dots' | 'numbers'</code></td>
+            <td><code>'bars'</code></td>
+            <td>{{ 'carousel.036' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>arrowsPlacement</code></td>
+            <td><code>'inside' | 'outside' | 'bottom'</code></td>
+            <td><code>'inside'</code></td>
+            <td>{{ 'carousel.037' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>effect</code></td>
+            <td><code>'slide' | 'fade'</code></td>
+            <td><code>'slide'</code></td>
+            <td>{{ 'carousel.038' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>height</code></td>
+            <td><code>string</code></td>
+            <td><code>'auto'</code></td>
+            <td>{{ 'carousel.039' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>aspectRatio</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'carousel.040' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>ariaLabel</code></td>
+            <td><code>string</code></td>
+            <td><code>'Galleria carosello'</code></td>
+            <td>{{ 'carousel.041' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>slideChange</code></td>
+            <td><code>output&lt;number&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'carousel.042' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>next() / prev() / goTo(index)</code></td>
+            <td><code>method</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'carousel.043' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>pause() / play()</code></td>
+            <td><code>method</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'carousel.044' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>isPaused / progressPercent</code></td>
+            <td><code>signal&lt;boolean&gt; / signal&lt;number&gt;</code></td>
+            <td><code>false / 0</code></td>
+            <td>{{ 'carousel.045' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -563,13 +706,45 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'carousel.046' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>src / alt</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.047' | translate }}</td></tr>
-          <tr><td><code>title / description</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.048' | translate }}</td></tr>
-          <tr><td><code>ctaText</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.049' | translate }}</td></tr>
-          <tr><td><code>ctaLink</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'carousel.050' | translate }}</td></tr>
-          <tr><td><code>SpCarouselSlideComponent.ariaLabel</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'carousel.051' | translate }}</td></tr>
+          <tr>
+            <td><code>src / alt</code></td>
+            <td><code>string</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'carousel.047' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>title / description</code></td>
+            <td><code>string</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'carousel.048' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>ctaText</code></td>
+            <td><code>string</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'carousel.049' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>ctaLink</code></td>
+            <td><code>string</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'carousel.050' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>SpCarouselSlideComponent.ariaLabel</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'carousel.051' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

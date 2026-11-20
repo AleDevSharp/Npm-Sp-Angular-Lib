@@ -1,4 +1,19 @@
-.skeleton-demo-column { width: 100%; min-width: 0; }
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: skeleton-page.component.scss
+// File description: Styles for SkeletonPageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// ================================
+// Region: Comparison & Profile Card
+// ================================
+.skeleton-demo-column {
+  width: 100%;
+  min-width: 0;
+}
 
 .controls-row {
   display: flex;

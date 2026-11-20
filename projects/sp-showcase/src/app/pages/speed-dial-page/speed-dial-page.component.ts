@@ -37,7 +37,8 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 @Component({
   selector: 'app-speed-dial-page',
   standalone: true,
-  imports: [TranslatePipe, 
+  imports: [
+    TranslatePipe,
     CommonModule,
     SpSpeedDialComponent,
     SpCardComponent,
@@ -109,7 +110,6 @@ export class SpeedDialPageComponent {
     { id: 'document', label: 'Documento', icon: '📄', color: 'success' },
     { id: 'location', label: 'Posizione', icon: '📍', color: 'danger' }
   ];
-
 
   /**
    * Updates the selected expansion direction.

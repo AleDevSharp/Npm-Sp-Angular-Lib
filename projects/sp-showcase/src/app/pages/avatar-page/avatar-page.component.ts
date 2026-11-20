@@ -11,13 +11,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
-import {
-  SpAvatarComponent,
-  SpAvatarGroupComponent,
-  SpAvatarItem,
-  SpAvatarShape,
-  SpAvatarSize
-} from '../../../../../sp-lib/src/public-api';
+import { SpAvatarComponent, SpAvatarGroupComponent, SpAvatarItem, SpAvatarShape, SpAvatarSize } from '../../../../../sp-lib/src/public-api';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
 /**

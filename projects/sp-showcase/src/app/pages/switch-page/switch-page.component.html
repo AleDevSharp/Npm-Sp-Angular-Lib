@@ -1,26 +1,49 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'switch.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'switch.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'switch.002' | translate }}</p>
   </div>
 
   <div class="doc-section">
     <h3>{{ 'switch.003' | translate }}</h3>
-    <p class="section-desc">{{ 'inputs.004' | translate }} <code>[(value)]</code> {{ 'switch.004' | translate }} <code>[formControl]</code>{{ 'switch.005' | translate }} <code>[(value)]</code>.</p>
+    <p class="section-desc">
+      {{ 'inputs.004' | translate }}
+      <code>[(value)]</code>
+      {{ 'switch.004' | translate }}
+      <code>[formControl]</code>
+      {{ 'switch.005' | translate }}
+      <code>[(value)]</code>
+      .
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="switch-demo-column">
-          <sp-switch id="notif-switch" [label]="'switch.006' | translate" [(value)]="this.notificationsEnabled"></sp-switch>
-          <sp-switch id="backup-switch" [label]="'switch.007' | translate" [(value)]="this.autoBackup"></sp-switch>
+          <sp-switch
+            id="notif-switch"
+            [label]="'switch.006' | translate"
+            [(value)]="this.notificationsEnabled"></sp-switch>
+          <sp-switch
+            id="backup-switch"
+            [label]="'switch.007' | translate"
+            [(value)]="this.autoBackup"></sp-switch>
           <div class="bound-value-box">
-            {{ 'switch.008' | translate }} <strong>{{ (this.notificationsEnabled() ? 'ATTIVO (True)' : 'DISATTIVATO (False)') | translate }}</strong>
+            {{ 'switch.008' | translate }}
+            <strong>{{ (this.notificationsEnabled() ? 'ATTIVO (True)' : 'DISATTIVATO (False)') | translate }}</strong>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="switch-demo-column"&gt;
   &lt;sp-switch id="notif-switch" label="Ricevi notifiche push" [(value)]="this.notificationsEnabled"&gt;&lt;/sp-switch&gt;
   &lt;sp-switch id="backup-switch" label="Esegui backup automatico notturno" [(value)]="this.autoBackup"&gt;&lt;/sp-switch&gt;
@@ -30,8 +53,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'inputs.009' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'inputs.010' | translate"><code>// The notification state
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'inputs.009' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'inputs.010' | translate"><code>// The notification state
 public readonly notificationsEnabled = signal&lt;boolean&gt;(true);
 
 // The automatic backup state
@@ -42,18 +71,44 @@ public readonly autoBackup = signal&lt;boolean&gt;(false);</code></pre>
 
   <div class="doc-section">
     <h3>{{ 'buttons.020' | translate }}</h3>
-    <p class="section-desc">{{ 'switch.011' | translate }} <code>sm</code> {{ 'switch.012' | translate }} <code>md</code> {{ 'switch.013' | translate }} <code>lg</code> {{ 'switch.014' | translate }}</p>
+    <p class="section-desc">
+      {{ 'switch.011' | translate }}
+      <code>sm</code>
+      {{ 'switch.012' | translate }}
+      <code>md</code>
+      {{ 'switch.013' | translate }}
+      <code>lg</code>
+      {{ 'switch.014' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="switch-demo-column">
-          <sp-switch id="sw-sm" [label]="'inputs.020' | translate" size="sm" [value]="true"></sp-switch>
-          <sp-switch id="sw-md" [label]="'inputs.022' | translate" size="md" [value]="true"></sp-switch>
-          <sp-switch id="sw-lg" [label]="'inputs.024' | translate" size="lg" [value]="true"></sp-switch>
+          <sp-switch
+            id="sw-sm"
+            [label]="'inputs.020' | translate"
+            size="sm"
+            [value]="true"></sp-switch>
+          <sp-switch
+            id="sw-md"
+            [label]="'inputs.022' | translate"
+            size="md"
+            [value]="true"></sp-switch>
+          <sp-switch
+            id="sw-lg"
+            [label]="'inputs.024' | translate"
+            size="lg"
+            [value]="true"></sp-switch>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="switch-demo-column"&gt;
   &lt;sp-switch id="sw-sm" label="Small (sm)" size="sm" [value]="true"&gt;&lt;/sp-switch&gt;
   &lt;sp-switch id="sw-md" label="Medium (md)" size="md" [value]="true"&gt;&lt;/sp-switch&gt;
@@ -65,12 +120,31 @@ public readonly autoBackup = signal&lt;boolean&gt;(false);</code></pre>
 
   <div class="doc-section">
     <h3>{{ 'switch.015' | translate }}</h3>
-    <p class="section-desc"><code>activeColor</code> {{ 'switch.016' | translate }} <code>inactiveColor</code> {{ 'switch.017' | translate }} <code>thumbColor</code> {{ 'switch.018' | translate }} <code>labelColor</code> {{ 'switch.019' | translate }} <code>--sp-color-primary</code> {{ 'switch.020' | translate }}</p>
+    <p class="section-desc">
+      <code>activeColor</code>
+      {{ 'switch.016' | translate }}
+      <code>inactiveColor</code>
+      {{ 'switch.017' | translate }}
+      <code>thumbColor</code>
+      {{ 'switch.018' | translate }}
+      <code>labelColor</code>
+      {{ 'switch.019' | translate }}
+      <code>--sp-color-primary</code>
+      {{ 'switch.020' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="switch-demo-column">
-          <sp-switch id="sw-green" [label]="'switch.021' | translate" activeColor="#10b981" [value]="true"></sp-switch>
-          <sp-switch id="sw-danger" [label]="'switch.022' | translate" activeColor="#ef4444" [value]="true"></sp-switch>
+          <sp-switch
+            id="sw-green"
+            [label]="'switch.021' | translate"
+            activeColor="#10b981"
+            [value]="true"></sp-switch>
+          <sp-switch
+            id="sw-danger"
+            [label]="'switch.022' | translate"
+            activeColor="#ef4444"
+            [value]="true"></sp-switch>
           <sp-switch
             id="sw-custom"
             [label]="'switch.023' | translate"
@@ -79,13 +153,27 @@ public readonly autoBackup = signal&lt;boolean&gt;(false);</code></pre>
             thumbColor="#f8fafc"
             labelColor="#334155"
             [value]="true"></sp-switch>
-          <sp-switch id="sw-dis-on" [label]="'switch.024' | translate" [disabled]="true" [value]="true"></sp-switch>
-          <sp-switch id="sw-dis-off" [label]="'switch.025' | translate" [disabled]="true" [value]="false"></sp-switch>
+          <sp-switch
+            id="sw-dis-on"
+            [label]="'switch.024' | translate"
+            [disabled]="true"
+            [value]="true"></sp-switch>
+          <sp-switch
+            id="sw-dis-off"
+            [label]="'switch.025' | translate"
+            [disabled]="true"
+            [value]="false"></sp-switch>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="switch-demo-column"&gt;
   &lt;sp-switch id="sw-green" label="Verde quando attivo" activeColor="#10b981" [value]="true"&gt;&lt;/sp-switch&gt;
   &lt;sp-switch id="sw-danger" label="Rosso quando attivo" activeColor="#ef4444" [value]="true"&gt;&lt;/sp-switch&gt;
@@ -106,11 +194,33 @@ public readonly autoBackup = signal&lt;boolean&gt;(false);</code></pre>
 
   <div class="doc-section">
     <h3>{{ 'accordion.043' | translate }}</h3>
-    <p class="section-desc">{{ 'segmented-control.019' | translate }} <code>&#64;aledevsharp/sp-lib</code>{{ 'segmented-control.020' | translate }} <code>[(value)]</code> {{ 'segmented-control.021' | translate }} <code>[(ngModel)]</code> {{ 'inputs.050' | translate }} <code>FormsModule</code>{{ 'segmented-control.022' | translate }} <code>[formControl]</code> {{ 'accordion.023' | translate }} <code>formControlName</code> {{ 'inputs.051' | translate }} <code>ReactiveFormsModule</code>{{ 'segmented-control.023' | translate }}</p>
+    <p class="section-desc">
+      {{ 'segmented-control.019' | translate }}
+      <code>&#64;aledevsharp/sp-lib</code>
+      {{ 'segmented-control.020' | translate }}
+      <code>[(value)]</code>
+      {{ 'segmented-control.021' | translate }}
+      <code>[(ngModel)]</code>
+      {{ 'inputs.050' | translate }}
+      <code>FormsModule</code>
+      {{ 'segmented-control.022' | translate }}
+      <code>[formControl]</code>
+      {{ 'accordion.023' | translate }}
+      <code>formControlName</code>
+      {{ 'inputs.051' | translate }}
+      <code>ReactiveFormsModule</code>
+      {{ 'segmented-control.023' | translate }}
+    </p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; SpSwitchComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -125,8 +235,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// ================================
 // Region: Variables &amp; Layout
 // ================================
 .switch-demo-column &#123;
@@ -157,22 +273,99 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'switch.026' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>id</code></td><td><code>string</code></td><td><code>generato</code></td><td>{{ 'switch.027' | translate }}</td></tr>
-          <tr><td><code>label</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.028' | translate }}</td></tr>
-          <tr><td><code>labelColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'inputs.063' | translate }}</td></tr>
-          <tr><td><code>value</code></td><td><code>ModelSignal&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'switch.029' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'switch.030' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'switch.031' | translate }}</td></tr>
-          <tr><td><code>hasError</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'switch.032' | translate }}</td></tr>
-          <tr><td><code>errorMessage</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.033' | translate }}</td></tr>
-          <tr><td><code>activeColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.034' | translate }}</td></tr>
-          <tr><td><code>inactiveColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.035' | translate }}</td></tr>
-          <tr><td><code>thumbColor</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.036' | translate }}</td></tr>
-          <tr><td><code>width</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.037' | translate }}</td></tr>
-          <tr><td><code>height</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'switch.038' | translate }}</td></tr>
-          <tr><td><code>changeInput</code></td><td><code>OutputEmitterRef&lt;boolean&gt;</code></td><td><code>—</code></td><td>{{ 'switch.039' | translate }}</td></tr>
+          <tr>
+            <td><code>id</code></td>
+            <td><code>string</code></td>
+            <td><code>generato</code></td>
+            <td>{{ 'switch.027' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>label</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'switch.028' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>labelColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'inputs.063' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>value</code></td>
+            <td><code>ModelSignal&lt;boolean&gt;</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'switch.029' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'switch.030' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'switch.031' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>hasError</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'switch.032' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>errorMessage</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'switch.033' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>activeColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'switch.034' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>inactiveColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'switch.035' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>thumbColor</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'switch.036' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>width</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'switch.037' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>height</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'switch.038' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>changeInput</code></td>
+            <td><code>OutputEmitterRef&lt;boolean&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'switch.039' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

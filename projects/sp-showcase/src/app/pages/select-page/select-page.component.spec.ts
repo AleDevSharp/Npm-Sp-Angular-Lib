@@ -9,8 +9,7 @@ describe('SelectPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SelectPageComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SelectPageComponent);
     component = fixture.componentInstance;

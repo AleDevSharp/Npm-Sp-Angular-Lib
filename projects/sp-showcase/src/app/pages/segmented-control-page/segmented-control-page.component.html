@@ -1,7 +1,9 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'home.040' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'home.040' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'segmented-control.001' | translate }}</p>
   </div>
 
@@ -13,18 +15,27 @@
         <div class="segmented-demo-column">
           <div class="demo-stage-centered">
             <sp-segmented-control
-              [options]="(this.viewOptions) | translate"
+              [options]="this.viewOptions | translate"
               [(value)]="this.selectedView"
               size="md"></sp-segmented-control>
           </div>
-          <div class="demo-feedback" role="status">
-            {{ 'segmented-control.004' | translate }} <code>{{ this.selectedView() }}</code>
+          <div
+            class="demo-feedback"
+            role="status">
+            {{ 'segmented-control.004' | translate }}
+            <code>{{ this.selectedView() }}</code>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="segmented-demo-column"&gt;
   &lt;div class="demo-stage-centered"&gt;
     &lt;sp-segmented-control
@@ -38,8 +49,14 @@
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.005' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'segmented-control.006' | translate"><code>// The selected view
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'segmented-control.005' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'segmented-control.006' | translate"><code>// The selected view
 public readonly selectedView = signal&lt;string&gt;('grid');
 
 // The available views with icons, badge and disabled state
@@ -72,27 +89,48 @@ public readonly viewOptions: SpSegmentedControlOption&lt;string&gt;[] = [
 
   <div class="doc-section">
     <h3>{{ 'segmented-control.007' | translate }}</h3>
-    <p class="section-desc">{{ 'buttons.021' | translate }} <code>size</code> {{ 'segmented-control.008' | translate }} <code>md</code> {{ 'segmented-control.009' | translate }}</p>
+    <p class="section-desc">
+      {{ 'buttons.021' | translate }}
+      <code>size</code>
+      {{ 'segmented-control.008' | translate }}
+      <code>md</code>
+      {{ 'segmented-control.009' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="sizes-stack">
           <div class="size-row">
             <span class="size-label">{{ 'segmented-control.010' | translate }}</span>
-            <sp-segmented-control [options]="(this.periodOptions) | translate" value="week" size="sm"></sp-segmented-control>
+            <sp-segmented-control
+              [options]="this.periodOptions | translate"
+              value="week"
+              size="sm"></sp-segmented-control>
           </div>
           <div class="size-row">
             <span class="size-label">{{ 'segmented-control.011' | translate }}</span>
-            <sp-segmented-control [options]="(this.periodOptions) | translate" value="month" size="md"></sp-segmented-control>
+            <sp-segmented-control
+              [options]="this.periodOptions | translate"
+              value="month"
+              size="md"></sp-segmented-control>
           </div>
           <div class="size-row">
             <span class="size-label">{{ 'segmented-control.012' | translate }}</span>
-            <sp-segmented-control [options]="(this.periodOptions) | translate" value="year" size="lg"></sp-segmented-control>
+            <sp-segmented-control
+              [options]="this.periodOptions | translate"
+              value="year"
+              size="lg"></sp-segmented-control>
           </div>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="sizes-stack"&gt;
   &lt;div class="size-row"&gt;
     &lt;span class="size-label"&gt;Small (sm):&lt;/span&gt;
@@ -109,8 +147,14 @@ public readonly viewOptions: SpSegmentedControlOption&lt;string&gt;[] = [
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.013' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'segmented-control.014' | translate"><code>// The period options shared by the size examples
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'segmented-control.013' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'segmented-control.014' | translate"><code>// The period options shared by the size examples
 public readonly periodOptions: SpSegmentedControlOption&lt;string&gt;[] = [
   &#123; label: 'Giorno', value: 'day' &#125;,
   &#123; label: 'Settimana', value: 'week' &#125;,
@@ -123,20 +167,33 @@ public readonly periodOptions: SpSegmentedControlOption&lt;string&gt;[] = [
 
   <div class="doc-section">
     <h3>{{ 'segmented-control.015' | translate }}</h3>
-    <p class="section-desc"><code>[fullWidth]="true"</code> {{ 'segmented-control.016' | translate }} <code>sp-segmented-control</code> {{ 'segmented-control.017' | translate }} <code>display: block; width: 100%</code>{{ 'segmented-control.018' | translate }}</p>
+    <p class="section-desc">
+      <code>[fullWidth]="true"</code>
+      {{ 'segmented-control.016' | translate }}
+      <code>sp-segmented-control</code>
+      {{ 'segmented-control.017' | translate }}
+      <code>display: block; width: 100%</code>
+      {{ 'segmented-control.018' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="block-preview-box">
           <sp-segmented-control
-            [options]="(this.tabOptions) | translate"
+            [options]="this.tabOptions | translate"
             [(value)]="this.selectedTab"
             [fullWidth]="true"
             size="md"></sp-segmented-control>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="block-preview-box"&gt;
   &lt;sp-segmented-control
     [options]="this.tabOptions"
@@ -146,8 +203,14 @@ public readonly periodOptions: SpSegmentedControlOption&lt;string&gt;[] = [
 &lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'segmented-control.005' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'segmented-control.006' | translate"><code>// The selected full-width tab
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'segmented-control.005' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'segmented-control.006' | translate"><code>// The selected full-width tab
 public readonly selectedTab = signal&lt;string&gt;('activity');
 
 // The tab options
@@ -162,11 +225,33 @@ public readonly tabOptions: SpSegmentedControlOption&lt;string&gt;[] = [
 
   <div class="doc-section">
     <h3>{{ 'accordion.043' | translate }}</h3>
-    <p class="section-desc">{{ 'segmented-control.019' | translate }} <code>&#64;aledevsharp/sp-lib</code>{{ 'segmented-control.020' | translate }} <code>[(value)]</code> {{ 'segmented-control.021' | translate }} <code>[(ngModel)]</code> {{ 'inputs.050' | translate }} <code>FormsModule</code>{{ 'segmented-control.022' | translate }} <code>[formControl]</code> {{ 'accordion.023' | translate }} <code>formControlName</code> {{ 'inputs.051' | translate }} <code>ReactiveFormsModule</code>{{ 'segmented-control.023' | translate }}</p>
+    <p class="section-desc">
+      {{ 'segmented-control.019' | translate }}
+      <code>&#64;aledevsharp/sp-lib</code>
+      {{ 'segmented-control.020' | translate }}
+      <code>[(value)]</code>
+      {{ 'segmented-control.021' | translate }}
+      <code>[(ngModel)]</code>
+      {{ 'inputs.050' | translate }}
+      <code>FormsModule</code>
+      {{ 'segmented-control.022' | translate }}
+      <code>[formControl]</code>
+      {{ 'accordion.023' | translate }}
+      <code>formControlName</code>
+      {{ 'inputs.051' | translate }}
+      <code>ReactiveFormsModule</code>
+      {{ 'segmented-control.023' | translate }}
+    </p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; SpSegmentedControlComponent, SpSegmentedControlOption &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -181,8 +266,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// ================================
 // Region: Demo Layout
 // ================================
 .segmented-demo-column &#123;
@@ -267,14 +358,51 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'segmented-control.024' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>options</code></td><td><code>SpSegmentedControlOption&lt;T&gt;[]</code></td><td><code>[]</code></td><td>{{ 'segmented-control.025' | translate }}</td></tr>
-          <tr><td><code>value</code></td><td><code>ModelSignal&lt;T | undefined&gt;</code></td><td><code>undefined</code></td><td>{{ 'segmented-control.026' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'segmented-control.027' | translate }}</td></tr>
-          <tr><td><code>fullWidth</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'segmented-control.028' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'segmented-control.029' | translate }}</td></tr>
-          <tr><td><code>selectionChange</code></td><td><code>OutputEmitterRef&lt;T&gt;</code></td><td><code>—</code></td><td>{{ 'segmented-control.030' | translate }}</td></tr>
+          <tr>
+            <td><code>options</code></td>
+            <td><code>SpSegmentedControlOption&lt;T&gt;[]</code></td>
+            <td><code>[]</code></td>
+            <td>{{ 'segmented-control.025' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>value</code></td>
+            <td><code>ModelSignal&lt;T | undefined&gt;</code></td>
+            <td><code>undefined</code></td>
+            <td>{{ 'segmented-control.026' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'segmented-control.027' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>fullWidth</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'segmented-control.028' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'segmented-control.029' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>selectionChange</code></td>
+            <td><code>OutputEmitterRef&lt;T&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'segmented-control.030' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

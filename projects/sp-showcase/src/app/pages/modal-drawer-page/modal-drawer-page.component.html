@@ -1,7 +1,9 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'modal-drawer.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'modal-drawer.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'modal-drawer.002' | translate }}</p>
   </div>
 
@@ -10,44 +12,68 @@
     <p class="section-desc">{{ 'modal-drawer.004' | translate }}</p>
     <div class="demo-card">
       <div class="demo-stage">
-        <div class="demo-stage-toolbar">        <label class="toolbar-control">
-                  <span>{{ 'modal-drawer.005' | translate }}</span>
-                  <sp-switch [(value)]="modalBackdropBlur"></sp-switch>
-                </label>
-                <label class="toolbar-control">
-                  <span>{{ 'modal-drawer.006' | translate }}</span>
-                  <sp-switch [(value)]="modalCentered"></sp-switch>
-                </label></div>
+        <div class="demo-stage-toolbar">
+          <label class="toolbar-control">
+            <span>{{ 'modal-drawer.005' | translate }}</span>
+            <sp-switch [(value)]="modalBackdropBlur"></sp-switch>
+          </label>
+          <label class="toolbar-control">
+            <span>{{ 'modal-drawer.006' | translate }}</span>
+            <sp-switch [(value)]="modalCentered"></sp-switch>
+          </label>
+        </div>
         <div class="modal-demo-buttons">
-        <sp-btn [text]="'modal-drawer.007' | translate" variant="outline" (buttonClick)="openModalWithSize('sm')"></sp-btn>
-                <sp-btn [text]="'modal-drawer.009' | translate" variant="solid" (buttonClick)="openModalWithSize('md')"></sp-btn>
-                <sp-btn [text]="'modal-drawer.011' | translate" variant="outline" (buttonClick)="openModalWithSize('lg')"></sp-btn>
+          <sp-btn
+            [text]="'modal-drawer.007' | translate"
+            variant="outline"
+            (buttonClick)="openModalWithSize('sm')"></sp-btn>
+          <sp-btn
+            [text]="'modal-drawer.009' | translate"
+            variant="solid"
+            (buttonClick)="openModalWithSize('md')"></sp-btn>
+          <sp-btn
+            [text]="'modal-drawer.011' | translate"
+            variant="outline"
+            (buttonClick)="openModalWithSize('lg')"></sp-btn>
         </div>
         <sp-modal
           [(visible)]="isStandardModalOpen"
-          [title]="('Finestra Modale Dimensione (' + modalSize.toUpperCase() + ')') | translate"
+          [title]="'Finestra Modale Dimensione (' + modalSize.toUpperCase() + ')' | translate"
           [size]="modalSize"
           [backdropBlur]="modalBackdropBlur"
           [centered]="modalCentered"
           (opened)="recordAction('Modale ' + modalSize + ' aperta')"
-          (closed)="recordAction('Modale chiusa')"
-        >
+          (closed)="recordAction('Modale chiusa')">
           <p>
-            {{ 'modal-drawer.017' | translate }} <kbd>{{ 'modal-drawer.018' | translate }}</kbd> {{ 'modal-drawer.019' | translate }}
+            {{ 'modal-drawer.017' | translate }}
+            <kbd>{{ 'modal-drawer.018' | translate }}</kbd>
+            {{ 'modal-drawer.019' | translate }}
           </p>
           <p>
             {{ 'modal-drawer.020' | translate }}
           </p>
 
           <div spModalFooter>
-            <sp-btn [text]="'modal-drawer.021' | translate" variant="ghost" (buttonClick)="isStandardModalOpen = false"></sp-btn>
-            <sp-btn [text]="'modal-drawer.022' | translate" variant="solid" (buttonClick)="isStandardModalOpen = false"></sp-btn>
+            <sp-btn
+              [text]="'modal-drawer.021' | translate"
+              variant="ghost"
+              (buttonClick)="isStandardModalOpen = false"></sp-btn>
+            <sp-btn
+              [text]="'modal-drawer.022' | translate"
+              variant="solid"
+              (buttonClick)="isStandardModalOpen = false"></sp-btn>
           </div>
         </sp-modal>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="demo-stage-toolbar"&gt;        &lt;label class="toolbar-control"&gt;
           &lt;span&gt;Backdrop Blur:&lt;/span&gt;
           &lt;sp-switch [(value)]="modalBackdropBlur"&gt;&lt;/sp-switch&gt;
@@ -85,8 +111,14 @@
 &lt;/sp-modal&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'badge.023' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'badge.024' | translate"><code>// Modal visibility flags
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'badge.023' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'badge.024' | translate"><code>// Modal visibility flags
   public isStandardModalOpen = false;
   public isCustomModalOpen = false;
   public isDeleteModalOpen = false;
@@ -135,27 +167,41 @@
     <p class="section-desc">{{ 'modal-drawer.024' | translate }}</p>
     <div class="demo-card">
       <div class="demo-stage">
-        <sp-btn [text]="'modal-drawer.025' | translate" color="#ef4444" (buttonClick)="isDeleteModalOpen = true"></sp-btn>
+        <sp-btn
+          [text]="'modal-drawer.025' | translate"
+          color="#ef4444"
+          (buttonClick)="isDeleteModalOpen = true"></sp-btn>
         <sp-modal
           [(visible)]="isDeleteModalOpen"
           [title]="'modal-drawer.026' | translate"
           size="sm"
           [backdropBlur]="true"
-          [centered]="true"
-        >
+          [centered]="true">
           <p>
             {{ 'modal-drawer.027' | translate }}
           </p>
 
           <div spModalFooter>
-            <sp-btn [text]="'modal-drawer.028' | translate" variant="ghost" (buttonClick)="isDeleteModalOpen = false"></sp-btn>
-            <sp-btn [text]="'modal-drawer.029' | translate" color="#ef4444" (buttonClick)="isDeleteModalOpen = false"></sp-btn>
+            <sp-btn
+              [text]="'modal-drawer.028' | translate"
+              variant="ghost"
+              (buttonClick)="isDeleteModalOpen = false"></sp-btn>
+            <sp-btn
+              [text]="'modal-drawer.029' | translate"
+              color="#ef4444"
+              (buttonClick)="isDeleteModalOpen = false"></sp-btn>
           </div>
         </sp-modal>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;sp-btn text="Apri conferma (demo)" color="#ef4444" (buttonClick)="isDeleteModalOpen = true"&gt;&lt;/sp-btn&gt;
 &lt;sp-modal
   [(visible)]="isDeleteModalOpen"
@@ -182,20 +228,31 @@
     <div class="demo-card">
       <div class="demo-stage">
         <div class="modal-demo-buttons">
-                <sp-btn [text]="'modal-drawer.032' | translate" variant="solid" (buttonClick)="openDrawerWithPlacement('right')"></sp-btn>
-                <sp-btn [text]="'modal-drawer.033' | translate" variant="outline" (buttonClick)="openDrawerWithPlacement('left')"></sp-btn>
-                <sp-btn [text]="'modal-drawer.034' | translate" variant="outline" (buttonClick)="openDrawerWithPlacement('top')"></sp-btn>
-                <sp-btn [text]="'modal-drawer.036' | translate" variant="outline" (buttonClick)="openDrawerWithPlacement('bottom')"></sp-btn>
+          <sp-btn
+            [text]="'modal-drawer.032' | translate"
+            variant="solid"
+            (buttonClick)="openDrawerWithPlacement('right')"></sp-btn>
+          <sp-btn
+            [text]="'modal-drawer.033' | translate"
+            variant="outline"
+            (buttonClick)="openDrawerWithPlacement('left')"></sp-btn>
+          <sp-btn
+            [text]="'modal-drawer.034' | translate"
+            variant="outline"
+            (buttonClick)="openDrawerWithPlacement('top')"></sp-btn>
+          <sp-btn
+            [text]="'modal-drawer.036' | translate"
+            variant="outline"
+            (buttonClick)="openDrawerWithPlacement('bottom')"></sp-btn>
         </div>
         <sp-drawer
           [(visible)]="isDrawerOpen"
-          [title]="('Pannello Laterale (' + drawerPlacement.toUpperCase() + ')') | translate"
+          [title]="'Pannello Laterale (' + drawerPlacement.toUpperCase() + ')' | translate"
           [placement]="drawerPlacement"
           [size]="drawerSize"
           [backdropBlur]="drawerBackdropBlur"
           (opened)="recordAction('Drawer ' + drawerPlacement + ' aperto')"
-          (closed)="recordAction('Drawer chiuso')"
-        >
+          (closed)="recordAction('Drawer chiuso')">
           <div class="drawer-demo-inner">
             <h4>{{ 'modal-drawer.042' | translate }}</h4>
             <p>
@@ -203,21 +260,45 @@
             </p>
 
             <div class="drawer-preset-buttons">
-              <sp-btn [text]="'modal-drawer.044' | translate" variant="outline" size="sm" (buttonClick)="drawerSize = 'sm'"></sp-btn>
-              <sp-btn [text]="'modal-drawer.045' | translate" variant="outline" size="sm" (buttonClick)="drawerSize = 'md'"></sp-btn>
-              <sp-btn [text]="'modal-drawer.046' | translate" variant="outline" size="sm" (buttonClick)="drawerSize = 'lg'"></sp-btn>
+              <sp-btn
+                [text]="'modal-drawer.044' | translate"
+                variant="outline"
+                size="sm"
+                (buttonClick)="drawerSize = 'sm'"></sp-btn>
+              <sp-btn
+                [text]="'modal-drawer.045' | translate"
+                variant="outline"
+                size="sm"
+                (buttonClick)="drawerSize = 'md'"></sp-btn>
+              <sp-btn
+                [text]="'modal-drawer.046' | translate"
+                variant="outline"
+                size="sm"
+                (buttonClick)="drawerSize = 'lg'"></sp-btn>
             </div>
           </div>
 
           <div spDrawerFooter>
-            <sp-btn [text]="'modal-drawer.028' | translate" variant="ghost" (buttonClick)="isDrawerOpen = false"></sp-btn>
-            <sp-btn [text]="'modal-drawer.047' | translate" variant="solid" (buttonClick)="isDrawerOpen = false"></sp-btn>
+            <sp-btn
+              [text]="'modal-drawer.028' | translate"
+              variant="ghost"
+              (buttonClick)="isDrawerOpen = false"></sp-btn>
+            <sp-btn
+              [text]="'modal-drawer.047' | translate"
+              variant="solid"
+              (buttonClick)="isDrawerOpen = false"></sp-btn>
           </div>
         </sp-drawer>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="modal-demo-buttons"&gt;
         &lt;sp-btn text="Drawer da Destra (Right)" variant="solid" (buttonClick)="openDrawerWithPlacement('right')"&gt;&lt;/sp-btn&gt;
         &lt;sp-btn text="Drawer da Sinistra (Left)" variant="outline" (buttonClick)="openDrawerWithPlacement('left')"&gt;&lt;/sp-btn&gt;
@@ -260,8 +341,14 @@
     <p class="section-desc">{{ 'modal-drawer.048' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
 import &#123; SpModalComponent, SpDrawerComponent, SpBtnComponent, SpSwitchComponent, SpModalSize, SpDrawerPlacement, SpDrawerSize &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -276,8 +363,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
 // Project: SpLib Showcase
 // File name: modal-drawer-page.component.scss
 // File description: Styles for the SpModal and SpDrawer showcase page.
@@ -343,20 +436,87 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'modal-drawer.049' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>visible</code></td><td><code>model&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'modal-drawer.050' | translate }}</td></tr>
-          <tr><td><code>title</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'modal-drawer.051' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg' | 'xl' | 'full'</code></td><td><code>'md'</code></td><td>{{ 'modal-drawer.052' | translate }}</td></tr>
-          <tr><td><code>centered</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.053' | translate }}</td></tr>
-          <tr><td><code>backdrop</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.054' | translate }}</td></tr>
-          <tr><td><code>backdropBlur</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.055' | translate }}</td></tr>
-          <tr><td><code>closeOnBackdrop</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.056' | translate }}</td></tr>
-          <tr><td><code>closeOnEscape</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.057' | translate }}</td></tr>
-          <tr><td><code>showCloseButton</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.058' | translate }}</td></tr>
-          <tr><td><code>opened</code></td><td><code>output&lt;void&gt;</code></td><td><code>—</code></td><td>{{ 'modal-drawer.059' | translate }}</td></tr>
-          <tr><td><code>closed</code></td><td><code>output&lt;void&gt;</code></td><td><code>—</code></td><td>{{ 'modal-drawer.060' | translate }}</td></tr>
-          <tr><td><code>close()</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'modal-drawer.061' | translate }}</td></tr>
+          <tr>
+            <td><code>visible</code></td>
+            <td><code>model&lt;boolean&gt;</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'modal-drawer.050' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>title</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'modal-drawer.051' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg' | 'xl' | 'full'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'modal-drawer.052' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>centered</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.053' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>backdrop</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.054' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>backdropBlur</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.055' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>closeOnBackdrop</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.056' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>closeOnEscape</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.057' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>showCloseButton</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.058' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>opened</code></td>
+            <td><code>output&lt;void&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'modal-drawer.059' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>closed</code></td>
+            <td><code>output&lt;void&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'modal-drawer.060' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>close()</code></td>
+            <td><code>method</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'modal-drawer.061' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -365,20 +525,87 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'modal-drawer.062' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>visible</code></td><td><code>model&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'modal-drawer.050' | translate }}</td></tr>
-          <tr><td><code>title</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'modal-drawer.051' | translate }}</td></tr>
-          <tr><td><code>placement</code></td><td><code>'left' | 'right' | 'top' | 'bottom'</code></td><td><code>'right'</code></td><td>{{ 'modal-drawer.063' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg' | 'full'</code></td><td><code>'md'</code></td><td>{{ 'modal-drawer.064' | translate }}</td></tr>
-          <tr><td><code>backdrop</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.054' | translate }}</td></tr>
-          <tr><td><code>backdropBlur</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.055' | translate }}</td></tr>
-          <tr><td><code>closeOnBackdrop</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.056' | translate }}</td></tr>
-          <tr><td><code>closeOnEscape</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.057' | translate }}</td></tr>
-          <tr><td><code>showCloseButton</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'modal-drawer.058' | translate }}</td></tr>
-          <tr><td><code>opened</code></td><td><code>output&lt;void&gt;</code></td><td><code>—</code></td><td>{{ 'modal-drawer.059' | translate }}</td></tr>
-          <tr><td><code>closed</code></td><td><code>output&lt;void&gt;</code></td><td><code>—</code></td><td>{{ 'modal-drawer.060' | translate }}</td></tr>
-          <tr><td><code>close()</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'modal-drawer.061' | translate }}</td></tr>
+          <tr>
+            <td><code>visible</code></td>
+            <td><code>model&lt;boolean&gt;</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'modal-drawer.050' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>title</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'modal-drawer.051' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>placement</code></td>
+            <td><code>'left' | 'right' | 'top' | 'bottom'</code></td>
+            <td><code>'right'</code></td>
+            <td>{{ 'modal-drawer.063' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg' | 'full'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'modal-drawer.064' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>backdrop</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.054' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>backdropBlur</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.055' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>closeOnBackdrop</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.056' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>closeOnEscape</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.057' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>showCloseButton</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'modal-drawer.058' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>opened</code></td>
+            <td><code>output&lt;void&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'modal-drawer.059' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>closed</code></td>
+            <td><code>output&lt;void&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'modal-drawer.060' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>close()</code></td>
+            <td><code>method</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'modal-drawer.061' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

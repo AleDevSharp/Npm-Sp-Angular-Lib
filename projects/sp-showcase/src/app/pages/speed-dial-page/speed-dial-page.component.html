@@ -1,7 +1,9 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'speed-dial.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'speed-dial.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'speed-dial.002' | translate }}</p>
   </div>
 
@@ -10,216 +12,205 @@
     <p class="section-desc">{{ 'speed-dial.003' | translate }}</p>
     <div class="demo-card">
       <div class="demo-stage">
-        <div class="playground-layout">        <!-- Controls Sidebar -->
-            <div class="playground-controls">
-              <div class="control-block">
-                <span class="control-title">{{ 'marquee.005' | translate }}</span>
-                <div class="choice-group">
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="direction() === 'up'"
-                    (click)="setDirection('up')"
-                  >
-                    {{ 'marquee.011' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="direction() === 'down'"
-                    (click)="setDirection('down')"
-                  >
-                    {{ 'marquee.013' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="direction() === 'left'"
-                    (click)="setDirection('left')"
-                  >
-                    {{ 'marquee.007' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="direction() === 'right'"
-                    (click)="setDirection('right')"
-                  >
-                    {{ 'marquee.009' | translate }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="control-block">
-                <span class="control-title">{{ 'speed-dial.004' | translate }}</span>
-                <div class="choice-group">
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="type() === 'linear'"
-                    (click)="setType('linear')"
-                  >
-                    {{ 'speed-dial.006' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="type() === 'semi-circle'"
-                    (click)="setType('semi-circle')"
-                  >
-                    {{ 'speed-dial.008' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="type() === 'quarter-circle'"
-                    (click)="setType('quarter-circle')"
-                  >
-                    {{ 'speed-dial.010' | translate }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="control-block">
-                <span class="control-title">{{ 'speed-dial.011' | translate }}</span>
-                <div class="choice-group">
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="trigger() === 'click'"
-                    (click)="setTrigger('click')"
-                  >
-                    {{ 'speed-dial.013' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="trigger() === 'hover'"
-                    (click)="setTrigger('hover')"
-                  >
-                    {{ 'speed-dial.015' | translate }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="control-block">
-                <span class="control-title">{{ 'speed-dial.016' | translate }}</span>
-                <div class="choice-group">
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="size() === 'sm'"
-                    (click)="setSize('sm')"
-                  >
-                    {{ 'speed-dial.017' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="size() === 'md'"
-                    (click)="setSize('md')"
-                  >
-                    {{ 'speed-dial.018' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="size() === 'lg'"
-                    (click)="setSize('lg')"
-                  >
-                    {{ 'speed-dial.019' | translate }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="control-block">
-                <span class="control-title">{{ 'speed-dial.020' | translate }}</span>
-                <div class="choice-group">
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="color() === 'primary'"
-                    (click)="setColor('primary')"
-                  >
-                    {{ 'badge.029' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="color() === 'success'"
-                    (click)="setColor('success')"
-                  >
-                    {{ 'badge.030' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="color() === 'danger'"
-                    (click)="setColor('danger')"
-                  >
-                    {{ 'badge.032' | translate }}
-                  </button>
-                  <button
-                    type="button"
-                    class="choice-btn"
-                    [class.active]="color() === 'info'"
-                    (click)="setColor('info')"
-                  >
-                    {{ 'badge.033' | translate }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="switch-toggle-row">
-                <span>{{ 'speed-dial.025' | translate }}</span>
-                <sp-switch
-                  [(value)]="backdrop"
-                  size="sm"
-                ></sp-switch>
-              </div>
-
-              <div class="switch-toggle-row">
-                <span>{{ 'speed-dial.026' | translate }}</span>
-                <sp-switch
-                  [(value)]="showLabels"
-                  size="sm"
-                ></sp-switch>
+        <div class="playground-layout">
+          <!-- Controls Sidebar -->
+          <div class="playground-controls">
+            <div class="control-block">
+              <span class="control-title">{{ 'marquee.005' | translate }}</span>
+              <div class="choice-group">
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="direction() === 'up'"
+                  (click)="setDirection('up')">
+                  {{ 'marquee.011' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="direction() === 'down'"
+                  (click)="setDirection('down')">
+                  {{ 'marquee.013' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="direction() === 'left'"
+                  (click)="setDirection('left')">
+                  {{ 'marquee.007' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="direction() === 'right'"
+                  (click)="setDirection('right')">
+                  {{ 'marquee.009' | translate }}
+                </button>
               </div>
             </div>
 
-            <!-- Stage Live Display -->
-            <div class="stage-container">
-              <div class="stage-surface">
-                <div class="stage-placeholder-text">
-                  {{ 'speed-dial.027' | translate }}
-                </div>
+            <div class="control-block">
+              <span class="control-title">{{ 'speed-dial.004' | translate }}</span>
+              <div class="choice-group">
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="type() === 'linear'"
+                  (click)="setType('linear')">
+                  {{ 'speed-dial.006' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="type() === 'semi-circle'"
+                  (click)="setType('semi-circle')">
+                  {{ 'speed-dial.008' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="type() === 'quarter-circle'"
+                  (click)="setType('quarter-circle')">
+                  {{ 'speed-dial.010' | translate }}
+                </button>
+              </div>
+            </div>
 
-                <!-- Positioned Speed Dial -->
-                <div class="speed-dial-wrapper">
-                  <sp-speed-dial
-                    [items]="(actions) | translate"
-                    [radius]="130"
-                    [direction]="direction()"
-                    [type]="type()"
-                    [trigger]="trigger()"
-                    [size]="size()"
-                    [color]="color()"
-                    [backdrop]="backdrop()"
-                    [showLabels]="showLabels()"
-                    (itemClick)="recordAction('Azione selezionata: ' + ($event.label || $event.id))"
-                  ></sp-speed-dial>
-                </div>
+            <div class="control-block">
+              <span class="control-title">{{ 'speed-dial.011' | translate }}</span>
+              <div class="choice-group">
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="trigger() === 'click'"
+                  (click)="setTrigger('click')">
+                  {{ 'speed-dial.013' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="trigger() === 'hover'"
+                  (click)="setTrigger('hover')">
+                  {{ 'speed-dial.015' | translate }}
+                </button>
+              </div>
+            </div>
+
+            <div class="control-block">
+              <span class="control-title">{{ 'speed-dial.016' | translate }}</span>
+              <div class="choice-group">
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="size() === 'sm'"
+                  (click)="setSize('sm')">
+                  {{ 'speed-dial.017' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="size() === 'md'"
+                  (click)="setSize('md')">
+                  {{ 'speed-dial.018' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="size() === 'lg'"
+                  (click)="setSize('lg')">
+                  {{ 'speed-dial.019' | translate }}
+                </button>
+              </div>
+            </div>
+
+            <div class="control-block">
+              <span class="control-title">{{ 'speed-dial.020' | translate }}</span>
+              <div class="choice-group">
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="color() === 'primary'"
+                  (click)="setColor('primary')">
+                  {{ 'badge.029' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="color() === 'success'"
+                  (click)="setColor('success')">
+                  {{ 'badge.030' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="color() === 'danger'"
+                  (click)="setColor('danger')">
+                  {{ 'badge.032' | translate }}
+                </button>
+                <button
+                  type="button"
+                  class="choice-btn"
+                  [class.active]="color() === 'info'"
+                  (click)="setColor('info')">
+                  {{ 'badge.033' | translate }}
+                </button>
+              </div>
+            </div>
+
+            <div class="switch-toggle-row">
+              <span>{{ 'speed-dial.025' | translate }}</span>
+              <sp-switch
+                [(value)]="backdrop"
+                size="sm"></sp-switch>
+            </div>
+
+            <div class="switch-toggle-row">
+              <span>{{ 'speed-dial.026' | translate }}</span>
+              <sp-switch
+                [(value)]="showLabels"
+                size="sm"></sp-switch>
+            </div>
+          </div>
+
+          <!-- Stage Live Display -->
+          <div class="stage-container">
+            <div class="stage-surface">
+              <div class="stage-placeholder-text">
+                {{ 'speed-dial.027' | translate }}
               </div>
 
-              <div class="stage-footer">
-                <span class="footer-label">{{ 'speed-dial.029' | translate }}</span>
-                <span class="footer-status">{{ (lastAction()) | translate }}</span>
+              <!-- Positioned Speed Dial -->
+              <div class="speed-dial-wrapper">
+                <sp-speed-dial
+                  [items]="actions | translate"
+                  [radius]="130"
+                  [direction]="direction()"
+                  [type]="type()"
+                  [trigger]="trigger()"
+                  [size]="size()"
+                  [color]="color()"
+                  [backdrop]="backdrop()"
+                  [showLabels]="showLabels()"
+                  (itemClick)="recordAction('Azione selezionata: ' + ($event.label || $event.id))"></sp-speed-dial>
               </div>
-            </div></div>
+            </div>
+
+            <div class="stage-footer">
+              <span class="footer-label">{{ 'speed-dial.029' | translate }}</span>
+              <span class="footer-status">{{ lastAction() | translate }}</span>
+            </div>
+          </div>
+        </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="playground-layout"&gt;        &lt;!-- Controls Sidebar --&gt;
     &lt;div class="playground-controls"&gt;
       &lt;div class="control-block"&gt;
@@ -428,8 +419,14 @@
     &lt;/div&gt;&lt;/div&gt;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'badge.023' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'badge.024' | translate"><code>// The selected direction for the interactive speed dial
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'badge.023' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'badge.024' | translate"><code>// The selected direction for the interactive speed dial
   public readonly direction = signal&lt;SpSpeedDialDirection&gt;('up');
 
   // The selected geometry layout type (linear, semi-circle, quarter-circle)
@@ -551,43 +548,53 @@
     <p class="section-desc">{{ 'speed-dial.031' | translate }}</p>
     <div class="demo-card">
       <div class="demo-stage">
-        <div class="radial-showcase-grid">      <sp-card variant="elevated">
-            <sp-card-header [title]="'speed-dial.032' | translate" [subtitle]="'speed-dial.033' | translate"></sp-card-header>
+        <div class="radial-showcase-grid">
+          <sp-card variant="elevated">
+            <sp-card-header
+              [title]="'speed-dial.032' | translate"
+              [subtitle]="'speed-dial.033' | translate"></sp-card-header>
             <sp-card-content>
               <div class="radial-stage-box">
                 <sp-speed-dial
-                  [items]="(radialActions) | translate"
+                  [items]="radialActions | translate"
                   direction="up"
                   type="semi-circle"
                   color="primary"
                   [radius]="130"
                   [showLabels]="false"
-                  (itemClick)="recordAction('Radial Click: ' + ($event.label || $event.id))"
-                ></sp-speed-dial>
+                  (itemClick)="recordAction('Radial Click: ' + ($event.label || $event.id))"></sp-speed-dial>
               </div>
             </sp-card-content>
           </sp-card>
 
           <sp-card variant="elevated">
-            <sp-card-header [title]="'speed-dial.035' | translate" [subtitle]="'speed-dial.036' | translate"></sp-card-header>
+            <sp-card-header
+              [title]="'speed-dial.035' | translate"
+              [subtitle]="'speed-dial.036' | translate"></sp-card-header>
             <sp-card-content>
               <div class="radial-stage-box">
                 <sp-speed-dial
-                  [items]="(radialActions) | translate"
+                  [items]="radialActions | translate"
                   direction="left"
                   type="quarter-circle"
                   color="info"
                   [radius]="130"
                   [showLabels]="false"
-                  (itemClick)="recordAction('Quarter Click: ' + ($event.label || $event.id))"
-                ></sp-speed-dial>
+                  (itemClick)="recordAction('Quarter Click: ' + ($event.label || $event.id))"></sp-speed-dial>
               </div>
             </sp-card-content>
-          </sp-card></div>
+          </sp-card>
+        </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="radial-showcase-grid"&gt;      &lt;sp-card variant="elevated"&gt;
     &lt;sp-card-header title="Semicerchio verso l’alto" subtitle="Arco di 180°, raggio 130 px"&gt;&lt;/sp-card-header&gt;
     &lt;sp-card-content&gt;
@@ -630,8 +637,14 @@
     <p class="section-desc">{{ 'speed-dial.038' | translate }}</p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component, signal &#125; from '&#64;angular/core';
 import &#123; SpSpeedDialComponent, SpSpeedDialItem, SpSpeedDialDirection, SpSpeedDialType, SpSpeedDialTrigger, SpSpeedDialSize, SpSpeedDialColor, SpSwitchComponent, SpCardComponent, SpCardHeaderComponent, SpCardContentComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -646,8 +659,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// --------------------------------------------------------------
 // Project: SpLib
 // File name: speed-dial-page.component.scss
 // File description: Styles for SpeedDialPageComponent showcase demo.
@@ -887,27 +906,129 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'speed-dial.039' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>items</code></td><td><code>SpSpeedDialItem[]</code></td><td><code>[]</code></td><td>{{ 'speed-dial.040' | translate }}</td></tr>
-          <tr><td><code>direction</code></td><td><code>'up' | 'down' | 'left' | 'right'</code></td><td><code>'up'</code></td><td>{{ 'speed-dial.041' | translate }}</td></tr>
-          <tr><td><code>type</code></td><td><code>'linear' | 'semi-circle' | 'quarter-circle'</code></td><td><code>'linear'</code></td><td>{{ 'speed-dial.042' | translate }}</td></tr>
-          <tr><td><code>trigger</code></td><td><code>'click' | 'hover'</code></td><td><code>'click'</code></td><td>{{ 'speed-dial.043' | translate }}</td></tr>
-          <tr><td><code>size</code></td><td><code>'sm' | 'md' | 'lg'</code></td><td><code>'md'</code></td><td>{{ 'speed-dial.044' | translate }}</td></tr>
-          <tr><td><code>color</code></td><td><code>SpSpeedDialColor</code></td><td><code>'primary'</code></td><td>{{ 'speed-dial.045' | translate }}</td></tr>
-          <tr><td><code>opened</code></td><td><code>model&lt;boolean&gt;</code></td><td><code>false</code></td><td>{{ 'speed-dial.046' | translate }}</td></tr>
-          <tr><td><code>rotateAnimation</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.047' | translate }}</td></tr>
-          <tr><td><code>icon / activeIcon</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'speed-dial.048' | translate }}</td></tr>
-          <tr><td><code>backdrop</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'speed-dial.049' | translate }}</td></tr>
-          <tr><td><code>backdropDismiss</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.050' | translate }}</td></tr>
-          <tr><td><code>closeOnItemClick</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.051' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'speed-dial.052' | translate }}</td></tr>
-          <tr><td><code>ariaLabel</code></td><td><code>string</code></td><td><code>'Quick actions speed dial'</code></td><td>{{ 'speed-dial.053' | translate }}</td></tr>
-          <tr><td><code>radius</code></td><td><code>number</code></td><td><code>85</code></td><td>{{ 'speed-dial.054' | translate }}</td></tr>
-          <tr><td><code>showLabels</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'speed-dial.055' | translate }}</td></tr>
-          <tr><td><code>itemClick</code></td><td><code>output&lt;SpSpeedDialItem&gt;</code></td><td><code>—</code></td><td>{{ 'speed-dial.056' | translate }}</td></tr>
-          <tr><td><code>onOpen / onClose</code></td><td><code>output&lt;void&gt;</code></td><td><code>—</code></td><td>{{ 'speed-dial.057' | translate }}</td></tr>
-          <tr><td><code>open() / close() / toggle()</code></td><td><code>method</code></td><td><code>—</code></td><td>{{ 'speed-dial.058' | translate }}</td></tr>
+          <tr>
+            <td><code>items</code></td>
+            <td><code>SpSpeedDialItem[]</code></td>
+            <td><code>[]</code></td>
+            <td>{{ 'speed-dial.040' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>direction</code></td>
+            <td><code>'up' | 'down' | 'left' | 'right'</code></td>
+            <td><code>'up'</code></td>
+            <td>{{ 'speed-dial.041' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>type</code></td>
+            <td><code>'linear' | 'semi-circle' | 'quarter-circle'</code></td>
+            <td><code>'linear'</code></td>
+            <td>{{ 'speed-dial.042' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>trigger</code></td>
+            <td><code>'click' | 'hover'</code></td>
+            <td><code>'click'</code></td>
+            <td>{{ 'speed-dial.043' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td><code>'md'</code></td>
+            <td>{{ 'speed-dial.044' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>SpSpeedDialColor</code></td>
+            <td><code>'primary'</code></td>
+            <td>{{ 'speed-dial.045' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>opened</code></td>
+            <td><code>model&lt;boolean&gt;</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'speed-dial.046' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>rotateAnimation</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'speed-dial.047' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>icon / activeIcon</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'speed-dial.048' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>backdrop</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'speed-dial.049' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>backdropDismiss</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'speed-dial.050' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>closeOnItemClick</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'speed-dial.051' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'speed-dial.052' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>ariaLabel</code></td>
+            <td><code>string</code></td>
+            <td><code>'Quick actions speed dial'</code></td>
+            <td>{{ 'speed-dial.053' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>radius</code></td>
+            <td><code>number</code></td>
+            <td><code>85</code></td>
+            <td>{{ 'speed-dial.054' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>showLabels</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'speed-dial.055' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>itemClick</code></td>
+            <td><code>output&lt;SpSpeedDialItem&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'speed-dial.056' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>onOpen / onClose</code></td>
+            <td><code>output&lt;void&gt;</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'speed-dial.057' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>open() / close() / toggle()</code></td>
+            <td><code>method</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'speed-dial.058' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -916,14 +1037,51 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'speed-dial.059' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>id</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'speed-dial.060' | translate }}</td></tr>
-          <tr><td><code>label / ariaLabel / title</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'speed-dial.061' | translate }}</td></tr>
-          <tr><td><code>icon</code></td><td><code>string</code></td><td><code>—</code></td><td>{{ 'speed-dial.062' | translate }}</td></tr>
-          <tr><td><code>color</code></td><td><code>SpSpeedDialColor</code></td><td><code>'primary'</code></td><td>{{ 'speed-dial.063' | translate }}</td></tr>
-          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'speed-dial.064' | translate }}</td></tr>
-          <tr><td><code>command</code></td><td><code>(item: SpSpeedDialItem) =&gt; void</code></td><td><code>—</code></td><td>{{ 'speed-dial.065' | translate }}</td></tr>
+          <tr>
+            <td><code>id</code></td>
+            <td><code>string</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'speed-dial.060' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>label / ariaLabel / title</code></td>
+            <td><code>string</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'speed-dial.061' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>icon</code></td>
+            <td><code>string</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'speed-dial.062' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>SpSpeedDialColor</code></td>
+            <td><code>'primary'</code></td>
+            <td>{{ 'speed-dial.063' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'speed-dial.064' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>command</code></td>
+            <td><code>(item: SpSpeedDialItem) =&gt; void</code></td>
+            <td><code>—</code></td>
+            <td>{{ 'speed-dial.065' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

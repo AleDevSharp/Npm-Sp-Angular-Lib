@@ -7,7 +7,6 @@
 // License: MIT
 // --------------------------------------------------------------
 
-
 // ================================
 // Region: Playground Layout
 // ================================
@@ -75,7 +74,7 @@
 
   &:hover {
     color: var(--sp-text-primary);
-    border-color: var(--sp-color-purple, #8636F8);
+    border-color: var(--sp-color-purple, #8636f8);
   }
 
   &.active {
@@ -166,7 +165,9 @@
   border: 1px solid var(--sp-border-color, #e2e8f0);
   box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.08);
   white-space: nowrap;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -377,5 +378,14 @@
 }
 
 /* Constrain flex/grid children so the scrolling track cannot expand the page. */
-.dual-marquee-card, .reviews-card, .vertical-card { width: 100%; min-width: 0; box-sizing: border-box; }
-.choice-btn:focus-visible { outline: 3px solid var(--sp-color-primary); outline-offset: 3px; }
+.dual-marquee-card,
+.reviews-card,
+.vertical-card {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.choice-btn:focus-visible {
+  outline: 3px solid var(--sp-color-primary);
+  outline-offset: 3px;
+}

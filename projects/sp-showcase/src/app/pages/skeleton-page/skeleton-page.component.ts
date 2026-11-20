@@ -43,6 +43,6 @@ export class SkeletonPageComponent {
    * @returns void
    */
   public toggleLoading(): void {
-    this.isLoading.update(l => !l);
+    this.isLoading.update((l) => !l);
   }
 }

@@ -16,16 +16,16 @@
   color-scheme: light;
 
   // Plasmic Light Measured Canvas & Surfaces
-  --sp-bg-canvas: #FFF7F9;
-  --sp-bg-surface: #F5EDEF;
-  --sp-bg-surface-raised: #EDE6E8;
-  --sp-bg-surface-card: #FFFFFF;
-  --sp-bg-surface-hover: #E9EEF6;
+  --sp-bg-canvas: #fff7f9;
+  --sp-bg-surface: #f5edef;
+  --sp-bg-surface-raised: #ede6e8;
+  --sp-bg-surface-card: #ffffff;
+  --sp-bg-surface-hover: #e9eef6;
 
   // Plasmic Light Text
-  --sp-text-primary: #1C1417;
-  --sp-text-secondary: #70696C;
-  --sp-text-muted: #9E969A;
+  --sp-text-primary: #1c1417;
+  --sp-text-secondary: #70696c;
+  --sp-text-muted: #9e969a;
 
   // Fallback Aliases
   --sp-card-bg: var(--sp-bg-surface-card);
@@ -34,23 +34,34 @@
   --sp-primary: var(--sp-color-accent);
 
   // Plasmic Borders
-  --sp-border-color: #DBD4D6;
-  --sp-border-subtle: #EDE6E8;
-  --sp-border-hairline: #8636F8;
+  --sp-border-color: #dbd4d6;
+  --sp-border-subtle: #ede6e8;
+  --sp-border-hairline: #8636f8;
 
   // Plasmic Accents & Chromatic Palette
-  --sp-color-accent: #E00E59;
-  --sp-color-pink: #F44B88;
-  --sp-color-purple: #8636F8;
-  --sp-color-blue: #0091FF;
-  --sp-color-orange: #FF9421;
-  --sp-color-focus-ring: #F44B88;
+  --sp-color-accent: #e00e59;
+  --sp-color-pink: #f44b88;
+  --sp-color-purple: #8636f8;
+  --sp-color-blue: #0091ff;
+  --sp-color-orange: #ff9421;
+  --sp-color-focus-ring: #f44b88;
 
   // Plasmic Signature Gradients
-  --sp-gradient-brand: linear-gradient(81.31deg, #8636F8 2.26%, #F020B3 34.84%, #F8475E 67.42%, #FF9421 100%);
-  --sp-gradient-blue: linear-gradient(90deg, #0091FF 0%, #8636F8 100%);
-  --sp-gradient-soft: linear-gradient(81.31deg, rgba(134, 54, 248, 0.08) 2.26%, rgba(240, 32, 179, 0.08) 34.84%, rgba(248, 71, 94, 0.08) 67.42%, rgba(255, 148, 33, 0.08) 100%);
-  --sp-gradient-ambient: radial-gradient(80% 50% at 50% 0%, rgba(244, 75, 136, 0.06) 0%, rgba(134, 54, 248, 0.03) 40%, rgba(255, 247, 249, 0) 100%);
+  --sp-gradient-brand: linear-gradient(81.31deg, #8636f8 2.26%, #f020b3 34.84%, #f8475e 67.42%, #ff9421 100%);
+  --sp-gradient-blue: linear-gradient(90deg, #0091ff 0%, #8636f8 100%);
+  --sp-gradient-soft: linear-gradient(
+    81.31deg,
+    rgba(134, 54, 248, 0.08) 2.26%,
+    rgba(240, 32, 179, 0.08) 34.84%,
+    rgba(248, 71, 94, 0.08) 67.42%,
+    rgba(255, 148, 33, 0.08) 100%
+  );
+  --sp-gradient-ambient: radial-gradient(
+    80% 50% at 50% 0%,
+    rgba(244, 75, 136, 0.06) 0%,
+    rgba(134, 54, 248, 0.03) 40%,
+    rgba(255, 247, 249, 0) 100%
+  );
 
   // Radii
   --sp-radius-full: 9999px;
@@ -79,7 +90,15 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 15px;
   line-height: 1.6;
   color: var(--sp-text-primary);
@@ -91,7 +110,12 @@ body {
 // ================================
 // Region: Typography (Inter with Negative Tracking)
 // ================================
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 0.5rem 0;
   font-family: inherit;
   font-weight: 700;
@@ -136,7 +160,8 @@ a {
   }
 }
 
-code, pre {
+code,
+pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   font-size: 0.875rem;
 }
@@ -193,6 +218,7 @@ code, pre {
       .logo-text {
         background: var(--sp-gradient-brand);
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
       }
@@ -514,7 +540,8 @@ code, pre {
   border-collapse: collapse;
   font-size: 0.875rem;
 
-  th, td {
+  th,
+  td {
     padding: 12px 18px;
     text-align: left;
     border-bottom: 1px solid var(--sp-border-subtle);

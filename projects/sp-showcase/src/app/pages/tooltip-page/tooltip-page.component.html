@@ -1,7 +1,9 @@
 <div class="doc-page">
   <!-- Region: Header -->
   <div class="doc-header">
-    <div class="doc-title-row"><h1>{{ 'tooltip.001' | translate }}</h1></div>
+    <div class="doc-title-row">
+      <h1>{{ 'tooltip.001' | translate }}</h1>
+    </div>
     <p class="doc-subtitle">{{ 'tooltip.002' | translate }}</p>
   </div>
 
@@ -14,31 +16,37 @@
           <sp-btn
             [text]="'tooltip.005' | translate"
             variant="outline"
-            [spTooltip]="('Tooltip posizionato sopra') | translate"
+            [spTooltip]="'Tooltip posizionato sopra' | translate"
             spTooltipPosition="top"></sp-btn>
 
           <sp-btn
             [text]="'tooltip.007' | translate"
             variant="outline"
-            [spTooltip]="('Tooltip posizionato sotto') | translate"
+            [spTooltip]="'Tooltip posizionato sotto' | translate"
             spTooltipPosition="bottom"></sp-btn>
 
           <sp-btn
             [text]="'tooltip.009' | translate"
             variant="outline"
-            [spTooltip]="('Tooltip a sinistra') | translate"
+            [spTooltip]="'Tooltip a sinistra' | translate"
             spTooltipPosition="left"></sp-btn>
 
           <sp-btn
             [text]="'tooltip.011' | translate"
             variant="outline"
-            [spTooltip]="('Tooltip a destra') | translate"
+            [spTooltip]="'Tooltip a destra' | translate"
             spTooltipPosition="right"></sp-btn>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="tooltip-demo-row"&gt;
   &lt;sp-btn
     text="Tooltip Top"
@@ -70,32 +78,47 @@
 
   <div class="doc-section">
     <h3>{{ 'tooltip.013' | translate }}</h3>
-    <p class="section-desc"><code>spTooltipTheme</code> {{ 'tooltip.014' | translate }} <code>dark</code> {{ 'tooltip.015' | translate }} <code>light</code> {{ 'accordion.023' | translate }} <code>primary</code>{{ 'tooltip.016' | translate }}</p>
+    <p class="section-desc">
+      <code>spTooltipTheme</code>
+      {{ 'tooltip.014' | translate }}
+      <code>dark</code>
+      {{ 'tooltip.015' | translate }}
+      <code>light</code>
+      {{ 'accordion.023' | translate }}
+      <code>primary</code>
+      {{ 'tooltip.016' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="tooltip-demo-row">
           <sp-btn
             [text]="'tooltip.017' | translate"
-            [spTooltip]="('Tema scuro ad alto contrasto') | translate"
+            [spTooltip]="'Tema scuro ad alto contrasto' | translate"
             spTooltipTheme="dark"></sp-btn>
 
           <sp-btn
             [text]="'tooltip.019' | translate"
             variant="outline"
-            [spTooltip]="('Tema chiaro pulito con bordo morbido') | translate"
+            [spTooltip]="'Tema chiaro pulito con bordo morbido' | translate"
             spTooltipTheme="light"></sp-btn>
 
           <sp-btn
             [text]="'tooltip.021' | translate"
             variant="solid"
             color="#ffac1c"
-            [spTooltip]="('Tema colorato con colore d\'accento') | translate"
+            [spTooltip]="'Tema colorato con colore d\'accento' | translate"
             spTooltipTheme="primary"></sp-btn>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="tooltip-demo-row"&gt;
   &lt;sp-btn
     text="Tema Dark (Default)"
@@ -121,26 +144,35 @@
 
   <div class="doc-section">
     <h3>{{ 'tooltip.023' | translate }}</h3>
-    <p class="section-desc"><code>spTooltipShortcut</code> {{ 'tooltip.024' | translate }}</p>
+    <p class="section-desc">
+      <code>spTooltipShortcut</code>
+      {{ 'tooltip.024' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="tooltip-demo-row">
           <sp-btn
             [text]="'tooltip.025' | translate"
             variant="outline"
-            [spTooltip]="('Apri ricerca globale') | translate"
+            [spTooltip]="'Apri ricerca globale' | translate"
             spTooltipShortcut="Ctrl + K"></sp-btn>
 
           <sp-btn
             [text]="'tooltip.027' | translate"
             variant="solid"
-            [spTooltip]="('Salva stato locale') | translate"
+            [spTooltip]="'Salva stato locale' | translate"
             spTooltipShortcut="⌘ + S"></sp-btn>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="tooltip-demo-row"&gt;
   &lt;sp-btn
     text="Cerca nel catalogo"
@@ -160,19 +192,29 @@
 
   <div class="doc-section">
     <h3>{{ 'tooltip.029' | translate }}</h3>
-    <p class="section-desc">{{ 'tooltip.030' | translate }} <code>[spTooltipDelay]="0"</code> {{ 'tooltip.031' | translate }}</p>
+    <p class="section-desc">
+      {{ 'tooltip.030' | translate }}
+      <code>[spTooltipDelay]="0"</code>
+      {{ 'tooltip.031' | translate }}
+    </p>
     <div class="demo-card">
       <div class="demo-stage">
         <div class="tooltip-demo-row">
           <sp-btn
             [text]="'tooltip.032' | translate"
-            [spTooltip]="('Accessibile via tastiera e chiudibile con Esc') | translate"
+            [spTooltip]="'Accessibile via tastiera e chiudibile con Esc' | translate"
             [spTooltipDelay]="0"></sp-btn>
         </div>
       </div>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.030' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.030' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.031' | translate"><code>&lt;!-- Template HTML --&gt;
 &lt;div class="tooltip-demo-row"&gt;
   &lt;sp-btn
     text="Navigami con il tasto Tab"
@@ -185,11 +227,23 @@
 
   <div class="doc-section">
     <h3>{{ 'accordion.043' | translate }}</h3>
-    <p class="section-desc">{{ 'dividers.024' | translate }} <code>SpTooltipDirective</code> {{ 'tooltip.034' | translate }} <code>SpBtnComponent</code>{{ 'tooltip.035' | translate }}</p>
+    <p class="section-desc">
+      {{ 'dividers.024' | translate }}
+      <code>SpTooltipDirective</code>
+      {{ 'tooltip.034' | translate }}
+      <code>SpBtnComponent</code>
+      {{ 'tooltip.035' | translate }}
+    </p>
     <div class="demo-card">
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.045' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.045' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.046' | translate"><code>import &#123; Component &#125; from '&#64;angular/core';
 import &#123; SpTooltipDirective, SpBtnComponent &#125; from '&#64;aledevsharp/sp-lib';
 
 &#64;Component(&#123;
@@ -204,8 +258,14 @@ export class ControlExampleComponent &#123;
 &#125;</code></pre>
       </details>
       <details class="demo-code">
-        <summary><span class="code-show">{{ 'accordion.028' | translate }}</span><span class="code-hide">{{ 'accordion.029' | translate }}</span> {{ 'accordion.047' | translate }}</summary>
-        <pre ngNonBindable [attr.aria-label]="'accordion.048' | translate"><code>// ================================
+        <summary>
+          <span class="code-show">{{ 'accordion.028' | translate }}</span>
+          <span class="code-hide">{{ 'accordion.029' | translate }}</span>
+          {{ 'accordion.047' | translate }}
+        </summary>
+        <pre
+          ngNonBindable
+          [attr.aria-label]="'accordion.048' | translate"><code>// ================================
 // Region: Variables &amp; Layout
 // ================================
 .tooltip-demo-row &#123;
@@ -226,15 +286,57 @@ export class ControlExampleComponent &#123;
     <h3>{{ 'tooltip.036' | translate }}</h3>
     <div class="table-responsive">
       <table class="api-table">
-        <thead><tr><th>{{ 'accordion.050' | translate }}</th><th>{{ 'accordion.051' | translate }}</th><th>{{ 'accordion.052' | translate }}</th><th>{{ 'accordion.053' | translate }}</th></tr></thead>
+        <thead>
+          <tr>
+            <th>{{ 'accordion.050' | translate }}</th>
+            <th>{{ 'accordion.051' | translate }}</th>
+            <th>{{ 'accordion.052' | translate }}</th>
+            <th>{{ 'accordion.053' | translate }}</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td><code>spTooltip</code></td><td><code>string | TemplateRef&lt;unknown&gt;</code></td><td><code>''</code></td><td>{{ 'tooltip.037' | translate }}</td></tr>
-          <tr><td><code>spTooltipPosition</code></td><td><code>'top' | 'bottom' | 'left' | 'right'</code></td><td><code>'top'</code></td><td>{{ 'tooltip.038' | translate }}</td></tr>
-          <tr><td><code>spTooltipTheme</code></td><td><code>'dark' | 'light' | 'primary'</code></td><td><code>'dark'</code></td><td>{{ 'tooltip.039' | translate }}</td></tr>
-          <tr><td><code>spTooltipDelay</code></td><td><code>number</code></td><td><code>120</code></td><td>{{ 'tooltip.040' | translate }}</td></tr>
-          <tr><td><code>spTooltipDisabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>{{ 'tooltip.041' | translate }}</td></tr>
-          <tr><td><code>spTooltipArrow</code></td><td><code>boolean</code></td><td><code>true</code></td><td>{{ 'tooltip.042' | translate }}</td></tr>
-          <tr><td><code>spTooltipShortcut</code></td><td><code>string</code></td><td><code>''</code></td><td>{{ 'tooltip.043' | translate }}</td></tr>
+          <tr>
+            <td><code>spTooltip</code></td>
+            <td><code>string | TemplateRef&lt;unknown&gt;</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'tooltip.037' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spTooltipPosition</code></td>
+            <td><code>'top' | 'bottom' | 'left' | 'right'</code></td>
+            <td><code>'top'</code></td>
+            <td>{{ 'tooltip.038' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spTooltipTheme</code></td>
+            <td><code>'dark' | 'light' | 'primary'</code></td>
+            <td><code>'dark'</code></td>
+            <td>{{ 'tooltip.039' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spTooltipDelay</code></td>
+            <td><code>number</code></td>
+            <td><code>120</code></td>
+            <td>{{ 'tooltip.040' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spTooltipDisabled</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>{{ 'tooltip.041' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spTooltipArrow</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code></td>
+            <td>{{ 'tooltip.042' | translate }}</td>
+          </tr>
+          <tr>
+            <td><code>spTooltipShortcut</code></td>
+            <td><code>string</code></td>
+            <td><code>''</code></td>
+            <td>{{ 'tooltip.043' | translate }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

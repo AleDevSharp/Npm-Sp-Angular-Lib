@@ -1,4 +1,19 @@
-.avatar-demo-column { width: 100%; min-width: 0; }
+// --------------------------------------------------------------
+// Project: SpLib
+// File name: avatar-page.component.scss
+// File description: Styles for AvatarPageComponent showcase demo.
+// Author: Alessio Giacché
+// Date created: 18-11-2025
+// License: MIT
+// --------------------------------------------------------------
+
+// ================================
+// Region: Stack Centered Box
+// ================================
+.avatar-demo-column {
+  width: 100%;
+  min-width: 0;
+}
 
 .stack-centered-box {
   display: flex;
@@ -25,6 +40,9 @@
   }
 }
 
+// ================================
+// Region: Gallery & User Cards
+// ================================
 .avatars-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
@@ -56,6 +74,9 @@
   }
 }
 
+// ================================
+// Region: Sizes Comparison
+// ================================
 .sizes-comparison-group {
   display: flex;
   flex-direction: column;

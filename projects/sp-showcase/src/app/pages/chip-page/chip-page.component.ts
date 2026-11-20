@@ -62,7 +62,7 @@ export class ChipPageComponent {
    * @returns void
    */
   public removeTag(id: string): void {
-    this.tags.update(list => list.filter(item => item.id !== id));
+    this.tags.update((list) => list.filter((item) => item.id !== id));
   }
 
   /**
@@ -86,9 +86,9 @@ export class ChipPageComponent {
    */
   public toggleSelection(name: string): void {
     this.clickedFeedback.set(`Hai cliccato sul chip: "${name}"`);
-    this.selectedChips.update(list => {
+    this.selectedChips.update((list) => {
       if (list.includes(name)) {
-        return list.filter(item => item !== name);
+        return list.filter((item) => item !== name);
       }
       return [...list, name];
     });

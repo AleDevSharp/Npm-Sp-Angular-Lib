@@ -31,7 +31,8 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 @Component({
   selector: 'app-card-page',
   standalone: true,
-  imports: [TranslatePipe, 
+  imports: [
+    TranslatePipe,
     CommonModule,
     SpBtnComponent,
     SpCardComponent,

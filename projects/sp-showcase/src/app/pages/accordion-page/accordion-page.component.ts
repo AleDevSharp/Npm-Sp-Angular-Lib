@@ -11,12 +11,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
-import {
-  SpAccordionComponent,
-  SpAccordionItemComponent,
-  SpAccordionVariant,
-  SpBtnComponent
-} from '../../../../../sp-lib/src/public-api';
+import { SpAccordionComponent, SpAccordionItemComponent, SpAccordionVariant, SpBtnComponent } from '../../../../../sp-lib/src/public-api';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
 /**
@@ -51,6 +46,6 @@ export class AccordionPageComponent {
    * @returns void
    */
   public toggleMulti(): void {
-    this.isMulti.update(v => !v);
+    this.isMulti.update((v) => !v);
   }
 }

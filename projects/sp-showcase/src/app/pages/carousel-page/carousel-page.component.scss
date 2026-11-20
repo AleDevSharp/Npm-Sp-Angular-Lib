@@ -7,6 +7,9 @@
 // License: MIT
 // --------------------------------------------------------------
 
+// ================================
+// Region: Toolbar & Controls
+// ================================
 .demo-stage-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -87,7 +90,9 @@
   }
 }
 
-// Custom Slides Testimonial Card
+// ================================
+// Region: Custom Slides Testimonial Card
+// ================================
 .carousel-custom-container {
   width: 100%;
   max-width: 720px;
@@ -139,10 +144,22 @@
   }
 }
 
+// ================================
 // Region: Responsive Demo Layout
-.carousel-stage-wrapper { width: 100%; min-width: 0; }
-.carousel-custom-container, .carousel-preview-box { min-width: 0; }
+// ================================
+.carousel-stage-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+.carousel-custom-container,
+.carousel-preview-box {
+  min-width: 0;
+}
 @media (max-width: 600px) {
-  .demo-stage-toolbar .toolbar-group { flex-wrap: wrap; }
-  .testimonial-slide-card { padding: 28px 24px 44px; }
+  .demo-stage-toolbar .toolbar-group {
+    flex-wrap: wrap;
+  }
+  .testimonial-slide-card {
+    padding: 28px 24px 44px;
+  }
 }

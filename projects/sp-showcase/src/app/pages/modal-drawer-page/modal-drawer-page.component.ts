@@ -7,16 +7,17 @@
 // License: MIT
 // --------------------------------------------------------------
 
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import {
-  SpModalComponent,
+  SpBtnComponent,
   SpDrawerComponent,
-  SpModalSize,
   SpDrawerPlacement,
   SpDrawerSize,
-  SpBtnComponent,
+  SpModalComponent,
+  SpModalSize,
   SpSwitchComponent
 } from '../../../../../sp-lib/src/public-api';
 import { TranslatePipe } from '../../i18n/translate.pipe';
@@ -32,14 +33,7 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 @Component({
   selector: 'app-modal-drawer-page',
   standalone: true,
-  imports: [TranslatePipe, 
-    CommonModule,
-    FormsModule,
-    SpModalComponent,
-    SpDrawerComponent,
-    SpBtnComponent,
-    SpSwitchComponent
-  ],
+  imports: [TranslatePipe, CommonModule, FormsModule, SpModalComponent, SpDrawerComponent, SpBtnComponent, SpSwitchComponent],
   templateUrl: './modal-drawer-page.component.html',
   styleUrls: ['./modal-drawer-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
